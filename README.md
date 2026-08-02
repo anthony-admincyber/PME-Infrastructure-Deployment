@@ -32,7 +32,8 @@ L'objectif est d'implémenter un annuaire Active Directory, un cluster de virtua
 
 ### 2. Validation de la Connectivité Réseau
 - Configuration de l'IP statique sur SRV-01-DC01, ouverture du flux ICMP via PowerShell et test de réponse Ping réussi vers SRV-02 (192.168.10.11).
-!<img width="854" height="391" alt="image" src="https://github.com/user-attachments/assets/3a1d8b3f-da03-46ee-b92f-3027e7f20285" />
+
+<img width="854" height="391" alt="image" src="https://github.com/user-attachments/assets/3a1d8b3f-da03-46ee-b92f-3027e7f20285" />
 
 
 ### 3. Promotion du Contrôleur de Domaine (`infra.local`)
