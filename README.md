@@ -31,8 +31,9 @@ L'objectif est d'implémenter un annuaire Active Directory, un cluster de virtua
 - Clonage complet vers `SRV-02-MGMT` sous VMware Workstation.
 
 ### 2. Validation de la Connectivité Réseau
-- Configuration des IP statiques et règles ICMP (Ping) sur le pare-feu.
-![Ping Validation](./screenshots/ping-success.png) *(Capture à venir)*
+- Configuration de l'IP statique sur SRV-01-DC01, ouverture du flux ICMP via PowerShell et test de réponse Ping réussi vers SRV-02 (192.168.10.11).
+!<img width="854" height="391" alt="image" src="https://github.com/user-attachments/assets/3a1d8b3f-da03-46ee-b92f-3027e7f20285" />
+
 
 ### 3. Promotion du Contrôleur de Domaine (`infra.local`)
 - Installation du rôle AD DS et des outils de administration RSAT.
