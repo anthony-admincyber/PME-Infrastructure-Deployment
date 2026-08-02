@@ -1,2 +1,40 @@
-# PME-Infrastructure-Deployment
-Déploiement d'une infrastructure PME sous Windows Server 2025, Hyper-V, TrueNAS et Centreon
+# 🏢 Déploiement d'une Infrastructure Système & Réseau Sécurisée (Scénario PME)
+
+## 📌 Présentation du Projet
+Ce projet consiste à concevoir, déployer et superviser une infrastructure sous Windows Server 2025 et Linux dans un environnement PME fictif (*LogiFlex SA*).
+L'objectif est d'implémenter un annuaire Active Directory, un cluster de virtualisation emboîtée (Nested Hyper-V), un stockage SAN (TrueNAS), une base de données métier (SQL Server sur Linux) ainsi que les solutions de sauvegarde (Veeam) et de supervision (Centreon).
+
+---
+
+## 📐 Architecture & Topologie Réseau
+
+* **Réseau Lab** : `192.168.10.0/24` (Passerelle : `192.168.10.2`)
+* **Domaine Active Directory** : `infra.local`
+
+### Cartographie des Hôtes & Services
+
+| Hôte / VM | Système d'Exploitation | Adresse IP | Rôle / Services |
+| :--- | :--- | :--- | :--- |
+| **`SRV-01`** | Windows Server 2025 | `192.168.10.10` | Contrôleur de Domaine (AD DS), DNS, DHCP, Hôte Hyper-V |
+| **`VM-SQL-PROD`** | Linux / SQL Server | `192.168.10.20` | Base de données métier (Authentification AD/Kerberos) |
+| **`SRV-02-MGMT`** | Windows Server 2025 | `192.168.10.11` | Serveur Membre, Console Veeam Backup, Hôte Hyper-V |
+| **`VM-Centreon`** | Ubuntu 24.04 LTS | `192.168.10.30` | Serveur de supervision SNMP / Alerting |
+| **`NAS-SAN01`** | TrueNAS | `192.168.10.50` | Stockage SAN/NAS (Partages iSCSI & NFS) |
+
+---
+
+## 🚀 Étape 1 : Préparation des Hôtes & Déploiement Active Directory
+
+### 1. Préparation du Master & Clonage (Sysprep)
+- Installation initiale de Windows Server 2025 sur `SRV-01`.
+- Exécution de `Sysprep` pour réinitialiser le SID avant clonage.
+- Clonage complet vers `SRV-02-MGMT` sous VMware Workstation.
+
+### 2. Validation de la Connectivité Réseau
+- Configuration des IP statiques et règles ICMP (Ping) sur le pare-feu.
+![Ping Validation](./screenshots/ping-success.png) *(Capture à venir)*
+
+### 3. Promotion du Contrôleur de Domaine (`infra.local`)
+- Installation du rôle AD DS et des outils de administration RSAT.
+- Promotion du serveur `SRV-01` en tant que forêt racine `infra.local`.
+![AD Promotion](./screenshots/ad-ds-installation.png) *(Capture à venir)*
