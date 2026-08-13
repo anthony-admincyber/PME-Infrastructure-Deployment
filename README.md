@@ -35,12 +35,17 @@ L'objectif est d'implémenter un annuaire Active Directory, un cluster de virtua
 
 <img width="854" height="391" alt="image" src="https://github.com/user-attachments/assets/3a1d8b3f-da03-46ee-b92f-3027e7f20285" />
 
-
 ### 3. Promotion du Contrôleur de Domaine (`Logiflex.infra`)
 - Installation du rôle AD DS et des outils de administration RSAT.
 - Promotion du serveur `SRV-01` en tant que forêt racine `Logiflex.infra`
 - Validation de l'ensemble des conditions préalables au déploiement.
 <img width="759" height="557" alt="image" src="https://github.com/user-attachments/assets/c0522e96-ed4f-4071-a0bf-b800fe488800" />
 
+### 4. Jonction du serveur SRV-02-MGMT au Domaine
+* **Configuration IP & DNS :** Paramétrage de l'IP statique (`192.168.10.11`) et pointage du DNS primaire vers le contrôleur de domaine `SRV-01-DC01` (`192.168.10.10`).
+* **Jonction Active Directory :** Intégration réussie de la machine `SRV-02-MGMT` au domaine FQDN `logiflex.infra`.
+* **Authentification :** Validation de la jonction avec le compte administrateur du domaine `LOGIFLEX\Administrateur`.
+
+<img width="1469" height="826" alt="image" src="https://github.com/user-attachments/assets/775e6cf7-fa76-4412-a19b-f48e02d6c940" />
 
 
