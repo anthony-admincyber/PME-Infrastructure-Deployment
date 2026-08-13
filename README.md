@@ -40,5 +40,6 @@ L'objectif est d'implémenter un annuaire Active Directory, un cluster de virtua
 - Installation du rôle AD DS et des outils de administration RSAT.
 - Promotion du serveur `SRV-01` en tant que forêt racine `Logiflex.infra`
 - Validation de l'ensemble des conditions préalables au déploiement.
-<img width="960" height="650" alt="image" src="https://github.com/user-attachments/assets/50d7cc14-6ab1-4171-a071-06595c86f73b" />
+<img width="782" height="572" alt="image" src="https://github.com/user-attachments/assets/b17edd1e-04bc-410f-85b3-e53d1e98827c" />
+
 
