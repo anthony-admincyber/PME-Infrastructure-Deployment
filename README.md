@@ -48,4 +48,11 @@ L'objectif est d'implémenter un annuaire Active Directory, un cluster de virtua
 
 <img width="1469" height="826" alt="image" src="https://github.com/user-attachments/assets/775e6cf7-fa76-4412-a19b-f48e02d6c940" />
 
+### 5. Centralisation et Gestion Multi-Serveurs (Server Manager)
+
+* **Administration unifiée :** Intégration du serveur membre `SRV-02-MGMT` au sein du *Gestionnaire de serveur* du contrôleur de domaine `SRV-01-DC01`.
+* **Flux de gestion & WinRM :** Validation des flux de gestion à distance, de la résolution DNS et de l'authentification Kerberos inter-serveurs.
+* **Supervision :** Visibilité en temps réel de l'état du parc, des journaux d'événements et des services sur les deux nœuds de l'infrastructure.
+
+<img width="1875" height="356" alt="image" src="https://github.com/user-attachments/assets/bd241362-8611-4f0f-8407-2edaba93fa3a" />
 
