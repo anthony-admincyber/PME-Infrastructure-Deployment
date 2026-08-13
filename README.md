@@ -9,7 +9,7 @@ L'objectif est d'implémenter un annuaire Active Directory, un cluster de virtua
 ## 📐 Architecture & Topologie Réseau
 
 * **Réseau Lab** : `192.168.10.0/24` (Passerelle : `192.168.10.2`)
-* **Domaine Active Directory** : `infra.local`
+* **Domaine Active Directory** : `Logiflex.infra`
 
 ### Cartographie des Hôtes & Services
 
@@ -36,7 +36,7 @@ L'objectif est d'implémenter un annuaire Active Directory, un cluster de virtua
 <img width="854" height="391" alt="image" src="https://github.com/user-attachments/assets/3a1d8b3f-da03-46ee-b92f-3027e7f20285" />
 
 
-### 3. Promotion du Contrôleur de Domaine (`infra.local`)
+### 3. Promotion du Contrôleur de Domaine (`Logiflex.infra`)
 - Installation du rôle AD DS et des outils de administration RSAT.
 - Promotion du serveur `SRV-01` en tant que forêt racine `Logiflex.infra`
 - Validation de l'ensemble des conditions préalables au déploiement.
