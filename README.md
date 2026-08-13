@@ -38,5 +38,7 @@ L'objectif est d'implémenter un annuaire Active Directory, un cluster de virtua
 
 ### 3. Promotion du Contrôleur de Domaine (`infra.local`)
 - Installation du rôle AD DS et des outils de administration RSAT.
-- Promotion du serveur `SRV-01` en tant que forêt racine `infra.local`.
-![AD Promotion](./screenshots/ad-ds-installation.png) *(Capture à venir)*
+- Promotion du serveur `SRV-01` en tant que forêt racine `Logiflex.infra`
+- Validation de l'ensemble des conditions préalables au déploiement.
+<img width="960" height="650" alt="image" src="https://github.com/user-attachments/assets/50d7cc14-6ab1-4171-a071-06595c86f73b" />
+
