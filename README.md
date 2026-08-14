@@ -11,15 +11,15 @@ L'objectif est d'implémenter un annuaire Active Directory, un cluster de virtua
 * **Réseau Lab** : `192.168.10.0/24` (Passerelle : `192.168.10.2`)
 * **Domaine Active Directory** : `Logiflex.infra`
 
-### Cartographie des Hôtes & Services
+### 🖥️ Cartographie des Hôtes & Services
 
 | Hôte / VM | Système d'Exploitation | Adresse IP | Rôle / Services |
 | :--- | :--- | :--- | :--- |
-| **`SRV-01`** | Windows Server 2025 | `192.168.10.10` | Contrôleur de Domaine (AD DS), DNS, DHCP, Hôte Hyper-V |
-| **`VM-SQL-PROD`** | Linux / SQL Server | `192.168.10.20` | Base de données métier (Authentification AD/Kerberos) |
-| **`SRV-02-MGMT`** | Windows Server 2025 | `192.168.10.11` | Serveur Membre, Console Veeam Backup, Hôte Hyper-V |
-| **`VM-Centreon`** | Ubuntu 24.04 LTS | `192.168.10.30` | Serveur de supervision SNMP / Alerting |
-| **`NAS-SAN01`** | TrueNAS | `192.168.10.50` | Stockage SAN/NAS (Partages iSCSI & NFS) |
+| **SRV-01-DC01** | Windows Server 2025 | `192.168.10.10` | Contrôleur de Domaine (AD DS), DNS, DHCP, Hôte Hyper-V |
+| **SRV-02-MGMT** | Windows Server 2025 | `192.168.10.11` | Serveur Membre, Console Veeam Backup, Hôte Hyper-V |
+| **VM-SQL-PROD** | Linux / SQL Server | `192.168.10.20` | Base de données métier (Authentification AD/Kerberos) |
+| **VM-Centreon** | Ubuntu 24.04 LTS | `192.168.10.30` | Serveur de supervision SNMP / Alerting |
+| **NAS-SAN01** | TrueNAS | `192.168.10.50` | Stockage SAN/NAS (Partages iSCSI & NFS) |
 
 ---
 
