@@ -1,5 +1,6 @@
 # 🏢 Contexte d'Entreprise & Organisation — LOGIFLEX
 
+
 ## 1. Présentation de l'Entreprise
 **LOGIFLEX Solutions** est un éditeur de logiciels international spécialisé dans l'optimisation de la chaîne logistique (*Supply Chain Management*) et l'automatisation d'entrepôts intelligents (*WMS / TMS*). L'entreprise conçoit, déploie et supervise des solutions cloud et sur site pour des acteurs industriels mondiaux.
 
@@ -7,8 +8,8 @@ Dans le cadre d'un plan de modernisation et de durcissement de son Système d'In
 
 ---
 
-## 2. Répartition des Effectifs & Départements (Total : 45 Collaborateurs)
 
+## 2. Répartition des Effectifs & Départements (Total : 45 Collaborateurs)
 L'entreprise compte **45 employés** répartis sur **6 pôles métiers**. Pour la maquette d'infrastructure, un échantillon représentatif de **12 comptes utilisateurs** est provisionné dans l'annuaire :
 
 | Département / Pôle | Rôle & Missions | Effectif Réel | Comptes Démo (AD) |
@@ -23,8 +24,8 @@ L'entreprise compte **45 employés** répartis sur **6 pôles métiers**. Pour l
 
 ---
 
-## 3. Répertoire des Utilisateurs (Jeu de Données Active Directory)
 
+## 3. Répertoire des Utilisateurs (Jeu de Données Active Directory)
 Afin de refléter la dimension internationale de l'entreprise, les collaborateurs sont issus d'horizons variés :
 
 | Collaborateur | Identifiant (`sAMAccountName`) | Service / Département | Poste & Responsabilités | Groupe AD Principal |
@@ -44,8 +45,8 @@ Afin de refléter la dimension internationale de l'entreprise, les collaborateur
 
 ---
 
-## 4. Architecture Logique Active Directory
 
+## 4. Architecture Logique Active Directory
 L'annuaire est structuré pour séparer distinctement les entités organisationnelles (utilisateurs, services) des composants techniques (serveurs, postes, groupes) :
 
 ```text
