@@ -67,5 +67,5 @@ DC=logiflex,DC=infra
 ```
 
 ### 📸 Vue de l'implémentation
-![Structure des UO](./assets/images/ad-structure-ou.png)
-![Groupes de sécurité](./assets/images/ad-groupes-securite.png)
+![Structure des UO](./assets/images/ad-structure-ou.png.png)
+![Groupes de sécurité](./assets/images/.png)
