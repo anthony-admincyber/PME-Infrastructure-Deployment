@@ -8,7 +8,10 @@
 
 Dans le cadre d'un plan de modernisation et de durcissement de son Système d'Information, LOGIFLEX standardise son infrastructure autour d'un domaine Active Directory (**AD DS**) centralisé afin d'unifier l'authentification, d'appliquer une politique de sécurité stricte (*Zero Trust / Least Privilege*) et de faciliter l'administration multi-serveurs.
 
+
 ---
+
+<br>
 
 ## 2. Répartition des Effectifs & Départements (Total : 45 Collaborateurs)
 
@@ -26,11 +29,13 @@ L'entreprise compte 45 employés répartis sur 6 pôles métiers. Pour la maquet
 
 ---
 
+<br>
+
 ## 3. Répertoire des Utilisateurs (Jeu de Données Active Directory)
 
 Afin de refléter la dimension internationale de l'entreprise, les collaborateurs sont issus d'horizons variés :
 
-| Collaborateur | Identifiant (`sAMAccountName`) | Service / Département | Poste & Responsabilités | Groupe AD Principal |
+| Collaborateur | Identifiant (`Pnom`) | Service / Département | Poste & Responsabilités | Groupe AD Principal |
 | :--- | :--- | :--- | :--- | :--- |
 | **Elena ROSTOVA** | `erostova` | Direction Générale | Chief Executive Officer (CEO) | `GS_Direction` |
 | **Liam O'CONNOR** | `loconnor` | Direction Générale | Legal & Compliance Officer | `GS_Direction` |
@@ -46,6 +51,8 @@ Afin de refléter la dimension internationale de l'entreprise, les collaborateur
 | **Priya PATEL** | `ppatel` | Consulting & Intégration | Consultante Déploiement WMS | `GS_Consulting` |
 
 ---
+
+<br>
 
 ## 4. Architecture Logique Active Directory
 
