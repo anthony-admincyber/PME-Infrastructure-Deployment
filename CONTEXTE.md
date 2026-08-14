@@ -48,18 +48,21 @@ Afin de refléter la dimension internationale de l'entreprise, les collaborateur
 
 L'annuaire est structuré pour séparer distinctement les entités organisationnelles (utilisateurs, services) des composants techniques (serveurs, postes, groupes) :
 
-```text
-LOGIFLEX.INFRA
-└── LOGIFLEX (OU Racine)
-    ├── 🏢 Departements
-    │   ├── 01_Direction
-    │   ├── 02_DSI
-    │   ├── 03_RD_Ingenierie
-    │   ├── 04_Commerce_Marketing
-    │   ├── 05_RH_Finance
-    │   └── 06_Consulting
-    ├── 🖥️ Ordinateurs
-    │   ├── Serveurs
-    │   └── Postes_Clients
-    ├── 👥 Groupes_Securite
-    └── 🔐 Comptes_Privilegies (Tiering / Admin Domain)
+DC=logiflex,DC=infra
+└── OU=LOGIFLEX (OU Racine d'entreprise)
+    │
+    ├── OU=Departements (Contient les comptes utilisateurs selon le métier pour ciblage GPO)
+    │   ├── OU=01_Direction
+    │   ├── OU=02_DSI
+    │   ├── OU=03_RD_Ingenierie
+    │   ├── OU=04_Commerce_Marketing
+    │   ├── OU=05_RH_Finance
+    │   └── OU=06_Consulting
+    │
+    ├── OU=Ordinateurs (Contient tous les postes et serveurs gérés)
+    │   ├── OU=Serveurs       --> Contiendra SRV-01-DC01 et SRV-02-MGMT
+    │   └── OU=Postes_Clients --> Contiendra les futures machines clientes Windows 10/11
+    │
+    ├── OU=Groupes_Securite   --> Contiendra tous les groupes GS_* (droits d'accès et partages)
+    │
+    └── OU=Comptes_Privilegies--> Contiendra les comptes d'administration de domaine (Tier 0 / Tier 1)
