@@ -1,5 +1,5 @@
 # 🏢 Contexte d'Entreprise & Organisation — LOGIFLEX
-
+<br>
 
 ## 1. Présentation de l'Entreprise
 **LOGIFLEX Solutions** est un éditeur de logiciels international spécialisé dans l'optimisation de la chaîne logistique (*Supply Chain Management*) et l'automatisation d'entrepôts intelligents (*WMS / TMS*). L'entreprise conçoit, déploie et supervise des solutions cloud et sur site pour des acteurs industriels mondiaux.
@@ -25,6 +25,7 @@ L'entreprise compte **45 employés** répartis sur **6 pôles métiers**. Pour l
 ---
 
 <br>
+
 ## 3. Répertoire des Utilisateurs (Jeu de Données Active Directory)
 Afin de refléter la dimension internationale de l'entreprise, les collaborateurs sont issus d'horizons variés :
 
@@ -46,6 +47,7 @@ Afin de refléter la dimension internationale de l'entreprise, les collaborateur
 ---
 
 <br>
+
 ## 4. Architecture Logique Active Directory
 L'annuaire est structuré pour séparer distinctement les entités organisationnelles (utilisateurs, services) des composants techniques (serveurs, postes, groupes) :
 
