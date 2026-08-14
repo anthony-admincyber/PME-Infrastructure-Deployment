@@ -48,10 +48,6 @@ Afin de refléter la dimension internationale de l'entreprise, les collaborateur
 
 L'annuaire est structuré pour séparer distinctement les entités organisationnelles (utilisateurs, services) des composants techniques (serveurs, postes, groupes) :
 
-## 4. Architecture Logique Active Directory
-
-L'annuaire est structuré pour séparer distinctement les entités organisationnelles (utilisateurs, services) des composants techniques (serveurs, postes, groupes) :
-
 ```text
 DC=logiflex,DC=infra
 └── OU=LOGIFLEX (OU Racine d'entreprise)
