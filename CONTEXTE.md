@@ -85,3 +85,14 @@ DC=logiflex,DC=infra
 <br>
 
 ![Groupes de sécurité](./assets/images/groupes_de_sécurité.png)
+
+* **Arborescence (`OU=LOGIFLEX`)** : Vue hiérarchique montrant le conteneur `Groupes_securite` isolé à la racine de l'organisation.
+* **Stratégie AGDLP (Account -> Global -> Domain Local -> Permission)** : Déploiement des 8 groupes de sécurité globaux (`GS_*`) affectés aux départements métiers et équipes techniques :
+  * `GS_Direction` : Comité de direction et conformité.
+  * `GS_Admins_Infra` : Administrateurs systèmes, réseau et sécurité.
+  * `GS_Support_IT` : Équipe support et assistance utilisateurs.
+  * `GS_Dev_Team` : Équipes développement backend et DevOps.
+  * `GS_Commercials` : Pôle commercial et marketing.
+  * `GS_RH` : Direction des ressources humaines.
+  * `GS_Finance` : Contrôle de gestion et comptabilité.
+  * `GS_Consulting` : Consultants métiers et déploiement.
