@@ -65,3 +65,7 @@ DC=logiflex,DC=infra
     ├── OU=Groupes_Securite    --> Contiendra tous les groupes GS_* (droits d'accès et partages)
     └── OU=Comptes_Privilegies --> Contiendra les comptes d'administration de domaine (Tier 0 / Tier 1)
 ```
+
+### 📸 Vue de l'implémentation
+![Structure des UO](./assets/images/ad-structure-ou.png)
+![Groupes de sécurité](./assets/images/ad-groupes-securite.png)
