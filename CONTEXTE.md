@@ -71,15 +71,16 @@ DC=logiflex,DC=infra
 
 ### 📸 Vue de l'implémentation
 
-![Structure des UO](./assets/images/ad-structure-ou.png.png)
-
 <br>
+
+![Structure des UO](./assets/images/ad-structure-ou.png.png)
 
 > * **`OU=LOGIFLEX` (Racine)** : Conteneur principal isolant l'ensemble des objets de l'organisation des conteneurs par défaut de Windows.
 > * **`OU=Departements`** : Structure hiérarchique regroupant les utilisateurs par pôle métier (`01_Direction` à `06_Consulting`) afin de permettre un ciblage précis des stratégies de groupe (GPO).
 > * **`OU=Ordinateurs`** : Séparation logique stricte entre les serveurs d'infrastructure (`OU=Serveurs`) et les machines clientes (`OU=Postes_Clients`).
 > * **`OU=Groupes_securite`** : Centralisation des groupes globaux de sécurité (`GS_*`) pour la gestion granulaire des droits d'accès NTFS et des partages.
 > * **`OU=Comptes_privileges`** : Zone dédiée aux comptes d'administration à hauts privilèges (respect du modèle de moindre privilège et préparation au *Tiering Model*).
+---
 
 <br>
 
