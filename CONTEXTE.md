@@ -68,7 +68,6 @@ DC=logiflex,DC=infra
 
 ### 📸 Vue de l'implémentation
 ![Structure des UO](./assets/images/ad-structure-ou.png.png)
-> **Légende & Justification d'Architecture :**
 > * **`OU=LOGIFLEX` (Racine)** : Conteneur principal isolant l'ensemble des objets de l'organisation des conteneurs par défaut de Windows.
 > * **`OU=Departements`** : Structure hiérarchique regroupant les utilisateurs par pôle métier (`01_Direction` à `06_Consulting`) afin de permettre un ciblage précis des stratégies de groupe (GPO).
 > * **`OU=Ordinateurs`** : Séparation logique stricte entre les serveurs d'infrastructure (`OU=Serveurs`) et les machines clientes (`OU=Postes_Clients`).
