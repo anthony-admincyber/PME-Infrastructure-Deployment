@@ -73,6 +73,7 @@ DC=logiflex,DC=infra
 
 <br>
 
+### Structure des UO
 ![Structure des UO](./assets/images/ad-structure-ou.png.png)
 
 * **`OU=LOGIFLEX` (Racine)** : Conteneur principal isolant l'ensemble des objets de l'organisation des conteneurs par défaut de Windows.
@@ -84,6 +85,7 @@ DC=logiflex,DC=infra
 
 <br>
 
+### Groupes de sécurité
 ![Groupes de sécurité](./assets/images/groupes_de_sécurité.png)
 
 * **Arborescence (`OU=LOGIFLEX`)** : Vue hiérarchique montrant le conteneur `Groupes_securite` isolé à la racine de l'organisation.
