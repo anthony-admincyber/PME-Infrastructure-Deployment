@@ -7,7 +7,7 @@
 Dans le cadre d'un plan de modernisation et de durcissement de son Système d'Information, **LOGIFLEX** standardise son infrastructure autour d'un domaine **Active Directory (AD DS)** centralisé afin d'unifier l'authentification, d'appliquer une politique de sécurité stricte (*Zero Trust / Least Privilege*) et de faciliter l'administration multi-serveurs.
 
 ---
-
+<br>
 
 ## 2. Répartition des Effectifs & Départements (Total : 45 Collaborateurs)
 L'entreprise compte **45 employés** répartis sur **6 pôles métiers**. Pour la maquette d'infrastructure, un échantillon représentatif de **12 comptes utilisateurs** est provisionné dans l'annuaire :
@@ -24,7 +24,7 @@ L'entreprise compte **45 employés** répartis sur **6 pôles métiers**. Pour l
 
 ---
 
-
+<br>
 ## 3. Répertoire des Utilisateurs (Jeu de Données Active Directory)
 Afin de refléter la dimension internationale de l'entreprise, les collaborateurs sont issus d'horizons variés :
 
@@ -45,7 +45,7 @@ Afin de refléter la dimension internationale de l'entreprise, les collaborateur
 
 ---
 
-
+<br>
 ## 4. Architecture Logique Active Directory
 L'annuaire est structuré pour séparer distinctement les entités organisationnelles (utilisateurs, services) des composants techniques (serveurs, postes, groupes) :
 
