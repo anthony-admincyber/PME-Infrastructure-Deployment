@@ -108,3 +108,10 @@ DC=logiflex,DC=infra
 ![Utilisateurs du département DSI](./assets/images/ad-utilisateurs-dsi.png)
 
 * Exemple d'implémentation au sein de l'unité d'organisation `02_DSI` regroupant les comptes nominatifs de l'équipe technique avec la convention de nommage standardisée (`première lettre du prénom + nom`).
+---
+<br>
+
+#### Affectation et Contrôle des Groupes de Sécurité
+![Propriétés de groupe utilisateur](./assets/images/ad-user-properties-groups.png)
+
+* Validation de l'affectation du compte utilisateur à son groupe global de sécurité dédié (`GS_Admins_Infra`), garantissant l'application du modèle de moindre privilège sans élévation directe non contrôlée.
