@@ -10,7 +10,6 @@ Dans le cadre d'un plan de modernisation et de durcissement de son Système d'In
 
 
 ---
-
 <br>
 
 ## 2. Répartition des Effectifs & Départements (Total : 45 Collaborateurs)
@@ -28,7 +27,6 @@ L'entreprise compte 45 employés répartis sur 6 pôles métiers. Pour la maquet
 | **TOTAL** | — | **45** | **12** |
 
 ---
-
 <br>
 
 ## 3. Répertoire des Utilisateurs (Jeu de Données Active Directory)
@@ -51,7 +49,6 @@ Afin de refléter la dimension internationale de l'entreprise, les collaborateur
 | **Priya PATEL** | `ppatel` | Consulting & Intégration | Consultante Déploiement WMS | `GS_Consulting` |
 
 ---
-
 <br>
 
 ## 4. Architecture Logique Active Directory
@@ -89,7 +86,6 @@ DC=logiflex,DC=infra
 * **`OU=Groupes_securite`** : Centralisation des groupes globaux de sécurité (`GS_*`) pour la gestion granulaire des droits d'accès NTFS et des partages.
 * **`OU=Comptes_privileges`** : Zone dédiée aux comptes d'administration à hauts privilèges (respect du modèle de moindre privilège et préparation au *Tiering Model*).
 ---
-
 <br>
 
 ### Groupes de sécurité
@@ -105,3 +101,10 @@ DC=logiflex,DC=infra
   * `GS_RH` : Direction des ressources humaines.
   * `GS_Finance` : Contrôle de gestion et comptabilité.
   * `GS_Consulting` : Consultants métiers et déploiement.
+---
+<br>
+
+#### Provisionnement des Utilisateurs par Département (`OU=02_DSI`)
+![Utilisateurs du département DSI](./assets/images/ad-utilisateurs-dsi.png)
+
+* Exemple d'implémentation au sein de l'unité d'organisation `02_DSI` regroupant les comptes nominatifs de l'équipe technique avec la convention de nommage standardisée (`première lettre du prénom + nom`).
