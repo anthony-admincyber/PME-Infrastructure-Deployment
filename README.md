@@ -33,15 +33,19 @@ L'objectif est d'implémenter une chaîne complète de services d'infrastructure
 ## 🚀 Étape 1 : Préparation des Hôtes & Déploiement Active Directory
 
 ### 1. Déploiement & Configuration Initiale des Nœuds
-* **Installation du Système d'Exploitation :** Déploiement distinct de deux instances **Windows Server 2025 Datacenter** sur les machines virtuelles `SRV-01-DC01` et `SRV-02-DC02`.
+* **Installation du Système d'Exploitation :** Déploiement distinct de deux instances **Windows Server 2025 Datacenter** sur les machines virtuelles `SRV-01-DC1` et `SRV-02-DC2`.
 * **Standardisation & Paramétrage de Base :**
-  * Attribution des noms d'hôtes normalisés (`SRV-01-DC01` et `SRV-02-DC02`).
-  * Configuration du fuseau horaire et désactivation de la configuration de sécurité renforcée d'Internet Explorer (IE ESC) pour l'administration.
+  * Attribution des noms d'hôtes normalisés (`SRV-01-DC1` et `SRV-02-DC2`).
+  * Configuration du fuseau horaire et désactivation de la configuration de sécurité renforcée d'Internet Explorer (IE ESC).
+  * Plan d'adressage IP statique dédié sur le segment LAN du Lab (`192.168.10.0/24`).
+* **Politique Pare-feu / Sécurité en Phase de Build :**
+  * Désactivation temporaire de Microsoft Defender Firewall / protection en temps réel sur les deux nœuds afin d'éliminer tout blocage lors de l'initialisation des flux RPC, WinRM, DNS et de réplication d'annuaire.
+  * *Note de durcissement :* Une revue complète de filtrage et un paramétrage granulaire des règles de pare-feu (flux stricts inter-serveurs) seront appliqués lors du durcissement pré-production.
 
 ### 2. Validation de la Connectivité Réseau
-* Attribution de l'adressage IP statique sur `SRV-01-DC01` (`192.168.10.10/24`).
+* Attribution de l'adressage IP statique sur `SRV-01-DC1` (`192.168.10.10/24`).
 * Ouverture granulaire des flux ICMP (requêtes d'écho entrantes) via PowerShell.
-* Validation de la communication réseau bidirectionnelle avec le nœud `SRV-02-DC02` (`192.168.10.11`).
+* Validation de la communication réseau bidirectionnelle avec le nœud `SRV-02-DC2` (`192.168.10.11`).
 
 <img width="854" height="391" alt="Validation de la connectivité réseau et ping PowerShell" src="https://github.com/user-attachments/assets/3a1d8b3f-da03-46ee-b92f-3027e7f20285" />
 
@@ -49,7 +53,7 @@ L'objectif est d'implémenter une chaîne complète de services d'infrastructure
 
 ### 3. Promotion du Contrôleur de Domaine Racine (`Logiflex.infra`)
 * Installation du rôle **AD DS** (*Active Directory Domain Services*) et des outils d'administration à distance (**RSAT**).
-* Promotion du serveur `SRV-01-DC01` en tant que premier contrôleur de domaine de la forêt racine `Logiflex.infra`.
+* Promotion du serveur `SRV-01-DC1` en tant que premier contrôleur de domaine de la forêt racine `Logiflex.infra`.
 * Validation sans avertissement critique de l'ensemble des prérequis système et réseau.
 
 <img width="759" height="557" alt="Vérification des prérequis de promotion Active Directory" src="https://github.com/user-attachments/assets/c0522e96-ed4f-4071-a0bf-b800fe488800" />
@@ -57,8 +61,8 @@ L'objectif est d'implémenter une chaîne complète de services d'infrastructure
 ---
 
 ### 4. Jonction du Serveur `SRV-02-DC02` au Domaine
-* **Configuration DNS :** Paramétrage de l'IP statique (`192.168.10.11`) et pointage du serveur DNS primaire vers `SRV-01-DC01` (`192.168.10.10`).
-* **Jonction Active Directory :** Intégration de la machine `SRV-02-DC02` au domaine FQDN `Logiflex.infra`.
+* **Configuration DNS :** Paramétrage de l'IP statique (`192.168.10.11`) et pointage du serveur DNS primaire vers `SRV-01-DC1` (`192.168.10.10`).
+* **Jonction Active Directory :** Intégration de la machine `SRV-02-DC2` au domaine FQDN `Logiflex.infra`.
 * **Authentification administrative :** Validation de l'intégration avec le compte privilégié `LOGIFLEX\Administrateur`.
 
 <img width="1469" height="826" alt="Jonction du serveur membre au domaine Logiflex.infra" src="https://github.com/user-attachments/assets/775e6cf7-fa76-4412-a19b-f48e02d6c940" />
@@ -66,7 +70,7 @@ L'objectif est d'implémenter une chaîne complète de services d'infrastructure
 ---
 
 ### 5. Centralisation et Gestion Multi-Serveurs (*Server Manager*)
-* **Administration unifiée :** Ajout du serveur `SRV-02-DC02` au sein de la console *Gestionnaire de serveur* de `SRV-01-DC01`.
+* **Administration unifiée :** Ajout du serveur `SRV-02-DC02` au sein de la console *Gestionnaire de serveur* de `SRV-01-DC1`.
 * **Validation des flux WinRM :** Vérification du bon fonctionnement de la gestion à distance, de la résolution DNS et de l'authentification Kerberos inter-hôtes.
 * **Visibilité globale :** Surveillance centralisée de l'état des services, des rôles et des journaux d'événements pour l'ensemble des serveurs du domaine.
 
