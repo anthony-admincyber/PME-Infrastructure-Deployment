@@ -58,7 +58,7 @@ L'objectif est d'implémenter une chaîne complète de services d'infrastructure
 ### 3. Installation des Rôles AD DS / DNS & Promotion du Contrôleur Racine (`Logiflex.infra`)
 
 * **Installation des Rôles :** Déploiement des rôles **AD DS** (*Active Directory Domain Services*) et **Serveur DNS** sur `SRV-01-DC1`.
-* **Promotion du Contrôleur Racine :** Initialisation d'une nouvelle forêt et promotion du serveur en tant que premier contrôleur du domaine `Logiflex.infra`.
+* **Promotion du Contrôleur Racine :** Initialisation d'une nouvelle forêt et promotion du serveur en tant que premier contrôleur du domaine `logiflex.infra`.
 * **Validation de la Configuration Requise :**
   * Contrôle des prérequis système, réseau et des privilèges d'administration.
   * Validation sans erreur bloquante (l'avertissement relatif à la délégation DNS est le comportement standard attendu lors de la création d'une nouvelle zone racine isolée).
@@ -68,9 +68,9 @@ L'objectif est d'implémenter une chaîne complète de services d'infrastructure
 
 ---
 
-### 4. Jonction du Serveur `SRV-02-DC02` au Domaine
+### 4. Jonction du Serveur `SRV-02-DC2` au Domaine
 * **Configuration DNS :** Paramétrage de l'IP statique (`192.168.10.11`) et pointage du serveur DNS primaire vers `SRV-01-DC1` (`192.168.10.10`).
-* **Jonction Active Directory :** Intégration de la machine `SRV-02-DC2` au domaine FQDN `Logiflex.infra`.
+* **Jonction Active Directory :** Intégration de la machine `SRV-02-DC2` au domaine FQDN `logiflex.infra`.
 * **Authentification administrative :** Validation de l'intégration avec le compte privilégié `LOGIFLEX\Administrateur`.
 
 <img width="1469" height="826" alt="Jonction du serveur membre au domaine Logiflex.infra" src="https://github.com/user-attachments/assets/775e6cf7-fa76-4412-a19b-f48e02d6c940" />
