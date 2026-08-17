@@ -127,4 +127,4 @@ DC=logiflex,DC=infra
 <br>
 
 ![Interfaces d'écoute DNS](./assets/images/ad-dns-interfaces-listen.png)
-* **Durcissement des interfaces d'écoute** : Désactivation de l'écoute sur les interfaces IPv6 non utilisées et restriction du service DNS à l'adresse IPv4 statique dédiée de l'hôte (`SRV-01-DC01`) afin d'optimiser les temps de réponse et réduire la surface d'attaque.
+* **Durcissement des interfaces d'écoute** : Désactivation de l'écoute sur les interfaces IPv6 non utilisées et restriction du service DNS à l'adresse IPv4 statique dédiée de l'hôte (`SRV-01-DC1`) afin d'optimiser les temps de réponse et réduire la surface d'attaque.
