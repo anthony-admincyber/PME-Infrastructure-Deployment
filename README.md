@@ -45,16 +45,17 @@ L'objectif est d'implémenter une chaîne complète de services d'infrastructure
   * Désactivation temporaire de Microsoft Defender Firewall / protection en temps réel sur les deux nœuds afin d'éliminer tout blocage lors de l'initialisation des flux RPC, WinRM, DNS et de réplication d'annuaire.
   * *Note de durcissement :* Une revue complète de filtrage et un paramétrage granulaire des règles de pare-feu (flux stricts inter-serveurs) seront appliqués lors du durcissement pré-production.
 
-### 2. Validation de la Connectivité Réseau
-* Attribution de l'adressage IP statique sur `SRV-01-DC1` (`192.168.10.10/24`).
-* Ouverture granulaire des flux ICMP (requêtes d'écho entrantes) via PowerShell.
-* Validation de la communication réseau bidirectionnelle avec le nœud `SRV-02-DC2` (`192.168.10.11`).
+### 2. Validation de la Connectivité Réseau & Diagnostic IP
+* **Configuration & Vérification de l'Adressage :** Contrôle des paramètres réseau de l'interface `Ethernet0` sur `SRV-02-DC2` (`192.168.10.11/24`, Passerelle : `192.168.10.1`).
+* **Validation du Nom d'Hôte :** Vérification de l'application correcte de la convention de nommage (`hostname` renvoyant `SRV-02-DC2`).
+* **Test de Connectivité Inter-Nœuds :** Validation de la liaison réseau bidirectionnelle et de la latence minimale (< 1 ms, 0 % de perte) vers le futur contrôleur racine `SRV-01-DC1` (`192.168.10.10`) via requêtes d'écho ICMPv4.
 
-<img width="854" height="391" alt="Validation de la connectivité réseau et ping PowerShell" src="https://github.com/user-attachments/assets/3a1d8b3f-da03-46ee-b92f-3027e7f20285" />
+<img width="1107" height="584" alt="image" src="https://github.com/user-attachments/assets/d83a5a16-c417-4e78-a4fd-da39b49c1cb2" />
+
 
 ---
 
-### 3. Promotion du Contrôleur de Domaine Racine (`Logiflex.infra`)
+### 3. Promotion du Contrôleur de Domaine Racine (`logiflex.infra`)
 * Installation du rôle **AD DS** (*Active Directory Domain Services*) et des outils d'administration à distance (**RSAT**).
 * Promotion du serveur `SRV-01-DC1` en tant que premier contrôleur de domaine de la forêt racine `Logiflex.infra`.
 * Validation sans avertissement critique de l'ensemble des prérequis système et réseau.
