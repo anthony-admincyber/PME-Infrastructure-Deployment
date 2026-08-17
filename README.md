@@ -75,6 +75,8 @@ L'objectif est d'implémenter une chaîne complète de services d'infrastructure
   * Rapprochement et ajout du serveur au domaine existant `logiflex.infra` avec élévation des privilèges administrateur.
   * Activation du **Catalogue Global (GC)** pour assurer la continuité des authentifications en cas de bascule.
   * Réplication initiale de la partition d'annuaire NTDS et des zones DNS intégrées depuis `SRV-01-DC1`.
+<img width="760" height="555" alt="image" src="https://github.com/user-attachments/assets/5a93cacc-5149-47ab-8345-aafd6ef5dbd6" />
+
 * **Croisement DNS (Bonne Pratique Haute Disponibilité) :**
   * Configuration du DNS auxiliaire sur `SRV-01-DC1` pointant vers `192.168.10.11`.
   * Configuration du DNS auxiliaire sur `SRV-02-DC2` pointant vers `192.168.10.10`.
