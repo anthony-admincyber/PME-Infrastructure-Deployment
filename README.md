@@ -78,10 +78,10 @@ L'objectif est d'implémenter une chaîne complète de services d'infrastructure
 <img width="760" height="555" alt="image" src="https://github.com/user-attachments/assets/5a93cacc-5149-47ab-8345-aafd6ef5dbd6" />
 <img width="1000" height="507" alt="image" src="https://github.com/user-attachments/assets/87fe5209-7a8f-4637-ae93-b80c48628e3b" />
 
-* **Croisement DNS (Bonne Pratique Haute Disponibilité) :**
-  * Configuration du DNS auxiliaire sur `SRV-01-DC1` pointant vers `192.168.10.11`.
-  * Configuration du DNS auxiliaire sur `SRV-02-DC2` pointant vers `192.168.10.10`.
-* **Validation de la Réplication Multi-Maître :** Contrôle de l'état de synchronisation bidirectionnelle sans échec via les utilitaires en ligne de commande (`repadmin /replsummary` et `repadmin /showrepl`).
+* **Croisement DNS (Bonne Pratique Microsoft Haute Disponibilité) :**
+  * **Sur `SRV-01-DC1` :** DNS préféré/primaire pointant vers le partenaire `192.168.10.11` (`SRV-02-DC2`) et DNS auxiliaire/secondaire pointant vers la boucle locale `127.0.0.1`.
+  * **Sur `SRV-02-DC2` :** DNS préféré/primaire pointant vers le partenaire `192.168.10.10` (`SRV-01-DC1`) et DNS auxiliaire/secondaire pointant vers la boucle locale `127.0.0.1`.
+  * *Objectif :* Éviter les boucles d'attente DNS lors du démarrage d'un nœud et garantir la résolution continue en cas de redémarrage d'un des contrôleurs.
 
 ---
 
