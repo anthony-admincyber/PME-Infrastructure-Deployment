@@ -30,14 +30,15 @@ L'objectif est d'implémenter une chaîne complète de services d'infrastructure
 
 ---
 
-## 🚀 Étape 1 : Préparation des Hôtes & Déploiement Active Directory
-
 ### 1. Déploiement & Configuration Initiale des Nœuds
-* **Installation du Système d'Exploitation :** Déploiement distinct de deux instances **Windows Server 2025 Datacenter** sur les machines virtuelles `SRV-01-DC1` et `SRV-02-DC2`.
+* **Installation du Système d'Exploitation :** Déploiement distinct de deux instances **Windows Server 2025 Datacenter** sur les machines virtuelles `SRV-01-DC01` et `SRV-02-DC02`.
 * **Standardisation & Paramétrage de Base :**
-  * Attribution des noms d'hôtes normalisés (`SRV-01-DC1` et `SRV-02-DC2`).
+  * Attribution des noms d'hôtes normalisés (`SRV-01-DC01` et `SRV-02-DC02`).
   * Configuration du fuseau horaire et désactivation de la configuration de sécurité renforcée d'Internet Explorer (IE ESC).
   * Plan d'adressage IP statique dédié sur le segment LAN du Lab (`192.168.10.0/24`).
+* **Maintien en Conditions de Sécurité (MCO/MCS) & Patch Management :**
+  * Exécution complète du cycle de mises à jour cumulatives et correctifs de sécurité via **Windows Update**.
+  * Activation de l'option avancée *« Obtenir des mises à jour pour d'autres produits Microsoft »* afin de garantir le patch régulier des dépendances, frameworks et composants d'infrastructure (.NET, rôles serveurs, agents d'administration).
 * **Politique Pare-feu / Sécurité en Phase de Build :**
   * Désactivation temporaire de Microsoft Defender Firewall / protection en temps réel sur les deux nœuds afin d'éliminer tout blocage lors de l'initialisation des flux RPC, WinRM, DNS et de réplication d'annuaire.
   * *Note de durcissement :* Une revue complète de filtrage et un paramétrage granulaire des règles de pare-feu (flux stricts inter-serveurs) seront appliqués lors du durcissement pré-production.
