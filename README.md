@@ -71,4 +71,5 @@ L'objectif est d'implémenter une chaîne complète de services d'infrastructure
 * **Validation des flux WinRM :** Vérification du bon fonctionnement de la gestion à distance, de la résolution DNS et de l'authentification Kerberos inter-hôtes.
 * **Visibilité globale :** Surveillance centralisée de l'état des services, des rôles et des journaux d'événements pour l'ensemble des serveurs du domaine.
 
-<img width="1875" height="356" alt="Vue consolidée multi-serveurs dans le Gestionnaire de serveur" src="https://github.com/user-attachments/assets/bd241362-8611-4f0f-8407-2edaba93fa3a" />
+<img width="1655" height="312" alt="image" src="https://github.com/user-attachments/assets/2e995f71-d1fb-4488-ac94-0263c5179e38" />
+
