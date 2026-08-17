@@ -76,6 +76,7 @@ L'objectif est d'implémenter une chaîne complète de services d'infrastructure
   * Activation du **Catalogue Global (GC)** pour assurer la continuité des authentifications en cas de bascule.
   * Réplication initiale de la partition d'annuaire NTDS et des zones DNS intégrées depuis `SRV-01-DC1`.
 <img width="760" height="555" alt="image" src="https://github.com/user-attachments/assets/5a93cacc-5149-47ab-8345-aafd6ef5dbd6" />
+<img width="1000" height="507" alt="image" src="https://github.com/user-attachments/assets/87fe5209-7a8f-4637-ae93-b80c48628e3b" />
 
 * **Croisement DNS (Bonne Pratique Haute Disponibilité) :**
   * Configuration du DNS auxiliaire sur `SRV-01-DC1` pointant vers `192.168.10.11`.
