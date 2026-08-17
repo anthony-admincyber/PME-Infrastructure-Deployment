@@ -4,7 +4,7 @@
 Ce projet consiste à concevoir, déployer et superviser une infrastructure hybride sous Windows Server 2025 et Linux dans un environnement d'entreprise simulé (*LogiFlex SA*).
 
 L'objectif est d'implémenter une chaîne complète de services d'infrastructure :
-* Un annuaire **Active Directory (AD DS)** redondé avec gestion centralisée des accès.
+* Un annuaire **Active Directory (AD DS)** hautement disponible et redondé avec deux contrôleurs de domaine.
 * Un cluster de virtualisation emboîtée (**Nested Hyper-V**).
 * Un stockage centralisé **SAN / NAS (TrueNAS)** via partages iSCSI et NFS.
 * Une base de données métier (**SQL Server sur Linux**) intégrée à l'annuaire.
@@ -22,8 +22,8 @@ L'objectif est d'implémenter une chaîne complète de services d'infrastructure
 
 | Hôte / VM | Système d'Exploitation | Adresse IP | Rôle / Services |
 | :--- | :--- | :--- | :--- |
-| **SRV-01-DC01** | Windows Server 2025 | `192.168.10.10` | Contrôleur de domaine principal (AD DS), DNS, DHCP, Hôte Hyper-V |
-| **SRV-02-MGMT** | Windows Server 2025 | `192.168.10.11` | Contrôleur de domaine secondaire / MGMT, Console Veeam, Hôte Hyper-V |
+| **SRV-01-DC01** | Windows Server 2025 | `192.168.10.10` | Contrôleur de domaine principal (AD DS), DNS Primaire, DHCP, Hôte Hyper-V |
+| **SRV-02-DC02** | Windows Server 2025 | `192.168.10.11` | Contrôleur de domaine secondaire (AD DS), DNS Secondaire, Console Veeam, Hôte Hyper-V |
 | **VM-SQL-PROD** | Linux / SQL Server | `192.168.10.20` | Base de données métier (Authentification AD / Kerberos) |
 | **VM-Centreon** | Ubuntu 24.04 LTS | `192.168.10.30` | Serveur de supervision SNMP & Alerting |
 | **NAS-SAN01** | TrueNAS | `192.168.10.50` | Stockage SAN / NAS (Cibles iSCSI & Partages NFS/SMB) |
@@ -35,14 +35,14 @@ L'objectif est d'implémenter une chaîne complète de services d'infrastructure
 ### 1. Préparation du Master & Clonage (Sysprep)
 * **Installation de base :** Déploiement initial de Windows Server 2025 sur le nœud `SRV-01`.
 * **Généralisation du système :** Exécution de l'outil `Sysprep` (`sysprep /generalize /oobe /shutdown`) afin de régénérer un SID unique avant le clonage.
-* **Clonage :** Création du second nœud `SRV-02-MGMT` via un clone complet sous VMware Workstation.
+* **Clonage :** Création du second nœud `SRV-02-DC02` via un clone complet sous VMware Workstation.
 
 ---
 
 ### 2. Validation de la Connectivité Réseau
 * Attribution de l'adressage IP statique sur `SRV-01-DC01` (`192.168.10.10/24`).
 * Ouverture granulaire des flux ICMP (requêtes d'écho entrantes) via PowerShell.
-* Validation de la communication réseau bidirectionnelle avec le nœud `SRV-02` (`192.168.10.11`).
+* Validation de la communication réseau bidirectionnelle avec le nœud `SRV-02-DC02` (`192.168.10.11`).
 
 <img width="854" height="391" alt="Validation de la connectivité réseau et ping PowerShell" src="https://github.com/user-attachments/assets/3a1d8b3f-da03-46ee-b92f-3027e7f20285" />
 
@@ -57,9 +57,9 @@ L'objectif est d'implémenter une chaîne complète de services d'infrastructure
 
 ---
 
-### 4. Jonction du Serveur `SRV-02-MGMT` au Domaine
+### 4. Jonction du Serveur `SRV-02-DC02` au Domaine
 * **Configuration DNS :** Paramétrage de l'IP statique (`192.168.10.11`) et pointage du serveur DNS primaire vers `SRV-01-DC01` (`192.168.10.10`).
-* **Jonction Active Directory :** Intégration de la machine `SRV-02-MGMT` au domaine FQDN `Logiflex.infra`.
+* **Jonction Active Directory :** Intégration de la machine `SRV-02-DC02` au domaine FQDN `Logiflex.infra`.
 * **Authentification administrative :** Validation de l'intégration avec le compte privilégié `LOGIFLEX\Administrateur`.
 
 <img width="1469" height="826" alt="Jonction du serveur membre au domaine Logiflex.infra" src="https://github.com/user-attachments/assets/775e6cf7-fa76-4412-a19b-f48e02d6c940" />
@@ -67,7 +67,7 @@ L'objectif est d'implémenter une chaîne complète de services d'infrastructure
 ---
 
 ### 5. Centralisation et Gestion Multi-Serveurs (*Server Manager*)
-* **Administration unifiée :** Ajout du serveur membre `SRV-02-MGMT` au sein de la console *Gestionnaire de serveur* de `SRV-01-DC01`.
+* **Administration unifiée :** Ajout du serveur `SRV-02-DC02` au sein de la console *Gestionnaire de serveur* de `SRV-01-DC01`.
 * **Validation des flux WinRM :** Vérification du bon fonctionnement de la gestion à distance, de la résolution DNS et de l'authentification Kerberos inter-hôtes.
 * **Visibilité globale :** Surveillance centralisée de l'état des services, des rôles et des journaux d'événements pour l'ensemble des serveurs du domaine.
 
