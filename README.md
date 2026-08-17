@@ -22,8 +22,8 @@ L'objectif est d'implémenter une chaîne complète de services d'infrastructure
 
 | Hôte / VM | Système d'Exploitation | Adresse IP | Rôle / Services |
 | :--- | :--- | :--- | :--- |
-| **SRV-01-DC01** | Windows Server 2025 | `192.168.10.10` | Contrôleur de domaine principal (AD DS), DNS Primaire, DHCP, Hôte Hyper-V |
-| **SRV-02-DC02** | Windows Server 2025 | `192.168.10.11` | Contrôleur de domaine secondaire (AD DS), DNS Secondaire, Console Veeam, Hôte Hyper-V |
+| **SRV-01-DC1** | Windows Server 2025 | `192.168.10.10` | Contrôleur de domaine principal (AD DS), DNS Primaire, DHCP, Hôte Hyper-V |
+| **SRV-02-DC2** | Windows Server 2025 | `192.168.10.11` | Contrôleur de domaine secondaire (AD DS), DNS Secondaire, Console Veeam, Hôte Hyper-V |
 | **VM-SQL-PROD** | Linux / SQL Server | `192.168.10.20` | Base de données métier (Authentification AD / Kerberos) |
 | **VM-Centreon** | Ubuntu 24.04 LTS | `192.168.10.30` | Serveur de supervision SNMP & Alerting |
 | **NAS-SAN01** | TrueNAS | `192.168.10.50` | Stockage SAN / NAS (Cibles iSCSI & Partages NFS/SMB) |
@@ -32,12 +32,11 @@ L'objectif est d'implémenter une chaîne complète de services d'infrastructure
 
 ## 🚀 Étape 1 : Préparation des Hôtes & Déploiement Active Directory
 
-### 1. Préparation du Master & Clonage (Sysprep)
-* **Installation de base :** Déploiement initial de Windows Server 2025 sur le nœud `SRV-01`.
-* **Généralisation du système :** Exécution de l'outil `Sysprep` (`sysprep /generalize /oobe /shutdown`) afin de régénérer un SID unique avant le clonage.
-* **Clonage :** Création du second nœud `SRV-02-DC02` via un clone complet sous VMware Workstation.
-
----
+### 1. Déploiement & Configuration Initiale des Nœuds
+* **Installation du Système d'Exploitation :** Déploiement distinct de deux instances **Windows Server 2025 Datacenter** sur les machines virtuelles `SRV-01-DC01` et `SRV-02-DC02`.
+* **Standardisation & Paramétrage de Base :**
+  * Attribution des noms d'hôtes normalisés (`SRV-01-DC01` et `SRV-02-DC02`).
+  * Configuration du fuseau horaire et désactivation de la configuration de sécurité renforcée d'Internet Explorer (IE ESC) pour l'administration.
 
 ### 2. Validation de la Connectivité Réseau
 * Attribution de l'adressage IP statique sur `SRV-01-DC01` (`192.168.10.10/24`).
