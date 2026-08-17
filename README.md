@@ -55,7 +55,7 @@ L'objectif est d'implémenter une chaîne complète de services d'infrastructure
 
 ---
 
-### 3. Installation des Rôles AD DS / DNS & Promotion du Contrôleur Racine (`Logiflex.infra`)
+### 3. Installation des Rôles AD DS / DNS & Promotion du Contrôleur Racine (`logiflex.infra`)
 
 * **Installation des Rôles :** Déploiement des rôles **AD DS** (*Active Directory Domain Services*) et **Serveur DNS** sur `SRV-01-DC1`.
 * **Promotion du Contrôleur Racine :** Initialisation d'une nouvelle forêt et promotion du serveur en tant que premier contrôleur du domaine `logiflex.infra`.
@@ -65,15 +65,20 @@ L'objectif est d'implémenter une chaîne complète de services d'infrastructure
 
 <img width="760" height="559" alt="image" src="https://github.com/user-attachments/assets/3faee0d9-0392-4843-b5ee-3cf339bb36e3" />
 
-
 ---
 
-### 4. Jonction du Serveur `SRV-02-DC2` au Domaine
-* **Configuration DNS :** Paramétrage de l'IP statique (`192.168.10.11`) et pointage du serveur DNS primaire vers `SRV-01-DC1` (`192.168.10.10`).
-* **Jonction Active Directory :** Intégration de la machine `SRV-02-DC2` au domaine FQDN `logiflex.infra`.
-* **Authentification administrative :** Validation de l'intégration avec le compte privilégié `LOGIFLEX\Administrateur`.
+### 4. Déploiement de la Haute Disponibilité AD DS & DNS Secondaire (`SRV-02-DC2`)
 
-<img width="1469" height="826" alt="Jonction du serveur membre au domaine Logiflex.infra" src="https://github.com/user-attachments/assets/775e6cf7-fa76-4412-a19b-f48e02d6c940" />
+* **Prérequis & Pointage DNS :** Configuration de l'IP statique (`192.168.10.11/24`) et pointage du DNS primaire vers `SRV-01-DC1` (`192.168.10.10`) pour la résolution du domaine `Logiflex.infra`.
+* **Installation des Rôles :** Déploiement conjoint des rôles **Services de domaine Active Directory (AD DS)** et **Serveur DNS** sur `SRV-02-DC2`.
+* **Promotion en Contrôleur de Domaine Additionnel :**
+  * Rapprochement et ajout du serveur au domaine existant `logiflex.infra` avec élévation des privilèges administrateur.
+  * Activation du **Catalogue Global (GC)** pour assurer la continuité des authentifications en cas de bascule.
+  * Réplication initiale de la partition d'annuaire NTDS et des zones DNS intégrées depuis `SRV-01-DC1`.
+* **Croisement DNS (Bonne Pratique Haute Disponibilité) :**
+  * Configuration du DNS auxiliaire sur `SRV-01-DC1` pointant vers `192.168.10.11`.
+  * Configuration du DNS auxiliaire sur `SRV-02-DC2` pointant vers `192.168.10.10`.
+* **Validation de la Réplication Multi-Maître :** Contrôle de l'état de synchronisation bidirectionnelle sans échec via les utilitaires en ligne de commande (`repadmin /replsummary` et `repadmin /showrepl`).
 
 ---
 
