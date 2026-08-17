@@ -55,12 +55,16 @@ L'objectif est d'implémenter une chaîne complète de services d'infrastructure
 
 ---
 
-### 3. Promotion du Contrôleur de Domaine Racine (`logiflex.infra`)
-* Installation du rôle **AD DS** (*Active Directory Domain Services*) et des outils d'administration à distance (**RSAT**).
-* Promotion du serveur `SRV-01-DC1` en tant que premier contrôleur de domaine de la forêt racine `Logiflex.infra`.
-* Validation sans avertissement critique de l'ensemble des prérequis système et réseau.
+### 3. Installation des Rôles AD DS / DNS & Promotion du Contrôleur Racine (`Logiflex.infra`)
 
-<img width="759" height="557" alt="Vérification des prérequis de promotion Active Directory" src="https://github.com/user-attachments/assets/c0522e96-ed4f-4071-a0bf-b800fe488800" />
+* **Installation des Rôles :** Déploiement des rôles **AD DS** (*Active Directory Domain Services*) et **Serveur DNS** sur `SRV-01-DC1`.
+* **Promotion du Contrôleur Racine :** Initialisation d'une nouvelle forêt et promotion du serveur en tant que premier contrôleur du domaine `Logiflex.infra`.
+* **Validation de la Configuration Requise :**
+  * Contrôle des prérequis système, réseau et des privilèges d'administration.
+  * Validation sans erreur bloquante (l'avertissement relatif à la délégation DNS est le comportement standard attendu lors de la création d'une nouvelle zone racine isolée).
+
+<img width="760" height="559" alt="image" src="https://github.com/user-attachments/assets/3faee0d9-0392-4843-b5ee-3cf339bb36e3" />
+
 
 ---
 
