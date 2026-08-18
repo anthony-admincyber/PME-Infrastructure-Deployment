@@ -231,12 +231,15 @@ Le rôle DNS sera ensuite configuré et validé après la promotion du contrôle
 ## 💻 10. Installation avec PowerShell
 
 L'installation des rôles peut également être réalisée via **PowerShell** :
+
 <img width="861" height="47" alt="image" src="https://github.com/user-attachments/assets/ab166cb2-1952-4fcf-b9f4-e005071252e0" />
 
 ```
 
 La présence des rôles peut ensuite être contrôlée :
-<img width="895" height="277" alt="image" src="https://github.com/user-attachments/assets/61445ac4-b035-4583-959d-fc3c9384d561" />
+
+<img width="901" height="269" alt="image" src="https://github.com/user-attachments/assets/c4c92541-cee4-4e70-b375-3cf0c3902914" />
+
 
 ```
 
