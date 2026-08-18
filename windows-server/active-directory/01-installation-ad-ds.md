@@ -238,7 +238,7 @@ L'installation des rôles peut également être réalisée via **PowerShell** :
 
 La présence des rôles peut ensuite être contrôlée :
 
-<img width="901" height="269" alt="image" src="https://github.com/user-attachments/assets/c4c92541-cee4-4e70-b375-3cf0c3902914" />
+<img width="886" height="269" alt="image" src="https://github.com/user-attachments/assets/58f08461-4984-402b-a2ac-9eca30c64d94" />
 
 
 ```
