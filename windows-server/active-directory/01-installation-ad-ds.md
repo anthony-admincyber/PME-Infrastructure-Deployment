@@ -264,7 +264,11 @@ Cette résolution inverse sera utile pour :
 - les mécanismes de réplication ;
 - les opérations d'administration et de diagnostic réseau.
 
-Le protocole IPv6 a été désactivé sur l'ensemble de l'infrastructure afin de concentrer la résolution exclusivement sur le plan d'adressage IPv4.
+### ⚙️ Configuration IPv6
+
+Dans le cadre de cette maquette, IPv6 a été désactivé sur les interfaces concernées afin de concentrer la configuration réseau sur le plan d'adressage IPv4 utilisé par l'environnement LOGIFLEX.
+
+Cette configuration pourra être réévaluée dans une infrastructure de production selon les besoins et les politiques réseau retenues.
 
 <img width="716" height="515" alt="image" src="https://github.com/user-attachments/assets/d8dbe8c8-5197-4917-aa3b-2535ef5dcdeb" />
 
