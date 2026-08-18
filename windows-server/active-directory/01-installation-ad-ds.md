@@ -211,16 +211,24 @@ L'installation du rôle AD DS prépare le serveur à devenir un contrôleur de d
 
 ---
 
-## 🌐 9. Installation du rôle DNS Server
+## 🌐 5. Configuration & Durcissement du Service DNS
 
-Le service **DNS** est également installé sur `SRV-01-DC1`.  
-DNS est un composant essentiel d'Active Directory car il permet notamment la résolution des noms utilisés par les services du domaine.
+Le service **DNS (Domain Name System)** constitue un composant essentiel de l'infrastructure Active Directory LOGIFLEX.
 
-Le serveur sera amené à héberger la zone :
-`logiflex.infra`
-ainsi que les enregistrements nécessaires au fonctionnement du domaine Active Directory.
+Il permet notamment la résolution des noms de domaine et des enregistrements nécessaires au fonctionnement d'**Active Directory**, de l'authentification **Kerberos**, de la réplication entre contrôleurs de domaine ainsi que des différents services d'infrastructure.
 
-Le rôle DNS sera ensuite configuré et validé après la promotion du contrôleur de domaine.
+Le service DNS est intégré à Active Directory afin de bénéficier de la réplication des zones entre les contrôleurs de domaine.
+
+---
+
+### 5.1 Installation du rôle DNS
+
+Le rôle **DNS Server** a été installé sur `SRV-01-DC1` lors de la préparation de l'infrastructure.
+
+Le serveur est destiné à assurer le service DNS du domaine :
+
+```text
+logiflex.infra
 
 ---
 
