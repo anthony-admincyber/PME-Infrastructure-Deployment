@@ -3,7 +3,8 @@
 ## 📌 Présentation
 
 Cette première étape du projet **LOGIFLEX Infrastructure** consiste à préparer le serveur `SRV-01-DC1` avant sa promotion en contrôleur de domaine.
-                                LOGIFLEX
+
+                LOGIFLEX
                     │
              logiflex.infra
                     │
