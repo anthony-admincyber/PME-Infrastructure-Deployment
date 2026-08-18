@@ -79,14 +79,8 @@ Les deux serveurs pourront ainsi communiquer de manière stable pour les mécani
 
 #### Vérification
 
-```cmd
-ipconfig /all
-```
+<img width="658" height="238" alt="image" src="https://github.com/user-attachments/assets/3ef8d86c-6231-4fdd-92fd-572171c98ce8" />
 
-La configuration IPv4 doit notamment faire apparaître :
-```text
-192.168.10.10
-```
 
 ---
 
