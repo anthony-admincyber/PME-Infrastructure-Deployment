@@ -39,8 +39,6 @@ Cette phase de préparation comprend notamment :
 Le serveur Windows Server a initialement été préparé puis renommé afin de respecter la convention de nommage définie pour l'infrastructure LOGIFLEX.
 
 Le nom retenu est :
-
-```text
 SRV-01-DC1
 Cette convention permet d'identifier rapidement la fonction et le numéro du serveur :
 
