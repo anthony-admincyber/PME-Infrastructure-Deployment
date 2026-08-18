@@ -4,15 +4,15 @@
 
 Cette première étape du projet **LOGIFLEX Infrastructure** consiste à préparer le serveur `SRV-01-DC1` avant sa promotion en contrôleur de domaine.
 
-                LOGIFLEX
-                    │
-             logiflex.infra
-                    │
-          ┌─────────┴─────────┐
-          │                   │
-    SRV-01-DC1          SRV-02-DC2
-    192.168.10.10       192.168.10.11
-      AD DS + DNS         AD DS + DNS
+                                                                 LOGIFLEX
+                                                                     │
+                                                              logiflex.infra
+                                                                    │
+                                                           ┌─────────┴─────────┐
+                                                           │                   │
+                                                     SRV-01-DC1          SRV-02-DC2
+                                                    192.168.10.10       192.168.10.11
+                                                     AD DS + DNS         AD DS + DNS
 
 SRV-01-DC1 sera le premier contrôleur de domaine. SRV-02-DC2 sera ajouté ultérieurement afin d'assurer la redondance AD DS/DNS.
 
