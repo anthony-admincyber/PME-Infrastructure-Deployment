@@ -219,16 +219,14 @@ Il permet notamment la résolution des noms de domaine et des enregistrements n�
 
 Le service DNS est intégré à Active Directory afin de bénéficier de la réplication des zones entre les contrôleurs de domaine.
 
+Le rôle **DNS Server** a été installé sur `SRV-01-DC1` lors de la préparation de l'infrastructure.
+
 ---
 
 ### Configuration & Durcissement du Service DNS
 
-Le rôle **DNS Server** a été installé sur `SRV-01-DC1` lors de la préparation de l'infrastructure.
-
-Le serveur est destiné à assurer le service DNS du domaine :
-
-```text
-logiflex.infra
+![Zone de recherche inversée DNS](./assets/images/ad-dns-reverse-zone.png)
+* **Zone de recherche inversée (`10.168.192.in-addr.arpa`)** : Zone principale intégrée à Active Directory avec mises à jour dynamiques sécurisées. Enregistrement automatique des pointeurs PTR pour garantir la résolution IP $\rightarrow$ FQDN (prérequis pour l'authentification Kerberos, la supervision et les sauvegardes).
 
 
 ---
