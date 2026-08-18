@@ -181,11 +181,6 @@ Avant l'installation et la configuration des services d'infrastructure, la conne
 <img width="648" height="240" alt="image" src="https://github.com/user-attachments/assets/cc4ac3ca-c1cb-477a-aca2-14625f9e85fa" />
 
 
-**Vérification de la configuration réseau :**
-```cmd
-ipconfig /all
-```
-
 **Objectifs de validation :**
 * L'adresse IP ;
 * Le masque de sous-réseau ;
@@ -198,14 +193,14 @@ ipconfig /all
 ## ⚙️ 8. Installation du rôle Active Directory Domain Services
 
 Une fois le serveur correctement préparé, le rôle **Active Directory Domain Services (AD DS)** est installé.  
-L'installation est réalisée depuis **Server Manager**.
+L'installation est réalisée depuis **Gestionnaire de serveur**.
 
 #### Procédure
-1. Ouvrir **Server Manager**.
-2. Sélectionner **Add Roles and Features**.
-3. Choisir **Role-based or feature-based installation**.
+1. Ouvrir **Gestionnaire de serveur**.
+2. Sélectionner **Gérer/Ajouter des rôles et fonctionnalités**.
+3. Choisir **Installation basée sur un rôle ou une fonctionnalité**.
 4. Sélectionner le serveur : `SRV-01-DC1`.
-5. Sélectionner : **Active Directory Domain Services**.
+5. Sélectionner : **Service de domaine Active Directory**.
 6. Accepter l'installation des fonctionnalités requises.
 7. Vérifier la sélection des rôles.
 8. Lancer l'installation.
@@ -241,10 +236,7 @@ La présence des rôles peut ensuite être contrôlée :
 <img width="903" height="149" alt="image" src="https://github.com/user-attachments/assets/7223d3fb-5c9b-4938-b0f1-9f496f6c4d1f" />
 
 
-
-
 ```
-
 
 ### Préparation du serveur
 Cette capture permet de visualiser l'état général de `SRV-01-DC1` après sa préparation. Elle permet notamment d'identifier :
@@ -255,41 +247,10 @@ Cette capture permet de visualiser l'état général de `SRV-01-DC1` après sa p
 * la version de Windows Server ;
 * l'environnement VMware.
 
-## Installation des rôles AD DS et DNS
-Validation des rôles par commande PowerShell :
-```powershell
-Get-WindowsFeature AD-Domain-Services,DNS
-```
-
 ---
 
-## 🧪 11. Validation de l'installation
 
-À l'issue de l'installation, plusieurs contrôles sont effectués :
-
-* **Vérification AD DS :**
-  ```powershell
-  Get-WindowsFeature AD-Domain-Services
-  ```
-* **Vérification DNS :**
-  ```powershell
-  Get-WindowsFeature DNS
-  ```
-* **Vérification du nom du serveur :**
-  ```cmd
-  hostname
-  ```
-  *Résultat attendu :* `SRV-01-DC1`
-
-* **Vérification de l'adresse IP :**
-  ```cmd
-  ipconfig /all
-  ```
-  *Adresse attendue :* `192.168.10.10`
-
----
-
-## 📊 13. Bilan de l'étape
+## 📊 12. Bilan de l'étape
 
 | Élément | État |
 | :--- | :---: |
