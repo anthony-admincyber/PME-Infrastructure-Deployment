@@ -1,27 +1,21 @@
-# 01 — Installation du rôle Active Directory Domain Services (AD DS)
+# 01 — Préparation du serveur et installation des rôles AD DS / DNS
 
 ## 📌 Présentation
 
-Cette première étape du projet **LOGIFLEX Infrastructure** consiste à préparer le serveur `SRV-01-DC1` et à installer le rôle **Active Directory Domain Services (AD DS)**.
+Cette première étape du projet **LOGIFLEX Infrastructure** consiste à préparer le serveur `SRV-01-DC1` avant sa promotion en contrôleur de domaine.
 
-Ce serveur deviendra le premier contrôleur de domaine de l'infrastructure et hébergera également le service **DNS**, indispensable au fonctionnement d'Active Directory.
+L'objectif est de disposer d'un serveur Windows Server 2025 correctement identifié, mis à jour, configuré sur le réseau et prêt à accueillir les services d'infrastructure nécessaires à Active Directory.
 
-L'objectif est de mettre en place les fondations de l'annuaire d'entreprise avant la création de la forêt `logiflex.infra`.
+Cette phase de préparation comprend notamment :
 
----
+- le renommage du serveur selon la convention de nommage LOGIFLEX ;
+- l'installation des dernières mises à jour disponibles ;
+- la configuration d'une adresse IP statique ;
+- la préparation de l'environnement Windows Server ;
+- la désactivation temporaire du pare-feu Microsoft Defender pendant la phase de préproduction ;
+- la préparation du serveur pour l'installation d'AD DS et DNS.
 
-## 🎯 Objectifs
-
-Cette étape permet de :
-
-- préparer le serveur Windows Server 2025 ;
-- définir son nom d'hôte ;
-- configurer son adressage IPv4 statique ;
-- vérifier sa connectivité réseau ;
-- installer le rôle **AD DS** ;
-- installer le rôle **DNS Server** ;
-- préparer la promotion du serveur en contrôleur de domaine ;
-- vérifier que les prérequis nécessaires sont satisfaits.
+> ⚠️ **Important :** la désactivation du pare-feu et des protections pendant cette phase est temporaire et concerne uniquement la préparation de l'environnement de laboratoire. Ces paramètres seront réévalués et durcis lors de la phase de préproduction / durcissement de l'infrastructure.
 
 ---
 
@@ -30,21 +24,21 @@ Cette étape permet de :
 | Élément | Configuration |
 |---|---|
 | Serveur | `SRV-01-DC1` |
-| Système | Windows Server 2025 Datacenter |
+| Système | Windows Server 2025 Datacenter Evaluation |
+| Hyperviseur | VMware |
+| Domaine | `logiflex.infra` |
 | Adresse IP | `192.168.10.10/24` |
-| Domaine prévu | `logiflex.infra` |
-| Rôle | Contrôleur de domaine principal |
-| Services | AD DS / DNS / Hyper-V |
-| Réseau | `192.168.10.0/24` |
+| Passerelle | `192.168.10.2` |
+| Rôle prévu | Contrôleur de domaine principal |
+| Services prévus | AD DS / DNS / Hyper-V |
 
 ---
 
-# 🌐 Configuration réseau
+# 1. 🏷️ Renommage du serveur
 
-Le serveur `SRV-01-DC1` est configuré avec une adresse IPv4 statique.
+Le serveur Windows Server a initialement été préparé puis renommé afin de respecter la convention de nommage définie pour l'infrastructure LOGIFLEX.
+
+Le nom retenu est :
 
 ```text
-Adresse IP :       192.168.10.10
-Masque :           255.255.255.0
-Réseau :           192.168.10.0/24
-Passerelle :       192.168.10.2
+SRV-01-DC1
