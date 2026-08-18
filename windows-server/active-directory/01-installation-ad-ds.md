@@ -3,19 +3,17 @@
 ## 📌 Présentation
 
 Cette première étape du projet **LOGIFLEX Infrastructure** consiste à préparer les serveurs `SRV-01-DC1` et `SRV-02-DC2` qui constitueront l'infrastructure Active Directory de l'entreprise.
-
 ```text
-                                                                           LOGIFLEX
-                                                                              │
-                                                                       logiflex.infra
-                                                                              │
-                                                                   ┌──────────┴──────────┐
-                                                                   │                     │
-                                                             SRV-01-DC1            SRV-02-DC2
-                                                            192.168.10.10          192.168.10.11
-                                                             AD DS + DNS            AD DS + DNS
+                                                  LOGIFLEX
+                                                     │
+                                              logiflex.infra
+                                                     │
+                                          ┌──────────┴──────────┐
+                                          │                     │
+                                    SRV-01-DC1            SRV-02-DC2
+                                   192.168.10.10          192.168.10.11
+                                    AD DS + DNS            AD DS + DNS
 ```
-
 La préparation est réalisée progressivement afin de disposer de deux serveurs Windows Server 2025 correctement identifiés, configurés sur le réseau, mis à jour et prêts à assurer les services d'infrastructure.
 
 Cette première phase se concentre principalement sur la préparation de `SRV-01-DC1` et l'installation initiale des rôles **AD DS** et **DNS**.
