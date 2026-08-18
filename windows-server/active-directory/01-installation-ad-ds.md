@@ -2,7 +2,7 @@
 
 ## 📌 Présentation
 
-Cette première étape du projet **LOGIFLEX Infrastructure** consiste à préparer le serveur `SRV-01-DC1` avant sa promotion en contrôleur de domaine.
+Cette première étape du projet **LOGIFLEX Infrastructure** consiste à préparer les serveurs `SRV-01-DC1` et `SRV-02-DC2` qui constitueront l'infrastructure Active Directory de l'entreprise.
 
                                                                  LOGIFLEX
                                                                      │
@@ -14,20 +14,23 @@ Cette première étape du projet **LOGIFLEX Infrastructure** consiste à prépar
                                                     192.168.10.10       192.168.10.11
                                                      AD DS + DNS         AD DS + DNS
 
-SRV-01-DC1 sera le premier contrôleur de domaine. SRV-02-DC2 sera ajouté ultérieurement afin d'assurer la redondance AD DS/DNS.
+La préparation est réalisée progressivement afin de disposer de deux serveurs Windows Server 2025 correctement identifiés, configurés sur le réseau, mis à jour et prêts à assurer les services d'infrastructure.
 
-L'objectif est de disposer d'un serveur Windows Server 2025 correctement identifié, mis à jour, configuré sur le réseau et prêt à accueillir les services d'infrastructure nécessaires à Active Directory.
+Cette première phase se concentre principalement sur la préparation de `SRV-01-DC1` et l'installation initiale des rôles **AD DS** et **DNS**.
 
-Cette phase de préparation comprend notamment :
+Le second serveur `SRV-02-DC2` est préparé en parallèle et sera intégré au domaine lors d'une étape ultérieure afin d'assurer la redondance et la haute disponibilité des services Active Directory et DNS.
 
-- le renommage du serveur selon la convention de nommage LOGIFLEX ;
+Cette phase comprend notamment :
+
+- le renommage des serveurs selon la convention de nommage LOGIFLEX ;
 - l'installation des dernières mises à jour disponibles ;
-- la configuration d'une adresse IP statique ;
+- la configuration des adresses IP statiques ;
 - la préparation de l'environnement Windows Server ;
+- la validation de la connectivité réseau ;
 - la désactivation temporaire du pare-feu Microsoft Defender pendant la phase de préproduction ;
-- la préparation du serveur pour l'installation d'AD DS et DNS.
+- l'installation des rôles **AD DS** et **DNS** sur `SRV-01-DC1`.
 
-> ⚠️ **Important :** la désactivation du pare-feu et des protections pendant cette phase est temporaire et concerne uniquement la préparation de l'environnement de laboratoire. Ces paramètres seront réévalués et durcis lors de la phase de préproduction / durcissement de l'infrastructure.
+> ⚠️ **Important :** la désactivation du pare-feu et des protections pendant cette phase est temporaire et concerne uniquement la préparation de l'environnement de laboratoire. Ces paramètres seront réévalués et durcis lors de la phase de durcissement de l'infrastructure.
 
 ---
 
