@@ -1,4 +1,4 @@
-# 01 — Préparation du serveur et installation des rôles AD DS / DNS
+# 01 — Préparation du serveur et installation des rôles Service de domaine Active Directory / DNS
 
 ## 📌 Présentation
 
