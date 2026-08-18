@@ -196,7 +196,9 @@ Avant l'installation et la configuration des services d'infrastructure, la conne
 <img width="649" height="236" alt="image" src="https://github.com/user-attachments/assets/ce43918c-a5b9-40ee-9778-b5c7682d8c85" />
 
 
-**Test vers le futur contrôleur de domaine secondaire (le second serveur `SRV-02-DC2`est préparé en parallèle) :**
+**Test vers le futur contrôleur de domaine secondaire :**
+
+Le serveur `SRV-02-DC2` étant préparé en parallèle, sa connectivité est également vérifiée depuis `SRV-01-DC1`.
 
 <img width="648" height="240" alt="image" src="https://github.com/user-attachments/assets/cc4ac3ca-c1cb-477a-aca2-14625f9e85fa" />
 
