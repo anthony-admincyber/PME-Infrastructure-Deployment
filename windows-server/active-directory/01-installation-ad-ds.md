@@ -221,6 +221,8 @@ Le service DNS est intégré à Active Directory afin de bénéficier de la rép
 
 Le rôle **DNS Server** a été installé sur `SRV-01-DC1` lors de la préparation de l'infrastructure.
 
+<br>
+
 ### Configuration & Durcissement du Service DNS
 
 <img width="716" height="515" alt="image" src="https://github.com/user-attachments/assets/d8dbe8c8-5197-4917-aa3b-2535ef5dcdeb" />
