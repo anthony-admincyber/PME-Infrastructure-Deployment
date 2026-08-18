@@ -244,17 +244,6 @@ La présence des rôles peut ensuite être contrôlée :
 
 ```
 
-*Les deux rôles doivent apparaître comme installés.*
-
----
-
-## 📸 11. Captures d'écran
-
-Les captures de cette étape sont stockées dans :
-```text
-assets/
-└── active-directory/
-```
 
 ### Préparation du serveur
 Cette capture permet de visualiser l'état général de `SRV-01-DC1` après sa préparation. Elle permet notamment d'identifier :
@@ -273,7 +262,7 @@ Get-WindowsFeature AD-Domain-Services,DNS
 
 ---
 
-## 🧪 12. Validation de l'installation
+## 🧪 11. Validation de l'installation
 
 À l'issue de l'installation, plusieurs contrôles sont effectués :
 
