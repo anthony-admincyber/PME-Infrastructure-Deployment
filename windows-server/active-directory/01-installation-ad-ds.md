@@ -236,20 +236,6 @@ La présence des rôles peut ensuite être contrôlée :
 <img width="903" height="149" alt="image" src="https://github.com/user-attachments/assets/7223d3fb-5c9b-4938-b0f1-9f496f6c4d1f" />
 
 
-```
-
-### Préparation du serveur
-Cette capture permet de visualiser l'état général de `SRV-01-DC1` après sa préparation. Elle permet notamment d'identifier :
-* le nom du serveur ;
-* le domaine ;
-* l'état des mises à jour ;
-* l'état du pare-feu ;
-* la version de Windows Server ;
-* l'environnement VMware.
-
----
-
-
 ## 📊 12. Bilan de l'étape
 
 | Élément | État |
