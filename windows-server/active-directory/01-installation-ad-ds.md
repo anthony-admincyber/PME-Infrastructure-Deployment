@@ -19,7 +19,7 @@ Cette phase de préparation comprend notamment :
 
 ---
 
-### 1. 🖥️ Environnement
+## 1. 🖥️ Environnement
 
 | Élément | Configuration |
 |---|---|
