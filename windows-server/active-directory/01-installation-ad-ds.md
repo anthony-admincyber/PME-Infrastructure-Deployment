@@ -48,20 +48,23 @@ Cette phase comprend notamment :
 
 ---
 
-## 2. 🏷️ Renommage du serveur
+## 2. 🏷️ Renommage des serveurs
 
-Le serveur Windows Server a initialement été préparé puis renommé afin de respecter la convention de nommage définie pour l'infrastructure LOGIFLEX.
+Les serveurs Windows Server ont été préparés puis renommés afin de respecter la convention de nommage définie pour l'infrastructure LOGIFLEX.
 
-Le nom retenu est :
-SRV-01-DC1
+Le premier serveur utilise le nom :
+
+`SRV-01-DC1`
+
+Le second serveur utilise le nom :
+
+`SRV-02-DC2`
+
 Cette convention permet d'identifier rapidement la fonction et le numéro du serveur :
 
 * `SRV` → Serveur
 * `01` → Numéro du serveur
 * `DC1` → Premier contrôleur de domaine
-
-Le second contrôleur de domaine suivra la même logique :
-`SRV-02-DC2`
 
 Cette standardisation facilite l'administration, la supervision et l'identification des serveurs dans l'ensemble des outils d'infrastructure.
 
