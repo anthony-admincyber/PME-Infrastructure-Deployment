@@ -237,9 +237,8 @@ Install-WindowsFeature AD-Domain-Services,DNS -IncludeManagementTools
 ```
 
 La présence des rôles peut ensuite être contrôlée :
+<img width="895" height="277" alt="image" src="https://github.com/user-attachments/assets/61445ac4-b035-4583-959d-fc3c9384d561" />
 
-```powershell
-Get-WindowsFeature AD-Domain-Services,DNS
 ```
 
 *Les deux rôles doivent apparaître comme installés.*
