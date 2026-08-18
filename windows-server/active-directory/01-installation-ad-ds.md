@@ -244,7 +244,27 @@ Le rôle **DNS Server** a été installé sur `SRV-01-DC1` lors de la préparati
 
 <img width="716" height="515" alt="image" src="https://github.com/user-attachments/assets/d8dbe8c8-5197-4917-aa3b-2535ef5dcdeb" />
 
-**Zone de recherche inversée (10.168.192.in-addr.arpa) :** Zone principale intégrée à Active Directory avec mises à jour dynamiques sécurisées. Enregistrement automatique des pointeurs PTR pour garantir la résolution IP $\rightarrow$ FQDN (prérequis pour l'authentification Kerberos, la supervision et les sauvegardes). Le protocole IPv6 a été désactivé sur l'ensemble de l'infrastructure afin de concentrer la résolution exclusivement sur le plan d'adressage IPv4.
+### 🔄 Zone de recherche inversée
+
+La zone de recherche inversée :
+
+`10.168.192.in-addr.arpa`
+
+a été créée afin de permettre la résolution **IP → nom DNS (PTR)**.
+
+Cette zone est intégrée à Active Directory et configurée avec des mises à jour dynamiques sécurisées.
+
+Elle permettra notamment aux services d'infrastructure de retrouver le nom associé à une adresse IP.
+
+Cette résolution inverse sera utile pour :
+
+- les contrôles DNS ;
+- l'authentification Kerberos ;
+- la supervision ;
+- les mécanismes de réplication ;
+- les opérations d'administration et de diagnostic réseau.
+
+Le protocole IPv6 a été désactivé sur l'ensemble de l'infrastructure afin de concentrer la résolution exclusivement sur le plan d'adressage IPv4.
 
 
 ---
