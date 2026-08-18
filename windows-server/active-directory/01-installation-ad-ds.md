@@ -25,7 +25,7 @@ Cette phase de préparation comprend notamment :
 |---|---|
 | Serveur | `SRV-01-DC1` |
 | Système | Windows Server 2025 Datacenter Evaluation |
-| Hyperviseur | VMware |
+| Hyperviseur |VMware® Workstation Pro 26H1 |
 | Domaine | `logiflex.infra` |
 | Adresse IP | `192.168.10.10/24` |
 | Passerelle | `192.168.10.2` |
