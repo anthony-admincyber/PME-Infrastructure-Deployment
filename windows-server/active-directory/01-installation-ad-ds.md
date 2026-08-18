@@ -34,7 +34,7 @@ Cette phase de préparation comprend notamment :
 
 ---
 
-### 2. 🏷️ Renommage du serveur
+## 2. 🏷️ Renommage du serveur
 
 Le serveur Windows Server a initialement été préparé puis renommé afin de respecter la convention de nommage définie pour l'infrastructure LOGIFLEX.
 
@@ -64,7 +64,7 @@ SRV-01-DC1
 
 ---
 
-### 🌐 3. Configuration de l'adresse IP statique
+## 🌐 3. Configuration de l'adresse IP statique
 
 Le serveur `SRV-01-DC1` utilise une adresse IPv4 statique.  
 Cette configuration est nécessaire pour un serveur d'infrastructure destiné à héberger notamment les services AD DS et DNS.
@@ -96,7 +96,7 @@ La configuration IPv4 doit notamment faire apparaître :
 
 ---
 
-### 🔄 4. Mise à jour de Windows Server
+## 🔄 4. Mise à jour de Windows Server
 
 Avant l'installation des rôles d'infrastructure, le serveur a été entièrement mis à jour via Windows Update.  
 L'objectif est de disposer d'une base système :
@@ -114,7 +114,7 @@ Dans **Server Manager**, l'état du serveur permet de vérifier les informations
 
 ---
 
-### 🔥 5. Configuration temporaire du pare-feu
+## 🔥 5. Configuration temporaire du pare-feu
 
 Pendant la phase de préparation et de préproduction, le pare-feu Microsoft Defender a été temporairement désactivé.  
 Cette mesure permet de limiter les blocages lors de l'initialisation des différents flux nécessaires au déploiement de l'infrastructure.
@@ -153,7 +153,7 @@ Cette démarche permet de distinguer clairement la phase de **Build** de la phas
 
 ---
 
-### 🛡️ 6. État de la sécurité Windows
+## 🛡️ 6. État de la sécurité Windows
 
 La préparation du serveur conserve les mécanismes de protection Microsoft disponibles sur le système.  
 La capture de Server Manager permet notamment de constater :
@@ -177,7 +177,7 @@ La configuration de sécurité sera approfondie ultérieurement dans le cadre de
 
 ---
 
-### 🔎 7. Validation de la connectivité réseau
+## 🔎 7. Validation de la connectivité réseau
 
 Avant l'installation et la configuration des services d'infrastructure, la connectivité réseau du serveur est vérifiée.
 
@@ -205,7 +205,7 @@ ipconfig /all
 
 ---
 
-### ⚙️ 8. Installation du rôle Active Directory Domain Services
+## ⚙️ 8. Installation du rôle Active Directory Domain Services
 
 Une fois le serveur correctement préparé, le rôle **Active Directory Domain Services (AD DS)** est installé.  
 L'installation est réalisée depuis **Server Manager**.
@@ -226,7 +226,7 @@ L'installation du rôle AD DS prépare le serveur à devenir un contrôleur de d
 
 ---
 
-### 🌐 9. Installation du rôle DNS Server
+## 🌐 9. Installation du rôle DNS Server
 
 Le service **DNS** est également installé sur `SRV-01-DC1`.  
 DNS est un composant essentiel d'Active Directory car il permet notamment la résolution des noms utilisés par les services du domaine.
@@ -239,7 +239,7 @@ Le rôle DNS sera ensuite configuré et validé après la promotion du contrôle
 
 ---
 
-### 💻 10. Installation avec PowerShell
+## 💻 10. Installation avec PowerShell
 
 L'installation des rôles peut également être réalisée via **PowerShell** :
 
@@ -257,7 +257,7 @@ Get-WindowsFeature AD-Domain-Services,DNS
 
 ---
 
-### 📸 11. Captures d'écran
+## 📸 11. Captures d'écran
 
 Les captures de cette étape sont stockées dans :
 ```text
@@ -265,7 +265,7 @@ assets/
 └── active-directory/
 ```
 
-#### Préparation du serveur
+### Préparation du serveur
 Cette capture permet de visualiser l'état général de `SRV-01-DC1` après sa préparation. Elle permet notamment d'identifier :
 * le nom du serveur ;
 * le domaine ;
@@ -274,7 +274,7 @@ Cette capture permet de visualiser l'état général de `SRV-01-DC1` après sa p
 * la version de Windows Server ;
 * l'environnement VMware.
 
-#### Installation des rôles AD DS et DNS
+## Installation des rôles AD DS et DNS
 Validation des rôles par commande PowerShell :
 ```powershell
 Get-WindowsFeature AD-Domain-Services,DNS
@@ -282,7 +282,7 @@ Get-WindowsFeature AD-Domain-Services,DNS
 
 ---
 
-### 🧪 12. Validation de l'installation
+## 🧪 12. Validation de l'installation
 
 À l'issue de l'installation, plusieurs contrôles sont effectués :
 
@@ -308,7 +308,7 @@ Get-WindowsFeature AD-Domain-Services,DNS
 
 ---
 
-### 📊 13. Bilan de l'étape
+## 📊 13. Bilan de l'étape
 
 | Élément | État |
 | :--- | :---: |
@@ -326,7 +326,7 @@ Get-WindowsFeature AD-Domain-Services,DNS
 
 ---
 
-### 🎯 Résultat
+## 🎯 Résultat
 
 À l'issue de cette étape, `SRV-01-DC1` dispose d'une base système prête pour le déploiement de l'annuaire **LOGIFLEX**.
 
