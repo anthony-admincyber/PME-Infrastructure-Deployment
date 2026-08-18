@@ -42,3 +42,44 @@ Le nom retenu est :
 
 ```text
 SRV-01-DC1
+
+  *Résultat attendu :* `SRV-01-DC1`
+
+* **Vérification de l'adresse IP :**
+  ```cmd
+  ipconfig /all
+  ```
+  *Adresse attendue :* `192.168.10.10`
+
+---
+
+### 📊 13. Bilan de l'étape
+
+| Élément | État |
+| :--- | :---: |
+| Windows Server 2025 | 🟢 |
+| Renommage `SRV-01-DC1` | 🟢 |
+| Mises à jour Windows | 🟢 |
+| Adresse IP statique | 🟢 |
+| Connectivité réseau | 🟢 |
+| Préparation du serveur | 🟢 |
+| Rôle AD DS | 🟢 |
+| Rôle DNS | 🟢 |
+| Création de la forêt | 🟡 |
+| Promotion DC1 | 🟡 |
+| Durcissement final | 🟡 |
+
+---
+
+### 🎯 Résultat
+
+À l'issue de cette étape, `SRV-01-DC1` dispose d'une base système prête pour le déploiement de l'annuaire **LOGIFLEX**.
+
+Le serveur est :
+* correctement nommé ;
+* mis à jour ;
+* configuré avec une adresse IP statique ;
+* préparé pour les communications d'infrastructure ;
+* équipé des rôles AD DS et DNS.
+
+La prochaine étape consiste à promouvoir `SRV-01-DC1` en tant que premier contrôleur de domaine et à créer la nouvelle forêt Active Directory.
