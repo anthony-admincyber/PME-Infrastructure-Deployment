@@ -99,6 +99,7 @@ L'option permettant de recevoir les mises à jour concernant d'autres produits M
 
 #### Vérification
 Dans **Server Manager**, l'état du serveur permet de vérifier les informations relatives aux dernières mises à jour installées.
+<img width="685" height="77" alt="image" src="https://github.com/user-attachments/assets/bf43a0df-7142-4931-af7e-59a79cb39940" />
 
 ---
 
