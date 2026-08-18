@@ -278,7 +278,7 @@ La présence des rôles peut ensuite être contrôlée :
 <img width="903" height="149" alt="image" src="https://github.com/user-attachments/assets/7223d3fb-5c9b-4938-b0f1-9f496f6c4d1f" />
 
 
-## 📊 12. Bilan de l'étape
+## 📊 11. Bilan de l'étape
 
 | Élément | État |
 | :--- | :---: |
