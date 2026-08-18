@@ -195,6 +195,7 @@ Avant l'installation et la configuration des services d'infrastructure, la conne
 
 <img width="649" height="236" alt="image" src="https://github.com/user-attachments/assets/ce43918c-a5b9-40ee-9778-b5c7682d8c85" />
 
+<br>
 
 **Test vers le futur contrôleur de domaine secondaire :**
 
@@ -285,6 +286,9 @@ La présence des rôles peut ensuite être contrôlée :
 
 <img width="903" height="149" alt="image" src="https://github.com/user-attachments/assets/7223d3fb-5c9b-4938-b0f1-9f496f6c4d1f" />
 
+---
+
+## 📊 11. Bilan de l'étape
 
 | Élément                | État |
 | ---------------------- | :--: |
