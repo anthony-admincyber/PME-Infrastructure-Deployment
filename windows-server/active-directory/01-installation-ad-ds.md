@@ -239,7 +239,7 @@ Le service **DNS (Domain Name System)** constitue un composant essentiel de l'in
 
 Il permet notamment la résolution des noms de domaine et des enregistrements nécessaires au fonctionnement d'**Active Directory**, de l'authentification **Kerberos**, de la réplication entre contrôleurs de domaine ainsi que des différents services d'infrastructure.
 
-Le service DNS est intégré à Active Directory afin de bénéficier de la réplication des zones entre les contrôleurs de domaine.
+Le rôle DNS est installé sur SRV-01-DC1. Après la promotion du serveur et l'intégration de la zone DNS à Active Directory, les données DNS pourront être répliquées entre les contrôleurs de domaine.
 
 Le rôle **DNS Server** a été installé sur `SRV-01-DC1` lors de la préparation de l'infrastructure.
 
@@ -252,8 +252,7 @@ La zone de recherche inversée :
 
 a été créée afin de permettre la résolution **IP → nom DNS (PTR)**.
 
-Cette zone est intégrée à Active Directory et configurée avec des mises à jour dynamiques sécurisées.
-
+La zone de recherche inversée sera intégrée à Active Directory lors de la configuration du domaine. Dans cette maquette, elle est destinée à permettre la résolution IP → nom DNS (PTR).
 Elle permettra notamment aux services d'infrastructure de retrouver le nom associé à une adresse IP.
 
 Cette résolution inverse sera utile pour :
