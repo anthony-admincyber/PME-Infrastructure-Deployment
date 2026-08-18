@@ -79,7 +79,8 @@ Les deux serveurs pourront ainsi communiquer de manière stable pour les mécani
 
 #### Vérification
 
-<img width="658" height="238" alt="image" src="https://github.com/user-attachments/assets/3ef8d86c-6231-4fdd-92fd-572171c98ce8" />
+<img width="681" height="248" alt="image" src="https://github.com/user-attachments/assets/b1a24a78-986c-437f-b1c0-8f2c105acaa6" />
+
 
 
 ---
