@@ -231,9 +231,8 @@ Le rôle DNS sera ensuite configuré et validé après la promotion du contrôle
 ## 💻 10. Installation avec PowerShell
 
 L'installation des rôles peut également être réalisée via **PowerShell** :
+<img width="861" height="47" alt="image" src="https://github.com/user-attachments/assets/ab166cb2-1952-4fcf-b9f4-e005071252e0" />
 
-```powershell
-Install-WindowsFeature AD-Domain-Services,DNS -IncludeManagementTools
 ```
 
 La présence des rôles peut ensuite être contrôlée :
