@@ -99,7 +99,7 @@ Le projet vise à reproduire les principales briques techniques d'un SI d'entrep
        ┌──────▼──────┐             ┌──────▼──────┐
        │ SRV-01-DC1  │◄───────────►│ SRV-02-DC2  │
        │ Windows 2025│   AD / DNS  │ Windows 2025│
-       │ AD DS / DNS │   Replication│ AD DS / DNS │
+       │ AD DS / DNS │ Replication │ AD DS / DNS │
        │ Hyper-V     │             │ Hyper-V     │
        └──────┬──────┘             └──────┬──────┘
               │                           │
@@ -108,10 +108,10 @@ Le projet vise à reproduire les principales briques techniques d'un SI d'entrep
                 ┌───────────┼───────────┐
                 │           │           │
           ┌─────▼─────┐ ┌──▼────────┐ ┌▼───────────┐
-          │ VM-SQL     │ │ VM-Centreon│ │ NAS-SAN01 │
-          │ Linux      │ │ Ubuntu     │ │ TrueNAS   │
-          │ SQL Server │ │ SNMP       │ │ iSCSI/NFS │
-          └────────────┘ └────────────┘ └───────────┘
+          │ VM-SQL    │ │ VM-Centreon│ │ NAS-SAN01 │
+          │ Linux     │ │ Ubuntu     │ │ TrueNAS   │
+          │ SQL Server│ │ SNMP       │ │ iSCSI/NFS │
+          └───────────┘ └────────────┘ └───────────┘
 ```
 
 > 📐 L'architecture complète et les schémas détaillés sont disponibles dans le dossier [`/architecture`](./architecture/).
