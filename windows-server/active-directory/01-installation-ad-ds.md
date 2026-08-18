@@ -53,14 +53,8 @@ Cette standardisation facilite l'administration, la supervision et l'identificat
 
 #### Vérification
 
-```cmd
-hostname
-```
+<img width="471" height="155" alt="image" src="https://github.com/user-attachments/assets/4a5d2490-eb36-41cd-9ff0-d18cea6b1076" />
 
-**Résultat attendu :**
-```text
-SRV-01-DC1
-```
 
 ---
 
