@@ -19,7 +19,7 @@ Cette phase de préparation comprend notamment :
 
 ---
 
-# 🖥️ Environnement
+# 1. 🖥️ Environnement
 
 | Élément | Configuration |
 |---|---|
@@ -34,7 +34,7 @@ Cette phase de préparation comprend notamment :
 
 ---
 
-# 1. 🏷️ Renommage du serveur
+# 2. 🏷️ Renommage du serveur
 
 Le serveur Windows Server a initialement été préparé puis renommé afin de respecter la convention de nommage définie pour l'infrastructure LOGIFLEX.
 
