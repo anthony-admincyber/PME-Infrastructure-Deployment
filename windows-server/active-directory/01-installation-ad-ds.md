@@ -287,33 +287,37 @@ La présence des rôles peut ensuite être contrôlée :
 <img width="903" height="149" alt="image" src="https://github.com/user-attachments/assets/7223d3fb-5c9b-4938-b0f1-9f496f6c4d1f" />
 
 
-## 📊 11. Bilan de l'étape
+| Élément                | État |
+| ---------------------- | :--: |
+| Windows Server 2025    |  🟢  |
+| Renommage `SRV-01-DC1` |  🟢  |
+| Mises à jour Windows   |  🟢  |
+| Adresse IP statique    |  🟢  |
+| Connectivité réseau    |  🟢  |
+| Préparation du serveur |  🟢  |
+| Rôle AD DS installé    |  🟢  |
+| Rôle DNS installé      |  🟢  |
+| Zone DNS inversée      |  🟢  |
+| Promotion DC1          |  🟡  |
+| Création de la forêt   |  🟡  |
+| Durcissement final     |  🟡  |
 
-| Élément | État |
-| :--- | :---: |
-| Windows Server 2025 | 🟢 |
-| Renommage `SRV-01-DC1` | 🟢 |
-| Mises à jour Windows | 🟢 |
-| Adresse IP statique | 🟢 |
-| Connectivité réseau | 🟢 |
-| Préparation du serveur | 🟢 |
-| Rôle AD DS | 🟢 |
-| Rôle DNS | 🟢 |
-| Création de la forêt | 🟡 |
-| Promotion DC1 | 🟡 |
-| Durcissement final | 🟡 |
 
 ---
 
 ## 🎯 Résultat
 
-À l'issue de cette étape, `SRV-01-DC1` dispose d'une base système prête pour le déploiement de l'annuaire **LOGIFLEX**.
+À l'issue de cette étape, `SRV-01-DC1` dispose d'une base système prête à être promue en contrôleur de domaine pour l'infrastructure **LOGIFLEX**.
 
 Le serveur est :
-* correctement nommé ;
-* mis à jour ;
-* configuré avec une adresse IP statique ;
-* préparé pour les communications d'infrastructure ;
-* équipé des rôles AD DS et DNS.
 
-La prochaine étape consiste à promouvoir `SRV-01-DC1` en tant que premier contrôleur de domaine et à créer la nouvelle forêt Active Directory.
+* correctement nommé ;
+* entièrement mis à jour ;
+* configuré avec une adresse IP statique ;
+* validé sur le plan de la connectivité réseau ;
+* équipé des rôles **AD DS** et **DNS** ;
+* préparé pour la prochaine phase de déploiement de l'annuaire.
+
+La prochaine étape consiste à promouvoir `SRV-01-DC1` en tant que **premier contrôleur de domaine**, puis à créer la forêt Active Directory :
+
+`logiflex.infra`
