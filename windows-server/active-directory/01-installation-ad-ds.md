@@ -33,16 +33,15 @@ Cette phase de préparation comprend notamment :
 
 ## 1. 🖥️ Environnement
 
-| Élément | Configuration |
-|---|---|
-| Serveur | `SRV-01-DC1` |
-| Système | Windows Server 2025 Datacenter Evaluation |
-| Hyperviseur |VMware® Workstation Pro 26H1 |
-| Domaine | `logiflex.infra` |
-| Adresse IP | `192.168.10.10/24` |
-| Passerelle | `192.168.10.2` |
-| Rôle prévu | Contrôleur de domaine principal |
-| Services prévus | AD DS / DNS / Hyper-V |
+| Élément | `SRV-01-DC1` | `SRV-02-DC2` |
+|---|---|---|
+| **Système** | Windows Server 2025 Datacenter Evaluation | Windows Server 2025 Datacenter Evaluation |
+| **Hyperviseur** | VMware® Workstation Pro 26H1 | VMware® Workstation Pro 26H1 |
+| **Adresse IP** | `192.168.10.10/24` | `192.168.10.11/24` |
+| **Passerelle** | `192.168.10.2` | `192.168.10.2` |
+| **Domaine** | `logiflex.infra` | `logiflex.infra` |
+| **Rôle prévu** | Premier contrôleur de domaine | Contrôleur de domaine additionnel |
+| **Services** | AD DS / DNS / Hyper-V | AD DS / DNS / Hyper-V / Veeam |
 
 ---
 
