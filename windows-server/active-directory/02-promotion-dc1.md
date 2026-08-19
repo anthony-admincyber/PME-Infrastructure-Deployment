@@ -520,15 +520,15 @@ Cette étape constitue le socle de l'annuaire Active Directory.
 La prochaine étape consistera à promouvoir `SRV-02-DC2` en tant que **second contrôleur de domaine**, puis à vérifier la réplication Active Directory et DNS entre les deux serveurs.
 
 ```text
- SRV-01-DC1
-192.168.10.10
-      │
-      │
-      │  Réplication AD DS / DNS
-      │
-      ▼
- SRV-02-DC2
-192.168.10.11
+                        SRV-01-DC1
+                       192.168.10.10
+                             │
+                             │
+                             │  Réplication AD DS / DNS
+                             │
+                             ▼
+                        SRV-02-DC2
+                       192.168.10.11
 ```
   
 
