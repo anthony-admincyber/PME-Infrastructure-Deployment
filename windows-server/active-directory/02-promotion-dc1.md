@@ -73,7 +73,8 @@ Promouvoir ce serveur en contrôleur de domaine
 
 Cette opération lance l'assistant de configuration des services de domaine Active Directory.
 
-### Capture
+<img width="1723" height="290" alt="image" src="https://github.com/user-attachments/assets/0f4bfeea-6713-4089-adb1-5fc9ff37913e" />
+
 
 ---
 
