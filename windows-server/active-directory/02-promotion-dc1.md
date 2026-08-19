@@ -27,7 +27,7 @@ La promotion permet de créer la première forêt Active Directory de l'environn
                                   SRV-01-DC1     SRV-02-DC2
                                  192.168.10.10   192.168.10.11
                                         │             │
-                                     AD DS           Préparé
+                                     AD DS         Préparé
                                       DNS
                                        │
                                  Premier DC
