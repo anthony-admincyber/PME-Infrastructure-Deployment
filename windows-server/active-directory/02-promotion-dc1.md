@@ -504,6 +504,7 @@ Le serveur constitue désormais le **premier contrôleur de domaine de la forêt
 
 L'environnement dispose maintenant de :
 
+| Paramètre | Valeur |
 | --- | --- |
 | Forêt |logiflex.infra | 
 | Domaine | logiflex.infra |
