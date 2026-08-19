@@ -284,15 +284,15 @@ La promotion nécessite le redémarrage de `SRV-01-DC1`.
 
 Après redémarrage, le serveur appartient désormais au domaine :
 
-logiflex.infra
+**logiflex.infra**
 
 Le compte administrateur peut être utilisé sous la forme :
 
-LOGIFLEX\\Administrateur
+**LOGIFLEX\\Administrateur**
 
 ou :
 
-Administrateur@logiflex.infra
+**Administrateur@logiflex.infra**
 
 ---
 
