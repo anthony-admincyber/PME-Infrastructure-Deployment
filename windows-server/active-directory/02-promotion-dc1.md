@@ -220,27 +220,17 @@ Les emplacements proposés par défaut sont conservés pour cette maquette.
 
 Les principaux éléments sont :
 
-Base de données Active Directory
-
-NTDS
-
-  
-
-Fichiers journaux
-
-Logs
-
-  
-
-SYSVOL
-
-SYSVOL
+- Base de données Active Directory
+- NTDS
+- Fichiers journaux
+- Logs
 
 Ces éléments constituent des composants essentiels du fonctionnement du contrôleur de domaine.
 
 Le dossier **SYSVOL** contient notamment les fichiers nécessaires à la distribution des stratégies de groupe et aux scripts associés au domaine.
 
-### Capture
+<img width="756" height="558" alt="image" src="https://github.com/user-attachments/assets/aa33ece0-7f82-4d1b-a492-60aa7e8aa936" />
+
 
 ---
 
@@ -262,7 +252,8 @@ Les contrôles portent notamment sur :
 
 Tous les contrôles préalables sont validés.
 
-### Capture
+<img width="756" height="557" alt="image" src="https://github.com/user-attachments/assets/3c0fd6a5-37f5-42b3-9a71-49fea8c44f0e" />
+
 
 ---
 
@@ -302,14 +293,6 @@ LOGIFLEX\\Administrateur
 ou :
 
 Administrateur@logiflex.infra
-
-### Vérification
-
-hostname
-
-Résultat attendu :
-
-SRV-01-DC1
 
 ---
 
