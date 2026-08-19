@@ -413,7 +413,7 @@ Une attention particulière sera portée aux éventuelles erreurs DNS et Active 
 
 Après cette étape, l'infrastructure évolue de :
 
-AVANT
+**AVANT**
 
 ```text
 
@@ -427,11 +427,10 @@ Serveur Windows
         ▼
 Promotion
 
-vers :
 
 ```
 
-APRÈS
+**APRÈS**
 
 ```text
 
