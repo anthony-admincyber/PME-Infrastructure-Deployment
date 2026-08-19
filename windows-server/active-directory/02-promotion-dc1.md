@@ -89,7 +89,8 @@ Ajouter une nouvelle forêt
 Le nom du domaine racine est défini comme suit :
 
 ```text
-logiflex.infra```
+logiflex.infra
+```
 
 ### Pourquoi utiliser `logiflex.infra` ?
 
