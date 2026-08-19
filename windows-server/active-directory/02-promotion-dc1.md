@@ -177,7 +177,9 @@ SRV-01-DC1.logiflex.infra
 
 ainsi que des différents enregistrements nécessaires au fonctionnement du domaine.
 
-### Vérification attendue
+---
+
+# 6. 🌐 Vérification et configuration DNS
 
 Après la promotion, les zones DNS liées à Active Directory pourront être vérifiées depuis :
 
@@ -456,7 +458,8 @@ Après cette étape, l'infrastructure évolue de :
 
 La promotion de `SRV-01-DC1` est terminée.
 
-Le serveur constitue désormais le **premier contrôleur de domaine de la forêt Active Directory LOGIFLEX**.
+`SRV-01-DC1` constitue désormais le premier contrôleur de domaine
+de la forêt Active Directory `logiflex.infra`.
 
 L'environnement dispose maintenant de :
 
