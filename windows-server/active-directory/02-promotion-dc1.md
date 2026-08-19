@@ -504,108 +504,29 @@ Le serveur constitue désormais le **premier contrôleur de domaine de la forêt
 
 L'environnement dispose maintenant de :
 
-Forêt :
-
-logiflex.infra
-
-  
-
-Domaine :
-
-logiflex.infra
-
-  
-
-Contrôleur de domaine :
-
-SRV-01-DC1
-
-  
-
-Adresse :
-
-192.168.10.10
-
-  
-
-DNS :
-
-Actif
-
-  
-
-Catalogue global :
-
-Actif
-
-  
-
-SYSVOL :
-
-Actif
-
-  
-
-NETLOGON :
-
-Actif
+| --- | --- |
+| Forêt |logiflex.infra | 
+| Domaine | logiflex.infra |
+| Contrôleur de domaine | SRV-01-DC1 |
+| Adresse | 192.168.10.10 |
+| DNS | Actif |
+| Catalogue global | Actif |
+| SYSVOL | Actif |
+| NETLOGON | Actif |
 
 Cette étape constitue le socle de l'annuaire Active Directory.
 
 La prochaine étape consistera à promouvoir `SRV-02-DC2` en tant que **second contrôleur de domaine**, puis à vérifier la réplication Active Directory et DNS entre les deux serveurs.
 
-SRV-01-DC1
-
+ SRV-01-DC1
 192.168.10.10
-
       │
-
       │
-
       │  Réplication AD DS / DNS
-
       │
-
       ▼
-
-SRV-02-DC2
-
+ SRV-02-DC2
 192.168.10.11
 
   
 
-\### 📸 Les captures que je te conseille réellement de mettre
-
-  
-
-Ne mets surtout pas une capture pour \*\*chaque petite action\*\*. Pour ton GitHub, je viserais environ \*\*8 à 10 captures fortes\*\* :
-
-  
-
-1\. Lancement de la promotion
-
-2\. Création de la nouvelle forêt \`logiflex.infra\`
-
-3\. Options du contrôleur de domaine
-
-4\. Configuration DNS
-
-5\. Nom NetBIOS / DSRM
-
-6\. Vérification des prérequis
-
-7\. Fin de promotion / redémarrage
-
-8\. \`Get-ADDomainController\`
-
-9\. \`nslookup\`
-
-10\. \`dcdiag\`
-
-  
-
-Ça donnera une page beaucoup plus professionnelle que 25 captures d'écran.
-
-  
-
-\*\*Et surtout :\*\* ne mets jamais le vrai mot de passe DSRM dans le dépôt, même dans une capture.
