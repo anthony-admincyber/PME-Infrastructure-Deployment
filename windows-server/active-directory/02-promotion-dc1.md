@@ -391,15 +391,15 @@ Après cette étape, l'infrastructure évolue de :
 
 ```text
 
-   SRV-01-DC1
- 192.168.10.10
+                SRV-01-DC1
+              192.168.10.10
 
-Serveur Windows
- AD DS installé
-  DNS installé
-        │
-        ▼
-    Promotion
+             Serveur Windows
+             AD DS installé
+              DNS installé
+                    │
+                    ▼
+                Promotion
 
 
 ```
