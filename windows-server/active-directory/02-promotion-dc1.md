@@ -52,6 +52,7 @@ Avant de procéder à la promotion, plusieurs éléments ont été vérifiés lo
 | Serveur prêt pour la promotion | 🟢 |
 
 |Configuration réseau de `SRV-01-DC1`| Valeur |
+| --- | --- |
 |Nom | SRV-01-DC1 |
 |IP | 192.168.10.10 |
 |Masque | 255.255.255.0 |
