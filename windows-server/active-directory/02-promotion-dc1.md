@@ -129,7 +129,7 @@ Le rôle **Read-Only Domain Controller (RODC)** n'est pas retenu pour ce serveur
 
 <img width="761" height="548" alt="image" src="https://github.com/user-attachments/assets/a94c7adf-f069-472f-b71a-bc5aea7219a8" />
 
-# Mot de passe DSRM
+### Mot de passe DSRM
 
 L'assistant demande la définition du mot de passe **Directory Services Restore Mode (DSRM)**.
 
@@ -140,13 +140,9 @@ Ce mot de passe est utilisé lors des opérations de maintenance et de restaurat
 Dans la documentation publique du projet, aucune valeur réelle n'est donc renseignée.
 
 DSRM
-
 │
-
 ├── Mot de passe défini localement
-
 ├── Non publié dans GitHub
-
 └── Utilisé uniquement pour les opérations de récupération AD
 ---
 
