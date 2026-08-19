@@ -9,6 +9,7 @@ La promotion permet de créer la première forêt Active Directory de l'environn
 ```text
 logiflex.infra
 
+
 À l'issue de cette étape, `SRV-01-DC1` assurera notamment les fonctions suivantes :
 
 -   Contrôleur de domaine Active Directory ;
