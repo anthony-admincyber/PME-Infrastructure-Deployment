@@ -29,9 +29,9 @@ La promotion permet de créer la première forêt Active Directory de l'environn
                                         │             │
                                      AD DS           Préparé
                                       DNS
-                     │
-              Premier DC
-              de la forêt
+                                       │
+                                 Premier DC
+                                 de la forêt
 
 > ℹ️ `SRV-02-DC2` sera promu dans une étape ultérieure afin de devenir le second contrôleur de domaine et d'assurer la redondance des services Active Directory et DNS.
 
