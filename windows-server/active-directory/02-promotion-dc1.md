@@ -57,7 +57,7 @@ Avant de procéder à la promotion, plusieurs éléments ont été vérifiés lo
 | IP | 192.168.10.10 |
 | Masque | 255.255.255.0 |
 | Passerelle | 192.168.10.2 |
-| domaine Active Directory | logiflex.infra |
+| Domaine Active Directory | logiflex.infra |
 
 ---
 
@@ -65,7 +65,7 @@ Avant de procéder à la promotion, plusieurs éléments ont été vérifiés lo
 
 La promotion du serveur est réalisée depuis **Gestionnaire de serveur**.
 
-Après l'installation du rôle **Active Directory Domain Services**, une notification indique qu'une configuration supplémentaire est nécessaire.
+Après l'installation du rôle **Service de domaine Active Directory**, une notification indique qu'une configuration supplémentaire est nécessaire.
 
 Sélectionner :
 
