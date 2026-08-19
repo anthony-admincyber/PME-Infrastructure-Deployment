@@ -163,13 +163,17 @@ Le service DNS constitue un composant essentiel du fonctionnement d'Active Direc
 
 Lors de la promotion, le rôle DNS est associé au domaine :
 
+```text
 logiflex.infra
+```
 
 Le DNS permettra notamment la résolution des enregistrements nécessaires aux services Active Directory.
 
 Le serveur devient notamment responsable de la résolution de :
 
+```text
 SRV-01-DC1.logiflex.infra
+```
 
 ainsi que des différents enregistrements nécessaires au fonctionnement du domaine.
 
@@ -190,17 +194,23 @@ L'assistant propose également le nom NetBIOS du domaine.
 
 Configuration retenue :
 
+```text
 LOGIFLEX
+```
 
 Le domaine pourra ainsi être référencé sous la forme :
 
+```text
 LOGIFLEX\\Administrateur
+```
 
 en complément du format UPN :
 
+```text
 Administrateur@logiflex.infra
+```
 
-### Capture
+<img width="758" height="560" alt="image" src="https://github.com/user-attachments/assets/2e5542cd-01f2-440b-9f0b-c48933eadfc5" />
 
 ---
 
