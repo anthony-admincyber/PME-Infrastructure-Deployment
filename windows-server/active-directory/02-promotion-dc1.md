@@ -277,7 +277,9 @@ L'assistant :
 
 La machine devient alors le premier contrôleur de domaine de la forêt LOGIFLEX.
 
-### Capture
+### 🚀 Lancement de la promotion
+
+L'assistant procède alors à la configuration du contrôleur de domaine et à la création de la nouvelle forêt Active Directory.
 
 ---
 
