@@ -349,12 +349,16 @@ La présence des partages nécessaires au fonctionnement du domaine est vérifi�
 
 Commande :
 
+```text
 net share
+```
 
 Les partages suivants doivent notamment apparaître :
 
+```text
 NETLOGON
 SYSVOL
+```
 
 Ces partages sont nécessaires au fonctionnement normal d'un domaine Active Directory.
 
@@ -368,7 +372,10 @@ Ces partages sont nécessaires au fonctionnement normal d'un domaine Active Dire
 L'outil `dcdiag` permet de réaliser un diagnostic du contrôleur de domaine.
 
 Commande :
+
+```text
 dcdiag
+```
 
 Cette commande permet notamment de contrôler différents composants du contrôleur de domaine :
 
