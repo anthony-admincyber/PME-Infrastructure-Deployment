@@ -127,7 +127,8 @@ Le **Catalogue global** est activé afin de permettre au contrôleur de domaine 
 
 Le rôle **Read-Only Domain Controller (RODC)** n'est pas retenu pour ce serveur puisqu'il s'agit du premier contrôleur de domaine de la forêt.
 
-### Capture
+<img width="761" height="548" alt="image" src="https://github.com/user-attachments/assets/a94c7adf-f069-472f-b71a-bc5aea7219a8" />
+
 
 ---
 
