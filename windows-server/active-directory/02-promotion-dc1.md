@@ -4,13 +4,10 @@
 
 Cette deuxième étape du projet **LOGIFLEX Infrastructure** consiste à promouvoir le serveur `SRV-01-DC1` en tant que **premier contrôleur de domaine** de l'infrastructure.
 
-La promotion permet de créer la première forêt Active Directory de l'environnement et d'établir le domaine :
-
-```text
-logiflex.infra
+La promotion permet de créer la première forêt Active Directory de l'environnement et d'établir le domaine : logiflex.infra
 
 
-À l'issue de cette étape, `SRV-01-DC1` assurera notamment les fonctions suivantes :
+### À l'issue de cette étape, `SRV-01-DC1` assurera notamment les fonctions suivantes :
 
 -   Contrôleur de domaine Active Directory ;
 -   Authentification des utilisateurs et des ordinateurs ;
@@ -22,31 +19,18 @@ logiflex.infra
 ### Architecture après promotion
 
                          LOGIFLEX
-
                       logiflex.infra
-
                             │
-
                             │
-
                      ┌──────┴──────┐
-
                      │             │
-
                SRV-01-DC1     SRV-02-DC2
-
               192.168.10.10   192.168.10.11
-
                      │             │
-
                   AD DS           Préparé
-
                    DNS
-
                      │
-
               Premier DC
-
               de la forêt
 
 > ℹ️ `SRV-02-DC2` sera promu dans une étape ultérieure afin de devenir le second contrôleur de domaine et d'assurer la redondance des services Active Directory et DNS.
