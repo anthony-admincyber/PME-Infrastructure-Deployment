@@ -102,7 +102,8 @@ Le serveur pourra alors être identifié par son nom FQDN :
 
 SRV-01-DC1.logiflex.infra
 
-### Capture
+<img width="755" height="559" alt="image" src="https://github.com/user-attachments/assets/e27c0f63-4f64-4ad2-88eb-f87b38784691" />
+
 
 ---
 
