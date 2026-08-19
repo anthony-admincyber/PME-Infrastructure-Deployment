@@ -422,8 +422,8 @@ Après cette étape, l'infrastructure évolue de :
               logiflex.infra
                     │
                     │
-             SRV-01-DC1
-            192.168.10.10
+               SRV-01-DC1
+              192.168.10.10
                     │
           ┌─────────┴─────────┐
           │                   │
