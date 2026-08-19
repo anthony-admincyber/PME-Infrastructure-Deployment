@@ -98,11 +98,15 @@ Le suffixe `.infra` permet de distinguer le domaine interne de l'infrastructure 
 
 Le domaine Active Directory devient :
 
+```text
 logiflex.infra
+```
 
 Le serveur pourra alors être identifié par son nom FQDN :
 
+```text
 SRV-01-DC1.logiflex.infra
+```
 
 <img width="755" height="559" alt="image" src="https://github.com/user-attachments/assets/e27c0f63-4f64-4ad2-88eb-f87b38784691" />
 
