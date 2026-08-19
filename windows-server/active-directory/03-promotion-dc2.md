@@ -31,6 +31,8 @@ Cette architecture permet notamment d'améliorer :
              └───────────┬─────────────────┘
                          │
                     Réplication AD
+```
+
 
 > 🎯 **Objectif :** transformer `SRV-02-DC2` en contrôleur de domaine supplémentaire de la forêt `logiflex.infra`.
 
