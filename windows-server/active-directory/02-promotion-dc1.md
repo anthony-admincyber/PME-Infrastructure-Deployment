@@ -302,31 +302,18 @@ Après redémarrage, plusieurs contrôles sont réalisés afin de confirmer la r
 
 ### Vérification du domaine
 
-systeminfo
+<img width="1016" height="635" alt="image" src="https://github.com/user-attachments/assets/f1456295-eee4-4fae-b568-4d022e04a25b" />
 
-La sortie doit notamment indiquer le domaine :
-
-logiflex.infra
 
 ### Vérification du contrôleur de domaine
 
-Get-ADDomainController
+<img width="1826" height="526" alt="image" src="https://github.com/user-attachments/assets/2019b50e-df9f-4f4f-ad60-dbe269488f9e" />
 
-Le contrôleur doit apparaître comme :
-
-SRV-01-DC1
-
-avec l'adresse :
-
-192.168.10.10
 
 ### Vérification du domaine Active Directory
 
-Get-ADDomain
+<img width="1430" height="644" alt="image" src="https://github.com/user-attachments/assets/762294f8-07a9-408b-a216-cb0211d32dd7" />
 
-Le domaine attendu est :
-
-logiflex.infra
 
 ---
 
@@ -336,19 +323,8 @@ La résolution DNS est ensuite vérifiée.
 
 ### Résolution du contrôleur de domaine
 
-nslookup SRV-01-DC1.logiflex.infra
+<img width="557" height="129" alt="image" src="https://github.com/user-attachments/assets/5df10e00-1f9b-416f-b08a-3bb1c87cfcce" />
 
-Le résultat doit retourner :
-
-192.168.10.10
-
-### Résolution du domaine
-
-nslookup logiflex.infra
-
-Ces contrôles permettent de confirmer que le service DNS fonctionne correctement après la promotion.
-
-### Capture
 
 ---
 
@@ -356,13 +332,9 @@ Ces contrôles permettent de confirmer que le service DNS fonctionne correctemen
 
 La console **Utilisateurs et ordinateurs Active Directory** permet de vérifier la création du domaine.
 
-Le domaine doit apparaître sous :
-
-logiflex.infra
+<img width="752" height="282" alt="image" src="https://github.com/user-attachments/assets/579a5020-c266-423a-86f5-25849d4ad094" />
 
 Les conteneurs et unités d'organisation standards créés lors de la mise en place du domaine peuvent également être vérifiés.
-
-### Capture
 
 ---
 
@@ -382,7 +354,8 @@ SYSVOL
 
 Ces partages sont nécessaires au fonctionnement normal d'un domaine Active Directory.
 
-### Capture
+<img width="761" height="250" alt="image" src="https://github.com/user-attachments/assets/0741b5bc-a806-496c-9bbc-9020e4e124f9" />
+
 
 ---
 
@@ -405,7 +378,8 @@ Cette commande permet notamment de contrôler différents composants du contrôl
 
 Une attention particulière sera portée aux éventuelles erreurs DNS et Active Directory.
 
-### Capture
+<img width="1900" height="758" alt="image" src="https://github.com/user-attachments/assets/7e7542a7-a483-4460-8041-2ba3bf4c0c39" />
+
 
 ---
 
@@ -417,15 +391,15 @@ Après cette étape, l'infrastructure évolue de :
 
 ```text
 
-  SRV-01-DC1
+   SRV-01-DC1
  192.168.10.10
 
 Serveur Windows
  AD DS installé
- DNS installé
+  DNS installé
         │
         ▼
-Promotion
+    Promotion
 
 
 ```
