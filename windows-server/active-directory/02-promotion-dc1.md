@@ -415,61 +415,43 @@ Après cette étape, l'infrastructure évolue de :
 
 AVANT
 
-  
+```text
 
 SRV-01-DC1
-
 192.168.10.10
-
 Serveur Windows
-
 AD DS installé
-
 DNS installé
-
         │
-
         ▼
-
 Promotion
-
 vers :
+
+```
 
 APRÈS
 
-  
+```text
 
                  LOGIFLEX
-
               logiflex.infra
-
                     │
-
                     │
-
              SRV-01-DC1
-
             192.168.10.10
-
                     │
-
           ┌─────────┴─────────┐
-
           │                   │
-
         AD DS                DNS
-
           │
-
      Catalogue global
-
           │
-
        SYSVOL
-
           │
-
        NETLOGON
+
+```
+
 
 `SRV-01-DC1` constitue désormais le **premier contrôleur de domaine** de l'infrastructure.
 
