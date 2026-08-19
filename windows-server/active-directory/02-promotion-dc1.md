@@ -140,11 +140,13 @@ Ce mot de passe est utilisé lors des opérations de maintenance et de restaurat
 Dans la documentation publique du projet, aucune valeur réelle n'est donc renseignée.
 
 
+```text
 DSRM
 │
 ├── Mot de passe défini localement
 ├── Non publié dans GitHub
 └── Utilisé uniquement pour les opérations de récupération AD
+```
 
 
 ---
