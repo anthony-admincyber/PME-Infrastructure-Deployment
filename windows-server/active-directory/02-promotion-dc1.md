@@ -18,17 +18,17 @@ La promotion permet de créer la première forêt Active Directory de l'environn
 
 ### Architecture après promotion
 
-                         LOGIFLEX
-                      logiflex.infra
-                            │
-                            │
-                     ┌──────┴──────┐
-                     │             │
-               SRV-01-DC1     SRV-02-DC2
-              192.168.10.10   192.168.10.11
-                     │             │
-                  AD DS           Préparé
-                   DNS
+                                            LOGIFLEX
+                                         logiflex.infra
+                                               │
+                                               │
+                                        ┌──────┴──────┐
+                                        │             │
+                                  SRV-01-DC1     SRV-02-DC2
+                                 192.168.10.10   192.168.10.11
+                                        │             │
+                                     AD DS           Préparé
+                                      DNS
                      │
               Premier DC
               de la forêt
