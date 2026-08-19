@@ -53,11 +53,11 @@ Avant de procéder à la promotion, plusieurs éléments ont été vérifiés lo
 
 |Configuration réseau de `SRV-01-DC1`| Valeur |
 | --- | --- |
-|Nom | SRV-01-DC1 |
-|IP | 192.168.10.10 |
-|Masque | 255.255.255.0 |
-|Passerelle | 192.168.10.2 |
-|Le domaine Active Directory qui sera créé | logiflex.infra |
+| Nom | SRV-01-DC1 |
+| IP | 192.168.10.10 |
+| Masque | 255.255.255.0 |
+| Passerelle | 192.168.10.2 |
+| domaine Active Directory | logiflex.infra |
 
 ---
 
