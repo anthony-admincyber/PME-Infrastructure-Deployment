@@ -71,23 +71,11 @@ Avant l'intégration au domaine, la communication entre les deux serveurs est v�
 
 ### Test du contrôleur de domaine principal
 
-ping 192.168.10.10
-
-Le test doit retourner une réponse provenant de :
-
-192.168.10.10
+<img width="691" height="239" alt="image" src="https://github.com/user-attachments/assets/4468d356-8b9d-4171-aabd-425590eefd80" />
 
 ### Vérification de la configuration réseau
 
-ipconfig /all
-
-La configuration attendue est :
-
-Adresse IPv4 : 192.168.10.11
-
-Masque       : 255.255.255.0
-
-Passerelle   : 192.168.10.2
+<img width="825" height="534" alt="image" src="https://github.com/user-attachments/assets/4e310734-419e-4932-9342-25b40302b3b9" />
 
 ---
 
@@ -99,8 +87,6 @@ Le serveur utilise temporairement `SRV-01-DC1` comme serveur DNS principal :
 
 DNS préféré :
 
-  
-
 192.168.10.10
 
 Cette configuration permet à `SRV-02-DC2` de résoudre :
@@ -111,11 +97,7 @@ ainsi que les enregistrements nécessaires à la découverte des services Active
 
 ### Vérification
 
-nslookup logiflex.infra
-
-Le serveur DNS interrogé doit correspondre au contrôleur de domaine :
-
-192.168.10.10
+<img width="514" height="175" alt="image" src="https://github.com/user-attachments/assets/7814079f-cbf7-455c-ae4e-ded844a639b1" />
 
 ---
 
@@ -233,19 +215,11 @@ L'assistant permet de définir les emplacements des différents composants Activ
 
 Les éléments concernés sont notamment :
 
-Base de données AD DS
-
-NTDS.dit
-
-  
-
-Fichiers journaux
-
-Logs
-
-  
-
-SYSVOL
+- Base de données AD DS
+- NTDS.dit
+- Fichiers journaux
+- Logs
+- SYSVOL
 
 Les emplacements sont conservés dans la configuration prévue pour le serveur.
 
@@ -269,21 +243,13 @@ La réplication permet notamment de synchroniser :
 Architecture obtenue :
 
              SRV-01-DC1
-
             192.168.10.10
-
                   │
-
                   │
-
           Réplication AD DS
-
                   │
-
                   ▼
-
              SRV-02-DC2
-
             192.168.10.11
 
 Cette architecture évite que l'ensemble des services d'annuaire repose sur un seul serveur.
@@ -303,19 +269,12 @@ Les zones DNS intégrées à Active Directory peuvent être répliquées entre l
 ### Architecture DNS
 
                 logiflex.infra
-
                       │
-
              ┌────────┴────────┐
-
              │                 │
-
         SRV-01-DC1        SRV-02-DC2
-
         DNS + AD DS       DNS + AD DS
-
              │                 │
-
              └──── Réplication ┘
 
 Cette redondance permet de limiter la dépendance à un seul serveur DNS.
@@ -340,27 +299,17 @@ Après redémarrage, plusieurs contrôles sont réalisés.
 
 ### Vérification du nom du serveur
 
-hostname
+<img width="340" height="53" alt="image" src="https://github.com/user-attachments/assets/d0d6aea2-af44-4e0c-a883-b1dc9bf6e469" />
 
-Résultat attendu :
-
-SRV-02-DC2
 
 ### Vérification du domaine
 
-Get-ADDomain
+<img width="1118" height="673" alt="image" src="https://github.com/user-attachments/assets/1e455e87-662f-491a-b679-754b618f7b76" />
 
-Le domaine retourné doit être :
-
-logiflex.infra
 
 ### Vérification de la forêt
 
-Get-ADForest
-
-La forêt doit correspondre à :
-
-logiflex.infra
+<img width="970" height="325" alt="image" src="https://github.com/user-attachments/assets/8e3be419-72e8-43ff-8611-430806cb0864" />
 
 ---
 
@@ -368,13 +317,8 @@ logiflex.infra
 
 La commande suivante permet d'identifier les contrôleurs de domaine présents dans le domaine :
 
-Get-ADDomainController -Filter \*
+<img width="1033" height="134" alt="image" src="https://github.com/user-attachments/assets/e1cf13f9-556a-476e-bd64-488769f77d65" />
 
-Le résultat attendu doit faire apparaître :
-
-SRV-01-DC1
-
-SRV-02-DC2
 
 L'infrastructure dispose désormais de deux contrôleurs de domaine.
 
@@ -460,65 +404,7 @@ Ces vérifications permettent de valider les enregistrements DNS associés aux d
 
 ---
 
-# 18\. 📸 Captures d'écran
-
-Les captures de cette étape sont stockées dans :
-
-assets/
-
-└── images/
-
-    └── active-directory/
-
-Les principales captures recommandées sont :
-
-### Promotion du serveur
-
-Capture de l'assistant :
-
-Ajouter un contrôleur de domaine à un domaine existant
-
-### Options du contrôleur de domaine
-
-Capture montrant :
-
-DNS
-
-Catalogue global
-
-RODC
-
-### Finalisation de la promotion
-
-Capture de la validation de la configuration avant redémarrage.
-
-### Vérification des contrôleurs
-
-Capture de :
-
-Get-ADDomainController -Filter \*
-
-### Vérification de la réplication
-
-Capture de :
-
-repadmin /replsummary
-
-### Diagnostic
-
-Capture de :
-
-dcdiag
-
-### SYSVOL / NETLOGON
-
-Capture de :
-
-net share
-
----
-
-# 19\. 📊 Bilan de l'étape
+# 18\. 📊 Bilan de l'étape
 
 | Élément | État |
 | --- | --- |
@@ -545,27 +431,15 @@ net share
 L'environnement dispose maintenant de deux contrôleurs de domaine :
 
 ┌───────────────────────────────┐
-
 │       Active Directory        │
-
 │        logiflex.infra         │
-
 └───────────────┬───────────────┘
-
                 │
-
        ┌────────┴────────┐
-
        │                 │
-
        ▼                 ▼
-
  SRV-01-DC1         SRV-02-DC2
-
  192.168.10.10      192.168.10.11
-
  AD DS + DNS        AD DS + DNS
-
        │                 │
-
-       └──── Réplication ┘
+       └───Réplication───┘
