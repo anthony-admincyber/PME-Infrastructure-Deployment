@@ -26,7 +26,7 @@ Cette architecture permet notamment d'améliorer :
                             │
              ┌──────────────┴──────────────┐
              │                             │
-       SRV-01-DC1                    SRV-02-DC2
+       SRV-01-DC1                     SRV-02-DC2
       192.168.10.10                  192.168.10.11
              │                             │
         AD DS / DNS                   AD DS / DNS
