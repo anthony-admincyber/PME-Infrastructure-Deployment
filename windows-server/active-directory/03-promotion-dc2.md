@@ -155,7 +155,9 @@ Promouvoir ce serveur en contrôleur de domaine
 
 L'option suivante est sélectionnée :
 
+```text
 Ajouter un contrôleur de domaine à un domaine existant
+```
 
 Domaine cible :
 
