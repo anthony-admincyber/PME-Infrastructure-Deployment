@@ -338,6 +338,9 @@ repadmin /showrepl
 
 L'objectif est de confirmer l'absence d'erreurs de réplication.
 
+<img width="604" height="322" alt="image" src="https://github.com/user-attachments/assets/8b0efaf6-07fa-4dd8-acec-77db2de8ea0f" />
+
+
 ---
 
 # 15\. 🩺 Diagnostic du contrôleur de domaine
@@ -357,6 +360,10 @@ Cette commande permet notamment de contrôler plusieurs composants essentiels :
 -   NETLOGON.
 
 Une infrastructure correctement configurée doit présenter des résultats cohérents et ne pas révéler d'erreurs critiques.
+
+<img width="1522" height="805" alt="image" src="https://github.com/user-attachments/assets/624097c4-7159-4a8a-9786-e3e087e4f7be" />
+<img width="841" height="731" alt="image" src="https://github.com/user-attachments/assets/b86d8307-2514-4b68-bc82-02e0917d4124" />
+
 
 ---
 
