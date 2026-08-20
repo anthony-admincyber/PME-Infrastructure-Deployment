@@ -87,11 +87,15 @@ Le serveur utilise temporairement `SRV-01-DC1` comme serveur DNS principal :
 
 DNS préféré :
 
+```text
 192.168.10.10
+```
 
 Cette configuration permet à `SRV-02-DC2` de résoudre :
 
+```text
 logiflex.infra
+```
 
 ainsi que les enregistrements nécessaires à la découverte des services Active Directory.
 
@@ -115,11 +119,15 @@ L'installation est réalisée depuis **Gestionnaire de serveur**.
 4.  Choisir **Installation basée sur un rôle ou une fonctionnalité**.
 5.  Sélectionner :
 
+```text
 SRV-02-DC2
+```
 
 1.  Sélectionner :
 
+```text
 Services de domaine Active Directory
+```
 
 1.  Accepter l'installation des fonctionnalités requises.
 2.  Lancer l'installation.
@@ -148,7 +156,9 @@ Ajouter un contrôleur de domaine à un domaine existant
 
 Domaine cible :
 
+```text
 logiflex.infra
+```
 
 Cette configuration permet d'ajouter `SRV-02-DC2` à la forêt Active Directory déjà créée.
 
@@ -160,7 +170,9 @@ L'assistant demande un compte disposant des privilèges nécessaires pour ajoute
 
 Le compte utilisé possède les droits d'administration appropriés sur le domaine :
 
+```text
 logiflex.infra
+```
 
 > 🔒 Aucun mot de passe ou secret d'authentification n'est enregistré dans le dépôt GitHub.
 
@@ -179,31 +191,34 @@ Le serveur devient ainsi un contrôleur de domaine capable de participer aux ser
 
 Contrôleur de domaine :
 
+```text
 SRV-02-DC2
-
+```
   
 
 Domaine :
 
+```text
 logiflex.infra
-
-  
+```
 
 DNS :
 
+```text
 Activé
-
-  
+```
 
 Catalogue global :
 
+```text
 Activé
-
-  
+```  
 
 RODC :
 
+```text
 Désactivé
+```
 
 Le serveur est configuré comme contrôleur de domaine inscriptible et non comme **Read-Only Domain Controller (RODC)**.
 
@@ -262,7 +277,9 @@ Lors de la promotion du serveur, le rôle DNS est également configuré.
 
 `SRV-02-DC2` devient ainsi un serveur DNS supplémentaire pour le domaine :
 
+```text
 logiflex.infra
+```
 
 Les zones DNS intégrées à Active Directory peuvent être répliquées entre les contrôleurs de domaine.
 
@@ -289,7 +306,9 @@ Le serveur est ensuite redémarré.
 
 Après redémarrage, `SRV-02-DC2` fonctionne en tant que contrôleur de domaine supplémentaire de :
 
+```text
 logiflex.infra
+```
 
 ---
 
@@ -328,13 +347,17 @@ L'infrastructure dispose désormais de deux contrôleurs de domaine.
 
 La réplication Active Directory est vérifiée avec :
 
+```text
 repadmin /replsummary
+```
 
 Cette commande permet d'obtenir une synthèse de l'état de réplication entre les contrôleurs de domaine.
 
 Une vérification détaillée peut également être réalisée avec :
 
+```text
 repadmin /showrepl
+```
 
 L'objectif est de confirmer l'absence d'erreurs de réplication.
 
@@ -347,7 +370,9 @@ L'objectif est de confirmer l'absence d'erreurs de réplication.
 
 Le diagnostic Active Directory est réalisé avec :
 
+```text
 dcdiag
+```
 
 Cette commande permet notamment de contrôler plusieurs composants essentiels :
 
@@ -371,13 +396,14 @@ Une infrastructure correctement configurée doit présenter des résultats cohé
 
 Les partages nécessaires au fonctionnement du domaine sont vérifiés :
 
+```text
 net share
+```
 
 Les partages suivants doivent notamment être présents :
 
-NETLOGON
-
-SYSVOL
+- NETLOGON
+- SYSVOL
 
 Ces partages sont essentiels au fonctionnement des stratégies de groupe et à la distribution de fichiers nécessaires aux postes membres du domaine.
 
@@ -445,6 +471,7 @@ Ces vérifications permettent de valider les enregistrements DNS associés aux d
 
 L'environnement dispose maintenant de deux contrôleurs de domaine :
 
+```text
 ┌───────────────────────────────┐
 │       Active Directory        │
 │        logiflex.infra         │
@@ -458,3 +485,4 @@ L'environnement dispose maintenant de deux contrôleurs de domaine :
  AD DS + DNS        AD DS + DNS
        │                 │
        └───Réplication───┘
+```
