@@ -1,5 +1,8 @@
 # 03 — Promotion de SRV-02-DC2 et mise en place du contrôleur de domaine secondaire
 
+<br>
+<br>
+
 ## 📌 Présentation
 
 Cette troisième étape du projet **LOGIFLEX Infrastructure** consiste à intégrer `SRV-02-DC2` à l'infrastructure Active Directory précédemment créée sur `SRV-01-DC1`.
