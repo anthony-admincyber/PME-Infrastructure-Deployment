@@ -381,6 +381,9 @@ SYSVOL
 
 Ces partages sont essentiels au fonctionnement des stratégies de groupe et à la distribution de fichiers nécessaires aux postes membres du domaine.
 
+<img width="738" height="241" alt="image" src="https://github.com/user-attachments/assets/4537cdda-ea05-4373-9a22-7081e3a086a9" />
+
+
 ---
 
 # 17\. 🌐 Vérification DNS
@@ -389,23 +392,28 @@ La résolution du domaine est vérifiée depuis `SRV-02-DC2`.
 
 ### Résolution du domaine
 
-nslookup logiflex.infra
+<img width="473" height="147" alt="image" src="https://github.com/user-attachments/assets/d493e3fd-ddf8-4163-afc8-2d5699c93a7e" />
+
 
 ### Résolution du contrôleur principal
 
-nslookup SRV-01-DC1.logiflex.infra
+<img width="548" height="120" alt="image" src="https://github.com/user-attachments/assets/a2d0074e-bee2-4a51-bd24-35bb37dbdbc9" />
+
 
 ### Résolution du contrôleur secondaire
 
-nslookup SRV-02-DC2.logiflex.infra
+<img width="547" height="123" alt="image" src="https://github.com/user-attachments/assets/5ec018fc-6b76-4738-9ebe-233ad79f9d44" />
+
 
 La résolution inverse peut également être contrôlée :
 
-nslookup 192.168.10.10
+<img width="440" height="126" alt="image" src="https://github.com/user-attachments/assets/cf55d133-e9bb-491d-ad5e-4812ef735a08" />
+
 
 et :
 
-nslookup 192.168.10.11
+<img width="435" height="123" alt="image" src="https://github.com/user-attachments/assets/9cefd753-66f8-4117-97e9-e360f60eda5e" />
+
 
 Ces vérifications permettent de valider les enregistrements DNS associés aux deux contrôleurs de domaine.
 
