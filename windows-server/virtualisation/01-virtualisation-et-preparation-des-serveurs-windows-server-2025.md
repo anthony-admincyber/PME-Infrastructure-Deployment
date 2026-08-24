@@ -197,7 +197,8 @@ Pour chaque machine virtuelle, les paramètres suivants sont configurés :
 <img width="322" height="98" alt="image" src="https://github.com/user-attachments/assets/872cd09d-ddaa-4745-8db9-4c3121affcc9" />
 
 16.  Configuration du réseau.
-<img width="401" height="448" alt="image" src="https://github.com/user-attachments/assets/cf147492-3951-4cde-84fa-61bebc81d908" />
+<img width="396" height="452" alt="image" src="https://github.com/user-attachments/assets/3076d309-2f17-4696-bcca-db0d68712c1e" />
+
 
 
 ---
