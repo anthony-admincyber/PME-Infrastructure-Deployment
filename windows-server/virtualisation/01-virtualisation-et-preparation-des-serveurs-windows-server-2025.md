@@ -23,7 +23,7 @@ Ces deux serveurs constitueront ensuite le socle de l'infrastructure LOGIFLEX.
                  │                       │
                  ▼                       ▼
         ┌─────────────────┐     ┌─────────────────┐
-        │   SRV-01-DC1    │     │   SRV-02-DC2    │
+        │   SRV-01-HV     │     │   SRV-02-DC2    │
         │  Windows Server │     │  Windows Server │
         │      2025       │     │      2025       │
         │                 │     │                 │
@@ -62,18 +62,18 @@ VMware Workstation
       │
       ├───────────────┐
       ▼               ▼
-SRV-01-DC1        SRV-02-DC2
+SRV-01-HV         SRV-02-DC2
 Windows 2025      Windows 2025
 ```
 
 ### Niveau 2 — Hyper-V
 
-`SRV-01-DC1` sera configuré ultérieurement comme hôte **Hyper-V**.
+`SRV-01-HV` sera configuré ultérieurement comme hôte **Hyper-V**.
 
 Des machines virtuelles supplémentaires seront alors hébergées à l'intérieur de ce serveur.
 
 ```
-SRV-01-DC1
+SRV-01-HV
 Windows Server 2025
         │
         ▼
@@ -107,12 +107,12 @@ L'objectif est de conserver suffisamment de ressources pour le système hôte to
 
 ---
 
-# 🖥️ 3. Création de `SRV-01-DC1`
+# 🖥️ 3. Création de `SRV-01-HV`
 
 La première machine virtuelle Windows Server 2025 est destinée à devenir le serveur principal de l'infrastructure.
 
 ```
-Nom : SRV-01-DC1
+Nom : SRV-01-HV
 OS : Windows Server 2025
 IP : 192.168.10.10/24
 Passerelle : 192.168.10.2
@@ -128,7 +128,7 @@ Son rôle évoluera progressivement au cours du projet.
 -   hébergement de machines virtuelles ;
 -   services d'infrastructure.
 
-> ℹ️ La VM `SRV-01-DC1` constitue l'hôte Hyper-V de la maquette. Les services applicatifs seront séparés dans des machines virtuelles dédiées.
+> ℹ️ La VM `SRV-01-HV` constitue l'hôte Hyper-V de la maquette. Les services applicatifs seront séparés dans des machines virtuelles dédiées.
 
 ---
 
@@ -201,12 +201,12 @@ Les ressources du poste physique sont réparties entre Windows 11 Pro et les mac
 
 L'allocation est adaptée aux besoins de la maquette et pourra être ajustée en fonction de la charge observée.
 
-| Ressource | Hôte physique | SRV-01-DC1 | SRV-02-DC2 |
+| Ressource | Hôte physique | SRV-01-HV | SRV-02-DC2 |
 | --- | --- | --- | --- |
-| RAM disponible | 32 Go | Selon besoin | Selon besoin |
-| CPU | Processeur physique | Selon besoin | Selon besoin |
-| Stockage | SSD / NVMe | Disque virtuel | Disque virtuel |
-| OS | Windows 11 Pro | Windows Server 2025 | Windows Server 2025 |
+| RAM disponible | 32 Go | 8 Go | Selon besoin |
+| CPU | Processeur physique | 4 | Selon besoin |
+| Stockage | SSD / NVMe | 80 Go | Disque virtuel |
+| OS | Windows 11 Pro | Windows Server 2025 Edition Standard | Windows Server 2025 Edition Standard|
 
 > 💡 Les ressources affichées dans VMware représentent les ressources attribuées aux machines virtuelles et non les capacités physiques maximales du poste.
 
@@ -229,7 +229,7 @@ Les deux machines virtuelles sont connectées au réseau du laboratoire.
               ┌────────────┴────────────┐
               │                         │
               ▼                         ▼
-        SRV-01-DC1                SRV-02-DC2
+          SRV-01-HV                SRV-02-DC2
         192.168.10.10             192.168.10.11
 ```
 
@@ -237,7 +237,7 @@ Les deux machines virtuelles sont connectées au réseau du laboratoire.
 
 | Serveur | Adresse IP | Masque | Passerelle |
 | --- | --- | --- | --- |
-| SRV-01-DC1 | 192.168.10.10 | /24 | 192.168.10.2 |
+| SRV-01-HV | 192.168.10.10 | /24 | 192.168.10.2 |
 | SRV-02-DC2 | 192.168.10.11 | /24 | 192.168.10.2 |
 
 Cette configuration permettra ensuite aux deux serveurs de communiquer pour :
@@ -255,7 +255,7 @@ Cette configuration permettra ensuite aux deux serveurs de communiquer pour :
 
 Une particularité de ce laboratoire est l'utilisation de la **virtualisation imbriquée**.
 
-`SRV-01-DC1` est lui-même une machine virtuelle VMware, mais il sera également utilisé comme hôte Hyper-V.
+`SRV-01-HV` est lui-même une machine virtuelle VMware, mais il sera également utilisé comme hôte Hyper-V.
 
 ```
 ┌──────────────────────────────────────┐
@@ -265,7 +265,7 @@ Une particularité de ce laboratoire est l'utilisation de la **virtualisation im
 │ │ VMware Workstation               │ │
 │ │                                  │ │
 │ │ ┌──────────────────────────────┐ │ │
-│ │ │ SRV-01-DC1                   │ │ │
+│ │ │ SRV-01-HV                    │ │ │
 │ │ │ Windows Server 2025          │ │ │
 │ │ │                              │ │ │
 │ │ │ Hyper-V                      │ │ │
@@ -285,9 +285,9 @@ Cette configuration permet de reproduire plusieurs niveaux d'infrastructure avec
 
 ---
 
-# ⚙️ 9. Préparation de `SRV-01-DC1` pour Hyper-V
+# ⚙️ 9. Préparation de `SRV-01-HV` pour Hyper-V
 
-Après l'installation de Windows Server 2025, `SRV-01-DC1` sera préparé pour recevoir le rôle Hyper-V.
+Après l'installation de Windows Server 2025, `SRV-01-HV` sera préparé pour recevoir le rôle Hyper-V.
 
 La configuration comprend notamment :
 
@@ -297,7 +297,7 @@ La configuration comprend notamment :
 -   configuration du commutateur virtuel ;
 -   création des futures machines virtuelles.
 
-L'objectif est de transformer `SRV-01-DC1` en plateforme d'hébergement des services applicatifs du laboratoire.
+L'objectif est de transformer `SRV-01-HV` en plateforme d'hébergement des services applicatifs du laboratoire.
 
 ---
 
@@ -314,7 +314,7 @@ hostname
 Résultats attendus :
 
 ```
-SRV-01-DC1
+SRV-01-HV
 ```
 
 et :
@@ -337,7 +337,7 @@ ping 192.168.10.2
 
 ### Test entre les deux serveurs
 
-Depuis `SRV-01-DC1` :
+Depuis `SRV-01-HV` :
 
 ```
 ping 192.168.10.11
