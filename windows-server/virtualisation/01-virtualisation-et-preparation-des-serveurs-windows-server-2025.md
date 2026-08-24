@@ -203,9 +203,9 @@ L'allocation est adaptée aux besoins de la maquette et pourra être ajustée en
 
 | Ressource | Hôte physique | SRV-01-HV | SRV-02-DC2 |
 | --- | --- | --- | --- |
-| RAM disponible | 32 Go | 8 Go | Selon besoin |
-| CPU | Processeur physique | 4 | Selon besoin |
-| Stockage | SSD / NVMe | 80 Go | Disque virtuel |
+| RAM disponible | 32 Go | 8 Go | 6 Go |
+| CPU | Processeur physique | 4 | 6 |
+| Stockage | SSD / NVMe | 80 Go | 100 Go |
 | OS | Windows 11 Pro | Windows Server 2025 Edition Standard | Windows Server 2025 Edition Standard|
 
 > 💡 Les ressources affichées dans VMware représentent les ressources attribuées aux machines virtuelles et non les capacités physiques maximales du poste.
@@ -402,7 +402,7 @@ assets/
 | --- | --- |
 | Windows 11 Pro | 🟢 |
 | VMware Workstation | 🟢 |
-| SRV-01-DC1 créé | 🟢 |
+| SRV-01-HV créé | 🟢 |
 | SRV-02-DC2 créé | 🟢 |
 | Windows Server 2025 installé | 🟢 |
 | Allocation CPU/RAM | 🟢 |
@@ -426,7 +426,7 @@ VMware Workstation
        │
        ├──────────────────┐
        ▼                  ▼
-SRV-01-DC1           SRV-02-DC2
+    SRV-01-HV          SRV-02-DC2
 Windows Server 2025  Windows Server 2025
        │                  │
        ▼                  ▼
