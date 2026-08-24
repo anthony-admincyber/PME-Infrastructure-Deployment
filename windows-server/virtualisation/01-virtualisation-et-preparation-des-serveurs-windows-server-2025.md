@@ -23,12 +23,12 @@ Ces deux serveurs constitueront ensuite le socle de l'infrastructure LOGIFLEX.
                  │                       │
                  ▼                       ▼
         ┌─────────────────┐     ┌─────────────────┐
-        │  SRV-01-DC1     │     │  SRV-02-DC2     │
-        │ Windows Server  │     │ Windows Server  │
-        │     2025        │     │     2025        │
+        │   SRV-01-DC1    │     │   SRV-02-DC2    │
+        │  Windows Server │     │  Windows Server │
+        │      2025       │     │      2025       │
         │                 │     │                 │
-        │ Hyper-V         │     │ AD DS / DNS     │
-        │ activé          │     │                 │
+        │     Hyper-V     │     │ AD DS / DNS     │
+        │     activé      │     │                 │
         └────────┬────────┘     └─────────────────┘
                  │
                  ▼
@@ -38,8 +38,8 @@ Ces deux serveurs constitueront ensuite le socle de l'infrastructure LOGIFLEX.
         │        │         │
         ▼        ▼         ▼
       VM-DC1   VM-SQL   VM-Centreon
-                          │
-                       VM-Veeam
+                           │
+                        VM-Veeam
 ```
 
 > 🎯 **Objectif :** démontrer la mise en œuvre d'une infrastructure virtualisée, la création de machines virtuelles Windows Server 2025 et l'utilisation de la virtualisation imbriquée avec Hyper-V.
