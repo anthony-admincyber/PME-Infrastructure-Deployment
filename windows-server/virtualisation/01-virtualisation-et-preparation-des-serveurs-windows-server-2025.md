@@ -139,7 +139,7 @@ La seconde machine virtuelle Windows Server 2025 constitue le second serveur de 
 ```
 Nom : SRV-02-DC2
 OS : Windows Server 2025
-IP : 192.168.10.11/24
+IP : 192.168.10.21/24
 Passerelle : 192.168.10.2
 ```
 
