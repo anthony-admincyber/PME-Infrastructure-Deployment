@@ -188,7 +188,9 @@ Pour chaque machine virtuelle, les paramètres suivants sont configurés :
 <img width="814" height="311" alt="image" src="https://github.com/user-attachments/assets/fb15297e-4bde-441e-9023-fcb453d40a0b" />
 
 13. Installation de VMware Tools
-13.  Installation des mises à jour.
+<img width="888" height="402" alt="image" src="https://github.com/user-attachments/assets/9aa68b9d-5a7c-4139-939e-e71fba37937f" />
+
+14.  Installation des mises à jour.
 <img width="702" height="457" alt="image" src="https://github.com/user-attachments/assets/d05bd451-7c2c-424c-803a-763d15bf9925" />
 
 15.  Configuration du réseau.
