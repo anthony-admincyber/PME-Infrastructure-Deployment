@@ -158,6 +158,7 @@ Le fait de disposer d'un second serveur permet de simuler une infrastructure plu
 # ⚙️ 5. Création des machines virtuelles dans VMware
 
 La création des deux serveurs est réalisée depuis **VMware Workstation Pro**.
+Ici les captures concernent la création du serveur SRV-01-HV.
 
 Pour chaque machine virtuelle, les paramètres suivants sont configurés :
 
@@ -186,9 +187,11 @@ Pour chaque machine virtuelle, les paramètres suivants sont configurés :
 12.  Installation de Windows Server 2025.
 <img width="814" height="311" alt="image" src="https://github.com/user-attachments/assets/fb15297e-4bde-441e-9023-fcb453d40a0b" />
 
-16.  Installation des VMware Tools si nécessaire.
-17.  Installation des mises à jour.
-18.  Configuration du réseau.
+13. Installation de VMware Tools
+13.  Installation des mises à jour.
+<img width="702" height="457" alt="image" src="https://github.com/user-attachments/assets/d05bd451-7c2c-424c-803a-763d15bf9925" />
+
+15.  Configuration du réseau.
 
 ---
 
