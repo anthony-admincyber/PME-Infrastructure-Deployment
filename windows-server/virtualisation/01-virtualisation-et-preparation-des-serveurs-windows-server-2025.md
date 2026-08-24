@@ -193,7 +193,11 @@ Pour chaque machine virtuelle, les paramètres suivants sont configurés :
 14.  Installation des mises à jour.
 <img width="702" height="457" alt="image" src="https://github.com/user-attachments/assets/d05bd451-7c2c-424c-803a-763d15bf9925" />
 
-15.  Configuration du réseau.
+15. Modification du nom de l'hôte (redémarrage nécessaire)
+<img width="322" height="98" alt="image" src="https://github.com/user-attachments/assets/872cd09d-ddaa-4745-8db9-4c3121affcc9" />
+
+16.  Configuration du réseau.
+<img width="396" height="451" alt="image" src="https://github.com/user-attachments/assets/ccd26646-73ee-4541-ae34-2b1ecf26bbb2" />
 
 ---
 
@@ -355,50 +359,8 @@ L'objectif est de confirmer que les deux machines virtuelles peuvent communiquer
 
 ---
 
-# 📸 11. Captures d'écran
 
-Cette page documente la mise en place de la virtualisation VMware.
-
-Les captures recommandées sont :
-
-### VMware Workstation
-
--   vue générale des machines virtuelles ;
--   configuration matérielle de `SRV-01-DC1` ;
--   configuration matérielle de `SRV-02-DC2` ;
--   configuration réseau ;
--   configuration du stockage virtuel.
-
-### Windows Server
-
--   installation de Windows Server 2025 ;
--   nom du serveur ;
--   configuration IP ;
--   vérification de la connectivité.
-
-### Virtualisation imbriquée
-
--   configuration VMware permettant la virtualisation imbriquée ;
--   installation du rôle Hyper-V ;
--   gestionnaire Hyper-V ;
--   création du commutateur virtuel.
-
-Les captures seront stockées dans :
-
-```
-assets/
-└── virtualisation/
-    ├── vmware-inventory.png
-    ├── srv-01-hardware.png
-    ├── srv-02-hardware.png
-    ├── network-config.png
-    ├── nested-virtualization.png
-    └── hyper-v-manager.png
-```
-
----
-
-# 📊 12. Validation
+# 📊 11. Validation
 
 | Élément | État |
 | --- | --- |
