@@ -162,17 +162,33 @@ La création des deux serveurs est réalisée depuis **VMware Workstation Pro**.
 Pour chaque machine virtuelle, les paramètres suivants sont configurés :
 
 1.  Création d'une nouvelle machine virtuelle.
+<img width="616" height="490" alt="image" src="https://github.com/user-attachments/assets/cd88d27f-357e-429d-9f45-35ab50d45195" />
+
 2.  Sélection de l'image ISO Windows Server 2025.
+<img width="612" height="484" alt="image" src="https://github.com/user-attachments/assets/4bd49c36-e0e4-4b5e-a774-3070bf5909cd" />
+
 3.  Attribution du nom de la machine virtuelle.
+<img width="615" height="502" alt="image" src="https://github.com/user-attachments/assets/bea56493-0717-44f3-88e0-adade5e3d2a5" />
+
 4.  Allocation des processeurs virtuels.
+<img width="818" height="254" alt="image" src="https://github.com/user-attachments/assets/92babf4a-1bb5-48fa-90cb-92239524f364" />
+
 5.  Allocation de la mémoire RAM.
-6.  Création du disque virtuel.
-7.  Configuration de la carte réseau virtuelle.
-8.  Montage de l'image ISO.
-9.  Installation de Windows Server 2025.
-10.  Installation des VMware Tools si nécessaire.
-11.  Installation des mises à jour.
-12.  Configuration du réseau.
+<img width="811" height="448" alt="image" src="https://github.com/user-attachments/assets/5066733c-4143-4b8e-9f76-401fe825ebdd" />
+
+9.  Création du disque virtuel.
+<img width="301" height="434" alt="image" src="https://github.com/user-attachments/assets/40d7eeb1-e60f-402c-bddf-a56d1667b2ca" />
+
+10.  Configuration de la carte réseau virtuelle.
+<img width="1132" height="764" alt="image" src="https://github.com/user-attachments/assets/40ac006e-779e-45ad-803d-ae60557e5e2d" />
+
+11.  Montage de l'image ISO.
+12.  Installation de Windows Server 2025.
+<img width="814" height="311" alt="image" src="https://github.com/user-attachments/assets/fb15297e-4bde-441e-9023-fcb453d40a0b" />
+
+16.  Installation des VMware Tools si nécessaire.
+17.  Installation des mises à jour.
+18.  Configuration du réseau.
 
 ---
 
