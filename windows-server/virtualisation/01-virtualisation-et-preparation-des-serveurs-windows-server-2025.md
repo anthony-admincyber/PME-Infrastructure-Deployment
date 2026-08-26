@@ -28,7 +28,7 @@ Ces deux serveurs constitueront ensuite le socle de l'infrastructure LOGIFLEX.
         │      2025       │     │      2025       │
         │                 │     │                 │
         │     Hyper-V     │     │   AD DS / DNS   │
-        │  Console VEAM   │     │ Repository Veeam│
+        │  Console Veeam  │     │ Repository Veeam│
         └────────┬────────┘     └─────────────────┘
                  │
                  ▼
@@ -180,26 +180,27 @@ Pour chaque machine virtuelle, les paramètres suivants sont configurés :
 5.  Allocation de la mémoire RAM.
 <img width="811" height="448" alt="image" src="https://github.com/user-attachments/assets/5066733c-4143-4b8e-9f76-401fe825ebdd" />
 
-9.  Création du disque virtuel.
+6.  Création du disque virtuel.
 <img width="301" height="434" alt="image" src="https://github.com/user-attachments/assets/40d7eeb1-e60f-402c-bddf-a56d1667b2ca" />
 
-10.  Configuration de la carte réseau virtuelle.
+7.  Configuration de la carte réseau virtuelle.
 <img width="1132" height="764" alt="image" src="https://github.com/user-attachments/assets/40ac006e-779e-45ad-803d-ae60557e5e2d" />
 
-11.  Montage de l'image ISO.
-12.  Installation de Windows Server 2025.
+8.  Montage de l'image ISO.
+
+9.  Installation de Windows Server 2025.
 <img width="814" height="311" alt="image" src="https://github.com/user-attachments/assets/fb15297e-4bde-441e-9023-fcb453d40a0b" />
 
-13. Installation de VMware Tools
+10. Installation de VMware Tools
 <img width="888" height="402" alt="image" src="https://github.com/user-attachments/assets/9aa68b9d-5a7c-4139-939e-e71fba37937f" />
 
-14.  Installation des mises à jour.
+14+1.  Installation des mises à jour.
 <img width="702" height="457" alt="image" src="https://github.com/user-attachments/assets/d05bd451-7c2c-424c-803a-763d15bf9925" />
 
-15. Modification du nom de l'hôte (redémarrage nécessaire)
+12. Modification du nom de l'hôte (redémarrage nécessaire)
 <img width="322" height="98" alt="image" src="https://github.com/user-attachments/assets/872cd09d-ddaa-4745-8db9-4c3121affcc9" />
 
-16.  Configuration du réseau.
+13.  Configuration du réseau.
 <img width="396" height="452" alt="image" src="https://github.com/user-attachments/assets/3076d309-2f17-4696-bcca-db0d68712c1e" />
 
 
