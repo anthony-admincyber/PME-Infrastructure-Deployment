@@ -28,7 +28,7 @@ Ces deux serveurs constitueront ensuite le socle de l'infrastructure LOGIFLEX.
         │      2025       │     │      2025       │
         │                 │     │                 │
         │     Hyper-V     │     │   AD DS / DNS   │
-        │     activé      │     │ Repository Veeam│
+        │  Console VEAM   │     │ Repository Veeam│
         └────────┬────────┘     └─────────────────┘
                  │
                  ▼
@@ -38,8 +38,7 @@ Ces deux serveurs constitueront ensuite le socle de l'infrastructure LOGIFLEX.
         │        │         │
         ▼        ▼         ▼
       VM-DC1   VM-SQL   VM-Centreon
-                           │
-                        VM-Veeam
+                         
 ```
 
 > 🎯 **Objectif :** démontrer la mise en œuvre d'une infrastructure virtualisée, la création de machines virtuelles Windows Server 2025 et l'utilisation de la virtualisation imbriquée avec Hyper-V.
@@ -68,7 +67,7 @@ VMware Workstation
       │       ├── VM-DC1
       │       ├── VM-SQL
       │       ├── VM-Centreon
-      │       └── VM-Veeam
+      │ 
       │
       └── SRV-02-DC2
 ```
@@ -89,7 +88,6 @@ Windows Server 2025
         ├── VM-DC1
         ├── VM-SQL
         ├── VM-Centreon
-        └── VM-Veeam
 ```
 
 Cette architecture constitue une **virtualisation imbriquée (Nested Virtualization)**.
@@ -152,7 +150,7 @@ Elle sera utilisée principalement pour :
 
 -   Active Directory ;
 -   DNS ;
--   réplication avec `SRV-01-DC1` ;
+-   réplication avec `VM-DC1` ;
 -   continuité de service ;
 -   repository Veeam.
 
@@ -286,7 +284,6 @@ Une particularité de ce laboratoire est l'utilisation de la **virtualisation im
 │ │ │      ├── VM-DC1              │ │ │
 │ │ │      ├── VM-SQL              │ │ │
 │ │ │      ├── VM-Centreon         │ │ │
-│ │ │      └── VM-Veeam            │ │ │
 │ │ └──────────────────────────────┘ │ │
 │ └──────────────────────────────────┘ │
 └──────────────────────────────────────┘
@@ -383,11 +380,10 @@ Windows Server 2025  Windows Server 2025
        ├── VM-DC1
        ├── VM-SQL
        ├── VM-Centreon
-       └── VM-Veeam
 ```
 
 Cette étape permet de mettre en pratique les compétences suivantes :
 
 `VMware Workstation` · `Virtualisation` · `Windows Server 2025` · `Réseau` · `Gestion des ressources` · `Virtualisation imbriquée` · `Hyper-V`
 
-La prochaine étape consiste à préparer `SRV-01-DC1` et `SRV-02-DC2` pour le déploiement de l'infrastructure **Active Directory / DNS**.
+La prochaine étape consiste à préparer `SRV-01-HV` et `SRV-02-DC2` pour le déploiement de l'infrastructure **Active Directory / DNS**.
