@@ -1,5 +1,7 @@
 # 02 — Installation et configuration d'Hyper-V sur SRV-01-HV
 
+---
+
 ## 📌 Présentation
 
 Après avoir déployé et préparé les deux serveurs Windows Server 2025, cette étape consiste à transformer `SRV-01-HV` en **hôte de virtualisation Hyper-V**.
