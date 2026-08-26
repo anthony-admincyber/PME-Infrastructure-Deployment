@@ -177,6 +177,8 @@ D:\
         ├── VM-DC1\
         ├── VM-SQL\
         └── VM-Centreon\
+```
+
 ---
 
 # 🧩 5. Installation du rôle Hyper-V
