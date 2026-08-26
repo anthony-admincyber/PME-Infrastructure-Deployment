@@ -1,0 +1,27 @@
+# 03 — Installation et configuration d'Hyper-V sur `SRV-01-HV`
+
+## 📌 Présentation
+
+Après avoir déployé et préparé les deux serveurs Windows Server 2025, cette étape consiste à transformer `SRV-01-HV` en **hôte de virtualisation Hyper-V**.
+
+`SRV-01-HV` est lui-même une machine virtuelle exécutée dans **VMware Workstation Pro** sur le poste physique Windows 11 Pro.
+
+L'objectif est donc de mettre en œuvre une architecture de **virtualisation imbriquée (Nested Virtualization)** :
+
+```text
+                     Windows 11 Pro
+                           │
+                           ▼
+                 VMware Workstation Pro
+                           │
+                           ▼
+                    SRV-01-HV
+                 Windows Server 2025
+                           │
+                           ▼
+                        Hyper-V
+                           │
+                ┌──────────┼──────────┐
+                │          │          │
+                ▼          ▼          ▼
+             VM-DC1     VM-SQL    VM-Centreon
