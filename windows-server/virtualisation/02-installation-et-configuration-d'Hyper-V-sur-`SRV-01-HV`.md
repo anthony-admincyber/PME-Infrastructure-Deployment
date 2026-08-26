@@ -95,6 +95,26 @@ Cette configuration permet au système Windows Server 2025 exécuté dans `SRV-0
 
 > ℹ️ Cette configuration est spécifique à l'environnement de laboratoire. Dans une infrastructure physique, Hyper-V utiliserait directement les fonctions de virtualisation du processeur du serveur hôte.
 
+### ⚠️ Résolution d'incident : Déblocage du VT-x sous Windows 11 (VBS / Credential Guard)
+
+Lors de l'activation de la virtualisation imbriquée sur l'hôte physique Windows 11, un conflit matériel peut survenir : la sécurité basée sur la virtualisation (**VBS / Credential Guard / Protection LSA**) monopolise les instructions `Intel VT-x / EPT`, empêchant VMware Workstation de les déléguer à la machine virtuelle.
+
+**Procédure de remédiation appliquée sur l'hôte physique :**
+
+1. Désactivation de l'intégrité de la mémoire et de la protection LSA dans les paramètres de sécurité Windows.
+2. Désactivation des fonctionnalités concurrentes (Hyper-V hôte, Virtual Machine Platform).
+3. Libération du verrou UEFI/BCD en invite de commandes administrateur :
+   ```cmd
+   bcdedit /set hypervisorlaunchtype off
+   mountvol X: /s
+   copy %WINDIR%\System32\SecConfig.efi X:\EFI\Microsoft\Boot\SecConfig.efi /Y
+   bcdedit /create {0cb3b571-2f2e-4340-a459-ad29140d0737} /d "DebugDecline" /application osloader
+   bcdedit /set {0cb3b571-2f2e-4340-a459-ad29140d0737} path "\EFI\Microsoft\Boot\SecConfig.efi"
+   bcdedit /set {bootmgr} bootsequence {0cb3b571-2f2e-4340-a459-ad29140d0737}
+   bcdedit /set {0cb3b571-2f2e-4340-a459-ad29140d0737} loadoptions DISABLE-LSA-ISO,DISABLE-VBS
+   bcdedit /set {0cb3b571-2f2e-4340-a459-ad29140d0737} device partition=X:
+   mountvol X: /d
+
 ---
 
 # 🔎 3. Vérification des prérequis Hyper-V
