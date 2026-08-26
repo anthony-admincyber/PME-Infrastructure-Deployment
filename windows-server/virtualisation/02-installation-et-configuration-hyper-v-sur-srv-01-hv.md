@@ -26,6 +26,7 @@ L'objectif est donc de mettre en œuvre une architecture de **virtualisation imb
                 │          │          │
                 ▼          ▼          ▼
              VM-DC1     VM-SQL    VM-Centreon
+
 ```
 
 Cette approche permet de reproduire dans un environnement de laboratoire une architecture proche de celle pouvant être rencontrée dans une infrastructure d'entreprise.
