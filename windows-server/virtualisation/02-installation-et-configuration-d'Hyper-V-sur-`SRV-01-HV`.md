@@ -150,6 +150,7 @@ Depuis **Gestionnaire de serveur** :
 5.  Sélectionner `SRV-01-HV`.
 6.  Sélectionner le rôle **Hyper-V**.
 7.  Ajouter les fonctionnalités nécessaires.
+<img width="784" height="541" alt="image" src="https://github.com/user-attachments/assets/9e450e1a-0d64-4189-ad17-6868b681fbfb" />
 8.  Vérifier la sélection.
 9.  Lancer l'installation.
 10.  Redémarrer le serveur si nécessaire.
