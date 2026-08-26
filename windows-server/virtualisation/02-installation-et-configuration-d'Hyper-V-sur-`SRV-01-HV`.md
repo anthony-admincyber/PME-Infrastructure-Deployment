@@ -123,9 +123,8 @@ Avant l'installation du rôle, les prérequis de virtualisation sont vérifiés.
 
 La commande suivante permet d'obtenir les informations relatives au système et aux fonctionnalités nécessaires à Hyper-V :
 
-```
-systeminfo
-```
+<img width="730" height="735" alt="image" src="https://github.com/user-attachments/assets/0025173a-9fb0-45d2-8031-5741e42e7ba3" />
+
 
 La section relative aux exigences Hyper-V permet de contrôler notamment :
 
