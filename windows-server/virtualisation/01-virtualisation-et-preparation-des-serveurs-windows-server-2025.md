@@ -194,7 +194,7 @@ Pour chaque machine virtuelle, les paramètres suivants sont configurés :
 10. Installation de VMware Tools
 <img width="888" height="402" alt="image" src="https://github.com/user-attachments/assets/9aa68b9d-5a7c-4139-939e-e71fba37937f" />
 
-14+1.  Installation des mises à jour.
+11.  Installation des mises à jour.
 <img width="702" height="457" alt="image" src="https://github.com/user-attachments/assets/d05bd451-7c2c-424c-803a-763d15bf9925" />
 
 12. Modification du nom de l'hôte (redémarrage nécessaire)
