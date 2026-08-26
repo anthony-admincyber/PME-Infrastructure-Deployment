@@ -27,8 +27,8 @@ Ces deux serveurs constitueront ensuite le socle de l'infrastructure LOGIFLEX.
         │  Windows Server │     │  Windows Server │
         │      2025       │     │      2025       │
         │                 │     │                 │
-        │     Hyper-V     │     │ AD DS / DNS     │
-        │     activé      │     │                 │
+        │     Hyper-V     │     │   AD DS / DNS   │
+        │     activé      │     │ Repository Veeam│
         └────────┬────────┘     └─────────────────┘
                  │
                  ▼
@@ -60,10 +60,17 @@ Windows 11 Pro
       ▼
 VMware Workstation
       │
-      ├───────────────┐
-      ▼               ▼
-SRV-01-HV         SRV-02-DC2
-Windows 2025      Windows 2025
+      ├── SRV-01-HV
+      │       │
+      │       ▼
+      │     Hyper-V
+      │       │
+      │       ├── VM-DC1
+      │       ├── VM-SQL
+      │       ├── VM-Centreon
+      │       └── VM-Veeam
+      │
+      └── SRV-02-DC2
 ```
 
 ### Niveau 2 — Hyper-V
@@ -122,11 +129,10 @@ Son rôle évoluera progressivement au cours du projet.
 
 ### Rôles prévus
 
--   Hyper-V ;
--   Active Directory ;
--   DNS ;
--   hébergement de machines virtuelles ;
--   services d'infrastructure.
+- Hyper-V ;
+- hébergement des machines virtuelles ;
+- gestion de l'infrastructure de virtualisation ;
+- services d'infrastructure via les VM hébergées.
 
 > ℹ️ La VM `SRV-01-HV` constitue l'hôte Hyper-V de la maquette. Les services applicatifs seront séparés dans des machines virtuelles dédiées.
 
@@ -238,7 +244,7 @@ Les deux machines virtuelles sont connectées au réseau du laboratoire.
               │                         │
               ▼                         ▼
           SRV-01-HV                SRV-02-DC2
-        192.168.10.10             192.168.10.11
+        192.168.10.10             192.168.10.21
 ```
 
 ### Configuration IP
@@ -246,7 +252,7 @@ Les deux machines virtuelles sont connectées au réseau du laboratoire.
 | Serveur | Adresse IP | Masque | Passerelle |
 | --- | --- | --- | --- |
 | SRV-01-HV | 192.168.10.10 | /24 | 192.168.10.2 |
-| SRV-02-DC2 | 192.168.10.11 | /24 | 192.168.10.2 |
+| SRV-02-DC2 | 192.168.10.21 | /24 | 192.168.10.2 |
 
 Cette configuration permettra ensuite aux deux serveurs de communiquer pour :
 
@@ -316,25 +322,16 @@ Après création des deux machines virtuelles, plusieurs contrôles sont réalis
 ### Vérification du nom
 
 ```
-hostname
-```
 
-Résultats attendus :
+<img width="852" height="383" alt="image" src="https://github.com/user-attachments/assets/3b133fc2-65eb-4c3c-8631-a22a5188ebee" />
 
-```
-SRV-01-HV
-```
-
-et :
-
-```
-SRV-02-DC2
 ```
 
 ### Vérification de la configuration réseau
 
 ```
-ipconfig /all
+<img width="1411" height="420" alt="image" src="https://github.com/user-attachments/assets/eb165a49-3f9e-41db-8f9c-c9f02d7404da" />
+
 ```
 
 ### Test de la passerelle
@@ -375,7 +372,7 @@ L'objectif est de confirmer que les deux machines virtuelles peuvent communiquer
 | Configuration réseau | 🟢 |
 | Connectivité inter-serveurs | 🟢 |
 | Virtualisation imbriquée | 🟡 |
-| Hyper-V sur SRV-01-DC1 | 🟡 |
+| Hyper-V sur SRV-01-HV | 🟡 |
 | Création des VM Hyper-V | 🔴 |
 
 ---
