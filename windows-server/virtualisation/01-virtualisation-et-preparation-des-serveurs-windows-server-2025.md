@@ -134,8 +134,7 @@ Son rôle évoluera progressivement au cours du projet.
 - gestion de l'infrastructure de virtualisation ;
 - services d'infrastructure via les VM hébergées.
 
-> ℹ️ La VM `SRV-01-HV` constitue l'hôte Hyper-V de la maquette. Les services applicatifs seront séparés dans des machines virtuelles dédiées.
-
+> ℹ️ La VM SRV-01-HV constitue l'hôte Hyper-V de la maquette. Les différents services d'infrastructure et applicatifs seront déployés dans des machines virtuelles dédiées.
 ---
 
 # 🖥️ 4. Création de `SRV-02-DC2`
