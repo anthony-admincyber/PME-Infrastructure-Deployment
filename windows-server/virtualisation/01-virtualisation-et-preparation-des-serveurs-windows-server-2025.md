@@ -329,23 +329,16 @@ Après création des deux machines virtuelles, plusieurs contrôles sont réalis
 
 ### Test de la passerelle
 
-```
-ping 192.168.10.2
-```
+<img width="1325" height="230" alt="image" src="https://github.com/user-attachments/assets/ef806398-b1aa-4be6-bf62-430dae85cce2" />
 
 ### Test entre les deux serveurs
 
 Depuis `SRV-01-HV` :
-
-```
-ping 192.168.10.11
-```
+<img width="667" height="235" alt="image" src="https://github.com/user-attachments/assets/0250517d-aa57-4001-b835-e8ef662a86f4" />
 
 Depuis `SRV-02-DC2` :
+<img width="651" height="230" alt="image" src="https://github.com/user-attachments/assets/d2f5568e-9a15-42ec-b415-21ea837bf147" />
 
-```
-ping 192.168.10.10
-```
 
 L'objectif est de confirmer que les deux machines virtuelles peuvent communiquer correctement avant de poursuivre le déploiement des services.
 
