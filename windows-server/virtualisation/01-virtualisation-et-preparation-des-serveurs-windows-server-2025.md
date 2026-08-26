@@ -217,7 +217,7 @@ L'allocation est adaptée aux besoins de la maquette et pourra être ajustée en
 | --- | --- | --- | --- |
 | RAM disponible | 32 Go | 8 Go | 6 Go |
 | CPU | Processeur physique | 4 | 6 |
-| Stockage | SSD / NVMe | 80 Go | 100 Go |
+| Stockage | SSD / NVMe | 100 Go | 100 Go |
 | OS | Windows 11 Pro | Windows Server 2025 Edition Standard | Windows Server 2025 Edition Standard|
 
 > 💡 Les ressources affichées dans VMware représentent les ressources attribuées aux machines virtuelles et non les capacités physiques maximales du poste.
