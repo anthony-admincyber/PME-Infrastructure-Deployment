@@ -321,18 +321,11 @@ Après création des deux machines virtuelles, plusieurs contrôles sont réalis
 
 ### Vérification du nom
 
-```
-
 <img width="852" height="383" alt="image" src="https://github.com/user-attachments/assets/3b133fc2-65eb-4c3c-8631-a22a5188ebee" />
-
-```
 
 ### Vérification de la configuration réseau
 
-```
 <img width="1411" height="420" alt="image" src="https://github.com/user-attachments/assets/eb165a49-3f9e-41db-8f9c-c9f02d7404da" />
-
-```
 
 ### Test de la passerelle
 
