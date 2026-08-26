@@ -137,7 +137,49 @@ Les prérequis doivent être disponibles avant de poursuivre l'installation.
 
 ---
 
-# 🧩 4. Installation du rôle Hyper-V
+# 💾 4. Préparation du stockage de l'hyperviseur
+
+Avant l'installation et la configuration du rôle **Hyper-V**, le stockage de `SRV-01-HV` est organisé afin de séparer le système d'exploitation de l'environnement de virtualisation.
+
+Cette organisation permet notamment de :
+
+- séparer les fichiers système des machines virtuelles ;
+- faciliter l'administration et la maintenance ;
+- limiter l'impact d'une saturation du volume système ;
+- améliorer la lisibilité de l'espace disque ;
+- préparer l'organisation des fichiers Hyper-V.
+
+### 📁 Organisation retenue
+
+Le disque virtuel de `SRV-01-HV` est partitionné afin de distinguer :
+
+| Volume | Fonction | Contenu |
+| :--- | :--- | :--- |
+| `C:` | Système | Windows Server 2025, rôles et applications d'administration |
+| `D:` | Hyper-V | Machines virtuelles et fichiers de configuration |
+| `E:` | Données | Données complémentaires / fichiers de travail |
+
+> 💡 **Principe d'organisation :** les fichiers des machines virtuelles ne sont pas stockés directement sur le volume système `C:`. Ils sont regroupés sur un volume dédié à Hyper-V.
+
+### 🗂️ Organisation des répertoires Hyper-V
+
+Le volume dédié à Hyper-V pourra être organisé de la manière suivante :
+
+```text
+D:\
+└── Hyper-V\
+    ├── Virtual Machines\
+    │   ├── VM-DC1\
+    │   ├── VM-SQL\
+    │   └── VM-Centreon\
+    │
+    └── Virtual Hard Disks\
+        ├── VM-DC1\
+        ├── VM-SQL\
+        └── VM-Centreon\
+---
+
+# 🧩 5. Installation du rôle Hyper-V
 
 L'installation du rôle **Hyper-V** est réalisée sur `SRV-01-HV`.
 
@@ -160,7 +202,7 @@ Après redémarrage, les outils d'administration Hyper-V sont disponibles.
 
 ---
 
-# 💻 5. Installation avec PowerShell
+# 💻 6. Installation avec PowerShell
 
 L'installation peut également être automatisée avec PowerShell.
 
@@ -184,7 +226,7 @@ Le résultat doit indiquer que le rôle est installé.
 
 ---
 
-# 🖥️ 6. Vérification dans Hyper-V Manager
+# 🖥️ 7. Vérification dans Hyper-V Manager
 
 Après l'installation, **Gestionnaire Hyper-V** est ouvert afin de vérifier que `SRV-01-HV` apparaît correctement comme hôte Hyper-V.
 
@@ -206,7 +248,7 @@ La création des VM fera l'objet de l'étape suivante du projet.
 
 ---
 
-# 🌐 7. Création du commutateur virtuel
+# 🌐 8. Création du commutateur virtuel
 
 Afin de permettre aux futures machines virtuelles de communiquer avec le réseau du laboratoire, un **commutateur virtuel Hyper-V** est configuré.
 
@@ -237,7 +279,7 @@ Pour cette maquette, le réseau doit permettre aux VM de communiquer avec les au
 
 ---
 
-# 🧠 8. Préparation des futures machines virtuelles
+# 🧠 9. Préparation des futures machines virtuelles
 
 L'hôte `SRV-01-HV` est maintenant prêt à recevoir les machines virtuelles du laboratoire.
 
@@ -253,7 +295,7 @@ Ces machines seront déployées progressivement afin de pouvoir documenter sépa
 
 ---
 
-# 💾 9. Gestion des ressources
+# 💾 10. Gestion des ressources
 
 La gestion des ressources constitue un point important dans cette architecture car Hyper-V est lui-même exécuté dans une machine virtuelle VMware.
 
@@ -282,7 +324,7 @@ La consommation des ressources sera donc surveillée au fur et à mesure de la c
 
 ---
 
-# 🔎 10. Vérifications
+# 🔎 11. Vérifications
 
 Plusieurs contrôles sont réalisés après l'installation.
 
@@ -318,7 +360,7 @@ Get-VM
 
 ---
 
-# 🧪 11. Validation
+# 🧪 12. Validation
 
 | Élément | État |
 | --- | --- |
