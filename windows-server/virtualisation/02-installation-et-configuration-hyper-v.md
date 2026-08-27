@@ -110,6 +110,7 @@ Lors de l'activation de la virtualisation imbriquée sur l'hôte physique Window
 1. Désactivation de l'intégrité de la mémoire et de la protection LSA dans les paramètres de sécurité Windows.
 2. Désactivation des fonctionnalités concurrentes (Hyper-V hôte, Virtual Machine Platform).
 3. Libération du verrou UEFI/BCD en invite de commandes administrateur :
+   
    ```cmd
    bcdedit /set hypervisorlaunchtype off
    mountvol X: /s
@@ -120,6 +121,7 @@ Lors de l'activation de la virtualisation imbriquée sur l'hôte physique Window
    bcdedit /set {0cb3b571-2f2e-4340-a459-ad29140d0737} loadoptions DISABLE-LSA-ISO,DISABLE-VBS
    bcdedit /set {0cb3b571-2f2e-4340-a459-ad29140d0737} device partition=X:
    mountvol X: /d
+ ```
 
 ---
 
