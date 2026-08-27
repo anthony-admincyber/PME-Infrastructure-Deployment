@@ -234,7 +234,7 @@ Cette commande permet :
 
 ### Vérification du rôle
 
-```
+```powershell
 Get-WindowsFeature -Name Hyper-V
 ```
 
