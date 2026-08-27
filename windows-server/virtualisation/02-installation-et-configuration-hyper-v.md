@@ -272,9 +272,8 @@ Afin de permettre aux futures machines virtuelles de communiquer avec le réseau
 
 Le commutateur permettra de relier les machines virtuelles au réseau :
 
-```
 `192.168.10.0/24`
-```
+
 
 Architecture logique :
 
