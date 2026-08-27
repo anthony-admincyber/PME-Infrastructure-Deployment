@@ -29,7 +29,9 @@ L'objectif est donc de mettre en œuvre une architecture de **virtualisation imb
 
 ```
 
-Cette approche permet de reproduire dans un environnement de laboratoire une architecture proche de celle pouvant être rencontrée dans une infrastructure d'entreprise.
+Cette approche permet de reproduire, dans un environnement de laboratoire, les différentes couches de virtualisation et d'administration rencontrées dans une infrastructure d'entreprise.
+
+La virtualisation imbriquée est utilisée ici afin de reproduire cette architecture sur des ressources matérielles limitées, tout en permettant de mettre en œuvre Hyper-V et plusieurs machines virtuelles indépendantes.
 
 ---
 
