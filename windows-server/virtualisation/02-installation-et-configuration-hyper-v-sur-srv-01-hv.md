@@ -239,6 +239,8 @@ Le résultat doit indiquer que le rôle est installé.
 
 Après l'installation, **Gestionnaire Hyper-V** est ouvert afin de vérifier que `SRV-01-HV` apparaît correctement comme hôte Hyper-V.
 
+<img width="1418" height="799" alt="image" src="https://github.com/user-attachments/assets/c4474a38-795c-492e-85ea-86f84be2a4df" />
+
 ```
 Gestionnaire Hyper-V
         │
