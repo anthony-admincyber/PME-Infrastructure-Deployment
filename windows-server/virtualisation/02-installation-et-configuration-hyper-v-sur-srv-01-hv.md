@@ -162,11 +162,14 @@ Afin d'optimiser les ressources disponibles tout en respectant une séparation l
 | Volume | Taille | Fonction | Contenu |
 | :--- | :---: | :--- | :--- |
 | `C:` | 45 Go | Système | Windows Server 2025, rôle Hyper-V et outils d'administration |
-| `D:` | 55 Go | Hyper-V | Machines virtuelles, fichiers de configuration et disques virtuels |
+| `D:` | 54 Go | Hyper-V | Machines virtuelles, fichiers de configuration et disques virtuels |
 
 Le volume `C:` est réservé au fonctionnement du système d'exploitation et de l'hyperviseur.
 
 Le volume `D:` est dédié à l'environnement de virtualisation Hyper-V et accueillera les fichiers nécessaires au fonctionnement des machines virtuelles.
+
+<img width="751" height="593" alt="image" src="https://github.com/user-attachments/assets/41a2253a-ea12-4045-b540-70ca85416a77" />
+
 
 > 💡 **Principe d'organisation :** les fichiers des machines virtuelles ne sont pas stockés directement sur le volume système `C:`. Ils sont regroupés sur le volume `D:` dédié à l'environnement Hyper-V.
 
