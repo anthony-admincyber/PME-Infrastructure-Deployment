@@ -1,4 +1,4 @@
-# 02 — Installation et configuration d-Hyper-V sur SRV-01-HV
+# 02 — Installation et configuration Hyper-V sur SRV-01-HV
 
 
 ## 📌 Présentation
