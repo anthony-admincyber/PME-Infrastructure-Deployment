@@ -183,21 +183,8 @@ Le volume dédié à Hyper-V est organisé afin de séparer les fichiers de conf
 
 L'organisation retenue est la suivante :
 
-```text
-D:\
-└── Hyper-V\
-    │
-    ├── Virtual Machines\
-    │   ├── VM-DC1\
-    │   ├── VM-SQL\
-    │   └── VM-Centreon\
-    │
-    └── Virtual Hard Disks\
-        ├── VM-DC1\
-        ├── VM-SQL\
-        └── VM-Centreon\
+<img width="407" height="252" alt="image" src="https://github.com/user-attachments/assets/257d15a1-f380-4052-8184-b684ee29e37d" />
 
----
 
 # 🧩 5. Installation du rôle Hyper-V
 
