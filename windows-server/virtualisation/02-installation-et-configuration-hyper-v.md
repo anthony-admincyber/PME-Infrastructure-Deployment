@@ -222,7 +222,7 @@ Après redémarrage, les outils d'administration Hyper-V sont disponibles.
 
 L'installation peut également être automatisée avec PowerShell.
 
-```
+```powershell
 Install-WindowsFeature -Name Hyper-V -IncludeManagementTools -Restart
 ```
 
