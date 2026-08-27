@@ -97,6 +97,8 @@ Cette configuration permet au système Windows Server 2025 exécuté dans `SRV-0
 
 > ℹ️ Cette configuration est spécifique à l'environnement de laboratoire. Dans une infrastructure physique, Hyper-V utiliserait directement les fonctions de virtualisation du processeur du serveur hôte.
 
+---
+
 ### ⚠️ Résolution d'incident : Déblocage du VT-x sous Windows 11 (VBS / Credential Guard)
 
 Lors de l'activation de la virtualisation imbriquée sur l'hôte physique Windows 11, un conflit matériel peut survenir : la sécurité basée sur la virtualisation (**VBS / Credential Guard / Protection LSA**) monopolise les instructions `Intel VT-x / EPT`, empêchant VMware Workstation de les déléguer à la machine virtuelle.
