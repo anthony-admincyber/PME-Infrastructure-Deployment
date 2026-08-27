@@ -365,31 +365,23 @@ Plusieurs contrôles sont réalisés après l'installation.
 
 ### Vérification du rôle Hyper-V
 
-```
-Get-WindowsFeature -Name Hyper-V
-```
+<img width="796" height="103" alt="image" src="https://github.com/user-attachments/assets/f017c842-78bd-494f-995d-3771eff5f48c" />
 
 ### Vérification du service Hyper-V
 
-```
-Get-Service vmms
-```
+<img width="550" height="103" alt="image" src="https://github.com/user-attachments/assets/4f3d091c-efee-4b37-bba0-b030ce9fbbd5" />
 
 Le service **Hyper-V Virtual Machine Management** doit être opérationnel.
 
 ### Vérification des commutateurs virtuels
 
-```
-Get-VMSwitch
-```
+<img width="554" height="96" alt="image" src="https://github.com/user-attachments/assets/0437bcc5-0b81-4473-8718-c8dba68187fe" />
 
 Cette commande permet de vérifier la présence et la configuration du commutateur virtuel.
 
 ### Vérification des machines virtuelles
 
-```
-Get-VM
-```
+<img width="254" height="48" alt="image" src="https://github.com/user-attachments/assets/a66db130-482f-4477-84a2-3d2ab79a18b5" />
 
 À ce stade, la commande peut ne retourner aucune VM si celles-ci n'ont pas encore été créées.
 
