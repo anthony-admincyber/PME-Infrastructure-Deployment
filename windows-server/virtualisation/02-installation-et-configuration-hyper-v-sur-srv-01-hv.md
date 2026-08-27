@@ -148,28 +148,42 @@ Cette organisation permet notamment de :
 - séparer les fichiers système des machines virtuelles ;
 - faciliter l'administration et la maintenance ;
 - limiter l'impact d'une saturation du volume système ;
-- améliorer la lisibilité de l'espace disque ;
-- préparer l'organisation des fichiers Hyper-V.
+- améliorer la lisibilité de l'espace de stockage ;
+- préparer une organisation dédiée aux fichiers Hyper-V.
 
-### 📁 Organisation retenue
+---
 
-Le disque virtuel de `SRV-01-HV` est partitionné afin de distinguer :
+## 📁 Organisation retenue
 
-| Volume | Fonction | Contenu |
-| :--- | :--- | :--- |
-| `C:` | Système | Windows Server 2025, rôles et applications d'administration |
-| `D:` | Hyper-V | Machines virtuelles et fichiers de configuration |
-| `E:` | Données | Données complémentaires / fichiers de travail |
+Dans le cadre de cette maquette, `SRV-01-HV` dispose d'un espace de stockage total de **100 Go**.
 
-> 💡 **Principe d'organisation :** les fichiers des machines virtuelles ne sont pas stockés directement sur le volume système `C:`. Ils sont regroupés sur un volume dédié à Hyper-V.
+Afin d'optimiser les ressources disponibles tout en respectant une séparation logique entre le système et les machines virtuelles, le stockage est réparti de la manière suivante :
 
-### 🗂️ Organisation des répertoires Hyper-V
+| Volume | Taille | Fonction | Contenu |
+| :--- | :---: | :--- | :--- |
+| `C:` | 45 Go | Système | Windows Server 2025, rôle Hyper-V et outils d'administration |
+| `D:` | 55 Go | Hyper-V | Machines virtuelles, fichiers de configuration et disques virtuels |
 
-Le volume dédié à Hyper-V pourra être organisé de la manière suivante :
+Le volume `C:` est réservé au fonctionnement du système d'exploitation et de l'hyperviseur.
+
+Le volume `D:` est dédié à l'environnement de virtualisation Hyper-V et accueillera les fichiers nécessaires au fonctionnement des machines virtuelles.
+
+> 💡 **Principe d'organisation :** les fichiers des machines virtuelles ne sont pas stockés directement sur le volume système `C:`. Ils sont regroupés sur le volume `D:` dédié à l'environnement Hyper-V.
+
+> ⚠️ **Contrainte de laboratoire :** ce dimensionnement est volontairement limité afin de s'adapter aux ressources disponibles pour la maquette. Dans une infrastructure de production, le stockage serait dimensionné selon les besoins des services, les performances attendues et les exigences de disponibilité.
+
+---
+
+## 🗂️ Organisation des répertoires Hyper-V
+
+Le volume dédié à Hyper-V est organisé afin de séparer les fichiers de configuration des machines virtuelles et leurs disques virtuels.
+
+L'organisation retenue est la suivante :
 
 ```text
 D:\
 └── Hyper-V\
+    │
     ├── Virtual Machines\
     │   ├── VM-DC1\
     │   ├── VM-SQL\
@@ -179,7 +193,6 @@ D:\
         ├── VM-DC1\
         ├── VM-SQL\
         └── VM-Centreon\
-```
 
 ---
 
