@@ -327,7 +327,7 @@ L'architecture cible prévoit notamment :
 | VM | Fonction | Système |
 | --- | --- | --- |
 | VM-DC1 | Contrôleur de domaine / DNS | Windows Server 2025 |
-| VM-SQL | Service SQL pour la comptabilité | Linux |
+| VM-SQL | BDD métier WMS (SQL Server Linux) | Ubuntu Server |
 | VM-Centreon | Supervision | Ubuntu Server |
 
 Ces machines seront déployées progressivement afin de pouvoir documenter séparément leur installation et leur configuration.
