@@ -187,6 +187,7 @@ L'organisation retenue est la suivante :
 
 <img width="407" height="252" alt="image" src="https://github.com/user-attachments/assets/257d15a1-f380-4052-8184-b684ee29e37d" />
 
+---
 
 # 🧩 5. Installation du rôle Hyper-V
 
