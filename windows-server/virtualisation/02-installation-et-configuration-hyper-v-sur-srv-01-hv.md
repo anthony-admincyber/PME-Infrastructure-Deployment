@@ -286,7 +286,28 @@ Architecture logique :
 
 Le choix du type de commutateur dépend de l'objectif recherché.
 
-Pour cette maquette, le réseau doit permettre aux VM de communiquer avec les autres composants du laboratoire.
+### 🌐 Type de commutateur retenu
+
+Pour cette maquette, un **commutateur virtuel de type Externe** est configuré.
+
+Ce choix permet aux machines virtuelles hébergées sur `SRV-01-HV` de communiquer avec les autres composants du réseau du laboratoire.
+
+Le commutateur virtuel est associé à l'interface réseau utilisée par `SRV-01-HV` afin de permettre aux machines virtuelles Hyper-V d'accéder au réseau :
+
+`192.168.10.0/24`
+
+Les machines virtuelles pourront ainsi communiquer notamment avec :
+
+- `SRV-01-HV` ;
+- `SRV-02-DC2` ;
+- les autres machines virtuelles ;
+- la passerelle du laboratoire.
+
+Dans le cadre de cette architecture utilisant la **virtualisation imbriquée**, `SRV-01-HV` est lui-même hébergé dans VMware Workstation. Le commutateur virtuel Hyper-V est donc configuré afin de s'intégrer au réseau virtuel du laboratoire.
+
+> 💡 Cette configuration permet de reproduire un environnement de virtualisation proche d'une infrastructure d'entreprise tout en conservant une architecture adaptée aux contraintes d'un environnement de laboratoire.
+
+<img width="720" height="682" alt="image" src="https://github.com/user-attachments/assets/1cbb8e70-012e-4ba3-9e7c-4ab1d4874994" />
 
 ---
 
