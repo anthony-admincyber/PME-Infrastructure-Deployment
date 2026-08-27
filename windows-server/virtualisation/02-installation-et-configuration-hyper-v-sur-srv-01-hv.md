@@ -203,6 +203,8 @@ Depuis **Gestionnaire de serveur** :
 
 8.  Vérifier la sélection.
 9.  Lancer l'installation.
+<img width="777" height="555" alt="image" src="https://github.com/user-attachments/assets/c29f8250-1184-4260-b9c5-73a861d69d33" />
+
 10.  Redémarrer le serveur si nécessaire.
 
 Après redémarrage, les outils d'administration Hyper-V sont disponibles.
