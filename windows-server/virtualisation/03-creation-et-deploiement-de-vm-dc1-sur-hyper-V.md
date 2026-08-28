@@ -268,6 +268,7 @@ Les fichiers sont ensuite accessibles depuis `SRV-01-HV` via le chemin réseau :
 ```text
 \\vmware-host\Shared Folders
 ```
+<img width="697" height="196" alt="image" src="https://github.com/user-attachments/assets/8130f092-2f10-4e8f-b56a-a0e830fc688a" />
 
 ---
 
