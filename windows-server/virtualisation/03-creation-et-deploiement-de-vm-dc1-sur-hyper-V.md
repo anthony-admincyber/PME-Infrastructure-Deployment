@@ -295,7 +295,7 @@ Le nombre de processeurs pourra être ajusté en fonction de la consommation ré
 <img width="718" height="685" alt="image" src="https://github.com/user-attachments/assets/60ee6ba1-31b6-463d-8a33-e873884e8752" />
 
 ---
-## 9.2. Installation de Windows Server 2025 sur `SRV-V-DC1`
+# ⚡ 11.⚙️ Installation de Windows Server 2025 sur `SRV-V-DC1`
 
 Une fois l'image ISO de Windows Server 2025 accessible depuis `SRV-01-HV`, celle-ci est utilisée comme média d'installation pour la machine virtuelle `SRV-V-DC1`.
 
@@ -331,46 +331,6 @@ Les principales étapes sont les suivantes :
 
 La prochaine phase consistera à préparer le système d'exploitation avant son intégration dans l'infrastructure Active Directory LOGIFLEX.
 
-# ⚡ 11.⚙️ Installation de Windows Server 2025
-
-L'installation du système d'exploitation est ensuite réalisée selon les étapes suivantes :
-
--   Démarrer la machine virtuelle SRV-V-DC1.
--   Amorcer la machine virtuelle sur le média d'installation Windows Server 2025.
--   [!WARNING]  
-> **Erreur rencontrée : Code 0x80070299 (Limitation du système de fichiers)**  
-> 
-> * **Symptôme :** Échec du démarrage de `SRV-V-DC1` lors du montage de l'image ISO via le chemin partagé `\\vmware-host\Shared Folders\...`.  
-> * **Cause :** Le service Hyper-V s'exécute avec les privilèges du compte système local et ne supporte pas l'accès direct aux partages réseau virtuels HGFS de VMware Workstation.  
-> * **Résolution :** L'ISO doit obligatoirement être copiée sur le stockage local de l'hôte Hyper-V (ex. `C:\ISOs\...`) avant d'être affectée au contrôleur SCSI/DVD virtuel de la machine.
--   Sélectionner les paramètres régionaux et linguistiques.
--   Choisir l'édition de Windows Server 2025 retenue pour le laboratoire.
--   Sélectionner le type d'installation personnalisé.
--   Configurer le disque virtuel destiné au système d'exploitation.
--   Lancer l'installation de Windows Server 2025.
-<img width="1198" height="464" alt="image" src="https://github.com/user-attachments/assets/58617167-2ace-4149-a40a-9441a595d3ee" />
-
--   Définir le mot de passe du compte Administrateur local.
-<img width="1199" height="595" alt="image" src="https://github.com/user-attachments/assets/4f966924-93f3-4445-a49f-4741126b665c" />
-
--   Redémarrer la machine virtuelle.
--   Procéder à la première ouverture de session.
-
-
-## 🎯 Résultat
-
-À l'issue de cette étape, SRV-V-DC1 dispose d'une installation fonctionnelle de Windows Server 2025.
-
-La machine virtuelle est désormais prête à recevoir sa configuration initiale, notamment :
-
-le renommage du serveur ;
-la configuration de l'adresse IP statique ;
-la configuration DNS ;
-l'installation des mises à jour ;
-l'installation des rôles Active Directory Domain Services (AD DS) et DNS ;
-la promotion en tant que contrôleur de domaine.
-
-SRV-V-DC1 deviendra ainsi le premier contrôleur de domaine de l'infrastructure LOGIFLEX.
 ---
 
 # 🔎 11. Vérification du fonctionnement
