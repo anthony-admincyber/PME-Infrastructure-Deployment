@@ -24,7 +24,7 @@ La promotion en contrôleur de domaine et la configuration des services Active D
 
 ---
 
-# 🏗️ 1. Positionnement de VM-DC1 dans l'architecture
+# 🏗️ 1. Positionnement de SRV-V-DC1 dans l'architecture
 
 La machine `SRV-V-DC1` est hébergée sur Hyper-V, lui-même exécuté sur `SRV-01-HV`.
 
@@ -265,7 +265,7 @@ Depuis VMware Workstation Pro :
 
 L'image ISO reste stockée sur la machine physique et est accessible depuis `SRV-01-HV` via le dossier partagé VMware.
 
-Elle est ensuite utilisée comme média d'installation pour la machine virtuelle `SRV-V-DC1`.
+L'image ISO, accessible depuis `SRV-01-HV` via le dossier partagé VMware, est ensuite associée au lecteur DVD virtuel de `SRV-V-DC1` afin de démarrer l'installation de Windows Server 2025.
 
 ```text
 Windows 11 Pro
@@ -285,7 +285,7 @@ Windows Server 2025
 
 ---
 
-# ⚡ 10. Configuration du processeur via paramètres de l'ordinateur virtuel
+# ⚡ 10. Configuration du processeur virtuel
 
 La machine virtuelle reçoit :
 
@@ -386,7 +386,7 @@ Les informations suivantes sont contrôlées :
 | Commutateur virtuel configuré | 🟢 |
 | Windows Server 2025 installé | 🟢 |
 | Adresse IP statique | 🔴 |
-| Nom définitif du serveur | 🔴 |
+| Nom de l'ordinateur Windows configuré | 🔴 |
 | AD DS | 🔴 |
 | DNS | 🔴 |
 | Promotion en contrôleur de domaine | 🔴 |
