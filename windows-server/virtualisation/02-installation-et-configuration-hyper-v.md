@@ -25,7 +25,7 @@ L'objectif est donc de mettre en œuvre une architecture de **virtualisation imb
                 ┌──────────┼──────────┐
                 │          │          │
                 ▼          ▼          ▼
-             VM-DC1     VM-SQL    VM-Centreon
+            SRV-V-DC1  SRV-V-SQL  SRV-V-Centreon
 
 ```
 
@@ -65,9 +65,9 @@ Windows Server 2025
       ▼
     Hyper-V
       │
-      ├── VM-DC1
-      ├── VM-SQL
-      └── VM-Centreon
+      ├── SRV-V-DC1
+      ├── SRV-V-SQL
+      └── SRV-V-Centreon
 ```
 
 Cette architecture constitue une **virtualisation imbriquée**.
@@ -287,7 +287,7 @@ Architecture logique :
           ┌─────────────┼─────────────┐
           │             │             │
           ▼             ▼             ▼
-       VM-DC1        VM-SQL       VM-Centreon
+      SRV-V-DC1     SRV-V-SQL     SRV-V-Centreon
 ```
 
 Le choix du type de commutateur dépend de l'objectif recherché.
@@ -325,9 +325,9 @@ L'architecture cible prévoit notamment :
 
 | VM | Fonction | Système |
 | --- | --- | --- |
-| VM-DC1 | Contrôleur de domaine / DNS | Windows Server 2025 |
-| VM-SQL | BDD métier WMS (SQL Server Linux) | Ubuntu Server |
-| VM-Centreon | Supervision | Ubuntu Server |
+| SRV-V-DC1 | Contrôleur de domaine / DNS | Windows Server 2025 |
+| SRV-V-SQL | BDD métier WMS (SQL Server Linux) | Ubuntu Server |
+| SRV-V-Centreon | Supervision | Ubuntu Server |
 
 Ces machines seront déployées progressivement afin de pouvoir documenter séparément leur installation et leur configuration.
 
@@ -347,9 +347,9 @@ Windows 11 Pro
       │     ├── SRV-01-HV
       │     │      │
       │     │      └── Hyper-V
-      │     │             ├── VM-DC1
-      │     │             ├── VM-SQL
-      │     │             └── VM-Centreon
+      │     │             ├── SRV-V-DC1
+      │     │             ├── SRV-V-SQL
+      │     │             └── SRV-V-Centreon
       │     │
       │     └── SRV-02-DC2
       │
@@ -400,9 +400,9 @@ Cette commande permet de vérifier la présence et la configuration du commutate
 | Outils de gestion Hyper-V | 🟢 |
 | Gestionnaire Hyper-V | 🟢 |
 | Commutateur virtuel | 🟢 |
-| VM-DC1 | 🔴 |
-| VM-SQL | 🔴 |
-| VM-Centreon | 🔴 |
+| SRV-V-DC1 | 🔴 |
+| SRV-V-SQL | 🔴 |
+| SRV-V-Centreon | 🔴 |
 
 **🟢 Terminé — 🟡 En cours — 🔴 À réaliser**
 
@@ -429,10 +429,10 @@ L'architecture obtenue est la suivante :
                     ▼                     ▼
                   Hyper-V              AD DS / DNS
                     │
-             ┌──────┼──────┐
-             │      │      │
-             ▼      ▼      ▼
-           VM-DC1 VM-SQL VM-Centreon
+            ┌───────┼───────┐
+            │       │       │
+            ▼       ▼       ▼
+     SRV-V-DC1  SRV-V-SQL  SRV-V-Centreon
 ```
 
 Cette étape permet de mettre en pratique les compétences suivantes :
@@ -445,4 +445,4 @@ Cette étape permet de mettre en pratique les compétences suivantes :
 
 La prochaine étape sera consacrée à la **création et au déploiement des machines virtuelles Hyper-V**, en commençant par :
 
-`VM-DC1` → Windows Server 2025 → Active Directory / DNS
+`SRV-V-DC1` → Windows Server 2025 → Active Directory / DNS
