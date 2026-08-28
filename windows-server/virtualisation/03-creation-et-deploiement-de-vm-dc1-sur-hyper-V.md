@@ -6,7 +6,7 @@ Après la préparation de l'hôte `SRV-01-HV` et l'installation du rôle Hyper-V
 
 La machine virtuelle créée est :
 
-`VM-DC1`
+`SRV-V-DC1`
 
 Elle est destinée à devenir le **premier contrôleur de domaine Active Directory** de l'environnement.
 
@@ -44,7 +44,7 @@ L'architecture est donc la suivante :
                             Hyper-V
                                │
                                ▼
-                           VM-DC1
+                           SRV-V-DC1
                       Windows Server 2025
                                │
                      AD DS / DNS (à venir)
@@ -58,7 +58,7 @@ La machine virtuelle `VM-DC1` est configurée avec des ressources adaptées à u
 
 | Élément | Configuration |
 | --- | --- |
-| Nom | VM-DC1 |
+| Nom | SRV-V-DC1 |
 | Génération | Génération 2 |
 | Système | Windows Server 2025 |
 | Fonction future | Contrôleur de domaine |
@@ -100,7 +100,7 @@ La création est réalisée depuis **Gestionnaire Hyper-V**.
 
 La machine virtuelle reçoit le nom :
 
-`VM-DC1`
+`SRV-V-DC1`
 
 Les fichiers sont stockés sur le volume dédié à Hyper-V :
 
@@ -116,11 +116,14 @@ Exemple :
 D:\Hyper-V\
 │
 ├── Virtual Machines\
-│   └── VM-DC1\
+│   └── SRV-V-DC1\
 │
 └── Virtual Hard Disks\
-    └── VM-DC1\
+    └── SRV-V-DC1\
 ```
+
+<img width="1207" height="623" alt="image" src="https://github.com/user-attachments/assets/326aa6f6-e5e6-4250-97ef-33177c7e4c13" />
+
 
 ---
 
