@@ -305,6 +305,8 @@ L'installation du système d'exploitation est ensuite réalisée selon les étap
 <img width="1198" height="464" alt="image" src="https://github.com/user-attachments/assets/58617167-2ace-4149-a40a-9441a595d3ee" />
 
 -   Définir le mot de passe du compte Administrateur local.
+<img width="1201" height="385" alt="image" src="https://github.com/user-attachments/assets/6f13ca40-0369-47a8-9c60-0f14ebf6708f" />
+
 -   Redémarrer la machine virtuelle.
 -   Procéder à la première ouverture de session.
 
