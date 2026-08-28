@@ -122,11 +122,11 @@ L'environnement repose sur une architecture de **virtualisation imbriquée**.
       ┌───────┼────────┐                        └── Repository Veeam
       │       │        │
       ▼       ▼        ▼
-   VM-DC1   VM-SQL   VM-Centreon
+ SRV-V-DC1 SRV-V-SQL SRV-V-Centreon
       │       │        │
       │       │        │
-   AD DS     SQL     Supervision
-   DNS     Comptabilité  Centreon
+   AD DS     SQL       Supervision
+    DNS  Comptabilité  Centreon
 ```
 
 # 🧩 Architecture technique
@@ -166,16 +166,16 @@ VMware Workstation
 Il héberge les machines virtuelles nécessaires aux différents services du laboratoire.
 
 ```
-SRV-01-HV
-Windows Server 2025
-        │
-        ▼
-      Hyper-V
-        │
- ┌──────┼──────────┐
- │      │          │
- ▼      ▼          ▼
-VM-DC1 VM-SQL VM-Centreon
+        SRV-01-HV
+    Windows Server 2025
+            │
+            ▼
+          Hyper-V
+            │
+ ┌──────────┼────────────┐
+ │          │            │
+ ▼          ▼            ▼
+SRV-V-DC1  SRV-V-SQL    SRV-V-Centreon
 ```
 
 Cette architecture permet de mettre en pratique la **virtualisation imbriquée (Nested Virtualization)**.
@@ -201,7 +201,7 @@ Services :
 
 ---
 
-## VM-DC1
+## SRV-V-DC1
 
 **Fonction principale :**
 
@@ -231,7 +231,7 @@ Services prévus :
 
 ---
 
-## VM-SQL
+## SRV-V-SQL
 
 **Fonction principale :**
 
@@ -245,7 +245,7 @@ Services :
 
 ---
 
-## VM-Centreon
+## SRV-V-Centreon
 
 **Fonction principale :**
 
@@ -273,10 +273,10 @@ Le laboratoire utilise le réseau :
 | --- | --- | --- |
 | Passerelle | 192.168.10.2 | Accès réseau |
 | SRV-01-HV | 192.168.10.10 | Hôte Hyper-V |
-| VM-DC1 | 192.168.10.20 | AD DS / DNS |
-| SRV-02-DC2 | 192.168.10.11 | AD DS / DNS / Repository |
-| VM-SQL | 192.168.10.30 | SQL |
-| VM-Centreon | 192.168.10.40 | Supervision |
+| SRV-V-DC1 | 192.168.10.20 | AD DS / DNS |
+| SRV-02-DC2 | 192.168.10.21 | AD DS / DNS / Repository |
+| SRV-V-SQL | 192.168.10.30 | SQL |
+| SRV-V-Centreon | 192.168.10.40 | Supervision |
 
 > ℹ️ Les adresses IP pourront être ajustées au fur et à mesure de l'évolution du laboratoire.
 
@@ -426,10 +426,10 @@ L'ensemble des composants du laboratoire utilise un réseau commun.
               │
        vSwitch-LOGIFLEX
               │
-      ┌───────┼─────────┐
-      │       │         │
-      ▼       ▼         ▼
-   VM-DC1   VM-SQL   VM-Centreon
+    ┌─────────┼───────────┐
+    │         │           │
+    ▼         ▼           ▼
+SRV-V-DC1  SRV-V-SQL   SRV-V-Centreon
 ```
 
 ## 📌 Note sur la segmentation réseau
@@ -507,7 +507,7 @@ Une solution Veeam sera utilisée afin de mettre en œuvre une stratégie de sau
                          │
                          ▼
                    Repository
-                  SRV-02-DC2
+                   SRV-02-DC2
 ```
 
 Les tests comprendront notamment :
@@ -601,13 +601,13 @@ PME-Infrastructure-Deployment/
 | Windows Server 2025 | 🟢 |
 | Virtualisation imbriquée | 🟢 |
 | Hyper-V | 🟢 |
-| VM-DC1 | 🟡 |
+| SRV-V-DC1 | 🟡 |
 | Active Directory | 🔴 |
 | DNS | 🔴 |
 | SRV-02-DC2 | 🔴 |
 | Réplication AD | 🔴 |
-| VM-SQL | 🔴 |
-| VM-Centreon | 🔴 |
+| SRV-V-SQL | 🔴 |
+| SRV-V-Centreon | 🔴 |
 | Supervision | 🔴 |
 | Veeam | 🔴 |
 | Repository Veeam | 🔴 |
