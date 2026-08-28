@@ -289,7 +289,7 @@ Le nombre de processeurs pourra être ajusté en fonction de la consommation ré
 
 L'installation du système d'exploitation est ensuite réalisée selon les étapes suivantes :
 
--   Démarrer la machine virtuelle SRV-V-DC1.>
+-   Démarrer la machine virtuelle SRV-V-DC1.
 -   Amorcer la machine virtuelle sur le média d'installation Windows Server 2025.
 -   [!WARNING]  
 > **Erreur rencontrée : Code 0x80070299 (Limitation du système de fichiers)**  
