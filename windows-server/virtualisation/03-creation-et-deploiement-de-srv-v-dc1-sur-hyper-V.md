@@ -26,7 +26,7 @@ La promotion en contrôleur de domaine et la configuration des services Active D
 
 # 🏗️ 1. Positionnement de VM-DC1 dans l'architecture
 
-La machine `VM-DC1` est hébergée sur Hyper-V, lui-même exécuté sur `SRV-01-HV`.
+La machine `SRV-V-DC1` est hébergée sur Hyper-V, lui-même exécuté sur `SRV-01-HV`.
 
 L'architecture est donc la suivante :
 
@@ -54,7 +54,7 @@ L'architecture est donc la suivante :
 
 # 🖥️ 2. Caractéristiques de la machine virtuelle
 
-La machine virtuelle `VM-DC1` est configurée avec des ressources adaptées à un environnement de laboratoire.
+La machine virtuelle `SRV-V-DC1` est configurée avec des ressources adaptées à un environnement de laboratoire.
 
 | Élément | Configuration |
 | --- | --- |
@@ -180,7 +180,7 @@ La mémoire dynamique pourra être utilisée ou ajustée selon les besoins obser
 La machine virtuelle est connectée au commutateur virtuel configuré sur `SRV-01-HV`.
 
 ```
-                         VM-DC1
+                         SRV-V-DC1
                            │
                            ▼
                     vSwitch-LAB
@@ -283,7 +283,7 @@ Cette configuration est adaptée aux besoins de la maquette.
 ```
 SRV-01-HV
       │
-      └── VM-DC1
+      └── SRV-V-DC1
              │
              └── 2 vCPU
 ```
@@ -343,7 +343,7 @@ SRV-01-HV
 │
 └── Machines virtuelles
       │
-      └── VM-DC1
+      └── SRV-V-DC1
             │
             └── État : En cours d'exécution
 ```
@@ -401,7 +401,7 @@ L'architecture évolue désormais de la manière suivante :
             Windows Server 2025    Windows Server 2025
                     │                     │
                     ▼                     ▼
-                  Hyper-V          AD DS / DNS
+                  Hyper-V          AD DS / DNS (à venir)
                     │
                     ▼
                SRV-V-DC1
@@ -419,7 +419,7 @@ Le système d'exploitation est installé et la machine virtuelle est prête à �
 
 ## ➡️ Étape suivante
 
-La prochaine étape sera consacrée à la **préparation de VM-DC1** avant son intégration dans l'infrastructure Active Directory.
+La prochaine étape sera consacrée à la **préparation de SRV-V-DC1** avant son intégration dans l'infrastructure Active Directory.
 
 Les actions prévues seront notamment :
 
@@ -431,7 +431,7 @@ Les actions prévues seront notamment :
 -   préparation à l'installation des rôles AD DS et DNS.
 
 ```
-Création de VM-DC1
+Création de SRV-V-DC1
         ↓
 Installation Windows Server 2025
         ↓
