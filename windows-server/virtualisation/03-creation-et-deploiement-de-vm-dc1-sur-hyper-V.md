@@ -295,6 +295,41 @@ Le nombre de processeurs pourra être ajusté en fonction de la consommation ré
 <img width="718" height="685" alt="image" src="https://github.com/user-attachments/assets/60ee6ba1-31b6-463d-8a33-e873884e8752" />
 
 ---
+## 9.2. Installation de Windows Server 2025 sur `SRV-V-DC1`
+
+Une fois l'image ISO de Windows Server 2025 accessible depuis `SRV-01-HV`, celle-ci est utilisée comme média d'installation pour la machine virtuelle `SRV-V-DC1`.
+
+Le fichier ISO est associé au lecteur DVD virtuel de la machine virtuelle depuis les paramètres Hyper-V.
+
+### ⚙️ Démarrage de l'installation
+
+Après l'association du média d'installation, la machine virtuelle `SRV-V-DC1` est démarrée.
+
+La machine virtuelle amorce alors la séquence de démarrage sur l'image ISO de Windows Server 2025.
+
+ <img width="1197" height="688" alt="Démarrage de l'installation de Windows Server 2025 sur SRV-V-DC1" src="https://github.com/user-attachments/assets/f04c4824-a316-4392-99ce-83b76180245d" />
+
+Le processus d'installation de Windows Server peut alors commencer.
+
+Les principales étapes sont les suivantes :
+
+1.  Démarrer la machine virtuelle `SRV-V-DC1`.
+2.  Amorcer le démarrage sur le média d'installation Windows Server 2025.
+3.  Sélectionner la langue et les paramètres régionaux.
+4.  Choisir l'édition de Windows Server adaptée au laboratoire.
+5.  Sélectionner le type d'installation.
+6.  Configurer le disque virtuel destiné au système d'exploitation.
+7.  Lancer l'installation de Windows Server 2025.
+<img width="1198" height="464" alt="image" src="https://github.com/user-attachments/assets/58617167-2ace-4149-a40a-9441a595d3ee" />
+8.  Définir le mot de passe initial du compte `Administrateur`.
+<img width="1199" height="595" alt="image" src="https://github.com/user-attachments/assets/4f966924-93f3-4445-a49f-4741126b665c" />
+
+9.  Redémarrer la machine virtuelle après la fin de l'installation.£
+10. Effectuer la première ouverture de session.
+
+À l'issue de cette étape, `SRV-V-DC1` dispose d'une installation fonctionnelle de Windows Server 2025.
+
+La prochaine phase consistera à préparer le système d'exploitation avant son intégration dans l'infrastructure Active Directory LOGIFLEX.
 
 # ⚡ 11.⚙️ Installation de Windows Server 2025
 
