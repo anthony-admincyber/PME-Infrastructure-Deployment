@@ -230,9 +230,9 @@ L'utilisation d'un disque à expansion dynamique permet d'optimiser l'espace dis
 
 ---
 
-# 📀 9. Récupération de l'image ISO et installation de Windows Server 2025
+# 📀 9. Récupération de l'image ISO pour l'installation de Windows Server 2025
 
-## 9.1. Mise à disposition de l'image ISO via les dossiers partagés VMware
+## Mise à disposition de l'image ISO via les dossiers partagés VMware
 
 Afin de rendre l'image d'installation de Windows Server 2025 accessible depuis l'hôte de virtualisation `SRV-01-HV`, un dossier partagé VMware a été configuré entre la machine physique et la machine virtuelle.
 
@@ -293,10 +293,6 @@ Le nombre de processeurs pourra être ajusté en fonction de la consommation ré
 
 ---
 # ⚡ 11.⚙️ Installation de Windows Server 2025 sur `SRV-V-DC1`
-
-Une fois l'image ISO de Windows Server 2025 accessible depuis `SRV-01-HV`, celle-ci est utilisée comme média d'installation pour la machine virtuelle `SRV-V-DC1`.
-
-Le fichier ISO est associé au lecteur DVD virtuel de la machine virtuelle depuis les paramètres Hyper-V.
 
 ### ⚙️ Démarrage de l'installation
 
