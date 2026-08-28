@@ -326,6 +326,8 @@ Les principales étapes sont les suivantes :
 
 9.  Redémarrer la machine virtuelle après la fin de l'installation.£
 10. Effectuer la première ouverture de session.
+<img width="1233" height="623" alt="image" src="https://github.com/user-attachments/assets/65da32ce-951a-4e73-b85d-25df0b00311b" />
+
 
 À l'issue de cette étape, `SRV-V-DC1` dispose d'une installation fonctionnelle de Windows Server 2025.
 
