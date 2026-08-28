@@ -248,6 +248,7 @@ SRV-01-HV
 
 Le nombre de processeurs pourra être ajusté en fonction de la consommation réelle des ressources.
 
+<img width="718" height="685" alt="image" src="https://github.com/user-attachments/assets/60ee6ba1-31b6-463d-8a33-e873884e8752" />
 
 ---
 
@@ -276,19 +277,29 @@ Depuis la VM hôte, accès au chemin réseau : \\vmware-host\Shared Folders.
 
 ## 10.2. Déploiement du système sur la machine virtuelle Hyper-V (VM-DC1)
 
+⚙️ Installation de Windows Server 2025
 
-Démarrage : Démarrer VM-DC1 et amorcer la séquence de boot sur le média d'installation.
+Une fois le média d'installation associé à la machine virtuelle, SRV-V-DC1 est démarrée.
 
-Sélection de l'édition : Choisir l'édition cible de Windows Server 2025 (ex. Standard avec expérience utilisateur).
+<img width="1204" height="639" alt="image" src="https://github.com/user-attachments/assets/11d532c1-c099-4923-a963-6ae1c9470d3f" />
 
-Partitionnement : Configurer le disque virtuel système.
 
-Installation : Lancer le processus d'installation du système d'exploitation.
+Les principales étapes d'installation sont les suivantes :
 
-Post-installation : Définir le mot de passe du compte Administrateur local.
+Démarrer la machine virtuelle SRV-V-DC1.
+Amorcer la machine virtuelle sur le média d'installation Windows Server 2025.
+Sélectionner les paramètres régionaux et linguistiques.
+Choisir l'édition de Windows Server 2025 retenue pour la maquette.
+Sélectionner l'installation personnalisée.
+Configurer le disque virtuel destiné au système d'exploitation.
+Lancer l'installation de Windows Server 2025.
+Définir le mot de passe du compte Administrateur local.
+Redémarrer la machine virtuelle.
+Procéder à la première ouverture de session.
 
-Finalisation : Redémarrer la machine virtuelle et procéder à la première ouverture de session.
+À l'issue de cette étape, SRV-V-DC1 dispose d'une installation fonctionnelle de Windows Server 2025.
 
+La machine virtuelle pourra ensuite être préparée avant d'être promue en tant que premier contrôleur de domaine Active Directory de l'environnement LOGIFLEX.
 ---
 
 # 🔎 11. Vérification du fonctionnement
