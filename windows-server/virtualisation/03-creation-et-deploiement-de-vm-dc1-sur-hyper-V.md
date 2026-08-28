@@ -236,7 +236,7 @@ L'utilisation d'un disque à expansion dynamique permet d'optimiser l'espace dis
 
 Afin de rendre disponible l'image d'installation sur l'hôte de virtualisation imbriqué (Windows Server 2025 sous VMware Workstation Pro), l'image ISO a été transférée depuis la machine physique hôte via la fonctionnalité Shared Folders de VMware :
 
-<img width="1204" height="639" alt="image" src="https://github.com/user-attachments/assets/11d532c1-c099-4923-a963-6ae1c9470d3f" />
+<img width="828" height="451" alt="image" src="https://github.com/user-attachments/assets/fe126518-dca3-4092-b66e-ba46e50b05f9" />
 
 Prérequis : Présence et bon fonctionnement des VMware Tools sur la machine virtuelle hôte.
 
@@ -252,8 +252,7 @@ Récupération du fichier :
 
 Depuis la VM hôte, accès au chemin réseau : \\vmware-host\Shared Folders.
 
-<img width="828" height="451" alt="image" src="https://github.com/user-attachments/assets/fe126518-dca3-4092-b66e-ba46e50b05f9" />
-
+<img width="1204" height="639" alt="image" src="https://github.com/user-attachments/assets/11d532c1-c099-4923-a963-6ae1c9470d3f" />
 
 ## 9.2. Déploiement du système sur la machine virtuelle Hyper-V (VM-DC1)
 
