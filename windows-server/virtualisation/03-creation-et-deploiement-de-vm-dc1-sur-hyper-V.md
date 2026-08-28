@@ -290,15 +290,17 @@ Le nombre de processeurs pourra être ajusté en fonction de la consommation ré
 L'installation du système d'exploitation est ensuite réalisée selon les étapes suivantes :
 
 -   Démarrer la machine virtuelle SRV-V-DC1.>
+-   Amorcer la machine virtuelle sur le média d'installation Windows Server 2025.
 -   [!WARNING]  
 > **Erreur rencontrée : Code 0x80070299 (Limitation du système de fichiers)**  
 > 
 > * **Symptôme :** Échec du démarrage de `SRV-V-DC1` lors du montage de l'image ISO via le chemin partagé `\\vmware-host\Shared Folders\...`.  
 > * **Cause :** Le service Hyper-V s'exécute avec les privilèges du compte système local et ne supporte pas l'accès direct aux partages réseau virtuels HGFS de VMware Workstation.  
 > * **Résolution :** L'ISO doit obligatoirement être copiée sur le stockage local de l'hôte Hyper-V (ex. `C:\ISOs\...`) avant d'être affectée au contrôleur SCSI/DVD virtuel de la machine.
--   Amorcer la machine virtuelle sur le média d'installation Windows Server 2025.
 -   Sélectionner les paramètres régionaux et linguistiques.
 -   Choisir l'édition de Windows Server 2025 retenue pour le laboratoire.
+<img width="1024" height="768" alt="image" src="https://github.com/user-attachments/assets/cd01de6a-782b-41ad-b089-7db748b69cfd" />
+
 -   Sélectionner le type d'installation personnalisé.
 -   Configurer le disque virtuel destiné au système d'exploitation.
 -   Lancer l'installation de Windows Server 2025.
