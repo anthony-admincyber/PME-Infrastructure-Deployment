@@ -263,7 +263,7 @@ Une fois le média d'installation associé à la machine virtuelle, SRV-V-DC1 es
 
 ---
 
-# ⚡ 10. Configuration du processeur via paramètres de l'ordinateur virtuelm
+# ⚡ 10. Configuration du processeur via paramètres de l'ordinateur virtuel
 
 La machine virtuelle reçoit :
 
@@ -287,11 +287,15 @@ Le nombre de processeurs pourra être ajusté en fonction de la consommation ré
 
 # ⚡ 11.⚙️ Installation de Windows Server 2025
 
-Une fois le média d'installation associé à la machine virtuelle, SRV-V-DC1 est démarrée.
-
 L'installation du système d'exploitation est ensuite réalisée selon les étapes suivantes :
 
--   Démarrer la machine virtuelle SRV-V-DC1.
+-   Démarrer la machine virtuelle SRV-V-DC1.>
+-   [!WARNING]  
+> **Erreur rencontrée : Code 0x80070299 (Limitation du système de fichiers)**  
+> 
+> * **Symptôme :** Échec du démarrage de `SRV-V-DC1` lors du montage de l'image ISO via le chemin partagé `\\vmware-host\Shared Folders\...`.  
+> * **Cause :** Le service Hyper-V s'exécute avec les privilèges du compte système local et ne supporte pas l'accès direct aux partages réseau virtuels HGFS de VMware Workstation.  
+> * **Résolution :** L'ISO doit obligatoirement être copiée sur le stockage local de l'hôte Hyper-V (ex. `C:\ISOs\...`) avant d'être affectée au contrôleur SCSI/DVD virtuel de la machine.
 -   Amorcer la machine virtuelle sur le média d'installation Windows Server 2025.
 -   Sélectionner les paramètres régionaux et linguistiques.
 -   Choisir l'édition de Windows Server 2025 retenue pour le laboratoire.
