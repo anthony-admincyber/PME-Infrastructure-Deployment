@@ -269,9 +269,6 @@ Les fichiers sont ensuite accessibles depuis `SRV-01-HV` via le chemin réseau :
 \\vmware-host\Shared Folders
 ```
 
-<img width="1197" height="688" alt="image" src="https://github.com/user-attachments/assets/f04c4824-a316-4392-99ce-83b76180245d" />
-
-
 ---
 
 # ⚡ 10. Configuration du processeur via paramètres de l'ordinateur virtuel
