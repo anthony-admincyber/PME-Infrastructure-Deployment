@@ -299,11 +299,11 @@ L'installation du système d'exploitation est ensuite réalisée selon les étap
 > * **Résolution :** L'ISO doit obligatoirement être copiée sur le stockage local de l'hôte Hyper-V (ex. `C:\ISOs\...`) avant d'être affectée au contrôleur SCSI/DVD virtuel de la machine.
 -   Sélectionner les paramètres régionaux et linguistiques.
 -   Choisir l'édition de Windows Server 2025 retenue pour le laboratoire.
-<img width="1024" height="768" alt="image" src="https://github.com/user-attachments/assets/cd01de6a-782b-41ad-b089-7db748b69cfd" />
-
 -   Sélectionner le type d'installation personnalisé.
 -   Configurer le disque virtuel destiné au système d'exploitation.
 -   Lancer l'installation de Windows Server 2025.
+<img width="1198" height="464" alt="image" src="https://github.com/user-attachments/assets/58617167-2ace-4149-a40a-9441a595d3ee" />
+
 -   Définir le mot de passe du compte Administrateur local.
 -   Redémarrer la machine virtuelle.
 -   Procéder à la première ouverture de session.
