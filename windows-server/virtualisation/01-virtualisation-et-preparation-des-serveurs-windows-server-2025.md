@@ -37,7 +37,7 @@ Ces deux serveurs constitueront ensuite le socle de l'infrastructure LOGIFLEX.
         ┌────────┼─────────┐
         │        │         │
         ▼        ▼         ▼
-      VM-DC1   VM-SQL   VM-Centreon
+ SRV-V-DC1   SRV-V-SQL  SRV-V-Centreon
                          
 ```
 
@@ -64,9 +64,9 @@ VMware Workstation
       │       ▼
       │     Hyper-V
       │       │
-      │       ├── VM-DC1
-      │       ├── VM-SQL
-      │       ├── VM-Centreon
+      │       ├── SRV-V-DC1
+      │       ├── SRV-V-SQL
+      │       ├── SRV-V-Centreon
       │ 
       │
       └── SRV-02-DC2
@@ -85,9 +85,9 @@ Windows Server 2025
         ▼
       Hyper-V
         │
-        ├── VM-DC1
-        ├── VM-SQL
-        ├── VM-Centreon
+        ├── SRV-V-DC1
+        ├── SRV-V-SQL
+        ├── SRV-V-Centreon
 ```
 
 Cette architecture constitue une **virtualisation imbriquée (Nested Virtualization)**.
@@ -150,7 +150,7 @@ Elle sera utilisée principalement pour :
 
 -   Active Directory ;
 -   DNS ;
--   réplication avec `VM-DC1` ;
+-   réplication avec `SRV-V-DC1` ;
 -   continuité de service ;
 -   repository Veeam.
 
@@ -282,9 +282,9 @@ Une particularité de ce laboratoire est l'utilisation de la **virtualisation im
 │ │ │                              │ │ │
 │ │ │ Hyper-V                      │ │ │
 │ │ │      │                       │ │ │
-│ │ │      ├── VM-DC1              │ │ │
-│ │ │      ├── VM-SQL              │ │ │
-│ │ │      ├── VM-Centreon         │ │ │
+│ │ │      ├── SRV-V-DC1           │ │ │
+│ │ │      ├── SRV-V-SQL           │ │ │
+│ │ │      ├── SRV-V-Centreon      │ │ │
 │ │ └──────────────────────────────┘ │ │
 │ └──────────────────────────────────┘ │
 └──────────────────────────────────────┘
@@ -378,9 +378,9 @@ Windows Server 2025  Windows Server 2025
        ▼                  ▼
     Hyper-V            AD DS / DNS
        │
-       ├── VM-DC1
-       ├── VM-SQL
-       ├── VM-Centreon
+       ├── SRV-V-DC1
+       ├── SRV-V-SQL
+       ├── SRV-V-Centreon
 ```
 
 Cette étape permet de mettre en pratique les compétences suivantes :
