@@ -265,7 +265,7 @@ Une fois le média d'installation associé à la machine virtuelle, SRV-V-DC1 es
 
 ---
 
-# ⚡ 8. Configuration du processeur
+# ⚡ 10. Configuration du processeur
 
 La machine virtuelle reçoit :
 
@@ -287,22 +287,38 @@ Le nombre de processeurs pourra être ajusté en fonction de la consommation ré
 
 ---
 
-Les principales étapes d'installation sont les suivantes :
+# ⚡ 11.⚙️ Installation de Windows Server 2025
 
-Démarrer la machine virtuelle SRV-V-DC1.
-Amorcer la machine virtuelle sur le média d'installation Windows Server 2025.
-Sélectionner les paramètres régionaux et linguistiques.
-Choisir l'édition de Windows Server 2025 retenue pour la maquette.
-Sélectionner l'installation personnalisée.
-Configurer le disque virtuel destiné au système d'exploitation.
-Lancer l'installation de Windows Server 2025.
-Définir le mot de passe du compte Administrateur local.
-Redémarrer la machine virtuelle.
-Procéder à la première ouverture de session.
+Une fois le média d'installation associé à la machine virtuelle, SRV-V-DC1 est démarrée.
+
+L'installation du système d'exploitation est ensuite réalisée selon les étapes suivantes :
+
+-   Démarrer la machine virtuelle SRV-V-DC1.
+-   Amorcer la machine virtuelle sur le média d'installation Windows Server 2025.
+-   Sélectionner les paramètres régionaux et linguistiques.
+-   Choisir l'édition de Windows Server 2025 retenue pour le laboratoire.
+-   Sélectionner le type d'installation personnalisé.
+-   Configurer le disque virtuel destiné au système d'exploitation.
+-   Lancer l'installation de Windows Server 2025.
+-   Définir le mot de passe du compte Administrateur local.
+-   Redémarrer la machine virtuelle.
+-   Procéder à la première ouverture de session.
+
+
+## 🎯 Résultat
 
 À l'issue de cette étape, SRV-V-DC1 dispose d'une installation fonctionnelle de Windows Server 2025.
 
-La machine virtuelle pourra ensuite être préparée avant d'être promue en tant que premier contrôleur de domaine Active Directory de l'environnement LOGIFLEX.
+La machine virtuelle est désormais prête à recevoir sa configuration initiale, notamment :
+
+le renommage du serveur ;
+la configuration de l'adresse IP statique ;
+la configuration DNS ;
+l'installation des mises à jour ;
+l'installation des rôles Active Directory Domain Services (AD DS) et DNS ;
+la promotion en tant que contrôleur de domaine.
+
+SRV-V-DC1 deviendra ainsi le premier contrôleur de domaine de l'infrastructure LOGIFLEX.
 ---
 
 # 🔎 11. Vérification du fonctionnement
