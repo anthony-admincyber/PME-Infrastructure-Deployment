@@ -256,16 +256,14 @@ Depuis la VM hôte, accès au chemin réseau : \\vmware-host\Shared Folders.
 
 ## 9.2. Déploiement du système sur la machine virtuelle Hyper-V (VM-DC1)
 
-⚙️ Installation de Windows Server 2025
-
-Une fois le média d'installation associé à la machine virtuelle, SRV-V-DC1 est démarrée.
+Une fois le média d'installation associé à la machine virtuelle, SRV-V-DC1 est crée.
 
 <img width="1197" height="688" alt="image" src="https://github.com/user-attachments/assets/f04c4824-a316-4392-99ce-83b76180245d" />
 
 
 ---
 
-# ⚡ 10. Configuration du processeur
+# ⚡ 10. Configuration du processeur via paramètres de l'ordinateur virtuelm
 
 La machine virtuelle reçoit :
 
