@@ -149,6 +149,8 @@ Génération 2
    └── Fonctionnalités modernes Hyper-V
 ```
 
+<img width="1199" height="630" alt="image" src="https://github.com/user-attachments/assets/a5a812d7-d02a-465e-ad7c-a4e4d49d8c45" />
+
 ---
 
 # 🧠 6. Configuration de la mémoire
@@ -157,7 +159,7 @@ Une mémoire de démarrage de :
 
 `4096 Mo`
 
-est attribuée à `VM-DC1`.
+est attribuée à `SRV-V-DC1`.
 
 Cette allocation permet de disposer de ressources suffisantes pour Windows Server 2025 ainsi que pour les futurs services :
 
@@ -169,9 +171,66 @@ La mémoire dynamique pourra être utilisée ou ajustée selon les besoins obser
 
 > ⚠️ Les ressources de la machine virtuelle doivent rester cohérentes avec les ressources disponibles sur `SRV-01-HV` et sur l'hôte physique.
 
+<img width="1202" height="629" alt="image" src="https://github.com/user-attachments/assets/d6a3d30f-625e-4ac5-8abf-1cec96ac37f6" />
+
 ---
 
-# ⚡ 7. Configuration du processeur
+# 🌐 7. Configuration du réseau virtuel
+
+La machine virtuelle est connectée au commutateur virtuel configuré sur `SRV-01-HV`.
+
+```
+                         VM-DC1
+                           │
+                           ▼
+                    vSwitch-LAB
+                           │
+                           ▼
+                     SRV-01-HV
+                           │
+                           ▼
+                  Réseau du laboratoire
+                    192.168.10.0/24
+```
+
+Cette configuration permettra à `VM-DC1` de communiquer avec :
+
+-   `SRV-01-HV` ;
+-   `SRV-02-DC2` ;
+-   `SRV-V-SQL` ;
+-   `SRV-V-Centreon` ;
+-   les autres composants du laboratoire.
+
+L'adressage IP définitif sera configuré après l'installation du système d'exploitation.
+
+<img width="1205" height="636" alt="image" src="https://github.com/user-attachments/assets/741ff62f-0ca3-48aa-a238-637e28c85615" />
+
+---
+
+# 💾 8. Création du disque virtuel
+
+Un disque virtuel est créé pour accueillir le système d'exploitation de `SRV-V-DC1`.
+
+Configuration retenue :
+
+| Élément | Configuration |
+| --- | --- |
+| Type | VHDX |
+| Taille maximale | 40 Go |
+| Emplacement | D:\Hyper-V\Virtual Hard Disks\SRV-V-DC1\ |
+| Type d'allocation | Expansion dynamique |
+
+Le format **VHDX** est utilisé afin de bénéficier des fonctionnalités modernes d'Hyper-V.
+
+L'utilisation d'un disque à expansion dynamique permet d'optimiser l'espace disponible dans l'environnement de laboratoire.
+
+> 💡 Le disque virtuel n'occupe pas immédiatement sa taille maximale sur le stockage physique. Son espace augmente progressivement en fonction des données réellement stockées.
+
+<img width="1206" height="632" alt="image" src="https://github.com/user-attachments/assets/3e45374c-ab07-4bb7-ba08-85eb34bc55a7" />
+
+---
+
+# ⚡ 8. Configuration du processeur
 
 La machine virtuelle reçoit :
 
@@ -189,76 +248,46 @@ SRV-01-HV
 
 Le nombre de processeurs pourra être ajusté en fonction de la consommation réelle des ressources.
 
----
-
-# 💾 8. Création du disque virtuel
-
-Un disque virtuel est créé pour accueillir le système d'exploitation de `VM-DC1`.
-
-Configuration retenue :
-
-| Élément | Configuration |
-| --- | --- |
-| Type | VHDX |
-| Taille maximale | 40 Go |
-| Emplacement | D:\Hyper-V\Virtual Hard Disks\VM-DC1\ |
-| Type d'allocation | Expansion dynamique |
-
-Le format **VHDX** est utilisé afin de bénéficier des fonctionnalités modernes d'Hyper-V.
-
-L'utilisation d'un disque à expansion dynamique permet d'optimiser l'espace disponible dans l'environnement de laboratoire.
-
-> 💡 Le disque virtuel n'occupe pas immédiatement sa taille maximale sur le stockage physique. Son espace augmente progressivement en fonction des données réellement stockées.
 
 ---
 
-# 🌐 9. Configuration du réseau virtuel
+# 📀 10. Récupération de l'ISO et installation de Windows Server 2025
 
-La machine virtuelle est connectée au commutateur virtuel configuré sur `SRV-01-HV`.
+## 10.1. Transfert de l'image ISO via le partage de dossiers VMware
 
-```
-                         VM-DC1
-                           │
-                           ▼
-                    vSwitch-LOGIFLEX
-                           │
-                           ▼
-                     SRV-01-HV
-                           │
-                           ▼
-                  Réseau du laboratoire
-                    192.168.10.0/24
-```
+Afin de rendre disponible l'image d'installation sur l'hôte de virtualisation imbriqué (Windows Server 2025 sous VMware Workstation Pro), l'image ISO a été transférée depuis la machine physique hôte via la fonctionnalité Shared Folders de VMware :
 
-Cette configuration permettra à `VM-DC1` de communiquer avec :
+Prérequis : Présence et bon fonctionnement des VMware Tools sur la machine virtuelle hôte.
 
--   `SRV-01-HV` ;
--   `SRV-02-DC2` ;
--   `VM-SQL` ;
--   `VM-Centreon` ;
--   les autres composants du laboratoire.
+Configuration du partage :
 
-L'adressage IP définitif sera configuré après l'installation du système d'exploitation.
+Accès aux paramètres de la VM dans VMware Workstation : VM Settings > onglet Options > Shared Folders.
 
----
+Activation de l'option Always enabled.
 
-# 📀 10. Installation de Windows Server 2025
+Ajout d'un dossier partagé (Add...) pointant vers l'emplacement contenant l'ISO sur l'hôte physique.
 
-L'image ISO de **Windows Server 2025** est ensuite associée au lecteur DVD virtuel de la machine.
+Récupération du fichier :
 
-La machine virtuelle est démarrée afin de lancer l'installation du système d'exploitation.
+Depuis la VM hôte, accès au chemin réseau : \\vmware-host\Shared Folders.
 
-Les principales étapes sont :
+<img width="828" height="451" alt="image" src="https://github.com/user-attachments/assets/fe126518-dca3-4092-b66e-ba46e50b05f9" />
 
-1.  Démarrer `VM-DC1`.
-2.  Démarrer sur le média d'installation.
-3.  Sélectionner la version de Windows Server 2025.
-4.  Configurer le disque système.
-5.  Lancer l'installation.
-6.  Définir le mot de passe administrateur.
-7.  Redémarrer la machine virtuelle.
 
-À l'issue de cette étape, `VM-DC1` dispose d'une installation fonctionnelle de Windows Server 2025.
+## 10.2. Déploiement du système sur la machine virtuelle Hyper-V (VM-DC1)
+
+
+Démarrage : Démarrer VM-DC1 et amorcer la séquence de boot sur le média d'installation.
+
+Sélection de l'édition : Choisir l'édition cible de Windows Server 2025 (ex. Standard avec expérience utilisateur).
+
+Partitionnement : Configurer le disque virtuel système.
+
+Installation : Lancer le processus d'installation du système d'exploitation.
+
+Post-installation : Définir le mot de passe du compte Administrateur local.
+
+Finalisation : Redémarrer la machine virtuelle et procéder à la première ouverture de session.
 
 ---
 
