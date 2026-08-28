@@ -89,8 +89,10 @@ La création est réalisée depuis **Gestionnaire Hyper-V**.
 1.  Ouvrir **Gestionnaire Hyper-V**.
 2.  Sélectionner l'hôte `SRV-01-HV`.
 3.  Cliquer sur **Nouveau**.
-4.  Sélectionner **Machine virtuelle**.
+4.  Sélectionner **Ordinateur virtuel**.
 5.  Lancer l'assistant de création.
+<img width="1201" height="634" alt="image" src="https://github.com/user-attachments/assets/86d4214b-65e1-4e0d-99e7-4eee4df9e62e" />
+
 
 ---
 
