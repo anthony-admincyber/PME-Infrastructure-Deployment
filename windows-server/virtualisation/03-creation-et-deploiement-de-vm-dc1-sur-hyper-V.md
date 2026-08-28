@@ -230,33 +230,44 @@ L'utilisation d'un disque à expansion dynamique permet d'optimiser l'espace dis
 
 ---
 
-# 📀 9. Récupération de l'ISO et installation de Windows Server 2025
+# 📀 9. Récupération de l'image ISO et installation de Windows Server 2025
 
-## 9.1. Transfert de l'image ISO via le partage de dossiers VMware
+## 9.1. Mise à disposition de l'image ISO via les dossiers partagés VMware
 
-Afin de rendre disponible l'image d'installation sur l'hôte de virtualisation imbriqué (Windows Server 2025 sous VMware Workstation Pro), l'image ISO a été transférée depuis la machine physique hôte via la fonctionnalité Shared Folders de VMware :
+Afin de rendre l'image d'installation de Windows Server 2025 accessible depuis l'hôte de virtualisation `SRV-01-HV`, un dossier partagé VMware a été configuré entre la machine physique et la machine virtuelle.
 
-<img width="828" height="451" alt="image" src="https://github.com/user-attachments/assets/fe126518-dca3-4092-b66e-ba46e50b05f9" />
+La machine physique, exécutant Windows 11 Pro, contient les différentes images ISO utilisées dans le cadre du laboratoire. La fonctionnalité **Shared Folders** de VMware Workstation Pro permet de rendre ces fichiers accessibles depuis `SRV-01-HV`, sans avoir à les télécharger ou à les copier plusieurs fois.
 
-Prérequis : Présence et bon fonctionnement des VMware Tools sur la machine virtuelle hôte.
+Cette méthode permet notamment :
 
-Configuration du partage :
+- de centraliser les images ISO sur la machine physique ;
+- de faciliter leur utilisation par les différents environnements virtualisés ;
+- de limiter les transferts de fichiers ;
+- d'éviter la duplication inutile des fichiers ISO ;
+- de simplifier le déploiement des futures machines virtuelles.
 
-Accès aux paramètres de la VM dans VMware Workstation : VM Settings > onglet Options > Shared Folders.
+<img width="828" height="451" alt="Configuration des dossiers partagés VMware" src="https://github.com/user-attachments/assets/fe126518-dca3-4092-b66e-ba46e50b05f9" />
 
-Activation de l'option Always enabled.
+### Prérequis
 
-Ajout d'un dossier partagé (Add...) pointant vers l'emplacement contenant l'ISO sur l'hôte physique.
+L'utilisation des dossiers partagés VMware nécessite la présence et le bon fonctionnement des **VMware Tools** sur la machine virtuelle `SRV-01-HV`.
 
-Récupération du fichier :
+### Configuration du partage
 
-Depuis la VM hôte, accès au chemin réseau : \\vmware-host\Shared Folders.
+Depuis VMware Workstation Pro :
 
-<img width="1204" height="639" alt="image" src="https://github.com/user-attachments/assets/11d532c1-c099-4923-a963-6ae1c9470d3f" />
+1. Accéder aux paramètres de la machine virtuelle `SRV-01-HV`.
+2. Sélectionner l'onglet **Options**.
+3. Ouvrir la section **Shared Folders**.
+4. Activer l'option **Always enabled**.
+5. Ajouter un dossier partagé à l'aide de l'option **Add...**.
+6. Sélectionner le dossier de la machine physique contenant les images ISO utilisées pour le laboratoire.
 
-## 9.2. Déploiement du système sur la machine virtuelle Hyper-V (VM-DC1)
+Les fichiers sont ensuite accessibles depuis `SRV-01-HV` via le chemin réseau :
 
-Une fois le média d'installation associé à la machine virtuelle, SRV-V-DC1 est crée.
+```text
+\\vmware-host\Shared Folders
+```
 
 <img width="1197" height="688" alt="image" src="https://github.com/user-attachments/assets/f04c4824-a316-4392-99ce-83b76180245d" />
 
