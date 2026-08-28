@@ -230,6 +230,42 @@ L'utilisation d'un disque à expansion dynamique permet d'optimiser l'espace dis
 
 ---
 
+# 📀 9. Récupération de l'ISO et installation de Windows Server 2025
+
+## 9.1. Transfert de l'image ISO via le partage de dossiers VMware
+
+Afin de rendre disponible l'image d'installation sur l'hôte de virtualisation imbriqué (Windows Server 2025 sous VMware Workstation Pro), l'image ISO a été transférée depuis la machine physique hôte via la fonctionnalité Shared Folders de VMware :
+
+<img width="1204" height="639" alt="image" src="https://github.com/user-attachments/assets/11d532c1-c099-4923-a963-6ae1c9470d3f" />
+
+Prérequis : Présence et bon fonctionnement des VMware Tools sur la machine virtuelle hôte.
+
+Configuration du partage :
+
+Accès aux paramètres de la VM dans VMware Workstation : VM Settings > onglet Options > Shared Folders.
+
+Activation de l'option Always enabled.
+
+Ajout d'un dossier partagé (Add...) pointant vers l'emplacement contenant l'ISO sur l'hôte physique.
+
+Récupération du fichier :
+
+Depuis la VM hôte, accès au chemin réseau : \\vmware-host\Shared Folders.
+
+<img width="828" height="451" alt="image" src="https://github.com/user-attachments/assets/fe126518-dca3-4092-b66e-ba46e50b05f9" />
+
+
+## 9.2. Déploiement du système sur la machine virtuelle Hyper-V (VM-DC1)
+
+⚙️ Installation de Windows Server 2025
+
+Une fois le média d'installation associé à la machine virtuelle, SRV-V-DC1 est démarrée.
+
+<img width="1197" height="688" alt="image" src="https://github.com/user-attachments/assets/f04c4824-a316-4392-99ce-83b76180245d" />
+
+
+---
+
 # ⚡ 8. Configuration du processeur
 
 La machine virtuelle reçoit :
@@ -251,38 +287,6 @@ Le nombre de processeurs pourra être ajusté en fonction de la consommation ré
 <img width="718" height="685" alt="image" src="https://github.com/user-attachments/assets/60ee6ba1-31b6-463d-8a33-e873884e8752" />
 
 ---
-
-# 📀 10. Récupération de l'ISO et installation de Windows Server 2025
-
-## 10.1. Transfert de l'image ISO via le partage de dossiers VMware
-
-Afin de rendre disponible l'image d'installation sur l'hôte de virtualisation imbriqué (Windows Server 2025 sous VMware Workstation Pro), l'image ISO a été transférée depuis la machine physique hôte via la fonctionnalité Shared Folders de VMware :
-
-Prérequis : Présence et bon fonctionnement des VMware Tools sur la machine virtuelle hôte.
-
-Configuration du partage :
-
-Accès aux paramètres de la VM dans VMware Workstation : VM Settings > onglet Options > Shared Folders.
-
-Activation de l'option Always enabled.
-
-Ajout d'un dossier partagé (Add...) pointant vers l'emplacement contenant l'ISO sur l'hôte physique.
-
-Récupération du fichier :
-
-Depuis la VM hôte, accès au chemin réseau : \\vmware-host\Shared Folders.
-
-<img width="828" height="451" alt="image" src="https://github.com/user-attachments/assets/fe126518-dca3-4092-b66e-ba46e50b05f9" />
-
-
-## 10.2. Déploiement du système sur la machine virtuelle Hyper-V (VM-DC1)
-
-⚙️ Installation de Windows Server 2025
-
-Une fois le média d'installation associé à la machine virtuelle, SRV-V-DC1 est démarrée.
-
-<img width="1204" height="639" alt="image" src="https://github.com/user-attachments/assets/11d532c1-c099-4923-a963-6ae1c9470d3f" />
-
 
 Les principales étapes d'installation sont les suivantes :
 
