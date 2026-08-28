@@ -1,4 +1,4 @@
-# 03 — Création et déploiement de VM-DC1 sur Hyper-V
+# 03 — Création et déploiement de SRV-V-DC1 sur Hyper-V
 
 ## 📌 Présentation
 
@@ -66,7 +66,7 @@ La machine virtuelle `VM-DC1` est configurée avec des ressources adaptées à u
 | Processeurs virtuels | 2 vCPU |
 | Mémoire | 4 Go |
 | Disque système | 40 Go |
-| Réseau | vSwitch-LOGIFLEX |
+| Réseau | vSwitch-LAB |
 
 > 💡 Les ressources sont volontairement limitées afin de respecter les contraintes matérielles de l'environnement de laboratoire.
 
@@ -293,7 +293,8 @@ Le nombre de processeurs pourra être ajusté en fonction de la consommation ré
 <img width="718" height="685" alt="image" src="https://github.com/user-attachments/assets/60ee6ba1-31b6-463d-8a33-e873884e8752" />
 
 ---
-# ⚡ 11.⚙️ Installation de Windows Server 2025 sur `SRV-V-DC1`
+
+# 💿 11. Installation de Windows Server 2025 sur `SRV-V-DC1`
 
 ### ⚙️ Démarrage de l'installation
 
@@ -318,7 +319,7 @@ Les principales étapes sont les suivantes :
 8.  Définir le mot de passe initial du compte `Administrateur`.
 <img width="1199" height="595" alt="image" src="https://github.com/user-attachments/assets/4f966924-93f3-4445-a49f-4741126b665c" />
 
-9.  Redémarrer la machine virtuelle après la fin de l'installation.£
+9.  Redémarrer la machine virtuelle après la fin de l'installation.
 10. Effectuer la première ouverture de session.
 <img width="1233" height="623" alt="image" src="https://github.com/user-attachments/assets/65da32ce-951a-4e73-b85d-25df0b00311b" />
 
@@ -329,7 +330,7 @@ La prochaine phase consistera à préparer le système d'exploitation avant son 
 
 ---
 
-# 🔎 11. Vérification du fonctionnement
+# 🔎 12. Vérification du fonctionnement
 
 Après l'installation, plusieurs contrôles sont réalisés.
 
@@ -354,13 +355,13 @@ Les informations suivantes sont contrôlées :
 -   démarrage correct de Windows Server ;
 -   reconnaissance des ressources matérielles virtuelles ;
 -   fonctionnement de la mémoire ;
--   fonctionnement du processeur ;
+-   disponibilité des processeurs virtuels ;
 -   disponibilité de l'interface réseau ;
 -   accès à la console de la machine virtuelle.
 
 ---
 
-# 🧪 12. Validation
+# 🧪 13. Validation
 
 | Élément | État |
 | --- | --- |
@@ -381,13 +382,13 @@ Les informations suivantes sont contrôlées :
 
 ---
 
-# 🎯 Résultat
+# 🎯 14. Résultat
 
-À l'issue de cette étape, la machine virtuelle `VM-DC1` est créée et opérationnelle sur l'hôte Hyper-V `SRV-01-HV`.
+À l'issue de cette étape, la machine virtuelle `SRV-V-DC1` est créée et opérationnelle sur l'hôte Hyper-V `SRV-01-HV`.
 
 L'architecture évolue désormais de la manière suivante :
 
-```
+```text
                          Windows 11 Pro
                                │
                                ▼
@@ -397,19 +398,22 @@ L'architecture évolue désormais de la manière suivante :
                     │                     │
                     ▼                     ▼
                SRV-01-HV             SRV-02-DC2
+            Windows Server 2025    Windows Server 2025
+                    │                     │
+                    ▼                     ▼
+                  Hyper-V          AD DS / DNS
                     │
                     ▼
-                  Hyper-V
+               SRV-V-DC1
+            Windows Server 2025
                     │
                     ▼
-                  VM-DC1
-             Windows Server 2025
-                    │
-                    ▼
-             AD DS / DNS (à venir)
+              AD DS / DNS (à venir)
 ```
 
 `VM-DC1` constitue désormais la base de la future infrastructure Active Directory LOGIFLEX.
+
+Le système d'exploitation est installé et la machine virtuelle est prête à être configurée avant la mise en œuvre des services Active Directory et DNS.
 
 ---
 
