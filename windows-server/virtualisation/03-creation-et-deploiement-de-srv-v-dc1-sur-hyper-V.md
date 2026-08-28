@@ -139,7 +139,7 @@ Ce choix permet notamment de bénéficier :
 -   d'une meilleure intégration avec les systèmes d'exploitation récents.
 
 ```
-VM-DC1
+SRV-V-DC1
    │
    ▼
 Génération 2
@@ -193,7 +193,7 @@ La machine virtuelle est connectée au commutateur virtuel configuré sur `SRV-0
                     192.168.10.0/24
 ```
 
-Cette configuration permettra à `VM-DC1` de communiquer avec :
+Cette configuration permettra à `SRV-V-DC1` de communiquer avec :
 
 -   `SRV-01-HV` ;
 -   `SRV-02-DC2` ;
@@ -263,10 +263,23 @@ Depuis VMware Workstation Pro :
 5. Ajouter un dossier partagé à l'aide de l'option **Add...**.
 6. Sélectionner le dossier de la machine physique contenant les images ISO utilisées pour le laboratoire.
 
-Les fichiers sont ensuite accessibles depuis `SRV-01-HV` via le chemin réseau :
+L'image ISO reste stockée sur la machine physique et est accessible depuis `SRV-01-HV` via le dossier partagé VMware.
+
+Elle est ensuite utilisée comme média d'installation pour la machine virtuelle `SRV-V-DC1`.
 
 ```text
-\\vmware-host\Shared Folders
+Windows 11 Pro
+      │
+      │ Dossier partagé VMware
+      ▼
+SRV-01-HV
+      │
+      │ Hyper-V
+      ▼
+SRV-V-DC1
+      │
+      ▼
+Windows Server 2025
 ```
 <img width="697" height="196" alt="image" src="https://github.com/user-attachments/assets/8130f092-2f10-4e8f-b56a-a0e830fc688a" />
 
@@ -411,7 +424,7 @@ L'architecture évolue désormais de la manière suivante :
               AD DS / DNS (à venir)
 ```
 
-`VM-DC1` constitue désormais la base de la future infrastructure Active Directory LOGIFLEX.
+`SRV-V-DC1` constitue désormais la base de la future infrastructure Active Directory LOGIFLEX.
 
 Le système d'exploitation est installé et la machine virtuelle est prête à être configurée avant la mise en œuvre des services Active Directory et DNS.
 
@@ -423,7 +436,7 @@ La prochaine étape sera consacrée à la **préparation de SRV-V-DC1** avant so
 
 Les actions prévues seront notamment :
 
--   renommage du serveur ;
+-   vérification et configuration du nom de l'ordinateur ;
 -   installation des mises à jour ;
 -   configuration d'une adresse IP statique ;
 -   configuration DNS ;
