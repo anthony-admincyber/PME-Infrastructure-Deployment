@@ -7,7 +7,7 @@ Cette deuxième étape du projet **LOGIFLEX Infrastructure** consiste à promouv
 La promotion permet de créer la première forêt Active Directory de l'environnement et d'établir le domaine : **logiflex.infra**
 
 
-### À l'issue de cette étape, `SRV-01-DC1` assurera notamment les fonctions suivantes :
+### À l'issue de cette étape, `SRV-V-DC1` assurera notamment les fonctions suivantes :
 
 -   Contrôleur de domaine Active Directory ;
 -   Authentification des utilisateurs et des ordinateurs ;
