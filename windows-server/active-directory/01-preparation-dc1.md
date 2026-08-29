@@ -93,23 +93,68 @@ L'infrastructure Active Directory prévue est composée de deux contrôleurs de 
 
 ---
 
-# 🏷️ 2. Vérification du nom du serveur
+# 🏷️ 2. Renommage et vérification du serveur
 
-La machine virtuelle créée lors de l'étape précédente utilise le nom :
+La machine virtuelle créée lors de l'étape précédente reçoit initialement le nom défini lors de sa création dans Hyper-V.
 
-```
+Avant son intégration dans l'infrastructure Active Directory, le nom du système d'exploitation est configuré afin de respecter la convention de nommage retenue pour le projet LOGIFLEX.
+
+Le nom attribué au serveur est :
+
+```text
 SRV-V-DC1
 ```
 
-Cette convention de nommage permet d'identifier rapidement le rôle de la machine :
+Cette convention permet d'identifier rapidement la fonction de la machine :
 
 -   `SRV` → Serveur ;
 -   `V` → Machine virtuelle ;
 -   `DC1` → Premier contrôleur de domaine.
 
-Cette convention facilite l'identification des différents composants de l'infrastructure.
+Cette convention facilite l'identification des différents composants de l'infrastructure, notamment dans :
 
-La vérification du nom du serveur peut être réalisée depuis :
+-   Active Directory ;
+-   DNS ;
+-   Hyper-V ;
+-   les outils de supervision ;
+-   les solutions de sauvegarde ;
+-   les journaux système.
+
+## ⚙️ Renommage du serveur
+
+Le renommage est réalisé avant l'installation et la configuration complète des services Active Directory.
+
+Il peut être effectué depuis :
+
+-   les paramètres système ;
+-   Server Manager ;
+-   PowerShell.
+
+Après modification du nom de l'ordinateur, un redémarrage du serveur est nécessaire afin que le nouveau nom soit entièrement pris en compte par le système.
+
+Le processus est donc le suivant :
+
+```text
+Nom initial du système
+        │
+        ▼
+Renommage
+        │
+        ▼
+SRV-V-DC1
+        │
+        ▼
+Redémarrage du serveur
+        │
+        ▼
+Vérification du nouveau nom
+```
+
+## 🔎 Vérification
+
+Après le redémarrage, le nom du serveur est vérifié.
+
+La vérification peut être réalisée depuis :
 
 -   les paramètres système ;
 -   Server Manager ;
@@ -193,6 +238,9 @@ Les informations réseau doivent être cohérentes avec le plan d'adressage déf
 # 🔄 5. Mise à jour de Windows Server 2025
 
 Avant l'installation des rôles d'infrastructure, le système d'exploitation est mis à jour.
+
+<img width="1020" height="616" alt="image" src="https://github.com/user-attachments/assets/edeb2c91-992a-47bf-8cff-d3159d9334df" />
+
 
 L'objectif est de disposer d'une base système :
 
