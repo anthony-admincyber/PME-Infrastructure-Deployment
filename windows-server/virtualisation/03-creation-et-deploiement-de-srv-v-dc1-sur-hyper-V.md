@@ -349,17 +349,13 @@ Après l'installation, plusieurs contrôles sont réalisés.
 
 ### Vérification dans Hyper-V
 
+<img width="793" height="102" alt="image" src="https://github.com/user-attachments/assets/de45b00e-564d-4a95-b824-cc8ae405f0c9" />
+
+
 La machine virtuelle doit apparaître dans le Gestionnaire Hyper-V :
 
-```
-SRV-01-HV
-│
-└── Machines virtuelles
-      │
-      └── SRV-V-DC1
-            │
-            └── État : En cours d'exécution
-```
+<img width="1198" height="703" alt="image" src="https://github.com/user-attachments/assets/8e5b0a61-30ab-4753-b330-d1539db20058" />
+
 
 ### Vérification du système
 
