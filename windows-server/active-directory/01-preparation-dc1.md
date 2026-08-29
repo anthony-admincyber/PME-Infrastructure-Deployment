@@ -82,7 +82,7 @@ L'infrastructure Active Directory prévue est composée de deux contrôleurs de 
                       │                     │
                       ▼                     ▼
                  SRV-V-DC1            SRV-V-DC2
-                192.168.10.10        192.168.10.11
+                192.168.10.20        192.168.10.21
                    AD DS                AD DS
                     DNS                  DNS
 ```
@@ -117,15 +117,8 @@ La vérification du nom du serveur peut être réalisée depuis :
 
 Exemple de vérification avec PowerShell :
 
-```
-hostname
-```
+<img width="1020" height="357" alt="image" src="https://github.com/user-attachments/assets/96fa8094-6124-4210-acc6-965288157f2f" />
 
-Le résultat attendu est :
-
-```
-SRV-V-DC1
-```
 
 > ℹ️ Le nom du serveur est vérifié avant la promotion en contrôleur de domaine afin de garantir une identification cohérente dans l'infrastructure Active Directory.
 
@@ -146,6 +139,9 @@ Cette configuration est nécessaire pour un serveur d'infrastructure destiné à
 | Préfixe réseau | /24 |
 | Réseau | 192.168.10.0/24 |
 | Passerelle | 192.168.10.2 |
+
+<img width="1019" height="590" alt="image" src="https://github.com/user-attachments/assets/cfaadeb3-b3b6-4b8f-a33e-6b58701693d1" />
+
 
 Le futur contrôleur de domaine secondaire utilisera l'adresse suivante :
 
