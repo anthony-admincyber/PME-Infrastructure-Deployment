@@ -1,8 +1,8 @@
-# 02 — Promotion de SRV-01-DC1 et création de la forêt Active Directory
+# 02 — Promotion de SRV-V-DC1 et création de la forêt Active Directory
 
 ## 📌 Présentation
 
-Cette deuxième étape du projet **LOGIFLEX Infrastructure** consiste à promouvoir le serveur `SRV-01-DC1` en tant que **premier contrôleur de domaine** de l'infrastructure.
+Cette deuxième étape du projet **LOGIFLEX Infrastructure** consiste à promouvoir le serveur `SRV-V-DC1` en tant que **premier contrôleur de domaine** de l'infrastructure.
 
 La promotion permet de créer la première forêt Active Directory de l'environnement et d'établir le domaine : **logiflex.infra**
 
@@ -51,10 +51,10 @@ Avant de procéder à la promotion, plusieurs éléments ont été vérifiés lo
 | Rôle DNS installé | 🟢 |
 | Serveur prêt pour la promotion | 🟢 |
 
-|Configuration réseau de `SRV-01-DC1`| Valeur |
+|Configuration réseau de `SRV-V-DC1`| Valeur |
 | --- | --- |
 | Nom | SRV-01-DC1 |
-| IP | 192.168.10.10 |
+| IP | 192.168.10.20 |
 | Masque | 255.255.255.0 |
 | Passerelle | 192.168.10.2 |
 | Domaine Active Directory | logiflex.infra |
@@ -71,10 +71,9 @@ Sélectionner :
 
 Promouvoir ce serveur en contrôleur de domaine
 
+<img width="1022" height="274" alt="image" src="https://github.com/user-attachments/assets/52c88c6d-7e36-41e9-9cbe-5f0073a1687c" />
+
 Cette opération lance l'assistant de configuration des services de domaine Active Directory.
-
-<img width="1723" height="290" alt="image" src="https://github.com/user-attachments/assets/0f4bfeea-6713-4089-adb1-5fc9ff37913e" />
-
 
 ---
 
@@ -92,6 +91,9 @@ Le nom du domaine racine est défini comme suit :
 logiflex.infra
 ```
 
+<img width="1016" height="662" alt="image" src="https://github.com/user-attachments/assets/0d8ee846-202b-4c55-93d5-c4277bff789f" />
+
+
 ### Pourquoi utiliser `logiflex.infra` ?
 
 Le suffixe `.infra` permet de distinguer le domaine interne de l'infrastructure LOGIFLEX.
@@ -107,9 +109,6 @@ Le serveur pourra alors être identifié par son nom FQDN :
 ```text
 SRV-01-DC1.logiflex.infra
 ```
-
-<img width="755" height="559" alt="image" src="https://github.com/user-attachments/assets/e27c0f63-4f64-4ad2-88eb-f87b38784691" />
-
 
 ---
 
@@ -133,7 +132,8 @@ Le **Catalogue global** est activé afin de permettre au contrôleur de domaine 
 
 Le rôle **Read-Only Domain Controller (RODC)** n'est pas retenu pour ce serveur puisqu'il s'agit du premier contrôleur de domaine de la forêt.
 
-<img width="761" height="548" alt="image" src="https://github.com/user-attachments/assets/a94c7adf-f069-472f-b71a-bc5aea7219a8" />
+<img width="1022" height="698" alt="image" src="https://github.com/user-attachments/assets/cc9aeded-06d5-493e-969a-15969e8a512c" />
+
 
 ### Mot de passe DSRM
 
@@ -213,7 +213,8 @@ en complément du format UPN :
 Administrateur@logiflex.infra
 ```
 
-<img width="758" height="560" alt="image" src="https://github.com/user-attachments/assets/2e5542cd-01f2-440b-9f0b-c48933eadfc5" />
+<img width="1023" height="693" alt="image" src="https://github.com/user-attachments/assets/3e3b223b-e641-4fd1-b03d-bdd979ae8d11" />
+
 
 ---
 
@@ -232,7 +233,7 @@ Ces éléments constituent des composants essentiels du fonctionnement du contr�
 
 Le dossier **SYSVOL** contient notamment les fichiers nécessaires à la distribution des stratégies de groupe et aux scripts associés au domaine.
 
-<img width="756" height="558" alt="image" src="https://github.com/user-attachments/assets/aa33ece0-7f82-4d1b-a492-60aa7e8aa936" />
+<img width="1020" height="686" alt="image" src="https://github.com/user-attachments/assets/abd536db-b5cc-4f93-b247-7e8ec2fb5683" />
 
 
 ---
@@ -255,7 +256,7 @@ Les contrôles portent notamment sur :
 
 Tous les contrôles préalables sont validés.
 
-<img width="756" height="557" alt="image" src="https://github.com/user-attachments/assets/3c0fd6a5-37f5-42b3-9a71-49fea8c44f0e" />
+<img width="1023" height="671" alt="image" src="https://github.com/user-attachments/assets/5726213d-1d74-4602-86f2-b7f032583661" />
 
 
 ---
@@ -307,17 +308,17 @@ Après redémarrage, plusieurs contrôles sont réalisés afin de confirmer la r
 
 ### Vérification du domaine
 
-<img width="1016" height="635" alt="image" src="https://github.com/user-attachments/assets/f1456295-eee4-4fae-b568-4d022e04a25b" />
+<img width="1021" height="765" alt="image" src="https://github.com/user-attachments/assets/e5a82a1a-07ef-431c-a322-77a1cf358f34" />
 
 
 ### Vérification du contrôleur de domaine
 
-<img width="1826" height="526" alt="image" src="https://github.com/user-attachments/assets/2019b50e-df9f-4f4f-ad60-dbe269488f9e" />
+<img width="1017" height="776" alt="image" src="https://github.com/user-attachments/assets/99d47931-3fc5-4ccc-b6da-2909386575ea" />
 
 
 ### Vérification du domaine Active Directory
 
-<img width="1430" height="644" alt="image" src="https://github.com/user-attachments/assets/762294f8-07a9-408b-a216-cb0211d32dd7" />
+<img width="1019" height="775" alt="image" src="https://github.com/user-attachments/assets/6d90885e-a2d9-42b5-8984-cf8a6c140507" />
 
 
 ---
@@ -328,7 +329,7 @@ La résolution DNS est ensuite vérifiée.
 
 ### Résolution du contrôleur de domaine
 
-<img width="557" height="129" alt="image" src="https://github.com/user-attachments/assets/5df10e00-1f9b-416f-b08a-3bb1c87cfcce" />
+<img width="1018" height="442" alt="image" src="https://github.com/user-attachments/assets/5d2c2105-9c3f-4182-9a98-0669fbf8a99d" />
 
 
 ---
@@ -337,7 +338,7 @@ La résolution DNS est ensuite vérifiée.
 
 La console **Utilisateurs et ordinateurs Active Directory** permet de vérifier la création du domaine.
 
-<img width="752" height="282" alt="image" src="https://github.com/user-attachments/assets/579a5020-c266-423a-86f5-25849d4ad094" />
+<img width="1015" height="422" alt="image" src="https://github.com/user-attachments/assets/c6968adb-8f67-42aa-beac-d61c49ad64d9" />
 
 Les conteneurs et unités d'organisation standards créés lors de la mise en place du domaine peuvent également être vérifiés.
 
@@ -347,22 +348,10 @@ Les conteneurs et unités d'organisation standards créés lors de la mise en pl
 
 La présence des partages nécessaires au fonctionnement du domaine est vérifiée.
 
-Commande :
+<img width="1014" height="442" alt="image" src="https://github.com/user-attachments/assets/7e9fcc08-5d1a-4c73-814a-1417df63f8aa" />
 
-```text
-net share
-```
-
-Les partages suivants doivent notamment apparaître :
-
-```text
-NETLOGON
-SYSVOL
-```
 
 Ces partages sont nécessaires au fonctionnement normal d'un domaine Active Directory.
-
-<img width="761" height="250" alt="image" src="https://github.com/user-attachments/assets/0741b5bc-a806-496c-9bbc-9020e4e124f9" />
 
 
 ---
@@ -388,8 +377,6 @@ Cette commande permet notamment de contrôler différents composants du contrôl
 
 Une attention particulière sera portée aux éventuelles erreurs DNS et Active Directory.
 
-<img width="1900" height="758" alt="image" src="https://github.com/user-attachments/assets/7e7542a7-a483-4460-8041-2ba3bf4c0c39" />
-
 
 ---
 
@@ -401,7 +388,7 @@ Après cette étape, l'infrastructure évolue de :
 
 ```text
 
-                SRV-01-DC1
+                SRV-V-DC1
               192.168.10.10
 
              Serveur Windows
@@ -422,7 +409,7 @@ Après cette étape, l'infrastructure évolue de :
               logiflex.infra
                     │
                     │
-               SRV-01-DC1
+               SRV-V-DC1
               192.168.10.10
                     │
           ┌─────────┴─────────┐
@@ -438,7 +425,7 @@ Après cette étape, l'infrastructure évolue de :
 ```
 
 
-`SRV-01-DC1` constitue désormais le **premier contrôleur de domaine** de l'infrastructure.
+`SRV-V-DC1` constitue désormais le **premier contrôleur de domaine** de l'infrastructure.
 
 ---
 
@@ -446,7 +433,7 @@ Après cette étape, l'infrastructure évolue de :
 
 | Élément | État |
 | --- | --- |
-| SRV-01-DC1 préparé | 🟢 |
+| SRV-V-DC1 préparé | 🟢 |
 | Rôle AD DS installé | 🟢 |
 | Rôle DNS installé | 🟢 |
 | Nouvelle forêt créée | 🟢 |
@@ -465,7 +452,7 @@ Après cette étape, l'infrastructure évolue de :
 
 # 🎯 Résultat
 
-La promotion de `SRV-01-DC1` est terminée.
+La promotion de `SRV-V-DC1` est terminée.
 
 `SRV-01-DC1` constitue désormais le premier contrôleur de domaine
 de la forêt Active Directory `logiflex.infra`.
@@ -476,8 +463,8 @@ L'environnement dispose maintenant de :
 | --- | --- |
 | Forêt |logiflex.infra | 
 | Domaine | logiflex.infra |
-| Contrôleur de domaine | SRV-01-DC1 |
-| Adresse | 192.168.10.10 |
+| Contrôleur de domaine | SRV-V-DC1 |
+| Adresse | 192.168.10.20 |
 | DNS | Actif |
 | Catalogue global | Actif |
 | SYSVOL | Actif |
@@ -488,7 +475,7 @@ Cette étape constitue le socle de l'annuaire Active Directory.
 La prochaine étape consistera à promouvoir `SRV-02-DC2` en tant que **second contrôleur de domaine**, puis à vérifier la réplication Active Directory et DNS entre les deux serveurs.
 
 ```text
-                        SRV-01-DC1
+                        SRV-V-DC1
                        192.168.10.10
                              │
                              │
