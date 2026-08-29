@@ -349,14 +349,19 @@ L'installation peut être réalisée depuis **Gestionnaire de serveur**.
 1.  Ouvrir **Gestionnaire de serveur**.
 2.  Sélectionner **Gérer**.
 3.  Cliquer sur **Ajouter des rôles et fonctionnalités**.
+
 <img width="1017" height="572" alt="image" src="https://github.com/user-attachments/assets/eeac5e16-7a76-4dae-b8d3-f7e878508df2" />
+
 4.  Choisir **Installation basée sur un rôle ou une fonctionnalité**.
 5.  Sélectionner le serveur :
+
 <img width="829" height="674" alt="image" src="https://github.com/user-attachments/assets/f36bb60d-2b2c-4d26-aa30-3ea7d23956d0" />
+
 6.  Sélectionner le rôle : **Service de domaine Active Directory**
 7.  Accepter l'installation des fonctionnalités requises.
 8.  Vérifier la sélection des rôles.
 9.  Lancer l'installation.
+
 <img width="782" height="557" alt="image" src="https://github.com/user-attachments/assets/50fc62c8-814e-499a-b5ca-26924f4e98eb" />
 
 
