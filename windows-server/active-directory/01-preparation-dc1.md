@@ -183,9 +183,8 @@ Les informations contrôlées sont notamment :
 
 La configuration peut être vérifiée avec :
 
-```
-ipconfig /all
-```
+<img width="1016" height="607" alt="image" src="https://github.com/user-attachments/assets/e8c58dd1-b26a-4c8c-8a7c-a5dc73514942" />
+
 
 Les informations réseau doivent être cohérentes avec le plan d'adressage défini pour l'environnement LOGIFLEX.
 
