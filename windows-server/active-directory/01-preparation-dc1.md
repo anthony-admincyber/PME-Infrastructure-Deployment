@@ -389,6 +389,9 @@ Il permet notamment :
 
 L'installation du rôle DNS peut être réalisée depuis l'assistant **Ajouter des rôles et fonctionnalités**.
 
+<img width="981" height="719" alt="image" src="https://github.com/user-attachments/assets/4e90c651-fe4d-4e08-8d25-76703c851ac2" />
+
+
 Lorsque la promotion du serveur sera réalisée, les zones DNS nécessaires au domaine Active Directory seront créées.
 
 ---
