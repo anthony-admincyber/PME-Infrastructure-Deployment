@@ -185,7 +185,7 @@ Après la promotion, les zones DNS liées à Active Directory pourront être vé
 
 Gestionnaire DNS
 
-<img width="960" height="304" alt="image" src="https://github.com/user-attachments/assets/c73d893d-40c1-4ab8-8e08-49df49a488e9" />
+<img width="1015" height="320" alt="image" src="https://github.com/user-attachments/assets/9a01b8cc-65ff-41b4-98b1-1b4713e828b1" />
 
 
 ---
