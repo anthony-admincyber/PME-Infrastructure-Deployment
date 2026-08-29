@@ -338,35 +338,7 @@ Les objectifs de validation sont les suivants :
 
 ---
 
-# 🌐 8. Préparation de la configuration DNS
-
-Avant la promotion de `SRV-V-DC1` en contrôleur de domaine, la configuration DNS doit être cohérente avec l'architecture prévue.
-
-Le service DNS constitue un composant essentiel d'une infrastructure Active Directory.
-
-Il permet notamment :
-
--   la résolution des noms ;
--   la localisation des services Active Directory ;
--   la découverte des contrôleurs de domaine ;
--   la prise en charge de l'authentification ;
--   la communication entre les différents composants de l'infrastructure.
-
-Le rôle DNS sera installé sur `SRV-V-DC1` en même temps que la préparation du serveur Active Directory.
-
-Après la promotion du serveur en contrôleur de domaine, la zone DNS correspondant au domaine :
-
-```
-logiflex.infra
-```
-
-sera créée et intégrée à Active Directory.
-
-> ℹ️ La configuration définitive des zones DNS sera réalisée lors de la promotion du premier contrôleur de domaine.
-
----
-
-# ⚙️ 9. Installation du rôle Active Directory Domain Services
+# ⚙️ 8. Installation du rôle Active Directory Domain Services
 
 Une fois le serveur correctement préparé, le rôle **Active Directory Domain Services (AD DS)** est installé.
 
@@ -396,7 +368,7 @@ La promotion et la création de la forêt seront réalisées dans l'étape suiva
 
 ---
 
-# 🌐 10. Installation du rôle DNS
+# 🌐 9. Installation du rôle DNS
 
 Le rôle **DNS Server** est également installé sur `SRV-V-DC1`.
 
@@ -416,7 +388,7 @@ Lorsque la promotion du serveur sera réalisée, les zones DNS nécessaires au d
 
 ---
 
-# 💻 11. Vérification des rôles avec PowerShell
+# 💻 10. Vérification des rôles avec PowerShell
 
 La présence des rôles installés peut être vérifiée avec PowerShell.
 
@@ -439,7 +411,7 @@ Cette vérification permet de confirmer que le serveur dispose des composants n�
 
 ---
 
-# 📊 12. Bilan de l'étape
+# 📊 11. Bilan de l'étape
 
 | Élément | État |
 | --- | --- |
