@@ -130,6 +130,9 @@ Il peut être effectué depuis :
 -   Server Manager ;
 -   PowerShell.
 
+<img width="515" height="655" alt="image" src="https://github.com/user-attachments/assets/bd9c4a35-6bca-4b66-9f85-075cb53fdeff" />
+
+
 Après modification du nom de l'ordinateur, un redémarrage du serveur est nécessaire afin que le nouveau nom soit entièrement pris en compte par le système.
 
 Le processus est donc le suivant :
