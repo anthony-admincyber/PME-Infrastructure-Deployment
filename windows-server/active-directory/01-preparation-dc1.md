@@ -385,7 +385,8 @@ L'installation peut être réalisée depuis **Gestionnaire de serveur**.
 7.  Accepter l'installation des fonctionnalités requises.
 8.  Vérifier la sélection des rôles.
 9.  Lancer l'installation.
-<img width="1020" height="454" alt="image" src="https://github.com/user-attachments/assets/df086d76-91bb-47e1-b247-a23defaa30b2" />
+<img width="782" height="557" alt="image" src="https://github.com/user-attachments/assets/50fc62c8-814e-499a-b5ca-26924f4e98eb" />
+
 
 L'installation du rôle AD DS prépare le serveur à devenir un contrôleur de domaine.
 
