@@ -260,6 +260,8 @@ Les mises à jour comprennent notamment :
 
 Une fois les mises à jour installées, le serveur est redémarré si nécessaire.
 
+<img width="1025" height="294" alt="image" src="https://github.com/user-attachments/assets/13ba75a0-7118-4c01-898d-62ef99fec778" />
+
 > 💡 La mise à jour du système avant le déploiement des rôles d'infrastructure permet de limiter l'ajout de correctifs importants après la mise en production des services.
 
 ---
@@ -313,15 +315,7 @@ Avant l'installation des services Active Directory, la connectivité réseau est
 
 La connectivité avec la passerelle du laboratoire est testée :
 
-```
-192.168.10.2
-```
-
-Exemple :
-
-```
-ping 192.168.10.2
-```
+<img width="1020" height="454" alt="image" src="https://github.com/user-attachments/assets/185b4922-74a9-4c3c-8f35-2f0b0ce1404b" />
 
 ## Test de connectivité avec les autres serveurs
 
@@ -385,20 +379,13 @@ L'installation peut être réalisée depuis **Gestionnaire de serveur**.
 3.  Cliquer sur **Ajouter des rôles et fonctionnalités**.
 4.  Choisir **Installation basée sur un rôle ou une fonctionnalité**.
 5.  Sélectionner le serveur :
-
-```
-SRV-V-DC1
-```
-
-1.  Sélectionner le rôle :
-
-```
-Services de domaine Active Directory
-```
-
-1.  Accepter l'installation des fonctionnalités requises.
-2.  Vérifier la sélection des rôles.
-3.  Lancer l'installation.
+<img width="1020" height="454" alt="image" src="https://github.com/user-attachments/assets/e2fea023-374b-40c3-8ed6-f2c2974bbeea" />
+6.  Sélectionner le rôle :
+<img width="1020" height="454" alt="image" src="https://github.com/user-attachments/assets/11017083-6500-4544-afb6-85ba5bae055f" />
+7.  Accepter l'installation des fonctionnalités requises.
+8.  Vérifier la sélection des rôles.
+9.  Lancer l'installation.
+<img width="1020" height="454" alt="image" src="https://github.com/user-attachments/assets/df086d76-91bb-47e1-b247-a23defaa30b2" />
 
 L'installation du rôle AD DS prépare le serveur à devenir un contrôleur de domaine.
 
