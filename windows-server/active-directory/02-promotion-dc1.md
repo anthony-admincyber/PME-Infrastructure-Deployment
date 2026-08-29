@@ -26,8 +26,8 @@ La promotion permet de créer la première forêt Active Directory de l'environn
                                         │             │
                                    SRV-V-DC1     SRV-02-DC2
                                  192.168.10.20   192.168.10.21
-                                        │             │
-                                     AD DS         Préparé
+                                        │         
+                                     AD DS         
                                       DNS
                                        │
                                  Premier DC
@@ -107,7 +107,7 @@ logiflex.infra
 Le serveur pourra alors être identifié par son nom FQDN :
 
 ```text
-SRV-01-DC1.logiflex.infra
+SRV-V-DC1.logiflex.infra
 ```
 
 ---
@@ -454,7 +454,7 @@ Après cette étape, l'infrastructure évolue de :
 
 La promotion de `SRV-V-DC1` est terminée.
 
-`SRV-01-DC1` constitue désormais le premier contrôleur de domaine
+`SRV-V-DC1` constitue désormais le premier contrôleur de domaine
 de la forêt Active Directory `logiflex.infra`.
 
 L'environnement dispose maintenant de :
