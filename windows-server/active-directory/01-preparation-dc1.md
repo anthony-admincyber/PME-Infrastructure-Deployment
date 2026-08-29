@@ -400,20 +400,7 @@ Lorsque la promotion du serveur sera réalisée, les zones DNS nécessaires au d
 
 La présence des rôles installés peut être vérifiée avec PowerShell.
 
-Exemple :
-
-```
-Get-WindowsFeature AD-Domain-Services, DNS
-```
-
-Les deux rôles doivent apparaître comme installés.
-
-Les éléments attendus sont :
-
-```
-AD-Domain-Services
-DNS
-```
+<img width="1018" height="481" alt="image" src="https://github.com/user-attachments/assets/753b2e51-5a07-4c12-b6a5-315a4a06f5da" />
 
 Cette vérification permet de confirmer que le serveur dispose des composants nécessaires avant la promotion en contrôleur de domaine.
 
