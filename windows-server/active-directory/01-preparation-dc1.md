@@ -195,7 +195,7 @@ Le futur contrôleur de domaine secondaire utilisera l'adresse suivante :
 
 ```
 SRV-V-DC2
-192.168.10.11
+192.168.10.21
 ```
 
 L'utilisation d'adresses IP statiques permet de garantir une identification réseau stable des serveurs d'infrastructure.
