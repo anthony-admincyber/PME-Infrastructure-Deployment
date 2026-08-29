@@ -65,7 +65,7 @@ La machine virtuelle `SRV-V-DC1` est exécutée sur l'hyperviseur Hyper-V instal
 | Hyperviseur direct | Hyper-V |
 | Hôte Hyper-V | SRV-01-HV |
 | Hyperviseur de premier niveau | VMware Workstation Pro |
-| Adresse IP | 192.168.10.10/24 |
+| Adresse IP | 192.168.10.20/24 |
 | Passerelle | 192.168.10.2 |
 | Domaine prévu | logiflex.infra |
 | Rôle prévu | Premier contrôleur de domaine |
@@ -141,7 +141,7 @@ Cette configuration est nécessaire pour un serveur d'infrastructure destiné à
 
 | Paramètre | Valeur |
 | --- | --- |
-| Adresse IP | 192.168.10.10 |
+| Adresse IP | 192.168.10.20 |
 | Masque | 255.255.255.0 |
 | Préfixe réseau | /24 |
 | Réseau | 192.168.10.0/24 |
@@ -158,7 +158,7 @@ L'utilisation d'adresses IP statiques permet de garantir une identification rés
 
 ```
 SRV-V-DC1
-192.168.10.10
+192.168.10.20
        │
        ▼
   vSwitch-LAB
@@ -285,7 +285,7 @@ Le futur contrôleur de domaine secondaire utilisera notamment :
 
 ```
 SRV-V-DC2
-192.168.10.11
+192.168.10.21
 ```
 
 Les objectifs de validation sont les suivants :
