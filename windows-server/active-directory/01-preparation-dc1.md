@@ -328,6 +328,9 @@ SRV-V-DC2
 192.168.10.21
 ```
 
+<img width="1016" height="453" alt="image" src="https://github.com/user-attachments/assets/857ed8f9-6c18-44e5-898f-e211ccc93cba" />
+
+
 Les objectifs de validation sont les suivants :
 
 -   validation de l'adressage IPv4 ;
