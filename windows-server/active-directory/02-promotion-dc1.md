@@ -24,8 +24,8 @@ La promotion permet de créer la première forêt Active Directory de l'environn
                                                │
                                         ┌──────┴──────┐
                                         │             │
-                                  SRV-01-DC1     SRV-02-DC2
-                                 192.168.10.10   192.168.10.11
+                                   SRV-V-DC1     SRV-02-DC2
+                                 192.168.10.20   192.168.10.21
                                         │             │
                                      AD DS         Préparé
                                       DNS
@@ -44,7 +44,7 @@ Avant de procéder à la promotion, plusieurs éléments ont été vérifiés lo
 | Élément | État |
 | --- | --- |
 | Windows Server 2025 installé | 🟢 |
-| Nom du serveur SRV-01-DC1 | 🟢 |
+| Nom du serveur SRV-V-DC1 | 🟢 |
 | Adresse IP statique | 🟢 |
 | Connectivité réseau | 🟢 |
 | Rôle AD DS installé | 🟢 |
@@ -53,7 +53,7 @@ Avant de procéder à la promotion, plusieurs éléments ont été vérifiés lo
 
 |Configuration réseau de `SRV-V-DC1`| Valeur |
 | --- | --- |
-| Nom | SRV-01-DC1 |
+| Nom | SRV-v-DC1 |
 | IP | 192.168.10.20 |
 | Masque | 255.255.255.0 |
 | Passerelle | 192.168.10.2 |
