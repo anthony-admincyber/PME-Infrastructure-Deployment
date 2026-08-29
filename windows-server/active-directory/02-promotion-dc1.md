@@ -53,7 +53,7 @@ Avant de procéder à la promotion, plusieurs éléments ont été vérifiés lo
 
 |Configuration réseau de `SRV-V-DC1`| Valeur |
 | --- | --- |
-| Nom | SRV-v-DC1 |
+| Nom | SRV-V-DC1 |
 | IP | 192.168.10.20 |
 | Masque | 255.255.255.0 |
 | Passerelle | 192.168.10.2 |
