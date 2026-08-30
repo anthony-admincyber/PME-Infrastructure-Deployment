@@ -232,7 +232,7 @@ Cette configuration est indispensable pour permettre à `SRV-02-DC2` de localise
 ---
 
 
-# 🔎 7. Validation de la connectivité
+### 🔎 7. Validation de la connectivité
 
 Avant l'installation du rôle AD DS, plusieurs vérifications sont réalisées.
 
@@ -264,7 +264,7 @@ Les objectifs sont de confirmer :
 
 ---
 
-# 🌳 8. Vérification de la résolution du domaine
+### 🌳 8. Vérification de la résolution du domaine
 
 Avant la promotion, `SRV-02-DC2` doit être capable de résoudre le domaine :
 
@@ -323,7 +323,7 @@ Le rôle AD DS est désormais disponible sur le serveur.
 
 ---
 
-# 5\. 🛠️ Promotion de SRV-02-DC2
+## PHASE 1 — Promotion de SRV-02-DC2
 
 Une fois le rôle AD DS installé, une notification apparaît dans **Gestionnaire de serveur**.
 
