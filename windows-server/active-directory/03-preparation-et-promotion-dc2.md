@@ -58,6 +58,8 @@ Les paramètres retenus sont les suivants :
 | Contrôleur principal | SRV-V-DC1 |
 | DNS principal | 192.168.10.20 |
 
+---
+
 ### 🖥️ 2. Préparation de SRV-02-DC2
 
 Avant son intégration à l'infrastructure Active Directory, le serveur `SRV-02-DC2` doit être préparé afin de garantir une configuration cohérente avec l'environnement LOGIFLEX.
