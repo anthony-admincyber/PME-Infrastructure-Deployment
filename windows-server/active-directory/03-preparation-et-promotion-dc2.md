@@ -318,7 +318,7 @@ Le rôle AD DS est désormais disponible sur le serveur.
 
 ---
 
-## PHASE 1 — Promotion de SRV-02-DC2
+## PHASE 2 — Promotion de SRV-02-DC2
 
 Une fois le rôle AD DS installé, une notification apparaît dans **Gestionnaire de serveur**.
 
@@ -328,7 +328,7 @@ Promouvoir ce serveur en contrôleur de domaine
 
 ---
 
-## 5.1 Type de déploiement
+### 1 Type de déploiement
 
 L'option suivante est sélectionnée :
 
@@ -346,7 +346,7 @@ Cette configuration permet d'ajouter `SRV-02-DC2` à la forêt Active Directory 
 
 ---
 
-# 6\. 🔐 Authentification au domaine
+### 2 🔐 Authentification au domaine
 
 L'assistant demande un compte disposant des privilèges nécessaires pour ajouter un contrôleur de domaine.
 
@@ -360,7 +360,7 @@ logiflex.infra
 
 ---
 
-# 7\. 🌳 Options du contrôleur de domaine
+### 3 🌳 Options du contrôleur de domaine
 
 Lors de la promotion, les rôles suivants sont sélectionnés :
 
@@ -406,7 +406,7 @@ Le serveur est configuré comme contrôleur de domaine inscriptible et non comme
 
 ---
 
-# 8\. 📁 Chemins AD DS
+### 4 📁 Chemins AD DS
 
 L'assistant permet de définir les emplacements des différents composants Active Directory.
 
@@ -424,7 +424,7 @@ Ces composants sont indispensables au fonctionnement du contrôleur de domaine e
 
 ---
 
-# 9\. 🔄 Réplication Active Directory
+### 5 🔄 Réplication Active Directory
 
 Lors de la promotion de `SRV-02-DC2`, les données Active Directory présentes sur `SRV-01-DC1` sont répliquées vers le nouveau contrôleur de domaine.
 
@@ -453,7 +453,7 @@ Cette architecture évite que l'ensemble des services d'annuaire repose sur un s
 
 ---
 
-# 10\. 🌐 Installation et intégration DNS
+### 6 🌐 Installation et intégration DNS
 
 Lors de la promotion du serveur, le rôle DNS est également configuré.
 
@@ -480,7 +480,7 @@ Cette redondance permet de limiter la dépendance à un seul serveur DNS.
 
 ---
 
-# 11\. 🔄 Redémarrage et finalisation
+### 7 🔄 Redémarrage et finalisation
 
 Une fois la configuration terminée, l'assistant effectue les opérations nécessaires à la promotion du serveur.
 
@@ -494,7 +494,7 @@ logiflex.infra
 
 ---
 
-# 12\. 🔎 Vérification du contrôleur de domaine
+### 8 🔎 Vérification du contrôleur de domaine
 
 Après redémarrage, plusieurs contrôles sont réalisés.
 
@@ -514,7 +514,7 @@ Après redémarrage, plusieurs contrôles sont réalisés.
 
 ---
 
-# 13\. 🖥️ Vérification des contrôleurs de domaine
+### 9 🖥️ Vérification des contrôleurs de domaine
 
 La commande suivante permet d'identifier les contrôleurs de domaine présents dans le domaine :
 
@@ -525,7 +525,7 @@ L'infrastructure dispose désormais de deux contrôleurs de domaine.
 
 ---
 
-# 14\. 🔄 Vérification de la réplication
+### 10 🔄 Vérification de la réplication
 
 La réplication Active Directory est vérifiée avec :
 
@@ -548,7 +548,7 @@ L'objectif est de confirmer l'absence d'erreurs de réplication.
 
 ---
 
-# 15\. 🩺 Diagnostic du contrôleur de domaine
+### 11 🩺 Diagnostic du contrôleur de domaine
 
 Le diagnostic Active Directory est réalisé avec :
 
@@ -574,7 +574,7 @@ Une infrastructure correctement configurée doit présenter des résultats cohé
 
 ---
 
-# 16\. 📂 Vérification SYSVOL et NETLOGON
+### 12 📂 Vérification SYSVOL et NETLOGON
 
 Les partages nécessaires au fonctionnement du domaine sont vérifiés :
 
@@ -594,7 +594,7 @@ Ces partages sont essentiels au fonctionnement des stratégies de groupe et à l
 
 ---
 
-# 17\. 🌐 Vérification DNS
+### 13 🌐 Vérification DNS
 
 La résolution du domaine est vérifiée depuis `SRV-02-DC2`.
 
@@ -627,7 +627,7 @@ Ces vérifications permettent de valider les enregistrements DNS associés aux d
 
 ---
 
-# 18\. 📊 Bilan de l'étape
+## 📊 Bilan de l'étape
 
 | Élément | État |
 | --- | --- |
@@ -647,7 +647,7 @@ Ces vérifications permettent de valider les enregistrements DNS associés aux d
 
 ---
 
-# 🎯 Résultat
+##  🎯 Résultat
 
 `SRV-02-DC2` est désormais intégré à l'infrastructure Active Directory **LOGIFLEX**.
 
@@ -662,8 +662,8 @@ L'environnement dispose maintenant de deux contrôleurs de domaine :
        ┌────────┴────────┐
        │                 │
        ▼                 ▼
- SRV-01-DC1         SRV-02-DC2
- 192.168.10.10      192.168.10.11
+ SRV-V-DC1         SRV-02-DC2
+ 192.168.10.20      192.168.10.21
  AD DS + DNS        AD DS + DNS
        │                 │
        └───Réplication───┘
