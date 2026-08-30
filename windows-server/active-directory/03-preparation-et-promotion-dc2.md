@@ -190,7 +190,7 @@ Passerelle
 
 ---
 
-# 🌐 6. Configuration DNS avant l'intégration au domaine
+### 🌐 6. Configuration DNS avant l'intégration au domaine
 
 Avant sa promotion, `SRV-02-DC2` doit pouvoir localiser les services Active Directory existants.
 
@@ -231,48 +231,66 @@ Cette configuration est indispensable pour permettre à `SRV-02-DC2` de localise
 
 ---
 
-# 2\. 🔎 Vérification de la connectivité
 
-Avant l'intégration au domaine, la communication entre les deux serveurs est vérifiée.
+# 🔎 7. Validation de la connectivité
 
-### Test du contrôleur de domaine principal
+Avant l'installation du rôle AD DS, plusieurs vérifications sont réalisées.
 
-<img width="879" height="413" alt="image" src="https://github.com/user-attachments/assets/439c4bf8-3b45-4999-a6c6-e2a0ab78f6d1" />
+### Vérification de la configuration IP
+
+Les paramètres suivants sont contrôlés :
+
+-   adresse IPv4 ;
+-   masque ;
+-   passerelle ;
+-   serveur DNS configuré.
+
+<img width="839" height="582" alt="image" src="https://github.com/user-attachments/assets/2a5064cb-aee8-4170-8ee1-0c56e10642aa" />
 
 
-### Vérification de la configuration réseau
+### Test de la connectivité avec DC1
 
-<img width="825" height="534" alt="image" src="https://github.com/user-attachments/assets/4e310734-419e-4932-9342-25b40302b3b9" />
+La communication avec le premier contrôleur de domaine est vérifiée :
+
+<img width="818" height="362" alt="image" src="https://github.com/user-attachments/assets/1fc366e6-9bc4-4a1e-99d5-c54bed66d4c0" />
+
+
+Les objectifs sont de confirmer :
+
+-   la connectivité entre les deux serveurs ;
+-   la cohérence de l'adressage ;
+-   le bon fonctionnement du réseau ;
+-   l'accessibilité du serveur DNS.
 
 ---
 
-# 3\. 🌐 Configuration DNS de SRV-02-DC2
+# 🌳 8. Vérification de la résolution du domaine
 
-Avant son intégration au domaine, `SRV-02-DC2` doit pouvoir résoudre le domaine Active Directory.
+Avant la promotion, `SRV-02-DC2` doit être capable de résoudre le domaine :
 
-Le serveur utilise temporairement `SRV-01-DC1` comme serveur DNS principal :
-
-DNS préféré :
-
-```text
-192.168.10.10
 ```
-
-Cette configuration permet à `SRV-02-DC2` de résoudre :
-
-```text
 logiflex.infra
 ```
 
-ainsi que les enregistrements nécessaires à la découverte des services Active Directory.
+La résolution DNS permet de vérifier que le serveur peut communiquer avec l'infrastructure Active Directory existante.
 
-### Vérification
+Cette étape est importante avant :
 
-<img width="514" height="175" alt="image" src="https://github.com/user-attachments/assets/7814079f-cbf7-455c-ae4e-ded844a639b1" />
+```
+Installation AD DS
+        ↓
+Promotion DC2
+        ↓
+Connexion à logiflex.infra
+        ↓
+Réplication Active Directory
+```
+
+<img width="412" height="118" alt="image" src="https://github.com/user-attachments/assets/9cc35332-4280-4d0c-83d1-72aecef9c8d1" />
 
 ---
 
-# 4\. 🧩 Installation du rôle Active Directory Domain Services
+### 9\. 🧩 Installation du rôle Active Directory Domain Services
 
 Le rôle **Active Directory Domain Services (AD DS)** est installé sur `SRV-02-DC2`.
 
