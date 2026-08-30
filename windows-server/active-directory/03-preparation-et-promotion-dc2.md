@@ -363,36 +363,12 @@ Le serveur devient ainsi un contrôleur de domaine capable de participer aux ser
 
 ### Configuration retenue
 
-Contrôleur de domaine :
+Contrôleur de domaine : **SRV-02-DC2**
 
-```text
-SRV-02-DC2
-```
-  
-
-Domaine :
-
-```text
-logiflex.infra
-```
-
-DNS :
-
-```text
-Activé
-```
-
-Catalogue global :
-
-```text
-Activé
-```  
-
-RODC :
-
-```text
-Désactivé
-```
+- Domaine : **logiflex.infra**
+- DNS : **Activé**
+- Catalogue global : **Activé**
+- RODC : **Désactivé**
 
 Le serveur est configuré comme contrôleur de domaine inscriptible et non comme **Read-Only Domain Controller (RODC)**.
 
