@@ -1,7 +1,5 @@
-# 03 — Promotion de SRV-02-DC2 et mise en place du contrôleur de domaine secondaire
+# 03 — Préparation et promotion de SRV-02-DC2
 
-<br>
-<br>
 
 ## 📌 Présentation
 
@@ -41,7 +39,9 @@ Cette architecture permet notamment d'améliorer :
 
 ---
 
-# 1\. 🖥️ Prérequis
+# PHASE 1 — Préparation du serveur
+
+## 1\. 🖥️ Prérequis
 
 Avant de procéder à la promotion, `SRV-02-DC2` doit être correctement préparé.
 
@@ -74,6 +74,7 @@ Avant l'intégration au domaine, la communication entre les deux serveurs est v�
 
 ### Test du contrôleur de domaine principal
 
+<img width="879" height="413" alt="image" src="https://github.com/user-attachments/assets/439c4bf8-3b45-4999-a6c6-e2a0ab78f6d1" />
 
 
 ### Vérification de la configuration réseau
