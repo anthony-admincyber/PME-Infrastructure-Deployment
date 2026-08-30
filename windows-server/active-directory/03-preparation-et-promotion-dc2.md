@@ -332,7 +332,8 @@ Promouvoir ce serveur en contrôleur de domaine
 
 L'option suivante est sélectionnée :
 
-<img width="1274" height="555" alt="image" src="https://github.com/user-attachments/assets/4e60e443-a68c-4ce0-9ce0-21281365cec7" />
+<img width="759" height="278" alt="image" src="https://github.com/user-attachments/assets/42139885-0999-4e24-8d5d-b0f6e9c57104" />
+
 
 Cette configuration permet d'ajouter `SRV-02-DC2` à la forêt Active Directory déjà créée.
 
@@ -344,9 +345,8 @@ L'assistant demande un compte disposant des privilèges nécessaires pour ajoute
 
 Le compte utilisé possède les droits d'administration appropriés sur le domaine :
 
-```text
-logiflex.infra
-```
+<img width="448" height="374" alt="image" src="https://github.com/user-attachments/assets/378b59ea-ae0c-4a1e-8223-2bfd42fdd934" />
+
 
 > 🔒 Aucun mot de passe ou secret d'authentification n'est enregistré dans le dépôt GitHub.
 
@@ -456,6 +456,9 @@ logiflex.infra
 ```
 
 Les zones DNS intégrées à Active Directory peuvent être répliquées entre les contrôleurs de domaine.
+
+<img width="784" height="553" alt="image" src="https://github.com/user-attachments/assets/8c9a8039-a215-404e-8a2a-d46dacf3e898" />
+
 
 ### Architecture DNS
 
