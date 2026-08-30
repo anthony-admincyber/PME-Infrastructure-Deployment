@@ -332,15 +332,7 @@ Promouvoir ce serveur en contrôleur de domaine
 
 L'option suivante est sélectionnée :
 
-```text
-Ajouter un contrôleur de domaine à un domaine existant
-```
-
-Domaine cible :
-
-```text
-logiflex.infra
-```
+<img width="1274" height="555" alt="image" src="https://github.com/user-attachments/assets/4e60e443-a68c-4ce0-9ce0-21281365cec7" />
 
 Cette configuration permet d'ajouter `SRV-02-DC2` à la forêt Active Directory déjà créée.
 
