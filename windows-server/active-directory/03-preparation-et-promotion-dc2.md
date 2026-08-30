@@ -171,6 +171,9 @@ Configuration retenue :
 
 L'utilisation d'une adresse IP statique permet de garantir une identification réseau stable du futur contrôleur de domaine.
 
+<img width="389" height="247" alt="image" src="https://github.com/user-attachments/assets/06c5b3bc-7b96-4425-aeb0-7eb108b51269" />
+
+
 ```
 SRV-02-DC2
 192.168.10.21
@@ -194,6 +197,10 @@ Le serveur utilise donc temporairement le premier contrôleur de domaine comme s
 ```
 DNS préféré : 192.168.10.20
 ```
+
+<img width="395" height="93" alt="image" src="https://github.com/user-attachments/assets/993e56da-8bee-4803-a224-5ee5055510d1" />
+
+
 
 Architecture :
 
