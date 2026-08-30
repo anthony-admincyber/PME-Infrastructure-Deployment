@@ -39,9 +39,9 @@ Cette architecture permet notamment d'améliorer :
 
 ---
 
-# PHASE 1 — Préparation du serveur
+## PHASE 1 — Préparation du serveur
 
-## 1\. 🖥️ Prérequis
+### 1\. 🖥️ Prérequis
 
 Avant de procéder à la promotion, `SRV-02-DC2` doit être correctement préparé.
 
