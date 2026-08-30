@@ -277,7 +277,7 @@ La résolution DNS permet de vérifier que le serveur peut communiquer avec l'in
 Cette étape est importante avant :
 
 ```
-Installation AD DS
+Vérification DNS
         ↓
 Promotion DC2
         ↓
@@ -412,15 +412,15 @@ La réplication permet notamment de synchroniser :
 
 Architecture obtenue :
 
-             SRV-01-DC1
-            192.168.10.10
+             SRV-V-DC1
+            192.168.10.20
                   │
                   │
           Réplication AD DS
                   │
                   ▼
              SRV-02-DC2
-            192.168.10.11
+            192.168.10.21
 
 Cette architecture évite que l'ensemble des services d'annuaire repose sur un seul serveur.
 
@@ -447,7 +447,7 @@ Les zones DNS intégrées à Active Directory peuvent être répliquées entre l
                       │
              ┌────────┴────────┐
              │                 │
-        SRV-01-DC1        SRV-02-DC2
+        SRV-V-DC1        SRV-02-DC2
         DNS + AD DS       DNS + AD DS
              │                 │
              └──── Réplication ┘
@@ -520,7 +520,7 @@ L'objectif est de confirmer l'absence d'erreurs de réplication.
 
 Le diagnostic Active Directory est réalisé avec :
 
-```text
+```cmd
 dcdiag
 ```
 
@@ -546,7 +546,7 @@ Une infrastructure correctement configurée doit présenter des résultats cohé
 
 Les partages nécessaires au fonctionnement du domaine sont vérifiés :
 
-```text
+```cmd
 net share
 ```
 
