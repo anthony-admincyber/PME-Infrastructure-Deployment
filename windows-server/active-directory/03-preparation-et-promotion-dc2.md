@@ -139,7 +139,7 @@ Vérification
 
 ---
 
-# 🔄 4. Installation des mises à jour
+### 🔄 4. Installation des mises à jour
 
 Avant l'installation des rôles Active Directory, `SRV-02-DC2` est mis à jour.
 
@@ -156,7 +156,7 @@ Une fois les mises à jour installées, le serveur est redémarré si nécessair
 
 ---
 
-# 🌐 5. Configuration de l'adresse IP statique
+### 🌐 5. Configuration de l'adresse IP statique
 
 `SRV-02-DC2` reçoit une adresse IPv4 statique.
 
