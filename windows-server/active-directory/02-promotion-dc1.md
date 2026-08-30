@@ -79,7 +79,7 @@ Cette opération lance l'assistant de configuration des services de domaine Acti
 
 # 3\. 🌳 Création d'une nouvelle forêt
 
-`SRV-01-DC1` constitue le premier contrôleur de domaine de l'environnement.
+`SRV-V-DC1` constitue le premier contrôleur de domaine de l'environnement.
 
 L'option suivante est donc sélectionnée :
 
@@ -172,7 +172,7 @@ Le DNS permettra notamment la résolution des enregistrements nécessaires aux s
 Le serveur devient notamment responsable de la résolution de :
 
 ```text
-SRV-01-DC1.logiflex.infra
+SRV-V-DC1.logiflex.infra
 ```
 
 ainsi que des différents enregistrements nécessaires au fonctionnement du domaine.
@@ -286,7 +286,7 @@ L'assistant procède alors à la configuration du contrôleur de domaine et à l
 
 # 11\. 🔄 Redémarrage du serveur
 
-La promotion nécessite le redémarrage de `SRV-01-DC1`.
+La promotion nécessite le redémarrage de `SRV-V-DC1`.
 
 Après redémarrage, le serveur appartient désormais au domaine :
 
@@ -389,7 +389,7 @@ Après cette étape, l'infrastructure évolue de :
 ```text
 
                 SRV-V-DC1
-              192.168.10.10
+              192.168.10.20
 
              Serveur Windows
              AD DS installé
@@ -410,7 +410,7 @@ Après cette étape, l'infrastructure évolue de :
                     │
                     │
                SRV-V-DC1
-              192.168.10.10
+              192.168.10.20
                     │
           ┌─────────┴─────────┐
           │                   │
@@ -476,14 +476,14 @@ La prochaine étape consistera à promouvoir `SRV-02-DC2` en tant que **second c
 
 ```text
                         SRV-V-DC1
-                       192.168.10.10
+                       192.168.10.20
                              │
                              │
                              │  Réplication AD DS / DNS
                              │
                              ▼
                         SRV-02-DC2
-                       192.168.10.11
+                       192.168.10.21
 ```
   
 
