@@ -371,16 +371,17 @@ Windows 11 Pro
 VMware Workstation
        │
        ├──────────────────┐
+       │                  │
        ▼                  ▼
     SRV-01-HV          SRV-02-DC2
 Windows Server 2025  Windows Server 2025
        │                  │
        ▼                  ▼
-    Hyper-V            AD DS / DNS
+Hyper-V à venir     Futur DC2
        │
-       ├── SRV-V-DC1
-       ├── SRV-V-SQL
-       ├── SRV-V-Centreon
+       ▼
+Future infrastructure
+virtualisée
 ```
 
 Cette étape permet de mettre en pratique les compétences suivantes :
