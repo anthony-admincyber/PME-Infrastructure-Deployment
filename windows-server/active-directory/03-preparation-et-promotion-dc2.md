@@ -302,20 +302,15 @@ L'installation est réalisée depuis **Gestionnaire de serveur**.
 2.  Sélectionner **Gérer**.
 3.  Sélectionner **Ajouter des rôles et fonctionnalités**.
 4.  Choisir **Installation basée sur un rôle ou une fonctionnalité**.
-5.  Sélectionner :
+5.  Sélectionner **SRV-02-DC2**
+<img width="781" height="554" alt="image" src="https://github.com/user-attachments/assets/c9917f67-14d4-4157-9a27-c60aae4c551e" />
 
-```text
-SRV-02-DC2
-```
+7.  Sélectionner **Services de domaine Active Directory**
+8.  Accepter l'installation des fonctionnalités requises.
+9.  Lancer l'installation.
 
-1.  Sélectionner :
+<img width="783" height="553" alt="image" src="https://github.com/user-attachments/assets/545dbf4d-c18b-41a3-978b-d4cb6c6d0c54" />
 
-```text
-Services de domaine Active Directory
-```
-
-1.  Accepter l'installation des fonctionnalités requises.
-2.  Lancer l'installation.
 
 Le rôle AD DS est désormais disponible sur le serveur.
 
