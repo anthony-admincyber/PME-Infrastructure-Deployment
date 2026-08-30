@@ -58,13 +58,167 @@ Les paramètres retenus sont les suivants :
 | Contrôleur principal | SRV-V-DC1 |
 | DNS principal | 192.168.10.20 |
 
-Le serveur a préalablement été :
+### 🖥️ 2. Préparation de SRV-02-DC2
 
--   renommé ;
--   mis à jour ;
--   configuré avec une adresse IP statique ;
--   connecté au réseau LOGIFLEX ;
--   testé en connectivité avec `SRV-V-DC1`.
+Avant son intégration à l'infrastructure Active Directory, le serveur `SRV-02-DC2` doit être préparé afin de garantir une configuration cohérente avec l'environnement LOGIFLEX.
+
+Cette phase comprend notamment :
+
+-   le renommage du serveur ;
+-   l'installation des mises à jour ;
+-   la configuration d'une adresse IP statique ;
+-   la configuration du serveur DNS ;
+-   la validation de la connectivité avec le premier contrôleur de domaine ;
+-   la vérification de la résolution DNS du domaine `logiflex.infra`.
+
+> ⚠️ À ce stade, `SRV-02-DC2` n'est pas encore membre du domaine et ne constitue pas encore un contrôleur de domaine.
+
+L'architecture est alors la suivante :
+
+```
+                         LOGIFLEX
+                            │
+                     logiflex.infra
+                            │
+                     ┌──────┴──────┐
+                     │             │
+                     ▼             │
+                SRV-V-DC1          │
+              192.168.10.20        │
+                AD DS / DNS        │
+                     │             │
+                     │             ▼
+                     │       SRV-02-DC2
+                     │      192.168.10.21
+                     │    Serveur autonome
+                     │
+                     └── DNS principal
+```
+
+---
+
+### 🏷️ 3. Renommage du serveur
+
+Avant son intégration au domaine, le serveur reçoit le nom :
+
+```
+SRV-02-DC2
+```
+
+La convention de nommage retenue permet d'identifier rapidement la fonction du serveur :
+
+-   `SRV` → Serveur ;
+-   `02` → Second serveur ;
+-   `DC2` → Second contrôleur de domaine.
+
+Le renommage est réalisé avant l'installation des services Active Directory.
+
+Après modification du nom de l'ordinateur, le serveur est redémarré afin que la nouvelle identité soit correctement prise en compte.
+
+Le processus est le suivant :
+
+```
+Nom initial
+    │
+    ▼
+Renommage
+    │
+    ▼
+SRV-02-DC2
+    │
+    ▼
+Redémarrage
+    │
+    ▼
+Vérification
+```
+
+<img width="839" height="179" alt="image" src="https://github.com/user-attachments/assets/ea6836f2-3c99-4508-a6f6-6202cad882ad" />
+
+---
+
+# 🔄 4. Installation des mises à jour
+
+Avant l'installation des rôles Active Directory, `SRV-02-DC2` est mis à jour.
+
+Cette étape permet notamment de :
+
+-   appliquer les correctifs de sécurité disponibles ;
+-   installer les mises à jour cumulatives ;
+-   corriger d'éventuelles vulnérabilités connues ;
+-   disposer d'une base système à jour avant la promotion.
+
+Une fois les mises à jour installées, le serveur est redémarré si nécessaire.
+
+> 💡 La mise à jour des serveurs avant le déploiement des rôles d'infrastructure permet de partir d'une base système cohérente et maintenue.
+
+---
+
+# 🌐 5. Configuration de l'adresse IP statique
+
+`SRV-02-DC2` reçoit une adresse IPv4 statique.
+
+Configuration retenue :
+
+| Paramètre | Valeur |
+| --- | --- |
+| Nom | SRV-02-DC2 |
+| Adresse IP | 192.168.10.21 |
+| Masque | 255.255.255.0 |
+| Préfixe | /24 |
+| Réseau | 192.168.10.0/24 |
+| Passerelle | 192.168.10.2 |
+
+L'utilisation d'une adresse IP statique permet de garantir une identification réseau stable du futur contrôleur de domaine.
+
+```
+SRV-02-DC2
+192.168.10.21
+      │
+      ▼
+192.168.10.0/24
+      │
+      ▼
+Passerelle
+192.168.10.2
+```
+
+---
+
+# 🌐 6. Configuration DNS avant l'intégration au domaine
+
+Avant sa promotion, `SRV-02-DC2` doit pouvoir localiser les services Active Directory existants.
+
+Le serveur utilise donc temporairement le premier contrôleur de domaine comme serveur DNS préféré :
+
+```
+DNS préféré : 192.168.10.20
+```
+
+Architecture :
+
+```
+SRV-02-DC2
+192.168.10.21
+      │
+      │ Requêtes DNS
+      ▼
+SRV-V-DC1
+192.168.10.20
+DNS + AD DS
+      │
+      ▼
+logiflex.infra
+```
+
+Cette configuration est indispensable pour permettre à `SRV-02-DC2` de localiser :
+
+-   le domaine `logiflex.infra` ;
+-   le contrôleur de domaine existant ;
+-   les services Active Directory ;
+-   les enregistrements DNS nécessaires à la promotion.
+
+> ⚠️ Un futur contrôleur de domaine ne doit pas utiliser un serveur DNS public pour localiser les services Active Directory.
 
 ---
 
