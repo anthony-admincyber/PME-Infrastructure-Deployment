@@ -181,7 +181,6 @@ Pour chaque machine virtuelle, les paramètres suivants sont configurés :
 <img width="811" height="448" alt="image" src="https://github.com/user-attachments/assets/5066733c-4143-4b8e-9f76-401fe825ebdd" />
 
 6.  Création du disque virtuel.
-<img width="301" height="434" alt="image" src="https://github.com/user-attachments/assets/40d7eeb1-e60f-402c-bddf-a56d1667b2ca" />
 
 7.  Configuration de la carte réseau virtuelle.
 <img width="1132" height="764" alt="image" src="https://github.com/user-attachments/assets/40ac006e-779e-45ad-803d-ae60557e5e2d" />
