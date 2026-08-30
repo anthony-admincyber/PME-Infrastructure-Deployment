@@ -402,6 +402,8 @@ Le serveur est configuré comme contrôleur de domaine inscriptible et non comme
 
 L'assistant permet de définir les emplacements des différents composants Active Directory.
 
+<img width="754" height="545" alt="image" src="https://github.com/user-attachments/assets/04c3cf28-1222-493e-b11c-54f05319fa3c" />
+
 Les éléments concernés sont notamment :
 
 - Base de données AD DS
@@ -419,6 +421,9 @@ Ces composants sont indispensables au fonctionnement du contrôleur de domaine e
 ### 5 🔄 Réplication Active Directory
 
 Lors de la promotion de `SRV-02-DC2`, les données Active Directory présentes sur `SRV-01-DC1` sont répliquées vers le nouveau contrôleur de domaine.
+
+<img width="762" height="562" alt="image" src="https://github.com/user-attachments/assets/2a7efc66-6c87-4a60-a7dd-072283e30bc8" />
+
 
 La réplication permet notamment de synchroniser :
 
