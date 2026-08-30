@@ -26,8 +26,8 @@ Cette architecture permet notamment d'améliorer :
                             │
              ┌──────────────┴──────────────┐
              │                             │
-       SRV-01-DC1                     SRV-02-DC2
-      192.168.10.10                  192.168.10.11
+       SRV-V-DC1                     SRV-02-DC2
+      192.168.10.20                  192.168.10.21
              │                             │
         AD DS / DNS                   AD DS / DNS
              │                             │
@@ -50,13 +50,13 @@ Les paramètres retenus sont les suivants :
 | Élément | Configuration |
 | --- | --- |
 | Nom du serveur | SRV-02-DC2 |
-| Système | Windows Server 2025 Datacenter Evaluation |
-| Adresse IP | 192.168.10.11/24 |
+| Système | Windows Server 2025 Standard Edition |
+| Adresse IP | 192.168.10.21/24 |
 | Passerelle | 192.168.10.2 |
 | Réseau | 192.168.10.0/24 |
 | Domaine cible | logiflex.infra |
-| Contrôleur principal | SRV-01-DC1 |
-| DNS principal | 192.168.10.10 |
+| Contrôleur principal | SRV-V-DC1 |
+| DNS principal | 192.168.10.20 |
 
 Le serveur a préalablement été :
 
@@ -64,7 +64,7 @@ Le serveur a préalablement été :
 -   mis à jour ;
 -   configuré avec une adresse IP statique ;
 -   connecté au réseau LOGIFLEX ;
--   testé en connectivité avec `SRV-01-DC1`.
+-   testé en connectivité avec `SRV-V-DC1`.
 
 ---
 
@@ -74,7 +74,7 @@ Avant l'intégration au domaine, la communication entre les deux serveurs est v�
 
 ### Test du contrôleur de domaine principal
 
-<img width="691" height="239" alt="image" src="https://github.com/user-attachments/assets/4468d356-8b9d-4171-aabd-425590eefd80" />
+
 
 ### Vérification de la configuration réseau
 
