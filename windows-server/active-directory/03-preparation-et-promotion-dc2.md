@@ -1,7 +1,7 @@
 # 03 — Préparation et promotion de SRV-02-DC2
 
 
-## 📌 Présentation
+### 📌 Présentation
 
 Cette troisième étape du projet **LOGIFLEX Infrastructure** consiste à intégrer `SRV-02-DC2` à l'infrastructure Active Directory précédemment créée sur `SRV-01-DC1`.
 
