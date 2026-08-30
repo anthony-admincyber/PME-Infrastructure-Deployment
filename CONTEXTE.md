@@ -117,14 +117,3 @@ DC=logiflex,DC=infra
 * Validation de l'affectation du compte utilisateur à son groupe global de sécurité dédié (`GS_Admins_Infra`), garantissant l'application du modèle de moindre privilège sans élévation directe non contrôlée.
 
 ---
-<br>
-
-## 5. Configuration & Durcissement du Service DNS
-
-![Zone de recherche inversée DNS](./assets/images/ad-dns-reverse-zone.png)
-* **Zone de recherche inversée (`10.168.192.in-addr.arpa`)** : Zone principale intégrée à Active Directory avec mises à jour dynamiques sécurisées. Enregistrement automatique des pointeurs PTR pour garantir la résolution IP $\rightarrow$ FQDN (prérequis pour l'authentification Kerberos, la supervision et les sauvegardes).
-  
-<br>
-
-![Interfaces d'écoute DNS](./assets/images/ad-dns-interfaces-listen.png)
-* **Durcissement des interfaces d'écoute** : Désactivation de l'écoute sur les interfaces IPv6 non utilisées et restriction du service DNS à l'adresse IPv4 statique dédiée de l'hôte (`SRV-01-DC1`) afin d'optimiser les temps de réponse et réduire la surface d'attaque.
