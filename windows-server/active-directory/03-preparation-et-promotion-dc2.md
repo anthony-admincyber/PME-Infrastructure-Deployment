@@ -328,7 +328,7 @@ Promouvoir ce serveur en contrôleur de domaine
 
 ---
 
-### 1 Type de déploiement
+### 1. Type de déploiement
 
 L'option suivante est sélectionnée :
 
@@ -339,7 +339,7 @@ Cette configuration permet d'ajouter `SRV-02-DC2` à la forêt Active Directory 
 
 ---
 
-### 2 🔐 Authentification au domaine
+### 2. 🔐 Authentification au domaine
 
 L'assistant demande un compte disposant des privilèges nécessaires pour ajouter un contrôleur de domaine.
 
@@ -352,7 +352,7 @@ Le compte utilisé possède les droits d'administration appropriés sur le domai
 
 ---
 
-### 3 🌳 Options du contrôleur de domaine
+### 3. 🌳 Options du contrôleur de domaine
 
 Lors de la promotion, les rôles suivants sont sélectionnés :
 
@@ -398,7 +398,7 @@ Le serveur est configuré comme contrôleur de domaine inscriptible et non comme
 
 ---
 
-### 4 📁 Chemins AD DS
+### 4. 📁 Chemins AD DS
 
 L'assistant permet de définir les emplacements des différents composants Active Directory.
 
@@ -418,7 +418,7 @@ Ces composants sont indispensables au fonctionnement du contrôleur de domaine e
 
 ---
 
-### 5 🔄 Réplication Active Directory
+### 5. 🔄 Réplication Active Directory
 
 Lors de la promotion de `SRV-02-DC2`, les données Active Directory présentes sur `SRV-01-DC1` sont répliquées vers le nouveau contrôleur de domaine.
 
@@ -450,7 +450,7 @@ Cette architecture évite que l'ensemble des services d'annuaire repose sur un s
 
 ---
 
-### 6 🌐 Installation et intégration DNS
+### 6. 🌐 Installation et intégration DNS
 
 Lors de la promotion du serveur, le rôle DNS est également configuré.
 
@@ -480,9 +480,11 @@ Cette redondance permet de limiter la dépendance à un seul serveur DNS.
 
 ---
 
-### 7 🔄 Redémarrage et finalisation
+### 7. 🔄 Redémarrage et finalisation
 
 Une fois la configuration terminée, l'assistant effectue les opérations nécessaires à la promotion du serveur.
+
+<img width="757" height="556" alt="image" src="https://github.com/user-attachments/assets/65acd485-ff74-4cd7-a6ab-c124004c56e5" />
 
 Le serveur est ensuite redémarré.
 
@@ -494,61 +496,51 @@ logiflex.infra
 
 ---
 
-### 8 🔎 Vérification du contrôleur de domaine
+### 8. 🔎 Vérification du contrôleur de domaine
 
 Après redémarrage, plusieurs contrôles sont réalisés.
-
-### Vérification du nom du serveur
-
-<img width="340" height="53" alt="image" src="https://github.com/user-attachments/assets/d0d6aea2-af44-4e0c-a883-b1dc9bf6e469" />
 
 
 ### Vérification du domaine
 
-<img width="1118" height="673" alt="image" src="https://github.com/user-attachments/assets/1e455e87-662f-491a-b679-754b618f7b76" />
+<img width="1092" height="677" alt="image" src="https://github.com/user-attachments/assets/374de1ed-0e41-47cb-b0c2-debcdfa19f36" />
 
 
 ### Vérification de la forêt
 
-<img width="970" height="325" alt="image" src="https://github.com/user-attachments/assets/8e3be419-72e8-43ff-8611-430806cb0864" />
+<img width="964" height="319" alt="image" src="https://github.com/user-attachments/assets/c0a7f4a2-37c5-404d-adc3-eb19fbd0ff2a" />
 
 ---
 
-### 9 🖥️ Vérification des contrôleurs de domaine
+### 9. 🖥️ Vérification des contrôleurs de domaine
 
 La commande suivante permet d'identifier les contrôleurs de domaine présents dans le domaine :
 
-<img width="1033" height="134" alt="image" src="https://github.com/user-attachments/assets/e1cf13f9-556a-476e-bd64-488769f77d65" />
+<img width="1067" height="135" alt="image" src="https://github.com/user-attachments/assets/20313dfb-8b99-4851-836b-c7e259a00913" />
 
 
 L'infrastructure dispose désormais de deux contrôleurs de domaine.
 
 ---
 
-### 10 🔄 Vérification de la réplication
+### 10. 🔄 Vérification de la réplication
 
 La réplication Active Directory est vérifiée avec :
 
-```text
-repadmin /replsummary
-```
+<img width="653" height="314" alt="image" src="https://github.com/user-attachments/assets/2075973e-1b59-42f4-bbac-581fedf76d3e" />
 
 Cette commande permet d'obtenir une synthèse de l'état de réplication entre les contrôleurs de domaine.
 
 Une vérification détaillée peut également être réalisée avec :
 
-```text
-repadmin /showrepl
-```
+<img width="860" height="672" alt="image" src="https://github.com/user-attachments/assets/240a2aec-6de1-4cf9-a3db-0973fb7b6a69" />
 
 L'objectif est de confirmer l'absence d'erreurs de réplication.
-
-<img width="604" height="322" alt="image" src="https://github.com/user-attachments/assets/8b0efaf6-07fa-4dd8-acec-77db2de8ea0f" />
 
 
 ---
 
-### 11 🩺 Diagnostic du contrôleur de domaine
+### 11. 🩺 Diagnostic du contrôleur de domaine
 
 Le diagnostic Active Directory est réalisé avec :
 
@@ -574,7 +566,7 @@ Une infrastructure correctement configurée doit présenter des résultats cohé
 
 ---
 
-### 12 📂 Vérification SYSVOL et NETLOGON
+### 12. 📂 Vérification SYSVOL et NETLOGON
 
 Les partages nécessaires au fonctionnement du domaine sont vérifiés :
 
@@ -594,7 +586,7 @@ Ces partages sont essentiels au fonctionnement des stratégies de groupe et à l
 
 ---
 
-### 13 🌐 Vérification DNS
+### 13. 🌐 Vérification DNS
 
 La résolution du domaine est vérifiée depuis `SRV-02-DC2`.
 
