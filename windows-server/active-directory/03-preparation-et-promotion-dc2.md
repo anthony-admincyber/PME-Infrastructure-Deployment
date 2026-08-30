@@ -592,27 +592,27 @@ La résolution du domaine est vérifiée depuis `SRV-02-DC2`.
 
 ### Résolution du domaine
 
-<img width="473" height="147" alt="image" src="https://github.com/user-attachments/assets/d493e3fd-ddf8-4163-afc8-2d5699c93a7e" />
+<img width="470" height="145" alt="image" src="https://github.com/user-attachments/assets/4aef9685-cadd-43ae-a2be-9aa24e38bc01" />
 
 
 ### Résolution du contrôleur principal
 
-<img width="548" height="120" alt="image" src="https://github.com/user-attachments/assets/a2d0074e-bee2-4a51-bd24-35bb37dbdbc9" />
+<img width="572" height="127" alt="image" src="https://github.com/user-attachments/assets/d07b12dc-a1bc-424b-bc64-626c3ecb5c9d" />
 
 
 ### Résolution du contrôleur secondaire
 
-<img width="547" height="123" alt="image" src="https://github.com/user-attachments/assets/5ec018fc-6b76-4738-9ebe-233ad79f9d44" />
+<img width="563" height="122" alt="image" src="https://github.com/user-attachments/assets/6583c764-5ed5-45d6-aa84-19dd27c2d615" />
 
 
-La résolution inverse peut également être contrôlée :
+## La résolution inverse peut également être contrôlée :
 
-<img width="440" height="126" alt="image" src="https://github.com/user-attachments/assets/cf55d133-e9bb-491d-ad5e-4812ef735a08" />
+<img width="451" height="124" alt="image" src="https://github.com/user-attachments/assets/6e751c06-0614-4484-a73f-ee06a4be6d81" />
 
 
-et :
+## et :
 
-<img width="435" height="123" alt="image" src="https://github.com/user-attachments/assets/9cefd753-66f8-4117-97e9-e360f60eda5e" />
+<img width="442" height="125" alt="image" src="https://github.com/user-attachments/assets/e8c2bdb7-322f-4cf8-9240-bb4371923e2d" />
 
 
 Ces vérifications permettent de valider les enregistrements DNS associés aux deux contrôleurs de domaine.
