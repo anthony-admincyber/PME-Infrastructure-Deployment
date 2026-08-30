@@ -415,7 +415,7 @@ Cette commande permet de vérifier la présence et la configuration du commutate
 L'architecture obtenue est la suivante :
 
 ```
-                         Windows 11 Pro
+                       Windows 11 Pro
                                │
                                ▼
                      VMware Workstation Pro
@@ -427,8 +427,8 @@ L'architecture obtenue est la suivante :
             Windows Server 2025    Windows Server 2025
                     │                     │
                     ▼                     ▼
-                  Hyper-V              AD DS / DNS
-                    │
+                  Hyper-V        Futur contrôleur
+                    │               de domaine
             ┌───────┼───────┐
             │       │       │
             ▼       ▼       ▼
