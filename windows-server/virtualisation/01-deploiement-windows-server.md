@@ -183,7 +183,8 @@ Pour chaque machine virtuelle, les paramètres suivants sont configurés :
 6.  Création du disque virtuel.
 
 7.  Configuration de la carte réseau virtuelle.
-<img width="1132" height="764" alt="image" src="https://github.com/user-attachments/assets/40ac006e-779e-45ad-803d-ae60557e5e2d" />
+<img width="1131" height="418" alt="image" src="https://github.com/user-attachments/assets/78fbb894-1107-45f9-8310-3cae438ace94" />
+
 
 8.  Montage de l'image ISO.
 
