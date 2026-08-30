@@ -65,7 +65,7 @@ La machine virtuelle `SRV-V-DC1` est configurée avec des ressources adaptées �
 | Services futurs | AD DS / DNS |
 | Processeurs virtuels | 2 vCPU |
 | Mémoire | 4 Go |
-| Disque système | 40 Go |
+| Disque système | 40 Go (VHDX dynamique)|
 | Réseau | vSwitch-LAB |
 
 > 💡 Les ressources sont volontairement limitées afin de respecter les contraintes matérielles de l'environnement de laboratoire.
