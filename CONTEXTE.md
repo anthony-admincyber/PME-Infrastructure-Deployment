@@ -2,387 +2,407 @@
 
 ---
 
-## 📌 Présentation de l'entreprise
+## 📌 1. Présentation de l'entreprise
 
-**LOGIFLEX Solutions** est une entreprise fictive spécialisée dans les solutions logicielles dédiées à la **Supply Chain**, aux systèmes de gestion d'entrepôt (**WMS**), aux systèmes de transport (**TMS**) et à l'automatisation des environnements logistiques.
+**LOGIFLEX Solutions** est une entreprise fictive spécialisée dans les solutions logicielles dédiées à la **Supply Chain**, aux systèmes de gestion d'entrepôts (**WMS**) et aux solutions de transport (**TMS**).
 
-L'entreprise conçoit, déploie et maintient des solutions destinées à accompagner les organisations dans la gestion de leurs flux logistiques et de leurs infrastructures numériques.
+L'entreprise conçoit, déploie et maintient des solutions destinées à accompagner les organisations dans l'optimisation de leurs activités logistiques.
 
-Dans le cadre d'un projet de modernisation et de sécurisation de son système d'information, LOGIFLEX met en place une infrastructure centralisée reposant notamment sur :
+Dans le cadre de son développement, LOGIFLEX met en place une infrastructure informatique centralisée afin de :
 
-- Active Directory ;
-- Windows Server ;
-- DNS ;
-- virtualisation ;
-- services Linux ;
-- supervision ;
-- sauvegarde ;
-- gestion centralisée des identités ;
-- contrôle des accès ;
-- sécurisation progressive de l'infrastructure.
+- centraliser la gestion des identités ;
+- améliorer l'administration des systèmes ;
+- structurer les accès aux ressources ;
+- renforcer la sécurité de l'infrastructure ;
+- préparer la supervision des services ;
+- mettre en place une stratégie de sauvegarde ;
+- améliorer la continuité des services.
 
-L'objectif du laboratoire est de reproduire, à échelle réduite, une infrastructure représentative d'une PME disposant de plusieurs services métiers et de besoins techniques variés.
+L'infrastructure s'appuie notamment sur un domaine **Active Directory** centralisé :
+
+```text
+logiflex.infra
+```
+
+L'objectif est de disposer d'une architecture cohérente permettant de reproduire les principaux composants d'un système d'information d'entreprise dans un environnement de laboratoire.
 
 ---
 
-# 👥 Organisation de l'entreprise
+<br>
 
-LOGIFLEX compte fictivement **45 collaborateurs**, répartis entre plusieurs pôles métiers.
+# 👥 2. Organisation de l'entreprise
 
-Pour les besoins de la maquette Active Directory, un échantillon représentatif de **12 comptes utilisateurs** est provisionné.
+LOGIFLEX compte fictivement **45 collaborateurs** répartis entre plusieurs pôles métiers.
 
-| Département / Pôle | Principales missions | Effectif réel | Comptes de démonstration |
-| --- | --- | :---: | :---: |
-| Direction | Pilotage stratégique et gouvernance | 4 | 2 |
-| DSI | Infrastructure, cybersécurité et support | 6 | 3 |
-| R&D / Ingénierie | Développement et ingénierie logicielle | 15 | 2 |
-| Commerce / Marketing | Développement commercial et marketing | 10 | 2 |
-| RH / Finance | Gestion RH, comptabilité et finance | 5 | 2 |
+Pour les besoins du laboratoire Active Directory, un échantillon représentatif de **12 comptes utilisateurs** est créé.
+
+| Département / Pôle | Missions principales | Effectif théorique | Comptes de démonstration |
+| --- | --- | --- | --- |
+| Direction Générale | Pilotage et gestion stratégique | 4 | 2 |
+| DSI | Infrastructure, systèmes, réseau, sécurité et support | 6 | 3 |
+| R&D & Ingénierie | Développement et ingénierie logicielle | 15 | 2 |
+| Commerce & Marketing | Développement commercial et marketing | 10 | 2 |
+| RH & Finance | Gestion RH, comptabilité et finance | 5 | 2 |
 | Consulting | Déploiement et accompagnement client | 5 | 1 |
-| **TOTAL** | — | **45** | **12** |
+| TOTAL |  | 45 | 12 |
+
+Cette organisation permet de reproduire différents profils utilisateurs et différents besoins d'accès aux ressources.
 
 ---
 
-# 🏢 Départements LOGIFLEX
+<br>
 
-## 01 — Direction
+# 👤 3. Utilisateurs de démonstration
 
-La Direction assure notamment :
-
-- la gouvernance de l'entreprise ;
-- la définition de la stratégie ;
-- la prise de décision ;
-- les relations avec les partenaires ;
-- la conformité et le pilotage global.
-
----
-
-## 02 — DSI
-
-La Direction des Systèmes d'Information assure notamment :
-
-- l'administration des systèmes ;
-- l'administration réseau ;
-- la cybersécurité ;
-- la gestion des infrastructures ;
-- le support informatique ;
-- la supervision ;
-- la gestion des incidents.
-
----
-
-## 03 — R&D / Ingénierie
-
-Le pôle Recherche et Développement assure notamment :
-
-- le développement logiciel ;
-- l'évolution des solutions WMS et TMS ;
-- les tests ;
-- l'intégration ;
-- les activités DevOps.
-
----
-
-## 04 — Commerce / Marketing
-
-Ce département assure notamment :
-
-- le développement commercial ;
-- la gestion des clients ;
-- le marketing ;
-- les partenariats ;
-- la promotion des solutions LOGIFLEX.
-
----
-
-## 05 — RH / Finance
-
-Ce pôle assure notamment :
-
-- la gestion des ressources humaines ;
-- l'administration du personnel ;
-- la comptabilité ;
-- le contrôle financier ;
-- le suivi administratif.
-
----
-
-## 06 — Consulting
-
-Le pôle Consulting accompagne les clients dans :
-
-- le déploiement des solutions ;
-- l'intégration ;
-- la formation ;
-- l'accompagnement technique ;
-- la gestion de projet.
-
----
-
-# 👤 Jeu de données Active Directory
-
-Afin de disposer d'un environnement de démonstration réaliste, plusieurs comptes utilisateurs représentatifs des différents services sont créés.
+Les comptes utilisateurs suivants sont utilisés dans l'environnement de laboratoire.
 
 | Collaborateur | Identifiant | Département | Fonction |
 | --- | --- | --- | --- |
-| Elena ROSTOVA | `erostova` | Direction | Direction générale |
-| Liam O'CONNOR | `loconnor` | Direction | Juridique et conformité |
-| Marcus VANCE | `mvance` | DSI | Responsable infrastructure et sécurité |
-| Amina AL-MANSOOR | `aalmansoor` | DSI | Ingénieure systèmes et réseaux |
-| Kenji TANAKA | `ktanaka` | DSI | Technicien support |
-| Mateo SILVA | `msilva` | R&D / Ingénierie | Développeur Backend |
-| Sven LINDQVIST | `slindqvist` | R&D / Ingénierie | Ingénieur Cloud / DevOps |
-| Sarah JENKINS | `sjenkins` | Commerce / Marketing | Responsable commercial |
-| Carlos MENDEZ | `cmendez` | Commerce / Marketing | Marketing produit |
-| Fatou DIOP | `fdiop` | RH | Responsable RH |
-| Lukas WEBER | `lweber` | Finance | Contrôleur financier |
-| Priya PATEL | `ppatel` | Consulting | Consultante déploiement |
+| Elena ROSTOVA | erostova | Direction | Direction générale |
+| Liam O'CONNOR | loconnor | Direction | Juridique et conformité |
+| Marcus VANCE | mvance | DSI | Sécurité et infrastructure |
+| Amina AL-MANSOOR | aalmansoor | DSI | Systèmes et réseaux |
+| Kenji TANAKA | ktanaka | DSI | Support informatique |
+| Mateo SILVA | msilva | R&D | Développement |
+| Sven LINDQVIST | slindqvist | R&D | Cloud et DevOps |
+| Sarah JENKINS | sjenkins | Commerce & Marketing | Développement commercial |
+| Carlos MENDEZ | cmendez | Commerce & Marketing | Marketing |
+| Fatou DIOP | fdiop | RH & Finance | Ressources humaines |
+| Lukas WEBER | lweber | RH & Finance | Finance |
+| Priya PATEL | ppatel | Consulting | Déploiement client |
+
+> ℹ️ Les utilisateurs présents dans cette maquette sont fictifs et servent uniquement à représenter différents profils et besoins métiers dans l'environnement Active Directory.
 
 ---
 
-# 🏷️ Convention de nommage des utilisateurs
+<br>
 
-Les comptes utilisateurs suivent une convention simple et homogène :
+# 🌳 4. Architecture logique Active Directory
 
-```text
-Première lettre du prénom + nom
-```
-
-Exemples :
+L'annuaire Active Directory est structuré autour d'une unité d'organisation principale :
 
 ```
-Marcus VANCE
-mvance
-
-Amina AL-MANSOOR
-aalmansoor
-
-Carlos MENDEZ
-cmendez
+DC=logiflex,DC=infra
+│
+└── OU=LOGIFLEX
 ```
 
-Cette convention permet :
+La structure retenue distingue trois grands périmètres :
 
--   une identification rapide des comptes ;
--   une homogénéité dans l'annuaire ;
--   une administration plus simple ;
--   une meilleure lisibilité lors des audits.
+-   **T0 — Administration et identité** ;
+-   **T1 — Serveurs et services d'infrastructure** ;
+-   **T2 — Utilisateurs et postes de travail**.
 
----
-
-# 🌳 Structure Active Directory
-
-L'annuaire Active Directory est organisé autour de l'unité d'organisation principale `LOGIFLEX`.
+L'organisation complète est la suivante :
 
 ```
 DC=logiflex,DC=infra
 │
 └── OU=LOGIFLEX
     │
-    ├── OU=Departements
+    ├── OU=T0_Administration
     │   │
-    │   ├── OU=01_Direction
-    │   ├── OU=02_DSI
-    │   ├── OU=03_RD_Ingenierie
-    │   ├── OU=04_Commerce_Marketing
-    │   ├── OU=05_RH_Finance
-    │   └── OU=06_Consulting
+    │   ├── OU=Admins
+    │   ├── OU=Groupes
+    │   ├── OU=Comptes_Service
+    │   └── OU=Postes_Administration
     │
-    ├── OU=Ordinateurs
+    ├── OU=T1_Serveurs
     │   │
-    │   ├── OU=Serveurs
-    │   └── OU=Postes_Clients
+    │   ├── OU=Admins
+    │   ├── OU=Groupes
+    │   ├── OU=Serveurs_Membres
+    │   └── OU=Comptes_Service
     │
-    ├── OU=Groupes_securite
-    │
-    └── OU=Comptes_privileges
+    └── OU=T2_Utilisateurs_Postes
+        │
+        ├── OU=Utilisateurs
+        │   │
+        │   ├── OU=01_Direction
+        │   ├── OU=02_DSI
+        │   ├── OU=03_RD_Ingenierie
+        │   ├── OU=04_Commerce_Marketing
+        │   ├── OU=05_RH_Finance
+        │   └── OU=06_Consulting
+        │
+        ├── OU=Postes_Clients
+        │
+        ├── OU=Admins
+        │
+        └── OU=Groupes
 ```
 
-Cette organisation permet de distinguer :
-
--   les utilisateurs ;
--   les ordinateurs ;
--   les groupes de sécurité ;
--   les comptes privilégiés.
-
-Elle facilite également :
-
--   l'application future des GPO ;
--   l'administration de l'annuaire ;
--   la gestion des droits ;
--   les contrôles de sécurité ;
--   les audits.
+Cette organisation permet de distinguer les différents périmètres fonctionnels et techniques de l'infrastructure.
 
 ---
 
-# 🔐 Gestion des groupes de sécurité
+<br>
 
-Les utilisateurs sont regroupés selon leur fonction à l'aide de groupes de sécurité globaux.
+# 🔐 5. Organisation des périmètres d'administration
 
-Les groupes métiers permettent de représenter les différents pôles de l'entreprise.
+L'infrastructure prépare une séparation progressive des différents périmètres d'administration.
+
+```
+                     INFRASTRUCTURE LOGIFLEX
+                              │
+               ┌──────────────┼──────────────┐
+               │              │              │
+               ▼              ▼              ▼
+             TIER 0         TIER 1         TIER 2
+               │              │              │
+        Identité et AD      Serveurs     Utilisateurs
+         Administration     Services       et postes
+```
+
+## Tier 0
+
+Le périmètre **Tier 0** regroupe les composants liés à l'identité et aux éléments les plus sensibles de l'infrastructure.
+
+Il comprend notamment :
+
+-   Active Directory ;
+-   contrôleurs de domaine ;
+-   services d'identité ;
+-   composants DNS intégrés à Active Directory ;
+-   comptes disposant de privilèges élevés sur l'annuaire.
+
+## Tier 1
+
+Le périmètre **Tier 1** concerne les serveurs et services de l'infrastructure.
+
+Il comprend notamment :
+
+-   serveurs membres ;
+-   services applicatifs ;
+-   SQL Server ;
+-   supervision ;
+-   sauvegarde ;
+-   comptes administratifs associés aux serveurs.
+
+## Tier 2
+
+Le périmètre **Tier 2** concerne principalement les utilisateurs et les postes de travail.
+
+Il comprend notamment :
+
+-   comptes utilisateurs standards ;
+-   postes clients ;
+-   groupes métiers ;
+-   administration des postes de travail.
+
+> ⚠️ La séparation complète des périmètres et les restrictions associées seront mises en œuvre progressivement au cours du projet.
+
+---
+
+<br>
+
+# 👥 6. Groupes de sécurité
+
+Les groupes de sécurité constituent un élément central de la gestion des accès.
+
+Deux grandes catégories sont distinguées :
+
+-   les groupes métiers ;
+-   les groupes d'administration.
 
 ## Groupes métiers
 
+Les groupes métiers permettent de regrouper les utilisateurs selon leur fonction.
+
 | Groupe | Fonction |
 | --- | --- |
-| GG_Direction | Direction |
+| GG_Direction | Direction générale |
 | GG_DSI | Direction des systèmes d'information |
 | GG_RD_Ingenierie | Recherche et développement |
 | GG_Commerce_Marketing | Commerce et marketing |
 | GG_RH | Ressources humaines |
 | GG_Finance | Finance et comptabilité |
-| GG_Consulting | Consulting |
+| GG_Consulting | Consulting et déploiement |
+
+Ces groupes sont positionnés dans :
+
+```
+OU=Groupes
+OU=T2_Utilisateurs_Postes
+OU=LOGIFLEX
+```
 
 ---
 
-# 🔐 Groupes d'administration
+## Groupes d'administration
 
-Des groupes spécifiques sont également utilisés pour préparer la séparation des différents périmètres d'administration.
+Des groupes spécifiques permettent de préparer la séparation des périmètres d'administration.
 
 | Groupe | Périmètre |
 | --- | --- |
-| GG_T0_Admins | Administration Active Directory et services d'identité |
-| GG_T1_ServerAdmins | Administration des serveurs et services d'infrastructure |
+| GG_T0_Admins | Administration de l'identité et Active Directory |
+| GG_T1_ServerAdmins | Administration des serveurs |
 | GG_T2_WorkstationAdmins | Administration des postes clients |
 
-Cette organisation constitue une préparation progressive à une séparation des environnements d'administration.
+Leur positionnement est le suivant :
+
+```
+T0_Administration
+└── Groupes
+    └── GG_T0_Admins
+
+T1_Serveurs
+└── Groupes
+    └── GG_T1_ServerAdmins
+
+T2_Utilisateurs_Postes
+└── Groupes
+    └── GG_T2_WorkstationAdmins
+```
 
 ---
 
-# 🏗️ Modèle de gestion des accès
+<br>
 
-La gestion des accès s'appuie progressivement sur le modèle **AGDLP**.
+# 🧩 7. Gestion des accès et modèle AGDLP
+
+La gestion des accès aux ressources sera progressivement organisée selon le modèle **AGDLP**.
 
 ```
-UTILISATEUR
-     │
-     ▼
-GROUPE GLOBAL
-     │
-     ▼
-GROUPE LOCAL DE DOMAINE
-     │
-     ▼
-RESSOURCE
-     │
-     ▼
+ACCOUNT
+    │
+    ▼
+GLOBAL GROUP
+    │
+    ▼
+DOMAIN LOCAL GROUP
+    │
+    ▼
 PERMISSION
 ```
 
-Dans l'environnement LOGIFLEX :
+Exemple :
 
 ```
-Compte utilisateur
-        │
-        ▼
+Utilisateur
+    │
+    ▼
 GG_DSI
-        │
-        ▼
-DL_Ressource_RW
-        │
-        ▼
-Serveur / Partage / Service
-        │
-        ▼
+    │
+    ▼
+DL_Ressource_DSI_RW
+    │
+    ▼
+Serveur / Ressource
+    │
+    ▼
 Lecture / Modification
 ```
 
-Les groupes locaux de domaine seront mis en œuvre progressivement lors du déploiement des ressources nécessitant un contrôle d'accès spécifique.
+Cette organisation permet :
+
+-   d'éviter l'attribution directe de permissions aux utilisateurs ;
+-   de simplifier la gestion des accès ;
+-   de faciliter les audits ;
+-   d'améliorer la lisibilité des droits ;
+-   de préparer la gestion des ressources futures.
+
+Les groupes locaux de domaine seront créés lorsque les ressources concernées seront déployées.
 
 ---
 
-# 🛡️ Principes de sécurité
+<br>
 
-La conception de l'environnement LOGIFLEX prend progressivement en compte plusieurs principes de sécurité.
+# 🖥️ 8. Infrastructure technique
 
-## Principe du moindre privilège
+L'environnement LOGIFLEX comprend plusieurs composants techniques.
 
-Les comptes disposent uniquement des droits nécessaires à leurs missions.
+| Hôte | Adresse IP | Fonction |
+| --- | --- | --- |
+| SRV-V-DC1 | 192.168.10.20 | Contrôleur de domaine / DNS |
+| SRV-02-DC2 | 192.168.10.21 | Contrôleur de domaine / DNS |
+| Services futurs | Selon déploiement | SQL, supervision, sauvegarde |
+
+Les contrôleurs de domaine assurent notamment :
+
+-   l'authentification ;
+-   la gestion des identités ;
+-   la résolution DNS interne ;
+-   la réplication Active Directory ;
+-   la disponibilité des services d'annuaire.
 
 ---
 
-## Séparation des comptes
+<br>
 
-Les comptes utilisés pour les activités quotidiennes sont distincts des futurs comptes d'administration.
+# 🎯 9. Principes de sécurité retenus
+
+La conception de l'environnement repose progressivement sur plusieurs principes.
+
+### Principe du moindre privilège
+
+Les utilisateurs et administrateurs doivent disposer uniquement des droits nécessaires à leurs missions.
+
+### Séparation des comptes
+
+Les comptes utilisateurs standards doivent être distincts des comptes utilisés pour les opérations d'administration.
+
+### Gestion par groupes
+
+Les accès aux ressources doivent être attribués à des groupes plutôt que directement aux comptes utilisateurs.
+
+### Séparation progressive des périmètres
+
+Les différents périmètres d'administration sont structurés afin de limiter l'utilisation excessive de privilèges.
+
+### Traçabilité
+
+Les choix d'architecture, les configurations et les tests sont documentés progressivement dans le repository.
 
 ---
 
-## Gestion par groupes
+<br>
 
-Les permissions ne sont pas attribuées directement aux utilisateurs lorsque l'utilisation d'un groupe est plus adaptée.
+# 📊 10. Synthèse
 
----
+L'environnement LOGIFLEX représente une entreprise fictive de **45 collaborateurs**.
 
-## Séparation progressive des périmètres d'administration
+Le laboratoire utilise un échantillon de **12 comptes utilisateurs** afin de simuler les différents départements et besoins métiers.
 
-Les différents environnements d'administration sont structurés progressivement afin de distinguer :
+L'architecture Active Directory est organisée autour de trois périmètres :
 
 ```
-Tier 0
-│
-├── Services d'identité
-├── Active Directory
-└── Contrôleurs de domaine
-
-Tier 1
-│
-├── Serveurs
-└── Services d'infrastructure
-
-Tier 2
-│
-├── Postes clients
-└── Support utilisateur
+T0 — Administration / Identité
+T1 — Serveurs / Services
+T2 — Utilisateurs / Postes
 ```
 
-> ⚠️ Cette séparation est mise en œuvre progressivement dans le cadre du laboratoire et sera complétée par les futures stratégies de sécurité.
+La gestion des accès s'appuie progressivement sur :
+
+```
+Utilisateurs
+      │
+      ▼
+Groupes de sécurité
+      │
+      ▼
+Groupes d'accès aux ressources
+      │
+      ▼
+Permissions
+```
+
+Cette organisation constitue le socle fonctionnel et organisationnel de l'ensemble du projet **LOGIFLEX Infrastructure**.
 
 ---
 
-# 🧩 Infrastructure associée
+## 🚀 Évolutions prévues
 
-L'environnement Active Directory constitue le socle des futures briques de l'infrastructure LOGIFLEX.
+Le contexte d'entreprise évoluera en fonction du développement de l'infrastructure.
 
-Les principaux composants prévus sont :
+Les prochaines étapes concerneront notamment :
 
-```
-                    LOGIFLEX
-                        │
-                        ▼
-               Active Directory
-                        │
-        ┌───────────────┼───────────────┐
-        │               │               │
-        ▼               ▼               ▼
-    Windows         Services         Sécurité
-    Server           Linux              │
-        │               │               │
-        ├── AD DS       ├── SQL          ├── GPO
-        ├── DNS         └── Centreon     ├── Hardening
-        └── Hyper-V                       └── Contrôle des accès
-                        │
-                        ▼
-                   Sauvegarde
-                     Veeam
-```
-
----
-
-# 📋 Objectif du scénario
-
-Le scénario LOGIFLEX permet de disposer d'un contexte cohérent pour documenter la construction progressive d'une infrastructure d'entreprise.
-
-Chaque composant déployé répond à un besoin identifié :
-
-| Composant | Objectif |
-| --- | --- |
-| Active Directory | Centralisation des identités |
-| DNS | Résolution des ressources |
-| Groupes de sécurité | Gestion des accès |
-| Comptes privilégiés | Séparation des privilèges |
-| Hyper-V | Virtualisation des services |
-| SQL Server | Service applicatif |
-| Centreon | Supervision |
-| GPO | Configuration centralisée |
-| Hardening | Réduction de la surface d'exposition |
-| Veeam | Sauvegarde et restauration |
+-   la création des comptes utilisateurs ;
+-   la création des comptes d'administration dédiés ;
+-   l'affectation aux groupes de sécurité ;
+-   le déploiement des serveurs membres ;
+-   l'intégration des services SQL ;
+-   la supervision ;
+-   la sauvegarde ;
+-   la mise en place progressive des groupes locaux de domaine ;
+-   l'attribution des permissions aux ressources.
