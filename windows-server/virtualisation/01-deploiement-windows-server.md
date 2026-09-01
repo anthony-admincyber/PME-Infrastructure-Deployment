@@ -1,5 +1,7 @@
 # 🖥️ 01 — Virtualisation et préparation des serveurs Windows Server 2025
 
+<br> <br>
+
 ## 📌 Présentation
 
 Cette première étape du projet **LOGIFLEX Infrastructure** consiste à mettre en place le socle de virtualisation du laboratoire.
