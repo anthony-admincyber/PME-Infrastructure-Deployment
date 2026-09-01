@@ -407,6 +407,8 @@ logiflex.infra
         └── Admins
 ```
 
+<img width="1020" height="607" alt="image" src="https://github.com/user-attachments/assets/acfd5dec-54fb-4c1a-91b3-92de6e57ab49" />
+
 > 💡 La structure est conçue pour évoluer progressivement en fonction du déploiement des nouvelles briques de l'infrastructure.
 
 ---
