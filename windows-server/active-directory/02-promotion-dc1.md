@@ -1,5 +1,7 @@
 # 02 — Promotion de SRV-V-DC1 et création de la forêt Active Directory
 
+<br> <br>
+
 ## 📌 Présentation
 
 Cette deuxième étape du projet **LOGIFLEX Infrastructure** consiste à promouvoir le serveur `SRV-V-DC1` en tant que **premier contrôleur de domaine** de l'infrastructure.
