@@ -237,7 +237,7 @@ New-ADGroup `
     -Name "GG_T2_WorkstationAdmins" `
     -GroupScope Global `
     -GroupCategory Security `
-    -Path "OU=Admins,OU=T2_Utilisateurs_Postes,$BaseOU" `
+    -Path "OU=Groupes,OU=T2_Utilisateurs_Postes,$BaseOU" `
     -Description "Administrateurs du périmètre Tier 2"
 ```
 
