@@ -244,6 +244,8 @@ OU=T2_Utilisateurs_Postes
 
 Cette organisation permettra notamment de distinguer clairement les utilisateurs des ressources informatiques.
 
+<img width="1021" height="473" alt="image" src="https://github.com/user-attachments/assets/68260453-c807-46c5-a9cb-64fbcee2b4ba" />
+
 ---
 
 # 👤 7. Séparation des comptes utilisateurs et administrateurs
@@ -345,21 +347,7 @@ Permission
 Cette logique peut être représentée ainsi :
 
 ```
-A
-│
-▼
-G
-│
-▼
-DL
-│
-▼
-P
-```
 
-Soit :
-
-```
 Account
    ↓
 Global Group
