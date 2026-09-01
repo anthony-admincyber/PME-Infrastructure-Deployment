@@ -352,7 +352,7 @@ Une fois les groupes créés, leur présence et leurs propriétés sont vérifi�
 
 ## Vérification de l'ensemble des groupes
 
-```
+```powershell
 Get-ADGroup `
     -Filter 'Name -like "GG_*"' `
     -SearchBase "OU=LOGIFLEX,DC=logiflex,DC=infra" |
@@ -366,18 +366,23 @@ Cette commande permet notamment de vérifier :
 -   sa catégorie ;
 -   son emplacement dans l'annuaire.
 
+<img width="990" height="325" alt="image" src="https://github.com/user-attachments/assets/1851f114-1ab0-48c4-93d6-f34ecba41627" />
+
+
 ---
 
 ## Vérification d'un groupe spécifique
 
 Exemple avec `GG_DSI` :
 
-```
+```powershell
 Get-ADGroup `
     -Identity "GG_DSI" `
     -Properties Description, MemberOf |
     Format-List Name, Description, MemberOf
 ```
+
+<img width="445" height="193" alt="image" src="https://github.com/user-attachments/assets/0ede3a2a-0cf2-407b-9e60-9a0cf7765b3c" />
 
 À ce stade, les groupes sont créés mais ne contiennent pas encore nécessairement les comptes utilisateurs définitifs.
 
