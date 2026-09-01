@@ -20,6 +20,7 @@ Cette étape prépare notamment :
 -   la mise en œuvre progressive du modèle AGDLP ;
 -   la préparation de la séparation des périmètres d'administration.
 
+<br>
 
 > 💡 **Articulation entre modèle AGDLP et séparation des périmètres d'administration**
 > 
