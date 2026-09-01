@@ -322,7 +322,6 @@ LOGIFLEX
     │
     ├── Utilisateurs
     ├── Postes_Clients
-    │
     ├── Admins
     │
     └── Groupes
