@@ -8,22 +8,22 @@
 
 **LOGIFLEX Solutions** est une entreprise fictive spécialisée dans les solutions logicielles dédiées à la Supply Chain, aux WMS/TMS et à l'automatisation d'entrepôts.
 
-Ce repository présente la conception et le déploiement progressif d'une **infrastructure système virtualisée**, reproduite dans un environnement de laboratoire.
+Ce repository présente la conception et le déploiement progressif d'une **infrastructure système virtualisée et sécurisée**, reproduite dans un environnement de laboratoire.
 
 Le projet permet de mettre en pratique différentes compétences liées à l'administration d'infrastructures :
 
-- administration Windows Server ;
-- virtualisation ;
-- Active Directory ;
-- DNS ;
-- administration Linux ;
-- supervision ;
-- sauvegarde ;
-- gestion des identités ;
-- sécurisation des infrastructures ;
-- PowerShell ;
-- résolution d'incidents ;
-- documentation technique.
+-   administration Windows Server ;
+-   virtualisation ;
+-   Active Directory ;
+-   DNS ;
+-   administration Linux ;
+-   supervision ;
+-   sauvegarde ;
+-   gestion des identités ;
+-   sécurisation des infrastructures ;
+-   PowerShell ;
+-   résolution d'incidents ;
+-   documentation technique.
 
 > 🎯 **Projet personnel orienté Administration Système, Infrastructure et Cybersécurité**
 
@@ -33,68 +33,68 @@ Le projet permet de mettre en pratique différentes compétences liées à l'adm
 
 L'objectif est de reproduire une architecture cohérente correspondant aux besoins d'une PME.
 
-Le projet couvre notamment :
-
 ## 🖥️ Infrastructure
 
-- Déployer Windows Server 2025.
-- Mettre en œuvre une infrastructure virtualisée.
-- Configurer Hyper-V.
-- Utiliser la virtualisation imbriquée.
-- Déployer plusieurs machines virtuelles.
-- Administrer les ressources système.
+-   Déployer Windows Server 2025.
+-   Mettre en œuvre une infrastructure virtualisée.
+-   Configurer Hyper-V.
+-   Utiliser la virtualisation imbriquée.
+-   Déployer plusieurs machines virtuelles.
+-   Administrer les ressources système.
 
 ## 🪪 Identité
 
-- Déployer Active Directory Domain Services.
-- Créer un domaine Active Directory.
-- Mettre en place deux contrôleurs de domaine.
-- Centraliser l'authentification.
-- Organiser les utilisateurs et les ordinateurs.
-- Structurer les unités d'organisation.
-- Mettre en œuvre des groupes de sécurité.
+-   Déployer Active Directory Domain Services.
+-   Créer un domaine Active Directory.
+-   Mettre en place deux contrôleurs de domaine.
+-   Centraliser l'authentification.
+-   Organiser les utilisateurs et les ordinateurs.
+-   Structurer les unités d'organisation.
+-   Mettre en œuvre des groupes de sécurité.
+-   Préparer la séparation des périmètres d'administration.
+-   Mettre en œuvre progressivement le modèle AGDLP.
 
 ## 🌐 Réseau
 
-- Configurer un plan d'adressage IPv4.
-- Configurer les communications entre serveurs.
-- Mettre en œuvre un commutateur virtuel Hyper-V.
-- Configurer les services DNS.
-- Vérifier la connectivité des composants.
+-   Configurer un plan d'adressage IPv4.
+-   Configurer les communications entre serveurs.
+-   Mettre en œuvre un commutateur virtuel Hyper-V.
+-   Configurer les services DNS.
+-   Vérifier la connectivité des composants.
 
 ## 🐧 Services Linux
 
-- Déployer des serveurs Linux virtualisés.
-- Héberger un service SQL.
-- Déployer une plateforme de supervision.
-- Intégrer les services Linux dans l'environnement.
+-   Déployer des serveurs Linux virtualisés.
+-   Héberger un service SQL Server.
+-   Déployer une plateforme de supervision.
+-   Intégrer les services Linux dans l'environnement.
 
 ## 📊 Supervision
 
-- Déployer Centreon.
-- Superviser les serveurs.
-- Contrôler les ressources système.
-- Superviser les services.
-- Identifier les anomalies.
+-   Déployer Centreon.
+-   Superviser les serveurs.
+-   Contrôler les ressources système.
+-   Superviser les services.
+-   Identifier les anomalies.
 
 ## 💾 Sauvegarde
 
-- Déployer Veeam.
-- Configurer une stratégie de sauvegarde.
-- Utiliser un repository dédié.
-- Tester les restaurations.
-- Documenter les procédures de reprise.
+-   Déployer Veeam Backup & Replication.
+-   Configurer une stratégie de sauvegarde.
+-   Utiliser un repository dédié.
+-   Tester les restaurations.
+-   Documenter les procédures de reprise.
 
 ## 🔐 Sécurité
 
-- Appliquer le principe du moindre privilège.
-- Séparer les comptes utilisateurs et administrateurs.
-- Structurer les groupes de sécurité.
-- Mettre en œuvre des stratégies de groupe.
-- Réduire la surface d'attaque.
-- Configurer les pare-feux.
-- Renforcer la journalisation.
-- Mettre en œuvre des mesures de durcissement.
+-   Appliquer le principe du moindre privilège.
+-   Séparer les comptes utilisateurs et administrateurs.
+-   Structurer les groupes de sécurité.
+-   Mettre en œuvre des stratégies de groupe.
+-   Réduire la surface d'attaque.
+-   Configurer les pare-feux.
+-   Renforcer la journalisation.
+-   Mettre en œuvre progressivement des mesures de durcissement.
 
 ---
 
@@ -102,7 +102,7 @@ Le projet couvre notamment :
 
 L'environnement repose sur une architecture de **virtualisation imbriquée**.
 
-```text
+```
                          POSTE PHYSIQUE
                         Windows 11 Pro
                                │
@@ -115,19 +115,22 @@ L'environnement repose sur une architecture de **virtualisation imbriquée**.
          SRV-01-HV                        SRV-02-DC2
      Windows Server 2025              Windows Server 2025
               │                                 │
-              │                                 │
-              ▼                                 ├── AD DS
-           Hyper-V                              ├── DNS
-              │                                 │
-      ┌───────┼────────┐                        └── Repository Veeam
-      │       │        │
-      ▼       ▼        ▼
- SRV-V-DC1 SRV-V-SQL SRV-V-Centreon
-      │       │        │
-      │       │        │
+              │                                 ├── AD DS
+              │                                 ├── DNS
+              ▼                                 ├── Réplication AD
+           Hyper-V                              │
+              │                                 └── Repository Veeam
+      ┌───────┼────────────┐
+      │       │            │
+      ▼       ▼            ▼
+ SRV-V-DC1 SRV-V-SQL  SRV-V-Centreon
+      │       │            │
+      │       │            │
    AD DS     SQL       Supervision
-    DNS  Comptabilité  Centreon
+    DNS    Server       Centreon
 ```
+
+---
 
 # 🧩 Architecture technique
 
@@ -141,7 +144,7 @@ L'environnement repose sur une architecture de **virtualisation imbriquée**.
 
 Le poste physique constitue l'environnement principal du laboratoire.
 
-VMware Workstation est utilisé pour héberger les serveurs Windows Server nécessaires à l'infrastructure.
+VMware Workstation Pro est utilisé pour héberger les serveurs Windows Server nécessaires à l'infrastructure.
 
 ---
 
@@ -175,10 +178,10 @@ Il héberge les machines virtuelles nécessaires aux différents services du lab
  ┌──────────┼────────────┐
  │          │            │
  ▼          ▼            ▼
-SRV-V-DC1  SRV-V-SQL    SRV-V-Centreon
+SRV-V-DC1  SRV-V-SQL  SRV-V-Centreon
 ```
 
-Cette architecture permet de mettre en pratique la **virtualisation imbriquée (Nested Virtualization)**.
+Cette architecture permet de mettre en pratique la **virtualisation imbriquée** (_Nested Virtualization_).
 
 > ℹ️ La virtualisation imbriquée est utilisée dans ce projet afin de reproduire plusieurs niveaux de virtualisation dans un environnement de laboratoire disposant de ressources matérielles limitées.
 
@@ -207,7 +210,7 @@ Services :
 
 > Premier contrôleur de domaine
 
-Services prévus :
+Services :
 
 -   Active Directory Domain Services ;
 -   DNS ;
@@ -220,14 +223,14 @@ Services prévus :
 
 **Fonctions principales :**
 
-> Second contrôleur de domaine et serveur de stockage pour les sauvegardes.
+> Second contrôleur de domaine et serveur utilisé pour le stockage des sauvegardes dans le cadre du laboratoire.
 
-Services prévus :
+Services :
 
 -   Active Directory Domain Services ;
 -   DNS ;
 -   réplication Active Directory ;
--   repository Veeam.
+-   repository de sauvegarde.
 
 ---
 
@@ -235,9 +238,9 @@ Services prévus :
 
 **Fonction principale :**
 
-> Serveur de base de données pour l'application de comptabilité.
+> Serveur de base de données.
 
-Services :
+Services prévus :
 
 -   Linux ;
 -   SQL Server ;
@@ -251,7 +254,7 @@ Services :
 
 > Supervision de l'infrastructure.
 
-Services :
+Services prévus :
 
 -   Centreon ;
 -   supervision des systèmes ;
@@ -274,8 +277,8 @@ Le laboratoire utilise le réseau :
 | Passerelle | 192.168.10.2 | Accès réseau |
 | SRV-01-HV | 192.168.10.10 | Hôte Hyper-V |
 | SRV-V-DC1 | 192.168.10.20 | AD DS / DNS |
-| SRV-02-DC2 | 192.168.10.21 | AD DS / DNS / Repository |
-| SRV-V-SQL | 192.168.10.30 | SQL |
+| SRV-02-DC2 | 192.168.10.21 | AD DS / DNS |
+| SRV-V-SQL | 192.168.10.30 | SQL Server |
 | SRV-V-Centreon | 192.168.10.40 | Supervision |
 
 > ℹ️ Les adresses IP pourront être ajustées au fur et à mesure de l'évolution du laboratoire.
@@ -298,8 +301,8 @@ L'infrastructure Active Directory repose sur deux contrôleurs de domaine.
              ┌──────────┴──────────┐
              │                     │
              ▼                     ▼
-          VM-DC1              SRV-02-DC2
-         AD DS/DNS             AD DS/DNS
+         SRV-V-DC1            SRV-02-DC2
+          AD DS/DNS            AD DS/DNS
              │                     │
              └──────────┬──────────┘
                         │
@@ -317,38 +320,93 @@ Cette architecture permet de mettre en œuvre :
 
 # 🏢 Organisation Active Directory
 
-L'annuaire est structuré afin de séparer les différentes ressources de l'entreprise.
+L'annuaire est structuré afin de distinguer les différents périmètres d'administration et les ressources de l'entreprise.
 
 ```
 DC=logiflex,DC=infra
 │
 └── OU=LOGIFLEX
     │
-    ├── OU=Departements
+    ├── OU=T0_Administration
+    │   │
+    │   ├── OU=Admins
+    │   ├── OU=Groupes
+    │   ├── OU=Comptes_Service
+    │   └── OU=Postes_Administration
     │
-    ├── OU=Utilisateurs
+    ├── OU=T1_Serveurs
+    │   │
+    │   ├── OU=Admins
+    │   ├── OU=Groupes
+    │   ├── OU=Serveurs_Membres
+    │   └── OU=Comptes_Service
     │
-    ├── OU=Ordinateurs
-    │
-    ├── OU=Serveurs
-    │
-    ├── OU=Groupes_Securite
-    │
-    └── OU=Comptes_Privileges
+    └── OU=T2_Utilisateurs_Postes
+        │
+        ├── OU=Utilisateurs
+        ├── OU=Postes_Clients
+        ├── OU=Admins
+        └── OU=Groupes
 ```
 
-Les départements pourront notamment être organisés selon la structure suivante :
+Cette organisation permet notamment de préparer :
+
+-   la séparation des périmètres administratifs ;
+-   la gestion des utilisateurs ;
+-   la gestion des serveurs membres ;
+-   l'organisation des comptes privilégiés ;
+-   l'application future de stratégies spécifiques ;
+-   une gestion plus structurée des groupes de sécurité.
+
+> ℹ️ La structure Active Directory est mise en œuvre progressivement. Les restrictions et mécanismes de sécurité associés aux différents périmètres seront documentés dans les étapes dédiées.
+
+---
+
+# 👥 Groupes de sécurité
+
+Les groupes de sécurité constituent une base importante de la gestion des accès.
+
+Deux catégories principales sont utilisées :
 
 ```
-Departements
+LOGIFLEX
 │
-├── Direction
-├── DSI
-├── RD_Ingenierie
-├── Commerce_Marketing
-├── RH_Finance
-└── Consulting
+├── Groupes d'administration
+│   │
+│   ├── Tier 0
+│   ├── Tier 1
+│   └── Tier 2
+│
+└── Groupes métiers
+    │
+    ├── Direction
+    ├── DSI
+    ├── R&D / Ingénierie
+    ├── Commerce / Marketing
+    ├── RH
+    ├── Finance
+    └── Consulting
 ```
+
+## Groupes d'administration
+
+| Groupe | Périmètre |
+| --- | --- |
+| GG_T0_Admins | Administration Active Directory et contrôleurs de domaine |
+| GG_T1_ServerAdmins | Administration des serveurs et services |
+| GG_T2_WorkstationAdmins | Administration des postes clients |
+
+## Groupes métiers
+
+| Groupe | Fonction |
+| --- | --- |
+| GG_Direction | Direction générale |
+| GG_DSI | Direction des systèmes d'information |
+| GG_RD_Ingenierie | Recherche & Développement |
+| GG_Commerce_Marketing | Commerce et marketing |
+| GG_RH | Ressources humaines |
+| GG_Finance | Finance et comptabilité |
+| GG_Consulting | Consulting et prestations |
 
 ---
 
@@ -366,22 +424,44 @@ Les comptes administrateurs sont séparés des comptes utilisateurs standards.
 
 ## Groupes de sécurité
 
-Les droits sont attribués à des groupes plutôt qu'individuellement aux utilisateurs.
+Les droits sont attribués aux groupes plutôt qu'individuellement aux utilisateurs.
 
-Une logique inspirée du modèle **AGDLP** sera utilisée :
+Une logique inspirée du modèle **AGDLP** est utilisée pour préparer l'attribution future des accès aux ressources.
 
 ```
-Accounts
+Account
    │
    ▼
-Global Groups
+Global Group
    │
    ▼
-Domain Local Groups
+Domain Local Group
    │
    ▼
-Permissions
+Permission
 ```
+
+Exemple :
+
+```
+UTILISATEUR
+    │
+    ▼
+GG_DSI
+    │
+    ▼
+DL_Ressource_RW
+    │
+    ▼
+RESSOURCE
+    │
+    ▼
+PERMISSION
+```
+
+Les groupes globaux permettent de représenter les rôles des utilisateurs.
+
+Les groupes locaux de domaine seront créés ultérieurement lors du déploiement des ressources nécessitant une gestion d'accès spécifique.
 
 ---
 
@@ -394,6 +474,7 @@ Les mesures étudiées comprennent notamment :
 -   GPO de sécurité ;
 -   stratégies de mot de passe ;
 -   gestion des comptes privilégiés ;
+-   séparation des comptes standards et administratifs ;
 -   réduction de la surface d'attaque ;
 -   configuration des pare-feux ;
 -   gestion des mises à jour ;
@@ -402,20 +483,20 @@ Les mesures étudiées comprennent notamment :
 -   journalisation ;
 -   supervision.
 
-> ⚠️ Certaines mesures de sécurité sont volontairement appliquées progressivement afin de faciliter le déploiement et l'analyse des différents composants du laboratoire.
+> ⚠️ Certaines mesures de sécurité sont volontairement appliquées progressivement afin de faciliter le déploiement, les tests et l'analyse des différents composants du laboratoire.
 
 ---
 
 # 🌐 Réseau du laboratoire
 
-L'ensemble des composants du laboratoire utilise un réseau commun.
+L'ensemble des composants du laboratoire utilise actuellement un réseau commun.
 
 ```
                     192.168.10.0/24
                            │
                            │
                      Passerelle
-                     192.168.10.2
+                    192.168.10.2
                            │
               ┌────────────┴────────────┐
               │                         │
@@ -429,7 +510,7 @@ L'ensemble des composants du laboratoire utilise un réseau commun.
     ┌─────────┼───────────┐
     │         │           │
     ▼         ▼           ▼
-SRV-V-DC1  SRV-V-SQL   SRV-V-Centreon
+SRV-V-DC1  SRV-V-SQL  SRV-V-Centreon
 ```
 
 ## 📌 Note sur la segmentation réseau
@@ -445,11 +526,16 @@ Une architecture réelle pourrait notamment distinguer :
 -   réseau supervision ;
 -   réseau stockage.
 
-Cette segmentation permettrait notamment de limiter les communications, de contrôler les flux entre les zones et de réduire la surface d'exposition.
+Cette segmentation permettrait notamment de :
 
-Dans le cadre de ce laboratoire, cette segmentation n'est volontairement pas mise en œuvre.
+-   limiter les communications ;
+-   contrôler les flux entre les zones ;
+-   réduire la surface d'exposition ;
+-   faciliter l'application de règles de filtrage.
 
-Le projet se concentre principalement sur :
+Dans le cadre de ce laboratoire, cette segmentation n'est volontairement pas encore mise en œuvre.
+
+Le projet se concentre actuellement principalement sur :
 
 -   la virtualisation ;
 -   Active Directory ;
@@ -459,13 +545,13 @@ Le projet se concentre principalement sur :
 -   la sauvegarde ;
 -   le durcissement des systèmes.
 
-> ℹ️ L'absence de segmentation dans cette maquette constitue donc un choix volontaire lié aux contraintes et aux objectifs pédagogiques du laboratoire.
+> ℹ️ La segmentation réseau pourra constituer une évolution future du laboratoire.
 
 ---
 
 # 📊 Supervision
 
-La supervision de l'infrastructure est assurée par **Centreon**.
+La supervision de l'infrastructure sera assurée par **Centreon**.
 
 Les éléments surveillés pourront notamment inclure :
 
@@ -497,17 +583,17 @@ Validation
 
 # 💾 Sauvegarde et restauration
 
-Une solution Veeam sera utilisée afin de mettre en œuvre une stratégie de sauvegarde.
+Une solution **Veeam Backup & Replication** sera utilisée afin de mettre en œuvre une stratégie de sauvegarde.
 
 ```
                  Machines virtuelles
                          │
                          ▼
-                  Veeam Console
+               Veeam Backup & Replication
                          │
                          ▼
                    Repository
-                   SRV-02-DC2
+                   de sauvegarde
 ```
 
 Les tests comprendront notamment :
@@ -532,9 +618,9 @@ Chaque composant du projet fait l'objet de vérifications.
 | DNS | Résolution directe et inverse |
 | Active Directory | Authentification |
 | AD DS | Réplication |
-| Hyper-V | Démarrage des VM |
+| Hyper-V | Démarrage et fonctionnement des VM |
 | Linux | Services |
-| SQL | Connexion |
+| SQL | Connexion et disponibilité |
 | Centreon | Supervision |
 | Veeam | Sauvegarde |
 | Restauration | Récupération des services |
@@ -545,9 +631,11 @@ Chaque composant du projet fait l'objet de vérifications.
 # 📂 Organisation du repository
 
 ```
-PME-Infrastructure-Deployment/
+LOGIFLEX-INFRA/
 │
 ├── README.md
+│
+├── contexte.md
 │
 ├── architecture/
 │   ├── architecture-globale.md
@@ -565,7 +653,9 @@ PME-Infrastructure-Deployment/
 │   │   ├── 01-preparation-dc1.md
 │   │   ├── 02-promotion-dc1.md
 │   │   ├── 03-ajout-dc2.md
-│   │   └── 04-organisation-active-directory.md
+│   │   ├── 04-organisation-active-directory.md
+│   │   ├── 05-groupes-securite-et-modele-agdlp.md
+│   │   └── 06-gestion-utilisateurs-et-comptes-privilegies.md
 │   │
 │   ├── dns/
 │   │
@@ -601,20 +691,26 @@ PME-Infrastructure-Deployment/
 | Windows Server 2025 | 🟢 |
 | Virtualisation imbriquée | 🟢 |
 | Hyper-V | 🟢 |
-| SRV-V-DC1 | 🟡 |
-| Active Directory | 🔴 |
-| DNS | 🔴 |
-| SRV-02-DC2 | 🔴 |
-| Réplication AD | 🔴 |
+| SRV-V-DC1 | 🟢 |
+| Active Directory | 🟢 |
+| DNS | 🟢 |
+| SRV-02-DC2 | 🟢 |
+| Réplication AD | 🟢 |
+| Structure des OU | 🟢 |
+| Groupes de sécurité | 🟢 |
+| Gestion des utilisateurs | 🟡 |
+| Comptes privilégiés | 🟡 |
 | SRV-V-SQL | 🔴 |
 | SRV-V-Centreon | 🔴 |
 | Supervision | 🔴 |
 | Veeam | 🔴 |
-| Repository Veeam | 🔴 |
-| Hardening | 🔴 |
+| Repository de sauvegarde | 🔴 |
+| GPO / Hardening | 🔴 |
 | Tests de restauration | 🔴 |
 
 **🟢 Terminé — 🟡 En cours — 🔴 À réaliser**
+
+Le projet est développé progressivement afin de documenter chaque étape de conception, de déploiement, de configuration, de sécurisation et de validation.
 
 ---
 
@@ -622,7 +718,7 @@ PME-Infrastructure-Deployment/
 
 Ce projet permet de développer et de mettre en pratique des compétences liées à l'administration d'infrastructures :
 
-`Windows Server` · `VMware Workstation` · `Hyper-V` · `Nested Virtualization` · `Active Directory` · `DNS` · `TCP/IP` · `PowerShell` · `Linux` · `SQL Server` · `Centreon` · `Supervision` · `Veeam` · `Backup & Recovery` · `GPO` · `Hardening` · `IAM` · `Least Privilege` · `Troubleshooting`
+`Windows Server` · `VMware Workstation` · `Hyper-V` · `Nested Virtualization` · `Active Directory` · `DNS` · `TCP/IP` · `PowerShell` · `Linux` · `SQL Server` · `Centreon` · `Supervision` · `Veeam` · `Backup & Recovery` · `GPO` · `Hardening` · `IAM` · `AGDLP` · `Least Privilege` · `Troubleshooting`
 
 ---
 
@@ -630,26 +726,27 @@ Ce projet permet de développer et de mettre en pratique des compétences liées
 
 Le laboratoire sera progressivement enrichi avec :
 
--   création de `VM-DC1` ;
--   déploiement Active Directory ;
--   configuration DNS ;
--   déploiement du second contrôleur de domaine ;
--   réplication Active Directory ;
--   déploiement de VM-SQL ;
--   installation de SQL Server ;
--   déploiement de Centreon ;
--   supervision des serveurs ;
--   déploiement de Veeam ;
--   configuration du repository ;
--   tests de sauvegarde ;
--   tests de restauration ;
--   GPO de sécurité ;
--   durcissement Windows ;
--   durcissement Linux ;
--   gestion des comptes privilégiés ;
--   journalisation ;
--   analyse des incidents ;
--   documentation des procédures.
+-    création et gestion des comptes utilisateurs ;
+-    création des comptes d'administration dédiés ;
+-    séparation progressive des comptes standards et administratifs ;
+-    déploiement de `SRV-V-SQL` ;
+-    installation de SQL Server ;
+-    déploiement de `SRV-V-Centreon` ;
+-    installation et configuration de Centreon ;
+-    supervision des serveurs ;
+-    déploiement de Veeam ;
+-    configuration du repository ;
+-    tests de sauvegarde ;
+-    tests de restauration ;
+-    GPO de sécurité ;
+-    stratégies de mot de passe ;
+-    durcissement Windows ;
+-    durcissement Linux ;
+-    gestion des comptes privilégiés ;
+-    renforcement de la journalisation ;
+-    analyse des incidents ;
+-    documentation des procédures ;
+-    évolution éventuelle vers une segmentation réseau.
 
 ---
 
@@ -702,6 +799,7 @@ Ce laboratoire me permet de mettre en pratique des compétences dans les domaine
 -   réseaux ;
 -   Active Directory ;
 -   Linux ;
+-   gestion des identités ;
 -   supervision ;
 -   sauvegarde ;
 -   cybersécurité ;
