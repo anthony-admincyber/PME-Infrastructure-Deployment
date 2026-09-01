@@ -168,6 +168,8 @@ adm-t0.arobert
 
 Ce type de compte est réservé aux opérations d'administration du périmètre Active Directory.
 
+<img width="1010" height="473" alt="image" src="https://github.com/user-attachments/assets/bac01b47-c69e-4c5e-b320-3001ed3a468b" />
+
 ---
 
 # 🟠 5. Organisation du Tier 1
@@ -187,6 +189,9 @@ OU=T1_Serveurs
 │
 └── OU=Comptes_Service
 ```
+
+<img width="1019" height="477" alt="image" src="https://github.com/user-attachments/assets/2163fa68-e311-4097-ba35-ca07492679e3" />
+
 
 Les futurs serveurs de l'environnement pourront notamment être intégrés dans cette unité d'organisation.
 
