@@ -1,30 +1,34 @@
 # 04 — Organisation et structuration de l'annuaire Active Directory
 
+<br> <br>
+
 ## 📌 Présentation
 
-Après la mise en place des deux contrôleurs de domaine `SRV-V-DC1` et `SRV-02-DC2`, l'infrastructure Active Directory de l'environnement LOGIFLEX est désormais opérationnelle.
+Après la création de la forêt Active Directory `logiflex.infra` et la mise en place du second contrôleur de domaine, cette étape consiste à organiser et structurer l'annuaire Active Directory de l'environnement **LOGIFLEX**.
 
-Cette étape consiste à organiser l'annuaire afin de préparer la gestion des :
+L'objectif n'est pas uniquement de créer des utilisateurs et des groupes, mais de mettre en place une structure permettant :
 
--   utilisateurs ;
--   postes de travail ;
--   serveurs ;
--   groupes ;
--   comptes d'administration ;
--   ressources de l'infrastructure.
+-   d'organiser les objets Active Directory ;
+-   de faciliter l'administration de l'environnement ;
+-   de séparer les différents niveaux de privilèges ;
+-   de préparer l'application des stratégies de groupe ;
+-   de limiter les risques liés aux comptes privilégiés ;
+-   de faciliter la gestion future des serveurs et postes de travail ;
+-   de préparer une administration basée sur les rôles.
 
-L'objectif est de mettre en place une structure Active Directory claire, évolutive et adaptée à une organisation de type PME.
+L'organisation retenue s'inspire d'un modèle de **cloisonnement logique des environnements d'administration**, avec une séparation progressive entre les différents niveaux de sensibilité de l'infrastructure.
 
-> 🎯 **Objectif :** structurer l'annuaire `logiflex.infra` afin de faciliter l'administration, l'application des stratégies de sécurité et l'évolution future de l'infrastructure.
+> 🎯 **Objectif :** mettre en place une structure Active Directory claire, évolutive et adaptée à la séparation des utilisateurs, des ressources et des comptes d'administration.
 
 ---
 
-# 🏗️ 1. Architecture Active Directory
+# 🏗️ 1. Architecture Active Directory après la mise en place des deux contrôleurs de domaine
 
-L'environnement LOGIFLEX repose désormais sur deux contrôleurs de domaine.
+L'infrastructure LOGIFLEX dispose désormais de deux contrôleurs de domaine.
 
 ```
-                    Active Directory
+                         LOGIFLEX
+                            │
                      logiflex.infra
                             │
               ┌─────────────┴─────────────┐
@@ -32,355 +36,422 @@ L'environnement LOGIFLEX repose désormais sur deux contrôleurs de domaine.
               ▼                           ▼
          SRV-V-DC1                   SRV-02-DC2
        192.168.10.20                192.168.10.21
-          AD DS                        AD DS
+              │                           │
+           AD DS                        AD DS
             DNS                          DNS
-             GC                           GC
               │                           │
               └───────────┬───────────────┘
                           │
                     Réplication AD
-                          │
-                          ▼
-                 Objets Active Directory
 ```
 
-Les contrôleurs de domaine assurent notamment :
+Les services Active Directory et DNS sont désormais disponibles sur les deux contrôleurs de domaine.
 
--   l'authentification ;
--   la gestion centralisée des identités ;
--   la réplication des objets Active Directory ;
--   la résolution DNS interne ;
--   la distribution des stratégies de groupe.
+La prochaine étape consiste à structurer les objets qui seront progressivement intégrés dans l'annuaire.
 
 ---
 
-# 🗂️ 2. Organisation retenue
+# 🔐 2. Principe de séparation des niveaux d'administration
 
-Afin d'organiser les objets Active Directory, plusieurs unités d'organisation sont créées.
+Dans une infrastructure Active Directory, tous les comptes ne présentent pas le même niveau de sensibilité.
 
-La structure retenue est la suivante :
+Un compte utilisateur standard, un compte permettant d'administrer un poste de travail et un compte administrant Active Directory ne doivent pas disposer du même niveau de privilèges.
+
+La structure retenue distingue donc trois périmètres principaux :
 
 ```
-logiflex.infra
+                         TIER 0
+                            │
+             Identité et administration critique
+                            │
+                ┌───────────┴───────────┐
+                │                       │
+          Active Directory         DNS / DC
+                │
+                ▼
+                         TIER 1
+                            │
+              Administration des serveurs
+                            │
+                ┌───────────┼───────────┐
+                │           │           │
+             SQL         Centreon      Veeam
+                │
+                ▼
+                         TIER 2
+                            │
+               Utilisateurs et postes
+                            │
+                ┌───────────┼───────────┐
+                │           │           │
+           Utilisateurs    Postes    Support
+```
+
+Cette organisation permet de préparer une séparation progressive des privilèges entre :
+
+-   les comptes utilisateurs standards ;
+-   les comptes d'administration des postes ;
+-   les comptes d'administration des serveurs ;
+-   les comptes disposant de privilèges sur l'infrastructure Active Directory.
+
+---
+
+# 🗂️ 3. Structure des unités d'organisation
+
+Une unité d'organisation principale est créée afin de regrouper les objets spécifiques à l'environnement LOGIFLEX.
+
+```
+DC=logiflex,DC=infra
 │
-├── OU=Administration
+├── OU=Domain Controllers
 │
-├── OU=Utilisateurs
+└── OU=LOGIFLEX
+    │
+    ├── OU=T0_Administration
+    │
+    ├── OU=T1_Serveurs
+    │
+    └── OU=T2_Utilisateurs_Postes
+```
+
+Les contrôleurs de domaine restent dans l'unité d'organisation native :
+
+```
+OU=Domain Controllers
+```
+
+Cette unité d'organisation contient notamment :
+
+```
+SRV-V-DC1
+SRV-02-DC2
+```
+
+Les autres objets de l'environnement sont ensuite organisés selon leur fonction et leur niveau d'administration.
+
+---
+
+# 🔴 4. Organisation du Tier 0
+
+Le **Tier 0** représente le périmètre le plus sensible de l'infrastructure.
+
+Il concerne principalement les composants permettant de contrôler les identités et l'environnement Active Directory.
+
+La structure suivante est mise en place :
+
+```
+OU=T0_Administration
+│
+├── OU=Admins
 │
 ├── OU=Groupes
 │
-├── OU=Postes
+├── OU=Comptes_Service
 │
-├── OU=Serveurs
-│
-└── OU=Services
+└── OU=Postes_Administration
 ```
 
-Cette organisation permet de séparer les différents types d'objets présents dans l'annuaire.
+Ce niveau pourra notamment contenir :
+
+-   les comptes d'administration Active Directory ;
+-   les groupes disposant de privilèges élevés ;
+-   les comptes de service sensibles ;
+-   les futurs postes d'administration dédiés.
+
+Exemple de compte :
+
+```
+adm-t0.arobert
+```
+
+Ce type de compte est réservé aux opérations d'administration du périmètre Active Directory.
 
 ---
 
-# 👤 3. Création de l'unité d'organisation Utilisateurs
+# 🟠 5. Organisation du Tier 1
 
-L'unité d'organisation suivante est créée :
+Le **Tier 1** correspond principalement au périmètre des serveurs et des services d'infrastructure.
 
-```
-OU=Utilisateurs
-```
-
-Elle est destinée à accueillir les comptes utilisateurs de l'environnement LOGIFLEX.
+La structure suivante est retenue :
 
 ```
-logiflex.infra
-       │
-       ▼
-OU=Utilisateurs
-       │
-       ├── Utilisateur 01
-       ├── Utilisateur 02
-       └── Utilisateur 03
-```
-
-Cette organisation permettra notamment d'appliquer ultérieurement des stratégies de groupe spécifiques aux utilisateurs.
-
----
-
-# 👥 4. Création de l'unité d'organisation Groupes
-
-Une unité d'organisation dédiée aux groupes est créée :
-
-```
-OU=Groupes
-```
-
-Elle permet de centraliser les groupes utilisés pour gérer les droits et les accès.
-
-Exemple :
-
-```
-OU=Groupes
+OU=T1_Serveurs
 │
-├── GG-IT
-├── GG-RH
-├── GG-DIRECTION
-└── GG-USERS
-```
-
-> ℹ️ Les groupes Active Directory permettront ultérieurement d'attribuer des droits aux utilisateurs sans gérer les autorisations individuellement.
-
----
-
-# 💻 5. Création de l'unité d'organisation Postes
-
-Les ordinateurs utilisateurs sont organisés dans une unité d'organisation dédiée :
-
-```
-OU=Postes
-```
-
-```
-OU=Postes
+├── OU=Admins
 │
-├── PC-USER-01
-├── PC-USER-02
-└── PC-USER-03
+├── OU=Groupes
+│
+├── OU=Serveurs_Membres
+│
+└── OU=Comptes_Service
 ```
 
-Cette séparation permettra notamment :
-
--   l'application de stratégies de groupe spécifiques ;
--   la configuration centralisée des postes ;
--   le déploiement de paramètres de sécurité ;
--   l'organisation des ordinateurs dans l'annuaire.
-
----
-
-# 🖥️ 6. Création de l'unité d'organisation Serveurs
-
-Une unité d'organisation spécifique est créée pour les serveurs membres du domaine.
+Les futurs serveurs de l'environnement pourront notamment être intégrés dans cette unité d'organisation.
 
 ```
-OU=Serveurs
-```
-
-Exemple :
-
-```
-OU=Serveurs
+T1_Serveurs
 │
 ├── SRV-V-SQL
+│
 ├── SRV-V-CENTREON
-├── SRV-V-VEEAM
-└── Autres serveurs membres
+│
+└── SRV-V-VEEAM
 ```
 
-> ⚠️ Les contrôleurs de domaine ne sont pas déplacés dans cette unité d'organisation.
-
-Les contrôleurs de domaine utilisent l'unité d'organisation spécifique :
-
-```
-Domain Controllers
-```
-
----
-
-# 🔐 7. Création de l'unité d'organisation Administration
-
-Une unité d'organisation spécifique est utilisée pour séparer les comptes d'administration des comptes utilisateurs standards.
-
-```
-OU=Administration
-```
-
-Cette organisation permet notamment de distinguer :
-
-```
-Utilisateur standard
-        │
-        ▼
-anthony.robert
-```
-
-et :
-
-```
-Compte administratif
-        │
-        ▼
-admin.anthony
-```
-
-L'objectif est d'éviter l'utilisation permanente d'un compte disposant de privilèges élevés pour les tâches quotidiennes.
-
-> 🔐 Cette séparation constitue une base pour la mise en œuvre du principe de moindre privilège.
-
----
-
-# ⚙️ 8. Création de l'unité d'organisation Services
-
-L'unité d'organisation suivante est créée :
-
-```
-OU=Services
-```
-
-Elle permet notamment d'organiser les comptes utilisés par les services de l'infrastructure.
+Les comptes d'administration des serveurs seront séparés des comptes utilisateurs standards.
 
 Exemple :
 
 ```
-OU=Services
-│
-├── svc_backup
-├── svc_monitoring
-└── svc_database
+adm-t1.arobert
 ```
 
-Ces comptes pourront être utilisés ultérieurement pour certains services de l'environnement LOGIFLEX.
-
-> ⚠️ Aucun mot de passe ou secret associé à ces comptes n'est enregistré dans le dépôt GitHub.
+Ce compte sera destiné aux opérations d'administration réalisées sur les serveurs du périmètre Tier 1.
 
 ---
 
-# 🧩 9. Création des unités d'organisation
+# 🟢 6. Organisation du Tier 2
 
-La création des unités d'organisation est réalisée depuis :
+Le **Tier 2** correspond au périmètre utilisateur.
+
+Il regroupe principalement :
+
+-   les utilisateurs standards ;
+-   les postes de travail ;
+-   les groupes métiers ;
+-   les comptes utilisés pour l'administration des postes de travail.
+
+La structure suivante est retenue :
+
+```
+OU=T2_Utilisateurs_Postes
+│
+├── OU=Utilisateurs
+│
+├── OU=Postes_Clients
+│
+├── OU=Groupes
+│
+└── OU=Admins
+```
+
+Cette organisation permettra notamment de distinguer clairement les utilisateurs des ressources informatiques.
+
+---
+
+# 👤 7. Séparation des comptes utilisateurs et administrateurs
+
+Un principe important de l'infrastructure LOGIFLEX consiste à ne pas utiliser un compte fortement privilégié pour les activités quotidiennes.
+
+Un administrateur peut donc disposer de plusieurs comptes.
+
+```
+Utilisateur
+    │
+    ├── Compte standard
+    │
+    ├── Compte administration T2
+    │
+    ├── Compte administration T1
+    │
+    └── Compte administration T0
+```
+
+Exemple :
+
+| Type de compte | Exemple | Utilisation |
+| --- | --- | --- |
+| Compte utilisateur | anthony.robert | Activités quotidiennes |
+| Compte administrateur T2 | adm-t2.arobert | Administration des postes |
+| Compte administrateur T1 | adm-t1.arobert | Administration des serveurs |
+| Compte administrateur T0 | adm-t0.arobert | Administration Active Directory |
+
+L'objectif est de limiter l'utilisation des comptes disposant de privilèges élevés.
+
+---
+
+# 👥 8. Organisation des groupes de sécurité
+
+Les groupes de sécurité permettent d'attribuer les droits selon les fonctions et les responsabilités.
+
+La structure prévoit deux grandes catégories de groupes.
+
+## Groupes d'administration
+
+```
+GG_T0_Admins
+GG_T1_ServerAdmins
+GG_T2_WorkstationAdmins
+```
+
+Ces groupes permettront d'attribuer progressivement les droits nécessaires à l'administration des différents périmètres.
+
+---
+
+## Groupes métiers
+
+Les groupes métiers permettront de regrouper les utilisateurs selon leur fonction.
+
+Exemple :
+
+```
+GG_Direction
+GG_DSI
+GG_RD_Ingenierie
+GG_Commerce_Marketing
+GG_RH
+GG_Finance
+GG_Consulting
+```
+
+Ces groupes seront utilisés ultérieurement pour :
+
+-   l'attribution des accès ;
+-   la gestion des permissions ;
+-   l'application de certaines stratégies ;
+-   la gestion des futures ressources de l'entreprise.
+
+---
+
+# 🔑 9. Préparation du modèle RBAC et AGDLP
+
+La gestion des autorisations sera progressivement organisée selon une approche basée sur les rôles.
+
+Le modèle suivant sera utilisé lorsque les ressources nécessitant une gestion des accès seront déployées :
+
+```
+Utilisateur
+    │
+    ▼
+Groupe Global
+    │
+    ▼
+Groupe Local de Domaine
+    │
+    ▼
+Ressource
+    │
+    ▼
+Permission
+```
+
+Cette logique peut être représentée ainsi :
+
+```
+A
+│
+▼
+G
+│
+▼
+DL
+│
+▼
+P
+```
+
+Soit :
+
+```
+Account
+   ↓
+Global Group
+   ↓
+Domain Local Group
+   ↓
+Permission
+```
+
+Les groupes globaux représenteront principalement les utilisateurs ou les rôles.
+
+Les groupes locaux de domaine seront utilisés pour attribuer les autorisations sur les ressources.
+
+Cette organisation sera particulièrement utile lorsque les services suivants seront intégrés :
+
+-   serveurs de fichiers ;
+-   bases de données ;
+-   applications métier ;
+-   services SQL ;
+-   autres ressources du domaine.
+
+---
+
+# 🛠️ 10. Création des unités d'organisation
+
+Les unités d'organisation peuvent être créées depuis la console :
 
 ```
 Utilisateurs et ordinateurs Active Directory
 ```
 
-Le processus est le suivant :
-
-1.  Ouvrir **Utilisateurs et ordinateurs Active Directory** ;
-2.  sélectionner le domaine :
-
-```
-logiflex.infra
-```
-
-1.  cliquer avec le bouton droit ;
-2.  sélectionner :
-
-```
-Nouveau
-```
-
-1.  sélectionner :
-
-```
-Unité d'organisation
-```
-
-1.  définir le nom de l'unité d'organisation ;
-2.  valider la création.
-
-Les unités d'organisation créées sont ensuite visibles dans l'annuaire.
-
----
-
-# 🔎 10. Vérification de la structure
-
-Après la création, la structure Active Directory est vérifiée.
-
-Le résultat attendu est le suivant :
+L'organisation retenue est la suivante :
 
 ```
 logiflex.infra
 │
-├── Administration
+├── Domain Controllers
 │
-├── Utilisateurs
-│
-├── Groupes
-│
-├── Postes
-│
-├── Serveurs
-│
-├── Services
-│
-└── Domain Controllers
-     │
-     ├── SRV-V-DC1
-     └── SRV-02-DC2
+└── LOGIFLEX
+    │
+    ├── T0_Administration
+    │   ├── Admins
+    │   ├── Groupes
+    │   ├── Comptes_Service
+    │   └── Postes_Administration
+    │
+    ├── T1_Serveurs
+    │   ├── Admins
+    │   ├── Groupes
+    │   ├── Serveurs_Membres
+    │   └── Comptes_Service
+    │
+    └── T2_Utilisateurs_Postes
+        ├── Utilisateurs
+        ├── Postes_Clients
+        ├── Groupes
+        └── Admins
 ```
 
-Cette organisation permet de distinguer clairement :
-
--   les utilisateurs ;
--   les comptes administratifs ;
--   les groupes ;
--   les ordinateurs ;
--   les serveurs ;
--   les comptes de service ;
--   les contrôleurs de domaine.
+> 💡 La structure est conçue pour évoluer progressivement en fonction du déploiement des nouvelles briques de l'infrastructure.
 
 ---
 
-# 🧪 11. Vérification avec PowerShell
+# 🔒 11. Protection des unités d'organisation
 
-La structure Active Directory peut également être vérifiée avec PowerShell.
+Les unités d'organisation créées sont protégées contre la suppression accidentelle.
 
-Les unités d'organisation sont contrôlées afin de confirmer leur présence dans le domaine.
+Cette protection permet de réduire le risque de suppression involontaire d'une structure contenant des objets Active Directory.
 
-Exemple de logique de vérification :
+Le principe est appliqué notamment aux unités d'organisation principales :
 
 ```
-Active Directory
-       │
-       ▼
-Vérification des OU
-       │
-       ▼
-Vérification des objets
-       │
-       ▼
-Validation de la structure
+LOGIFLEX
+│
+├── T0_Administration
+├── T1_Serveurs
+└── T2_Utilisateurs_Postes
 ```
-
-Les contrôles permettent notamment de vérifier :
-
--   la présence des unités d'organisation ;
--   leur emplacement dans le domaine ;
--   la cohérence de la structure ;
--   la présence des objets associés.
 
 ---
 
-# 🔐 12. Principes de sécurité retenus
+# 🔎 12. Vérification de la structure
 
-La structure Active Directory est conçue afin de faciliter la mise en œuvre progressive de plusieurs principes de sécurité.
-
-Les principaux objectifs sont :
-
--   séparation des comptes standards et administratifs ;
--   centralisation de la gestion des identités ;
--   organisation des ressources ;
--   application ciblée des stratégies de groupe ;
--   limitation des privilèges ;
--   amélioration de la traçabilité ;
--   simplification de l'administration.
-
-L'approche retenue est la suivante :
+Après la création des unités d'organisation, la structure est vérifiée depuis :
 
 ```
-Identité
-   │
-   ▼
-Utilisateur
-   │
-   ▼
-Groupe
-   │
-   ▼
-Autorisation
-   │
-   ▼
-Ressource
+Utilisateurs et ordinateurs Active Directory
 ```
 
-Cette organisation permettra de gérer les accès aux ressources de manière centralisée.
+Les points suivants sont contrôlés :
+
+-   présence de l'OU principale LOGIFLEX ;
+-   présence des unités d'organisation T0 ;
+-   présence des unités d'organisation T1 ;
+-   présence des unités d'organisation T2 ;
+-   séparation des différents types d'objets ;
+-   protection contre la suppression accidentelle.
+
+L'objectif est d'obtenir une structure claire et facilement identifiable.
 
 ---
 
@@ -388,19 +459,21 @@ Cette organisation permettra de gérer les accès aux ressources de manière cen
 
 | Élément | État |
 | --- | --- |
-| OU Administration | 🟢 |
-| OU Utilisateurs | 🟢 |
-| OU Groupes | 🟢 |
-| OU Postes | 🟢 |
-| OU Serveurs | 🟢 |
-| OU Services | 🟢 |
-| Structure Active Directory vérifiée | 🟢 |
-| Séparation des comptes | 🟢 |
-| Organisation des ressources | 🟢 |
-| Création des utilisateurs | 🟡 |
-| Création des groupes définitifs | 🟡 |
-| Gestion des droits | 🟡 |
-| Stratégies de groupe | 🔴 |
+| OU principale LOGIFLEX créée | 🟢 |
+| Structure Tier 0 créée | 🟢 |
+| Structure Tier 1 créée | 🟢 |
+| Structure Tier 2 créée | 🟢 |
+| OU comptes administrateurs créées | 🟢 |
+| OU groupes créées | 🟢 |
+| OU serveurs membres créée | 🟢 |
+| OU utilisateurs créée | 🟢 |
+| OU postes clients créée | 🟢 |
+| Protection contre la suppression | 🟢 |
+| Groupes métiers | 🟡 |
+| Comptes utilisateurs | 🟡 |
+| Comptes privilégiés | 🟡 |
+| Délégation des droits | 🔴 |
+| GPO de sécurité | 🔴 |
 
 **🟢 Terminé — 🟡 En cours — 🔴 À réaliser**
 
@@ -408,53 +481,68 @@ Cette organisation permettra de gérer les accès aux ressources de manière cen
 
 # 🎯 Résultat
 
-À l'issue de cette étape, l'annuaire Active Directory `logiflex.infra` dispose d'une structure organisée permettant de gérer les principaux objets de l'infrastructure.
+À l'issue de cette étape, l'annuaire Active Directory `logiflex.infra` dispose d'une structure organisée permettant de séparer les différents types d'objets et les principaux niveaux d'administration.
+
+L'infrastructure est désormais préparée pour accueillir progressivement :
+
+-   les comptes utilisateurs ;
+-   les groupes métiers ;
+-   les comptes d'administration ;
+-   les serveurs membres ;
+-   les postes clients ;
+-   les comptes de service ;
+-   les futures stratégies de groupe.
+
+L'architecture logique devient :
 
 ```
                     logiflex.infra
                            │
-        ┌──────────────────┼──────────────────┐
-        │                  │                  │
-        ▼                  ▼                  ▼
- Administration       Utilisateurs          Groupes
-        │
-        │
-        ▼
-      Postes ─────────────── Serveurs
-        │                       │
-        ▼                       ▼
- Utilisateurs             Infrastructure
+            ┌──────────────┴──────────────┐
+            │                             │
+      Domain Controllers              LOGIFLEX
+            │                             │
+            │              ┌──────────────┼──────────────┐
+            │              │              │              │
+         DC1 / DC2        Tier 0         Tier 1         Tier 2
+                            │              │              │
+                         Identité       Serveurs     Utilisateurs
+                            │              │              │
+                         Admins         SQL          Postes
+                         Groupes        Veeam        Groupes
+                         Services       Centreon     Support
 ```
-
-L'infrastructure Active Directory est désormais prête pour la création des comptes, des groupes et la gestion des accès aux différentes ressources.
 
 ---
 
 ## ➡️ Étape suivante
 
-La prochaine étape sera consacrée à la **création des utilisateurs, des groupes et à la mise en œuvre d'une gestion centralisée des droits**.
+La prochaine étape sera consacrée à la **création et à l'organisation des utilisateurs et des groupes de sécurité**.
 
 Les actions prévues seront notamment :
 
--   création des utilisateurs ;
--   création des groupes de sécurité ;
--   ajout des utilisateurs aux groupes ;
--   application du principe de moindre privilège ;
--   préparation de l'attribution des droits aux ressources ;
--   préparation des futures stratégies de groupe.
+-   création des comptes utilisateurs ;
+-   création des groupes métiers ;
+-   création des groupes d'administration ;
+-   affectation des utilisateurs aux groupes ;
+-   préparation des comptes d'administration dédiés ;
+-   mise en œuvre progressive du modèle RBAC ;
+-   préparation de la délégation des droits.
 
 ```
 Structure Active Directory
         ↓
-Création des utilisateurs
-        ↓
 Création des groupes
+        ↓
+Création des utilisateurs
         ↓
 Affectation aux groupes
         ↓
-Gestion des droits
+Séparation des comptes privilégiés
         ↓
-Stratégies de groupe
+Délégation des droits
         ↓
-Sécurisation de l'environnement
+Mise en place des GPO
+        ↓
+Durcissement Active Directory
 ```
