@@ -267,7 +267,7 @@ $GroupesMetiers = @(
 
 Les groupes sont ensuite créés automatiquement :
 
-```
+```powershell
 foreach ($Grp in $GroupesMetiers) {
 
     if (-not (Get-ADGroup -Filter "Name -eq '$($Grp.Name)'" -ErrorAction SilentlyContinue)) {
@@ -290,6 +290,8 @@ foreach ($Grp in $GroupesMetiers) {
 ```
 
 Cette vérification permet d'éviter la création d'erreurs lors de l'exécution répétée du script.
+
+<img width="976" height="497" alt="image" src="https://github.com/user-attachments/assets/7d7728c9-8111-4115-ba1a-4bee0fbb0589" />
 
 ---
 
