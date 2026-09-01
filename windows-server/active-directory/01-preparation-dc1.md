@@ -1,5 +1,7 @@
 # 01 — Préparation de SRV-V-DC1 et installation des rôles AD DS / DNS
 
+<br> <br>
+
 ## 📌 Présentation
 
 Cette étape marque le début du déploiement de l'infrastructure **Active Directory** de l'environnement LOGIFLEX.
