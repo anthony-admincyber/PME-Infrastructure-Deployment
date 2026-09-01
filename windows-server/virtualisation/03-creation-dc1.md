@@ -1,5 +1,7 @@
 # 03 — Création et déploiement de SRV-V-DC1 sur Hyper-V
 
+<br> <br>
+
 ## 📌 Présentation
 
 Après la préparation de l'hôte `SRV-01-HV` et l'installation du rôle Hyper-V, cette étape consiste à créer la première machine virtuelle de l'infrastructure LOGIFLEX.
