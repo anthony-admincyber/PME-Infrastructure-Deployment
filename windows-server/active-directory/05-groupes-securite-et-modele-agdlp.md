@@ -206,13 +206,13 @@ La création des groupes peut être réalisée depuis `SRV-V-DC1` à l'aide de P
 
 ## Chargement du module Active Directory
 
-```
+```powershell
 Import-Module ActiveDirectory
 ```
 
 La base de l'arborescence Active Directory est définie :
 
-```
+```powershell
 $BaseOU = "OU=LOGIFLEX,DC=logiflex,DC=infra"
 ```
 
