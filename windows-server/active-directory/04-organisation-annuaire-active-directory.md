@@ -129,6 +129,8 @@ SRV-02-DC2
 
 Les autres objets de l'environnement sont ensuite organisés selon leur fonction et leur niveau d'administration.
 
+<img width="1020" height="402" alt="image" src="https://github.com/user-attachments/assets/aecd69bf-85d2-4344-a46e-97d526c0c9b0" />
+
 ---
 
 # 🔴 4. Organisation du Tier 0
