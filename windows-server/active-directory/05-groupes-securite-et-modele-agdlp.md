@@ -324,9 +324,9 @@ LOGIFLEX
     ├── Postes_Clients
     │
     ├── Admins
-    │   └── GG_T2_WorkstationAdmins
     │
     └── Groupes
+        └── GG_T2_WorkstationAdmins
         ├── GG_Commerce_Marketing
         ├── GG_Consulting
         ├── GG_Direction
