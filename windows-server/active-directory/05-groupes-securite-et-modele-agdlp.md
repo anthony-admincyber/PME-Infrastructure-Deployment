@@ -20,6 +20,7 @@ Cette étape prépare notamment :
 -   la mise en œuvre progressive du modèle AGDLP ;
 -   la préparation de la séparation des périmètres d'administration.
 
+
 > 💡 **Articulation entre modèle AGDLP et séparation des périmètres d'administration**
 > 
 > Le modèle **AGDLP** permet de structurer l'attribution des droits aux ressources en évitant l'attribution directe de permissions aux comptes utilisateurs.
