@@ -252,7 +252,7 @@ New-ADGroup `
 
 Les groupes métiers sont définis dans un tableau PowerShell :
 
-```
+```powershell
 $GroupesMetiers = @(
     @{ Name = "GG_Direction"; Desc = "Membres de la Direction générale" },
     @{ Name = "GG_DSI"; Desc = "Collaborateurs de la DSI" },
@@ -263,6 +263,7 @@ $GroupesMetiers = @(
     @{ Name = "GG_Consulting"; Desc = "Consultants métier" }
 )
 ```
+<img width="786" height="192" alt="image" src="https://github.com/user-attachments/assets/40fc4f10-38cb-48b6-be0b-1e0d260c7a76" />
 
 Les groupes sont ensuite créés automatiquement :
 
