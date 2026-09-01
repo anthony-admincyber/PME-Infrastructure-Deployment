@@ -220,28 +220,14 @@ $BaseOU = "OU=LOGIFLEX,DC=logiflex,DC=infra"
 
 ## Création des groupes d'administration
 
+```powershell
+New-ADGroup -Name "GG_T0_Admins" -GroupScope Global -GroupCategory Security -Path "OU=Groupes,OU=T0_Administration,OU=LOGIFLEX,DC=logiflex,DC=infra" -Description "Administrateurs du perimetre Tier 0"
+New-ADGroup -Name "GG_T1_ServerAdmins" -GroupScope Global -GroupCategory Security -Path "OU=Groupes,OU=T1_Serveurs,OU=LOGIFLEX,DC=logiflex,DC=infra" -Description "Administrateurs du perimetre Tier 1"
+New-ADGroup -Name "GG_T2_WorkstationAdmins" -GroupScope Global -GroupCategory Security -Path "OU=Admins,OU=T2_Utilisateurs_Postes,OU=LOGIFLEX,DC=logiflex,DC=infra" -Description "Administrateurs du perimetre Tier 2"
 ```
-New-ADGroup `
-    -Name "GG_T0_Admins" `
-    -GroupScope Global `
-    -GroupCategory Security `
-    -Path "OU=Groupes,OU=T0_Administration,$BaseOU" `
-    -Description "Administrateurs du périmètre Tier 0"
 
-New-ADGroup `
-    -Name "GG_T1_ServerAdmins" `
-    -GroupScope Global `
-    -GroupCategory Security `
-    -Path "OU=Groupes,OU=T1_Serveurs,$BaseOU" `
-    -Description "Administrateurs du périmètre Tier 1"
+<img width="1005" height="177" alt="image" src="https://github.com/user-attachments/assets/85d2f0b6-326b-43e7-8e3d-62035fa05357" />
 
-New-ADGroup `
-    -Name "GG_T2_WorkstationAdmins" `
-    -GroupScope Global `
-    -GroupCategory Security `
-    -Path "OU=Groupes,OU=T2_Utilisateurs_Postes,$BaseOU" `
-    -Description "Administrateurs du périmètre Tier 2"
-```
 
 ---
 
