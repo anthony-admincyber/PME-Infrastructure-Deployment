@@ -1,5 +1,7 @@
 # 05 — Création des groupes de sécurité et préparation du modèle AGDLP
 
+<br><br>
+
 ## 📌 Présentation
 
 Après la mise en place de la structure hiérarchique de l'annuaire Active Directory, cette étape consiste à créer et organiser les **groupes de sécurité** de l'environnement **LOGIFLEX**.
