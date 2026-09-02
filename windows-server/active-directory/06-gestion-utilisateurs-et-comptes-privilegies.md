@@ -239,6 +239,11 @@ $Users = @(
 )
 ```
 
+<img width="977" height="695" alt="image" src="https://github.com/user-attachments/assets/c16c7d87-447d-41be-841e-dc93e4affcd3" />
+<img width="911" height="154" alt="image" src="https://github.com/user-attachments/assets/3a0f7bab-5f0c-4e8f-a159-2e2f5af8627d" />
+
+
+
 Les comptes sont ensuite créés automatiquement.
 
 ```powershell
