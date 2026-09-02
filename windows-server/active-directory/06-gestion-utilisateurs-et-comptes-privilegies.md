@@ -159,7 +159,7 @@ Cette organisation permet de distinguer :
 Les comptes peuvent être créés à l'aide de la console :
 
 ```
-Active Directory Users and Computers
+Utilisateurs et ordinateurs Active Directory
 ```
 
 ou automatisés à l'aide de PowerShell.
@@ -168,7 +168,7 @@ Dans le cadre du laboratoire, PowerShell permet de standardiser la création des
 
 ## Chargement du module Active Directory
 
-```
+```powershell
 Import-Module ActiveDirectory
 ```
 
@@ -176,13 +176,13 @@ Import-Module ActiveDirectory
 
 ## Définition de la base du domaine
 
-```
+```powershell
 $Domain = "logiflex.infra"
 ```
 
 Le mot de passe initial est défini de manière temporaire pour les besoins du laboratoire.
 
-```
+```powershell
 $Password = ConvertTo-SecureString "MotDePasseTemporaire!" -AsPlainText -Force
 ```
 
@@ -194,7 +194,7 @@ $Password = ConvertTo-SecureString "MotDePasseTemporaire!" -AsPlainText -Force
 
 Les utilisateurs sont définis dans une structure PowerShell.
 
-```
+```powershell
 $Users = @(
 
     @{
@@ -241,7 +241,7 @@ $Users = @(
 
 Les comptes sont ensuite créés automatiquement.
 
-```
+```powershell
 foreach ($User in $Users) {
 
     if (-not (Get-ADUser -Filter "SamAccountName -eq '$($User.Username)'" -ErrorAction SilentlyContinue)) {
