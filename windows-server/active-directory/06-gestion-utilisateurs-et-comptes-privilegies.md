@@ -275,6 +275,8 @@ foreach ($User in $Users) {
 
 > ℹ️ Le script vérifie l'existence du compte avant de tenter sa création.
 
+<img width="1075" height="533" alt="image" src="https://github.com/user-attachments/assets/b646a49a-b00a-49d8-aedc-cc7093f0d503" />
+
 ---
 
 # 7\. 🔐 Attribution des utilisateurs aux groupes
