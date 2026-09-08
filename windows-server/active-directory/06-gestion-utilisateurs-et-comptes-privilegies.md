@@ -295,10 +295,9 @@ $Users = @(
 )
 ```
 
-<img width="977" height="695" alt="image" src="https://github.com/user-attachments/assets/c16c7d87-447d-41be-841e-dc93e4affcd3" />
-<img width="984" height="133" alt="image" src="https://github.com/user-attachments/assets/b62cf3e0-140f-4ce8-abcb-d6381bd6bfc4" />
-
-
+<img width="932" height="693" alt="image" src="https://github.com/user-attachments/assets/257ed529-d71f-4497-a3bd-1663ca7aad6e" />
+<img width="942" height="748" alt="image" src="https://github.com/user-attachments/assets/84dd61c7-aea3-43c0-a4f6-dd6d8d659937" />
+<img width="934" height="454" alt="image" src="https://github.com/user-attachments/assets/65d0a997-96de-411d-9ae2-f7ad23b7b5ee" />
 
 
 Les comptes sont ensuite créés automatiquement.
