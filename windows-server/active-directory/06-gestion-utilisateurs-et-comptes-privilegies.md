@@ -627,6 +627,8 @@ Cette séparation permet notamment de :
 
 > 🔐 La création effective des comptes privilégiés, leur placement dans les OU dédiées, leur intégration aux groupes d'administration et la mise en œuvre des restrictions associées feront l'objet d'une **étape dédiée à la gestion des privilèges et au durcissement de l'environnement**.
 
+---
+
 # 9. 📊 Bilan de l'étape
 
 | Composant | Rôle | État |
