@@ -454,15 +454,29 @@ Get-ADGroupMember -Identity "GG_DSI"
 Pour contrôler l'ensemble des groupes :
 
 ```powershell
-Get-ADGroup -Filter 'Name -like "GG_*"' |
-ForEach-Object {
+$Groups = @(
+    "GG_Direction",
+    "GG_DSI",
+    "GG_RD_Ingenierie",
+    "GG_Commerce_Marketing",
+    "GG_RH",
+    "GG_Finance",
+    "GG_Consulting"
+)
 
-    Write-Host "`n[$($_.Name)]" -ForegroundColor Cyan
+foreach ($Group in $Groups) {
+    Write-Host "`n===== $Group =====" -ForegroundColor Cyan
 
-    Get-ADGroupMember -Identity $_.Name |
-    Select-Object Name, SamAccountName, ObjectClass
+    Get-ADGroupMember -Identity $Group |
+        Select-Object Name, SamAccountName, ObjectClass |
+        Format-Table -AutoSize
 }
 ```
+
+<img width="578" height="632" alt="image" src="https://github.com/user-attachments/assets/9cc24159-c826-4f7b-9cff-4ffa3b98fe9d" />
+<img width="459" height="576" alt="image" src="https://github.com/user-attachments/assets/2f033ae8-4162-418b-b7d2-0fe0fc2fe04a" />
+
+
 
 Cette vérification permet de contrôler que les **12 comptes** ont été correctement associés à leur groupe métier.
 
