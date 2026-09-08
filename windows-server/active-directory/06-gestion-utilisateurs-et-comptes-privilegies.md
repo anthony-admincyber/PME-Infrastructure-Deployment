@@ -399,7 +399,7 @@ A → G → DL → P
 
 L'ajout des utilisateurs aux groupes peut être automatisé avec PowerShell.
 
-```
+```powershell
 Import-Module ActiveDirectory
 
 Add-ADGroupMember -Identity "GG_Direction" -Members "erostova","loconnor"
@@ -436,19 +436,21 @@ DL_Partage_DSI_RW
 
 Ainsi, si un utilisateur change de fonction, il suffit de modifier son appartenance aux groupes concernés plutôt que de modifier individuellement les permissions sur chaque ressource.
 
+<img width="969" height="293" alt="image" src="https://github.com/user-attachments/assets/6c3133a7-3df6-4e0c-b21e-ff69e38170c3" />
+
 ---
 
 ## 🔎 Vérification des appartenances
 
 Les appartenances peuvent être vérifiées avec :
 
-```
+```powershell
 Get-ADGroupMember -Identity "GG_DSI"
 ```
 
 Pour contrôler l'ensemble des groupes :
 
-```
+```powershell
 Get-ADGroup -Filter 'Name -like "GG_*"' |
 ForEach-Object {
 
