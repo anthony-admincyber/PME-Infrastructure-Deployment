@@ -194,13 +194,13 @@ Elle facilite également la lecture des journaux et l'identification des opérat
 
 Les comptes sont créés à l'aide du module Active Directory PowerShell.
 
-```
+```powershell
 Import-Module ActiveDirectory
 ```
 
 Les comptes sont définis dans une structure permettant de centraliser leurs caractéristiques :
 
-```
+```powershell
 $PrivilegedUsers = @(
 
     @{
@@ -229,6 +229,9 @@ $PrivilegedUsers = @(
 )
 ```
 
+<img width="865" height="515" alt="image" src="https://github.com/user-attachments/assets/dbd5798d-ce88-444f-bdfb-35950d1bf51b" />
+
+
 > ⚠️ Le mot de passe initial utilisé dans le laboratoire est temporaire. Dans un environnement de production, la gestion des secrets doit être réalisée avec un mécanisme sécurisé adapté.
 
 ---
@@ -237,7 +240,7 @@ $PrivilegedUsers = @(
 
 La création des comptes peut être automatisée avec PowerShell.
 
-```
+```powershell
 $Password = ConvertTo-SecureString "MotDePasseTemporaire!" -AsPlainText -Force
 
 foreach ($User in $PrivilegedUsers) {
@@ -267,13 +270,15 @@ foreach ($User in $PrivilegedUsers) {
 
 Le script vérifie l'existence du compte avant sa création afin d'éviter les doublons.
 
+<img width="1048" height="515" alt="image" src="https://github.com/user-attachments/assets/284f55fd-05d3-4cc2-8111-2e0389be4b0e" />
+
 ---
 
 # 8\. 👥 Attribution aux groupes d'administration
 
 Les comptes privilégiés sont ensuite associés aux groupes de sécurité correspondant à leur périmètre.
 
-```
+```powershell
 Add-ADGroupMember `
     -Identity "GG_T0_Admins" `
     -Members "adm-t0-mvance"
@@ -286,6 +291,9 @@ Add-ADGroupMember `
     -Identity "GG_T2_WorkstationAdmins" `
     -Members "adm-t2-ktanaka"
 ```
+
+<img width="410" height="211" alt="image" src="https://github.com/user-attachments/assets/cd377b39-954f-45d1-8189-42bad8b37207" />
+
 
 La logique devient alors :
 
@@ -325,7 +333,7 @@ Cette organisation permet de gérer les droits par groupe plutôt que de les att
 
 La présence des comptes peut être vérifiée avec :
 
-```
+```powershell
 Get-ADUser `
     -Filter 'SamAccountName -like "adm-*"' `
     -SearchBase "OU=LOGIFLEX,DC=logiflex,DC=infra" |
@@ -340,13 +348,15 @@ adm-t1-aalmansoor
 adm-t2-ktanaka
 ```
 
+<img width="1318" height="201" alt="image" src="https://github.com/user-attachments/assets/8aa6c4a5-6da4-4cb5-aff0-b4413fabba75" />
+
 ---
 
 # 10\. 🔐 Vérification des appartenances
 
 Les appartenances aux groupes d'administration peuvent être contrôlées avec :
 
-```
+```powershell
 $AdminGroups = @(
     "GG_T0_Admins",
     "GG_T1_ServerAdmins",
@@ -375,6 +385,8 @@ Amina Al-Mansoor - Admin    adm-t1-aalmansoor
 ===== GG_T2_WorkstationAdmins =====
 Kenji Tanaka - Admin    adm-t2-ktanaka
 ```
+
+<img width="587" height="701" alt="image" src="https://github.com/user-attachments/assets/7feffe47-b620-49be-b2fa-de4a07fd11d1" />
 
 ---
 
