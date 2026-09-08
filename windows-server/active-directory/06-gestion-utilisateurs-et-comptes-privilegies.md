@@ -332,13 +332,22 @@ foreach ($User in $Users) {
 
 <img width="1031" height="668" alt="image" src="https://github.com/user-attachments/assets/7efe962d-9570-4f54-b3ef-dffa18b96463" />
 
+<img width="1433" height="493" alt="image" src="https://github.com/user-attachments/assets/0b782cd2-a894-4bb6-851d-9ff39043cb67" />
+
 ---
 
-# 7\. 🔐 Attribution des utilisateurs aux groupes
+#  🔐 Attribution des utilisateurs aux groupes
 
-Après la création des comptes, les utilisateurs sont associés à leurs groupes de sécurité.
+Après la création des comptes, chaque utilisateur est associé au **groupe global correspondant à son département**.
 
-Exemple :
+Cette organisation permet de séparer :
+
+-   les comptes utilisateurs ;
+-   les rôles métiers ;
+-   les permissions sur les ressources ;
+-   les futures autorisations d'administration.
+
+La logique retenue est la suivante :
 
 ```
 Utilisateur
@@ -347,13 +356,70 @@ Utilisateur
 Compte Active Directory
      │
      ▼
-Groupe global
+Groupe global (GG_*)
      │
      ▼
-Accès futur aux ressources
+Groupe Domain Local (DL_*)
+     │
+     ▼
+Permission sur la ressource
 ```
 
-Exemple pour un utilisateur de la DSI :
+Cette organisation prépare la mise en œuvre du modèle **AGDLP** :
+
+```
+A → G → DL → P
+│   │    │    │
+│   │    │    └── Permission
+│   │    └────── Domain Local Group
+│   └─────────── Global Group
+└─────────────── Account
+```
+
+## 👥 Répartition des 12 utilisateurs
+
+| Utilisateur | Département | Groupe global |
+| --- | --- | --- |
+| erostova | Direction | GG_Direction |
+| loconnor | Direction | GG_Direction |
+| mvance | DSI | GG_DSI |
+| aalmansoor | DSI | GG_DSI |
+| ktanaka | DSI | GG_DSI |
+| msilva | R&D / Ingénierie | GG_RD_Ingenierie |
+| slindqvist | R&D / Ingénierie | GG_RD_Ingenierie |
+| sjenkins | Commerce / Marketing | GG_Commerce_Marketing |
+| cmendez | Commerce / Marketing | GG_Commerce_Marketing |
+| fdiop | RH | GG_RH |
+| lweber | Finance | GG_Finance |
+| ppatel | Consulting | GG_Consulting |
+
+---
+
+## ⚙️ Attribution avec PowerShell
+
+L'ajout des utilisateurs aux groupes peut être automatisé avec PowerShell.
+
+```
+Import-Module ActiveDirectory
+
+Add-ADGroupMember -Identity "GG_Direction" -Members "erostova","loconnor"
+
+Add-ADGroupMember -Identity "GG_DSI" -Members "mvance","aalmansoor","ktanaka"
+
+Add-ADGroupMember -Identity "GG_RD_Ingenierie" -Members "msilva","slindqvist"
+
+Add-ADGroupMember -Identity "GG_Commerce_Marketing" -Members "sjenkins","cmendez"
+
+Add-ADGroupMember -Identity "GG_RH" -Members "fdiop"
+
+Add-ADGroupMember -Identity "GG_Finance" -Members "lweber"
+
+Add-ADGroupMember -Identity "GG_Consulting" -Members "ppatel"
+```
+
+L'utilisation de groupes permet d'éviter d'attribuer directement des permissions aux comptes utilisateurs.
+
+Par exemple :
 
 ```
 mvance
@@ -362,112 +428,149 @@ mvance
 GG_DSI
    │
    ▼
-DL_Ressource_RW
+DL_Partage_DSI_RW
    │
    ▼
-Ressource
+\\SRV-FS01\Partage-DSI
 ```
 
-L'ajout à un groupe peut être réalisé avec PowerShell :
+Ainsi, si un utilisateur change de fonction, il suffit de modifier son appartenance aux groupes concernés plutôt que de modifier individuellement les permissions sur chaque ressource.
+
+---
+
+## 🔎 Vérification des appartenances
+
+Les appartenances peuvent être vérifiées avec :
 
 ```
-Add-ADGroupMember `
-    -Identity "GG_DSI" `
-    -Members "mvance"
+Get-ADGroupMember -Identity "GG_DSI"
 ```
 
-Cette méthode permet d'éviter l'attribution directe de permissions au compte utilisateur.
+Pour contrôler l'ensemble des groupes :
+
+```
+Get-ADGroup -Filter 'Name -like "GG_*"' |
+ForEach-Object {
+
+    Write-Host "`n[$($_.Name)]" -ForegroundColor Cyan
+
+    Get-ADGroupMember -Identity $_.Name |
+    Select-Object Name, SamAccountName, ObjectClass
+}
+```
+
+Cette vérification permet de contrôler que les **12 comptes** ont été correctement associés à leur groupe métier.
 
 ---
 
 # 8\. 🔐 Préparation des comptes privilégiés
 
-Les comptes utilisateurs standards ne doivent pas être utilisés pour l'administration des composants critiques.
+Les comptes utilisateurs standards ne doivent pas être utilisés pour administrer les composants critiques de l'infrastructure.
 
-Dans l'environnement LOGIFLEX, la création de comptes d'administration dédiés est préparée.
-
-La logique retenue est la suivante :
+LOGIFLEX applique donc une logique de **séparation entre les comptes standards et les comptes d'administration**.
 
 ```
-COMPTE STANDARD
-prenom.nom
+┌──────────────────────────────┐
+│       COMPTE STANDARD        │
+│                              │
+│       prenom.nom             │
+└──────────────┬───────────────┘
+               │
+               │ Usage quotidien
+               ▼
+       Poste utilisateur
+       Messagerie
+       Applications
+       Ressources métier
 
-        │
-        │ Usage quotidien
-        ▼
 
-Poste utilisateur
-Messagerie
-Applications
-
-
-COMPTE ADMINISTRATIF
-adm-<niveau>-<identifiant>
-
-        │
-        │ Administration uniquement
-        ▼
-
-Infrastructure
-Serveurs
-Active Directory
-Postes clients
+┌──────────────────────────────┐
+│      COMPTE ADMINISTRATIF    │
+│                              │
+│   adm-<niveau>-<identifiant> │
+└──────────────┬───────────────┘
+               │
+               │ Administration uniquement
+               ▼
+       Infrastructure
+       Serveurs
+       Active Directory
+       Postes clients
 ```
 
-Les comptes privilégiés pourront être distingués selon leur périmètre d'administration.
-
-Exemple :
-
-```
-adm-t0-mvance
-adm-t1-mvance
-adm-t2-mvance
-```
-
-| Compte | Périmètre |
-| --- | --- |
-| adm-t0-* | Administration Active Directory et services critiques |
-| adm-t1-* | Administration des serveurs |
-| adm-t2-* | Administration des postes clients |
-
-> ⚠️ La création complète des comptes privilégiés et l'application des restrictions associées feront l'objet d'une étape dédiée.
+Cette séparation limite notamment le risque qu'un compte disposant de privilèges élevés soit utilisé pour des activités quotidiennes telles que la navigation Web ou la messagerie.
 
 ---
 
-# 9\. 🔎 Vérification des comptes créés
+## 👤 Utilisateurs concernés
 
-Une fois les comptes créés, leur présence peut être vérifiée avec PowerShell.
+Dans le scénario LOGIFLEX, les comptes d'administration sont principalement associés aux membres de la **DSI**.
 
-## Liste des utilisateurs LOGIFLEX
+Les trois utilisateurs DSI sont :
+
+| Utilisateur | Fonction | Compte standard |
+| --- | --- | --- |
+| Marcus VANCE | DSI | mvance |
+| Amina AL-MANSOOR | DSI | aalmansoor |
+| Kenji TANAKA | DSI | ktanaka |
+
+Des comptes administratifs distincts pourront être créés selon le niveau d'administration nécessaire.
+
+### 🔐 Modèle de comptes privilégiés
+
+| Administrateur | Niveau | Compte prévu | Périmètre |
+| --- | --- | --- | --- |
+| Marcus VANCE | T0 | adm-t0-mvance | Active Directory / services critiques |
+| Amina AL-MANSOOR | T1 | adm-t1-aalmansoor | Serveurs |
+| Kenji TANAKA | T2 | adm-t2-ktanaka | Postes clients |
+
+La logique retenue est :
 
 ```
-Get-ADUser `
-    -Filter * `
-    -SearchBase "OU=Utilisateurs,OU=T2_Utilisateurs_Postes,OU=LOGIFLEX,DC=logiflex,DC=infra" `
-    -Properties Department |
-    Format-Table Name, SamAccountName, Department, Enabled -AutoSize
+T0
+│
+├── Active Directory
+├── Contrôleurs de domaine
+└── Services d'identité critiques
+
+T1
+│
+├── Serveurs membres
+├── Services applicatifs
+└── Infrastructure serveur
+
+T2
+│
+├── Postes clients
+└── Administration des stations de travail
 ```
 
-Cette commande permet notamment de vérifier :
-
--   la présence des comptes ;
--   leur identifiant ;
--   leur statut ;
--   leur organisation dans Active Directory.
+> 🔐 Cette organisation s'inspire du principe de **tiering administratif** et des principes de séparation des privilèges. Elle vise à limiter l'utilisation d'un compte disposant de privilèges élevés sur des systèmes de niveau inférieur.
 
 ---
 
-## Vérification de l'appartenance aux groupes
+## 🛡️ Principe de séparation
 
-Exemple avec un utilisateur :
+Un administrateur ne doit pas utiliser son compte privilégié pour ses activités quotidiennes.
 
 ```
-Get-ADPrincipalGroupMembership mvance |
-    Select-Object Name, GroupScope
+                    ADMINISTRATEUR
+                          │
+              ┌───────────┴───────────┐
+              │                       │
+              ▼                       ▼
+        Compte standard          Compte privilégié
+          mvance                 adm-t0-mvance
+              │                       │
+              ▼                       ▼
+       Usage quotidien          Administration
+       Applications             Active Directory
+       Messagerie               Services critiques
 ```
 
-Cette commande permet de vérifier les groupes auxquels appartient le compte.
+Cette séparation permet de réduire la surface d'attaque associée aux comptes à privilèges.
 
+> ⚠️ La création complète des comptes privilégiés, leur placement dans les OU dédiées, ainsi que les restrictions d'utilisation feront l'objet d'une **étape dédiée au durcissement et à la gestion des privilèges**.
 ---
 
 # 10\. 📊 Bilan de l'étape
