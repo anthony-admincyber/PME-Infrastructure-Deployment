@@ -235,6 +235,62 @@ $Users = @(
         Username  = "ktanaka"
         OU        = "OU=Utilisateurs,OU=T2_Utilisateurs_Postes,OU=LOGIFLEX,DC=logiflex,DC=infra"
         Group     = "GG_DSI"
+    },
+
+    @{
+        FirstName = "Mateo"
+        LastName  = "Silva"
+        Username  = "msilva"
+        OU        = "OU=Utilisateurs,OU=T2_Utilisateurs_Postes,OU=LOGIFLEX,DC=logiflex,DC=infra"
+        Group     = "GG_RD_Ingenierie"
+    },
+
+    @{
+        FirstName = "Sven"
+        LastName  = "Lindqvist"
+        Username  = "slindqvist"
+        OU        = "OU=Utilisateurs,OU=T2_Utilisateurs_Postes,OU=LOGIFLEX,DC=logiflex,DC=infra"
+        Group     = "GG_RD_Ingenierie"
+    },
+
+    @{
+        FirstName = "Sarah"
+        LastName  = "Jenkins"
+        Username  = "sjenkins"
+        OU        = "OU=Utilisateurs,OU=T2_Utilisateurs_Postes,OU=LOGIFLEX,DC=logiflex,DC=infra"
+        Group     = "GG_Commerce_Marketing"
+    },
+
+    @{
+        FirstName = "Carlos"
+        LastName  = "Mendez"
+        Username  = "cmendez"
+        OU        = "OU=Utilisateurs,OU=T2_Utilisateurs_Postes,OU=LOGIFLEX,DC=logiflex,DC=infra"
+        Group     = "GG_Commerce_Marketing"
+    },
+
+    @{
+        FirstName = "Fatou"
+        LastName  = "Diop"
+        Username  = "fdiop"
+        OU        = "OU=Utilisateurs,OU=T2_Utilisateurs_Postes,OU=LOGIFLEX,DC=logiflex,DC=infra"
+        Group     = "GG_RH"
+    },
+
+    @{
+        FirstName = "Lukas"
+        LastName  = "Weber"
+        Username  = "lweber"
+        OU        = "OU=Utilisateurs,OU=T2_Utilisateurs_Postes,OU=LOGIFLEX,DC=logiflex,DC=infra"
+        Group     = "GG_Finance"
+    },
+
+    @{
+        FirstName = "Priya"
+        LastName  = "Patel"
+        Username  = "ppatel"
+        OU        = "OU=Utilisateurs,OU=T2_Utilisateurs_Postes,OU=LOGIFLEX,DC=logiflex,DC=infra"
+        Group     = "GG_Consulting"
     }
 )
 ```
