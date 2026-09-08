@@ -294,6 +294,8 @@ $Users = @(
 )
 ```
 
+Le paramètre Group associé à chaque utilisateur permet de documenter le groupe métier attendu. L'attribution effective aux groupes est réalisée dans une étape distincte afin de séparer la création des identités de la gestion des appartenances.
+
 <img width="932" height="693" alt="image" src="https://github.com/user-attachments/assets/257ed529-d71f-4497-a3bd-1663ca7aad6e" />
 <img width="942" height="748" alt="image" src="https://github.com/user-attachments/assets/84dd61c7-aea3-43c0-a4f6-dd6d8d659937" />
 <img width="934" height="454" alt="image" src="https://github.com/user-attachments/assets/65d0a997-96de-411d-9ae2-f7ad23b7b5ee" />
@@ -537,40 +539,50 @@ Des comptes administratifs distincts pourront être créés selon le niveau d'ad
 
 ### 🔐 Modèle de comptes privilégiés
 
-| Administrateur | Niveau | Compte prévu | Périmètre |
-| --- | --- | --- | --- |
-| Marcus VANCE | T0 | adm-t0-mvance | Active Directory / services critiques |
-| Amina AL-MANSOOR | T1 | adm-t1-aalmansoor | Serveurs |
-| Kenji TANAKA | T2 | adm-t2-ktanaka | Postes clients |
+Dans le laboratoire LOGIFLEX, les comptes d'administration sont conçus comme des **comptes nominatifs distincts des comptes utilisateurs standards**.
 
-La logique retenue est :
+Chaque compte privilégié est associé à un administrateur identifié et dispose d'un **périmètre d'administration spécifique**.
+
+| Administrateur | Niveau | Compte administratif | Périmètre |
+| --- | --- | --- | --- |
+| Marcus VANCE | T0 | adm-t0-mvance | Active Directory / services d'identité critiques |
+| Amina AL-MANSOOR | T1 | adm-t1-aalmansoor | Serveurs / services d'infrastructure |
+| Kenji TANAKA | T2 | adm-t2-ktanaka | Postes clients / stations de travail |
+
+> ℹ️ Ces comptes sont des **comptes administratifs nominatifs de démonstration**. Le niveau T0/T1/T2 définit le périmètre technique pouvant être administré et ne correspond pas à un niveau hiérarchique ou à une fonction professionnelle.
+
+La logique de séparation retenue est la suivante :
 
 ```
-T0
+T0 — Administration de l'identité
 │
 ├── Active Directory
 ├── Contrôleurs de domaine
 └── Services d'identité critiques
 
-T1
+
+T1 — Administration des serveurs
 │
 ├── Serveurs membres
 ├── Services applicatifs
 └── Infrastructure serveur
 
-T2
+
+T2 — Administration des postes
 │
 ├── Postes clients
-└── Administration des stations de travail
+└── Stations de travail
 ```
 
-> 🔐 Cette organisation s'inspire du principe de **tiering administratif** et des principes de séparation des privilèges. Elle vise à limiter l'utilisation d'un compte disposant de privilèges élevés sur des systèmes de niveau inférieur.
+Cette organisation s'inspire du principe de **tiering administratif** et des principes de séparation des privilèges.
+
+L'objectif est notamment d'éviter qu'un compte disposant de privilèges élevés puisse être utilisé pour administrer indifféremment l'ensemble de l'environnement.
 
 ---
 
 ## 🛡️ Principe de séparation
 
-Un administrateur ne doit pas utiliser son compte privilégié pour ses activités quotidiennes.
+Les comptes standards sont destinés aux activités quotidiennes, tandis que les comptes privilégiés sont utilisés exclusivement pour les tâches d'administration correspondant à leur périmètre.
 
 ```
                     ADMINISTRATEUR
@@ -579,23 +591,46 @@ Un administrateur ne doit pas utiliser son compte privilégié pour ses activit�
               │                       │
               ▼                       ▼
         Compte standard          Compte privilégié
-          mvance                 adm-t0-mvance
+          `mvance`              `adm-t0-mvance`
               │                       │
               ▼                       ▼
        Usage quotidien          Administration
        Applications             Active Directory
        Messagerie               Services critiques
+       Ressources métier
 ```
 
-Cette séparation permet de réduire la surface d'attaque associée aux comptes à privilèges.
+Le même principe est appliqué aux autres niveaux :
 
-> ⚠️ La création complète des comptes privilégiés, leur placement dans les OU dédiées, ainsi que les restrictions d'utilisation feront l'objet d'une **étape dédiée au durcissement et à la gestion des privilèges**.
----
+```
+aalmansoor
+    │
+    └── adm-t1-aalmansoor
+             │
+             └── Administration des serveurs
 
-# 10\. 📊 Bilan de l'étape
+
+ktanaka
+    │
+    └── adm-t2-ktanaka
+             │
+             └── Administration des postes clients
+```
+
+Cette séparation permet notamment de :
+
+-   limiter l'exposition des comptes à privilèges ;
+-   appliquer le principe du moindre privilège ;
+-   améliorer la traçabilité des actions administratives ;
+-   distinguer les usages quotidiens des opérations d'administration ;
+-   limiter les risques liés à la compromission d'un compte standard.
+
+> 🔐 La création effective des comptes privilégiés, leur placement dans les OU dédiées, leur intégration aux groupes d'administration et la mise en œuvre des restrictions associées feront l'objet d'une **étape dédiée à la gestion des privilèges et au durcissement de l'environnement**.
+
+# 9. 📊 Bilan de l'étape
 
 | Composant | Rôle | État |
-| --- | --- | --- |
+| --- | --- | :---: |
 | Comptes utilisateurs standards | Identités nominatives | 🟢 |
 | Convention de nommage | Standardisation des identifiants | 🟢 |
 | Organisation dans les OU | Structuration des comptes | 🟢 |
@@ -607,17 +642,17 @@ Cette séparation permet de réduire la surface d'attaque associée aux comptes 
 | Comptes Tier 2 | À créer | 🔴 |
 | Restrictions d'administration | À mettre en œuvre | 🔴 |
 
-**🟢 Terminé — 🟡 En cours — 🔴 À réaliser**
+**🟢 Terminé — 🟡 En cours / préparé — 🔴 À réaliser**
 
 ---
 
 # 🎯 Résultat
 
-L'environnement `logiflex.infra` dispose désormais de comptes utilisateurs organisés selon les fonctions de l'entreprise.
+L'environnement `logiflex.infra` dispose désormais de **12 comptes utilisateurs standards**, organisés dans Active Directory et associés aux groupes de sécurité correspondant à leur fonction.
 
 La gestion des identités repose désormais sur la logique suivante :
 
-```
+```text
 UTILISATEURS
      │
      ▼
@@ -633,21 +668,25 @@ FUTURES RESSOURCES
 AUTORISATIONS
 ```
 
-Les comptes utilisateurs standards constituent désormais la base de la future gestion des accès.
+Cette organisation constitue la base de la future gestion des accès et de la mise en œuvre du modèle **AGDLP**.
 
-La prochaine étape consistera à poursuivre la sécurisation de l'environnement avec la mise en place progressive des mécanismes liés aux comptes privilégiés, aux stratégies de groupe et au durcissement de l'infrastructure.
+La séparation entre les comptes standards et les futurs comptes administratifs est également définie. Les périmètres d'administration T0, T1 et T2 ont été préparés afin de poursuivre progressivement la sécurisation de l'infrastructure.
 
 ---
 
 ## ➡️ Étape suivante
 
-La prochaine étape sera consacrée à la **gestion des comptes privilégiés et à la séparation des périmètres d'administration**.
+La prochaine étape sera consacrée à la **création et à la gestion des comptes privilégiés**, ainsi qu'à la séparation des différents périmètres d'administration.
 
 Les principales actions prévues seront notamment :
 
 -   création des comptes d'administration dédiés ;
 -   séparation des comptes standards et administratifs ;
--   attribution des comptes aux groupes d'administration ;
--   organisation des comptes privilégiés dans Active Directory ;
--   préparation des règles d'administration différenciées ;
--   mise en œuvre progressive du principe du moindre privilège.
+-   placement des comptes privilégiés dans les OU dédiées ;
+-   création et utilisation des groupes d'administration T0/T1/T2 ;
+-   attribution des comptes administratifs à leurs groupes respectifs ;
+-   définition des périmètres d'administration ;
+-   mise en œuvre progressive du principe du moindre privilège ;
+-   préparation des restrictions d'utilisation des comptes privilégiés.
+
+> 🔐 L'objectif est de disposer d'une administration nominative, traçable et séparée des usages quotidiens.
