@@ -104,7 +104,7 @@ Marcus VANCE
 → mvance
 
 Amina AL-MANSOOR
-→ aal-mansoor
+→ aalmansoor
 ```
 
 Dans l'environnement de laboratoire, les identifiants ne doivent pas contenir d'espaces.
@@ -127,21 +127,20 @@ L'organisation cible est la suivante :
 ```
 LOGIFLEX
 │
+├── T0_Administration
+│
+├── T1_Serveurs
+│
 └── T2_Utilisateurs_Postes
     │
-    ├── Utilisateurs
-    │   │
-    │   ├── Direction
-    │   ├── DSI
-    │   ├── RD_Ingenierie
-    │   ├── Commerce_Marketing
-    │   ├── RH
-    │   ├── Finance
-    │   └── Consulting
+    ├── Admins
     │
     ├── Groupes
     │
-    └── Admins
+    ├── Postes_Clients
+    │
+    └── Utilisateurs
+        └── Comptes utilisateurs standards
 ```
 
 Cette organisation permet de distinguer :
