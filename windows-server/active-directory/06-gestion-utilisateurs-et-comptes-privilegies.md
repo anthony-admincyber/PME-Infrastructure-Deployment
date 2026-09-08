@@ -330,7 +330,7 @@ foreach ($User in $Users) {
 
 > ℹ️ Le script vérifie l'existence du compte avant de tenter sa création.
 
-<img width="1075" height="533" alt="image" src="https://github.com/user-attachments/assets/b646a49a-b00a-49d8-aedc-cc7093f0d503" />
+<img width="1031" height="668" alt="image" src="https://github.com/user-attachments/assets/7efe962d-9570-4f54-b3ef-dffa18b96463" />
 
 ---
 
