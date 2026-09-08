@@ -448,6 +448,9 @@ Les appartenances peuvent être vérifiées avec :
 Get-ADGroupMember -Identity "GG_DSI"
 ```
 
+<img width="1041" height="441" alt="image" src="https://github.com/user-attachments/assets/e6f3cc6a-e1c0-44b6-9f66-3372070d3e6a" />
+
+
 Pour contrôler l'ensemble des groupes :
 
 ```powershell
